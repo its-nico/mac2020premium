@@ -3,10 +3,6 @@ import java.util.regex.*;
 
 public class Korrektur {
 
-    public static void main(String[] args) {
-
-    }
-
     /* Klasse führt automatisch alle Korrektur-Methoden auf einmal aus */
     public String autoKorrektur(String text){
 
