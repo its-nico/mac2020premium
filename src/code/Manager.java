@@ -1,6 +1,9 @@
 package code;
 import java.lang.*;
-import java.io.*;
+import java.io.FileReader;
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class Manager {
     private static final List<Datensatz> list = new List<Datensatz>();
@@ -18,7 +21,7 @@ public class Manager {
     }
 
     public static void dateizudatensatz() throws FileNotFoundException {
-        String filename = "main.txt";
+        String filename = "maintext.txt";
 
         FileReader fr = new FileReader(filename);
         BufferedReader br = new BufferedReader(fr);
