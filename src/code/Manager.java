@@ -11,34 +11,25 @@ public class Manager {
     private static String mac;
     private static String grund;
 
-    public static void main(String[] args) throws IOException {
-        //Datensatz daten1 = new Datensatz("test","test","test","test","test");
-        //Datensatz daten2 = new Datensatz("test","test","test2","test","test");
-        //list.insert(daten1);
-        //list.insert(daten2);
-
+    public static void main(String[] args) throws FileNotFoundException {
         dateizudatensatz();
-
         String listString = list.getContent().getKursstufe();
-
         System.out.println(listString);
     }
 
-    public static void dateizudatensatz() throws IOException {
+    public static void dateizudatensatz() throws FileNotFoundException {
         String filename = "main.txt";
-        FileReader fr = null;
 
-        try {
-            fr = new FileReader(filename);
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-            System.out.println("File " + filename + " not found (FileNotFoundException)");
-        }
+        FileReader fr = new FileReader(filename);
         BufferedReader br = new BufferedReader(fr);
 
         String line = "";
         while (line != null) {
-            line = br.readLine();
+            try {
+                line = br.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             if (line != null) {
                 splitline(line);
             }
@@ -61,5 +52,4 @@ public class Manager {
         splittedline[3] = mac;
         splittedline[4] = grund;
     }
-
 }
