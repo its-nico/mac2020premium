@@ -1,15 +1,9 @@
 package code;
 import java.lang.*;
-import java.io.FileReader;
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.*;
-import java.net.URL;
-import java.lang.*;
 
 public class Manager {
-    private static final List<Datensatz> list = new List<Datensatz>();
+    private static final List<Datensatz> list = new List<Datensatz>(); /* Neue generische Liste des Datentpys 'Datensatz' wird erstellt */
     private static Datensatz datensatz;
     private static String vorname;
     private static String nachname;
@@ -17,60 +11,44 @@ public class Manager {
     private static String mac;
     private static String grund;
 
-    public static void main(String[] args) throws IOException {
-        //Datensatz daten1 = new Datensatz("test","test","test","test","test");
-        //Datensatz daten2 = new Datensatz("test","test","test2","test","test");
-        //list.insert(daten1);
-        //list.insert(daten2);
-
-        dateizudatensatz();
-
-        String listString = list.getContent().getKursstufe();
-
-        System.out.println(listString);
+    public static void main(String[] args) {
+        dateizudatensatz(); /* Datensätze, die in txt-Datei gespeichert sind, werden als Datensatz-Objekte in die Liste eingefügt (via insert-Methode) */
     }
 
-    public static void dateizudatensatz() throws IOException {
+    public static void dateizudatensatz() {
+        String filename = "text.txt";
 
-        File filename = new File("C:\\Users\\Admin\\Desktop\\mac2020premium\\resources\\Textdateien\\main.txt");
-        // FileInputStream fis = null;
-
-
-        //String filename =  "main.txt";
         FileReader fr = null;
-
         try {
             fr = new FileReader(filename);
         } catch (FileNotFoundException e) {
-            e.printStackTrace();
-            System.out.println("File " + filename + " not found (FileNotFoundException)");
+            System.out.println("The file could not be found (FileNotFoundException)\nCheck if the setting 'Working Directory' is correct in your project configuration");
         }
         BufferedReader br = new BufferedReader(fr);
 
         String line = "";
         while (line != null) {
-            line = br.readLine();
+            try {
+                line = br.readLine(); /* Jeweils ein kompklette Zeile, also ein atensatz, wird über die Variable 'line' gespeichert */
+            } catch (IOException e) {
+                System.out.println("An error has occurred (IOException)");
+            }
             if (line != null) {
-                splitline(line);
+                splitline(line); /* Die einzelnen Datensätze (lines) werden in ihre 5 Attribute aufgeteilt */
             }
         }
 
-        datensatz.setVorname(vorname);
-        datensatz.setNachname(nachname);
-        datensatz.setKursstufe(kursstufe);
-        datensatz.setMac(mac);
-        datensatz.setGrund(grund);
+        datensatz = new Datensatz(vorname, nachname, kursstufe, mac, grund);
 
         list.insert(datensatz);
     }
 
     public static void splitline(String line) {
-        String[] splittedline = line.split("; ");
-        splittedline[0] = vorname;
-        splittedline[1] = nachname;
-        splittedline[2] = kursstufe;
-        splittedline[3] = mac;
-        splittedline[4] = grund;
+        String[] splittedline = line.split("; "); /* Die Methode 'split' teilt den String 'line' mithilfe des definierten Trennzeichens '; '*/
+        vorname = splittedline[0];
+        nachname = splittedline[1];
+        kursstufe = splittedline[2];
+        mac = splittedline[3];
+        grund = splittedline[4];
     }
-
 }

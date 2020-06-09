@@ -4,7 +4,7 @@ import java.util.regex.*;
 public class Korrektur {
 
     /* Klasse führt automatisch alle Korrektur-Methoden auf einmal aus */
-    public String autoKorrektur(String text){
+    public String autoKorrektur(String text) {
         if (istIP(text)) {
             System.err.println("Es handelt sich hierbei um eine IP-Adresse. Bitte geben Sie eine MAC-Adresse ein!");
             return null;
@@ -31,7 +31,7 @@ public class Korrektur {
     }
 
     /* Alle Bindestriche werden mit Doppelpunkten ersetzt */
-    public String bindestriche(String text){
+    public String bindestriche(String text) {
         text = text.replace("-",":");
         return text;
     }
