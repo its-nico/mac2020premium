@@ -1,6 +1,8 @@
 package code;
 import java.lang.*;
 import java.io.*;
+import java.net.URL;
+import java.lang.*;
 
 public class Manager {
     private static final List<Datensatz> list = new List<Datensatz>();
@@ -25,7 +27,12 @@ public class Manager {
     }
 
     public static void dateizudatensatz() throws IOException {
-        String filename = "main.txt";
+
+        File filename = new File("C:\\Users\\Admin\\Desktop\\mac2020premium\\resources\\Textdateien\\main.txt");
+        // FileInputStream fis = null;
+
+
+        //String filename =  "main.txt";
         FileReader fr = null;
 
         try {
