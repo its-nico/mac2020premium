@@ -7,6 +7,7 @@ public class Datensatz {
     private String grund;
     private String mac;
 
+    /* >Konstruktor der Klasse Datensatz, ein neuesObjekt wird erstellt*/
     public Datensatz(String pKursstufe, String pNachname, String pVorname, String pGrund, String pMac) {
         kursstufe = pKursstufe;
         nachname = pNachname;
@@ -14,6 +15,8 @@ public class Datensatz {
         grund = pGrund;
         mac = pMac;
     }
+
+    /* getter und setter Methoden */
 
     public String getKursstufe() {
         return kursstufe;
