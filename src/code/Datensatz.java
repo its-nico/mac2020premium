@@ -1,34 +1,18 @@
 package code;
 
 public class Datensatz {
-    private String vorname;
-    private String nachname;
     private String kursstufe;
-    private String mac;
+    private String nachname;
+    private String vorname;
     private String grund;
+    private String mac;
 
-    public Datensatz(String pVorname, String pNachname, String pKursstufe, String pMac, String pGrund) {
+    public Datensatz(String pKursstufe, String pNachname, String pVorname, String pGrund, String pMac) {
         kursstufe = pKursstufe;
-        vorname = pVorname;
         nachname = pNachname;
-        mac = pMac;
+        vorname = pVorname;
         grund = pGrund;
-    }
-
-    public String getVorname() {
-        return vorname;
-    }
-
-    public void setVorname(String vorname) {
-        this.vorname = vorname;
-    }
-
-    public String getNachname() {
-        return nachname;
-    }
-
-    public void setNachname(String nachname) {
-        this.nachname = nachname;
+        mac = pMac;
     }
 
     public String getKursstufe() {
@@ -39,14 +23,21 @@ public class Datensatz {
         this.kursstufe = kursstufe;
     }
 
-    public String getMac() {
-        return mac;
+    public String getNachname() {
+        return nachname;
     }
 
-    public void setMac(String mac) {
-        this.mac = mac;
+    public void setNachname(String nachname) {
+        this.nachname = nachname;
     }
 
+    public String getVorname() {
+        return vorname;
+    }
+
+    public void setVorname(String vorname) {
+        this.vorname = vorname;
+    }
 
     public String getGrund() {
         return grund;
@@ -56,4 +47,11 @@ public class Datensatz {
         this.grund = grund;
     }
 
+    public String getMac() {
+        return mac;
+    }
+
+    public void setMac(String mac) {
+        this.mac = mac;
+    }
 }

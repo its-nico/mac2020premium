@@ -5,11 +5,11 @@ import java.io.*;
 public class Manager {
     private static final List<Datensatz> list = new List<Datensatz>(); /* Neue generische Liste des Datentpys 'Datensatz' wird erstellt */
     private static Datensatz datensatz;
-    private static String vorname;
-    private static String nachname;
     private static String kursstufe;
-    private static String mac;
+    private static String nachname;
+    private static String vorname;
     private static String grund;
+    private static String mac;
 
     public static void main(String[] args) {
         dateizudatensatz(); /* Datensätze, die in txt-Datei gespeichert sind, werden als Datensatz-Objekte in die Liste eingefügt (via insert-Methode) */
@@ -38,17 +38,17 @@ public class Manager {
             }
         }
 
-        datensatz = new Datensatz(vorname, nachname, kursstufe, mac, grund);
+        datensatz = new Datensatz(kursstufe, nachname, vorname, grund, mac);
 
         list.insert(datensatz);
     }
 
     public static void splitline(String line) {
         String[] splittedline = line.split("; "); /* Die Methode 'split' teilt den String 'line' mithilfe des definierten Trennzeichens '; '*/
-        vorname = splittedline[0];
+        kursstufe = splittedline[0];
         nachname = splittedline[1];
-        kursstufe = splittedline[2];
-        mac = splittedline[3];
-        grund = splittedline[4];
+        vorname = splittedline[2];
+        grund = splittedline[3];
+        mac = splittedline[4];
     }
 }
