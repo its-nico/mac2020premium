@@ -22,7 +22,7 @@ public class Manager {
         try {
             fr = new FileReader(filename);
         } catch (FileNotFoundException e) {
-            System.out.println("The file could not be found (FileNotFoundException)\nCheck if the setting 'Working Directory' is correct in your project configuration");
+            System.out.println("The file could not be found by FileReader (FileNotFoundException)");
         }
         BufferedReader br = new BufferedReader(fr);
 
