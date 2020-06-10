@@ -16,7 +16,7 @@ public class Manager {
     }
 
     public static void dateizudatensatz() {
-        String filename = "C:\\Users\\46B120U07\\IdeaProjects\\mac2020premium\\resources\\Textdateien\\main.txt";
+        String filename = "C:\\Users\\46B120U11\\IdeaProjects\\mac2020premium\\resources\\Textdateien\\main.txt";
 
         FileReader fr = null;
         try {
