@@ -18,14 +18,19 @@ public class Manager {
     }
 
     public static void dateizudatensatz() {
-        //String filepath = new File("mac2020premium\\resources\\Textdateien\\main.txt").getAbsolutePath();
-        String filepath = "C:\\Users\\user\\IdeaProjects\\mac2020premium\\resources\\Textdateien\\main.txt";
-        //System.out.println("Ausgabe: " + filepath);
+        File fileRelative = new File("../code/resources/main.txt");
+        String filepath = null;
+        try {
+            filepath = fileRelative.getCanonicalPath();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         FileReader fr = null;
         try {
             fr = new FileReader(filepath);
         } catch (FileNotFoundException e) {
+            e.printStackTrace();
             System.out.println("The file could not be found by FileReader (FileNotFoundException)");
         }
         BufferedReader br = new BufferedReader(fr);
@@ -35,6 +40,7 @@ public class Manager {
             try {
                 line = br.readLine(); /* Jeweils ein komplette Zeile, also ein Datensatz, wird über die Variable 'line' gespeichert */
             } catch (IOException e) {
+                e.printStackTrace();
                 System.out.println("An error has occurred (IOException)");
             }
             if (line != null) {

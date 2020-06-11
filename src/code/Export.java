@@ -7,8 +7,14 @@ public class Export {
     private static String mac;
 
     public void export() {
-        String exportfile = "export.txt";
-        String maintextfile = "C:\\Users\\user\\IdeaProjects\\mac2020premium\\resources\\Textdateien\\main.txt";
+        String exportfile = "resources/export.txt";
+        File fileRelative = new File("../code/resources/main.txt");
+        String maintextfile = null;
+        try {
+            maintextfile = fileRelative.getCanonicalPath();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         FileWriter fw = null;
         try {
