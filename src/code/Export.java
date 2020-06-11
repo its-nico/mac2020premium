@@ -4,25 +4,57 @@ import java.io.*;
 
 public class Export {
 
+    private static String mac;
+
     public void export() {
-        String path = "export.txt";
+        String exportfile = "export.txt";
+        String maintextfile = "C:\\Users\\user\\IdeaProjects\\mac2020premium\\resources\\Textdateien\\main.txt";
+
+        FileWriter fw = null;
         try {
-            File file = new File(path);
-           if (file.createNewFile()) {
-               System.out.println("File created");
-            } else {
-               System.out.println("File could not be created");
-           }
+            fw = new FileWriter(exportfile, true); /* FileWriter wird erstellt */
         } catch (IOException e) {
-            System.out.println("File could not be created");
+            e.printStackTrace();
         }
+        BufferedWriter bw = new BufferedWriter(fw);
 
         FileReader fr = null;
         try {
-            fr = new FileReader(path);
+            fr = new FileReader(maintextfile); /* FileReader wird erstellt */
         } catch (FileNotFoundException e) {
-            System.out.println("The file could not be found by FileReader (FileNotFoundException)");
+            e.printStackTrace();
         }
         BufferedReader br = new BufferedReader(fr);
+
+        /* Ab hier beginnt der "spannende" Teil */
+
+        String line = "";
+        while (line != null) {
+            try {
+                line = br.readLine(); /* Jeweils ein komplette Zeile, also ein Datensatz, wird über die Variable 'line' gespeichert */
+            } catch (IOException e) {
+                System.out.println("An error has occurred (IOException)");
+            }
+            if (line != null) {
+                splitline(line); /* Die einzelnen Datensätze (lines) werden in ihre 5 Attribute aufgeteilt */
+                try {
+                    bw.write(mac); /* Nur das Attribut 'mac' wird in die Datei 'export.txt' geschrieben */
+                    bw.write(System.getProperty("line.separator")); /* So kann der bw die Werte untereinander einfügen, da er Zeilenümrüche erstellen kann*/
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        try {
+            bw.close(); /* Wenn der bw nicht geschlossen wird, bleibt die export-Datei leer */
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void splitline(String line) {
+        String[] splittedline = line.split("; "); /* Die Methode 'split' teilt den String 'line' mithilfe des definierten Trennzeichens '; '*/
+        mac = splittedline[4]; /* Nur der 5. Wert der line wird auf der Variable 'mac' gespeichert */
     }
 }

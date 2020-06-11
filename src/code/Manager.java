@@ -11,16 +11,20 @@ public class Manager {
     private static String grund;
     private static String mac;
 
+    private static Export export = new Export();
+
     public static void main(String[] args) {
         dateizudatensatz(); /* Datensätze, die in txt-Datei gespeichert sind, werden als Datensatz-Objekte in die Liste eingefügt (via insert-Methode) */
     }
 
     public static void dateizudatensatz() {
-        String filename = "C:\\Users\\46B120U11\\IdeaProjects\\mac2020premium\\resources\\Textdateien\\main.txt";
+        //String filepath = new File("mac2020premium\\resources\\Textdateien\\main.txt").getAbsolutePath();
+        String filepath = "C:\\Users\\user\\IdeaProjects\\mac2020premium\\resources\\Textdateien\\main.txt";
+        //System.out.println("Ausgabe: " + filepath);
 
         FileReader fr = null;
         try {
-            fr = new FileReader(filename);
+            fr = new FileReader(filepath);
         } catch (FileNotFoundException e) {
             System.out.println("The file could not be found by FileReader (FileNotFoundException)");
         }
@@ -29,7 +33,7 @@ public class Manager {
         String line = "";
         while (line != null) {
             try {
-                line = br.readLine(); /* Jeweils ein kompklette Zeile, also ein atensatz, wird über die Variable 'line' gespeichert */
+                line = br.readLine(); /* Jeweils ein komplette Zeile, also ein Datensatz, wird über die Variable 'line' gespeichert */
             } catch (IOException e) {
                 System.out.println("An error has occurred (IOException)");
             }
@@ -41,6 +45,8 @@ public class Manager {
         datensatz = new Datensatz(kursstufe, nachname, vorname, grund, mac);
 
         list.insert(datensatz);
+
+        export.export();
     }
 
     public static void splitline(String line) {
