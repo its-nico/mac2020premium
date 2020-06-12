@@ -46,7 +46,6 @@ public class Export {
                 try {
                     bw.write(mac); /* Nur das Attribut 'mac' wird in die Datei 'export.txt' geschrieben */
                     bw.write(System.getProperty("line.separator")); /* So kann der bw die Werte untereinander einfügen, da er Zeilenümrüche erstellen kann*/
-
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
