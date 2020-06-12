@@ -18,7 +18,7 @@ public class Manager {
     }
 
     public static void dateizudatensatz() {
-        File fileRelative = new File("../code/resources/main.txt");
+        File fileRelative = new File("./main.txt");
         String filepath = null;
         try {
             filepath = fileRelative.getCanonicalPath();

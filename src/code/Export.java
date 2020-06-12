@@ -7,8 +7,8 @@ public class Export {
     private static String mac;
 
     public void export() {
-        String exportfile = "resources/export.txt";
-        File fileRelative = new File("../code/resources/main.txt");
+        String exportfile = "./export.txt";
+        File fileRelative = new File("./main.txt");
         String maintextfile = null;
         try {
             maintextfile = fileRelative.getCanonicalPath();
