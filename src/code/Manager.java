@@ -13,8 +13,12 @@ public class Manager {
 
     private static Export export = new Export();
 
+    private static Korrektur korrektur = new Korrektur();
+
     public static void main(String[] args) {
         dateizudatensatz(); /* Datensätze, die in txt-Datei gespeichert sind, werden als Datensatz-Objekte in die Liste eingefügt (via insert-Methode) */
+        korrektur.autoKorrektur("5o  :aa-bb");
+        korrektur.logErstellen();
     }
 
     public static void dateizudatensatz() {
