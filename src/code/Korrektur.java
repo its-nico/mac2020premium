@@ -1,6 +1,9 @@
 package code;
 import java.io.*;
 import java.util.regex.*;
+import java.util.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Korrektur {
 
@@ -67,7 +70,13 @@ public class Korrektur {
     }
 
     public void logErstellen() {
-        String exportfile = "./log" + zaehler + ".txt";
+
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+        String uhrzeit = sdf.format(new Date());
+        SimpleDateFormat sdf2 = new SimpleDateFormat("dd.MM.yyyy");
+        String tag = sdf2.format(new Date());
+
+        String exportfile = "./Fehlerlog.txt";
 
         FileWriter fw = null;
         try {
@@ -79,26 +88,27 @@ public class Korrektur {
 
         try {
             bw.write("- - - - - - - - - - - - - - - - - - \n");
-            bw.write("Folgende Änderungen wurden durch die Korrektur an der möglicherweise fehlerhaften MAC-Adresse (" + textVorIP + ") vorgenommen:\n \n");
+            bw.write("Log erstellt am " + tag + " um " + uhrzeit + ".\n\n");
+            bw.write("Folgende Änderungen wurden durch die Korrektur an der möglicherweise fehlerhaften MAC-Adresse (" + textVorIP + ") vorgenommen:\n");
 
             if (bool == true){
-                bw.write("Es handelt sich um eine IP-Adresse, nicht um eine MAC-Adresse." +"\n");
+                bw.write("  Es handelt sich um eine IP-Adresse, nicht um eine MAC-Adresse." +"\n");
             }
             else {
                 if (!textVorLeerzeichen.equals(textNachLeerzeichen)) {
-                    bw.write("Die Leerzeichen wurden gelöscht: " + textNachLeerzeichen +"\n");
+                    bw.write("  Die Leerzeichen wurden gelöscht: " + textNachLeerzeichen +"\n");
                 }
                 if (!textVorBindestriche.equals(textNachBindestriche)) {
-                    bw.write("Die Bindestriche wurden durch Doppelpunkte ersetzt: " + textNachBindestriche + "\n" );
+                    bw.write("  Die Bindestriche wurden durch Doppelpunkte ersetzt: " + textNachBindestriche + "\n" );
                 }
                 if (!textVorO.equals(textNachO)){
-                    bw.write("Die Buchstaben 'O' wurden durch Nullen ersetzt: " + textNachO + "\n" );
+                    bw.write("  Die Buchstaben 'O' wurden durch Nullen ersetzt: " + textNachO + "\n" );
                 }
+            }
             if (istKorrekt(textVorIP) == true){
-                bw.write("Die MAC-Adresse ist bereits korrekt und wurde daher nicht verändert.");
+                bw.write("  Die MAC-Adresse ist bereits korrekt und wurde daher nicht verändert.");
             }
-            }
-
+            bw.write("\n");
         } catch (IOException e) {
             e.printStackTrace();
         }
