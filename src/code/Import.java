@@ -13,9 +13,7 @@ public class Import {
 
     OeffnenDialogClass odc = new OeffnenDialogClass();
 
-    public static void main(String[] args) { /* Main-Methode wird benötigt, damit Methode impoert1 eigenständig gestartet werden kann (ohne dass andere Main-Klasse Methode startet) */
-        import1();
-    }
+
 
     public static List<Datensatz> import1() {
         //odc.main();
@@ -54,7 +52,8 @@ public class Import {
         kursstufe = splittedline[0];
         nachname = splittedline[1];
         vorname = splittedline[2];
-        grund = splittedline[3];
-        mac = splittedline[4];
+        mac = splittedline[3];
+        grund = splittedline[4];
+
     }
 }

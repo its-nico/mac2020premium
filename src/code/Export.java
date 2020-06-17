@@ -60,6 +60,6 @@ public class Export {
 
     public static void splitline(String line) {
         String[] splittedline = line.split("; "); /* Die Methode 'split' teilt den String 'line' mithilfe des definierten Trennzeichens '; '*/
-        mac = splittedline[4]; /* Nur der 5. Wert der line wird auf der Variable 'mac' gespeichert */
+        mac = splittedline[3]; /* Nur der 5. Wert der line wird auf der Variable 'mac' gespeichert */
     }
 }

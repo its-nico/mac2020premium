@@ -9,17 +9,17 @@ public class Manager {
     private static String kursstufe;
     private static String nachname;
     private static String vorname;
-    private static String grund;
     private static String mac;
+    private static String grund;
+
 
     private static Export export = new Export();
-
     private static Korrektur korrektur = new Korrektur();
+    private static Import anImport = new Import();
+
 
     public static void main(String[] args) {
         dateizudatensatz(); /* Datensätze, die in txt-Datei gespeichert sind, werden als Datensatz-Objekte in die Liste eingefügt (via insert-Methode) */
-        korrektur.autoKorrektur("5o  :aa-bb");
-        korrektur.logErstellen();
     }
 
     public static void dateizudatensatz() {
@@ -50,7 +50,7 @@ public class Manager {
             }
             if (line != null) {
                 splitline(line); /* Die einzelnen Datensätze (lines) werden in ihre 5 Attribute aufgeteilt */
-                datensatz = new Datensatz(kursstufe, nachname, vorname, grund, mac);
+                datensatz = new Datensatz(kursstufe, nachname, vorname, mac, grund);
                 list.append(datensatz);
             }
         }
@@ -61,8 +61,21 @@ public class Manager {
         kursstufe = splittedline[0];
         nachname = splittedline[1];
         vorname = splittedline[2];
-        grund = splittedline[3];
-        mac = splittedline[4];
+        mac = splittedline[3];
+        grund = splittedline[4];
+    }
+
+    public static String korrigiere(String pText){
+        return korrektur.autoKorrektur(pText);
+    }
+
+    public static void  exportiere(){
+        export.export();
+    }
+
+    public static void ergaenze(String pKursstufe, String pNachname, String pVorname, String pMac, String pGrund) {
+        Datensatz datensatzNeu = new Datensatz(pKursstufe, pNachname, pVorname, pMac, pGrund);
+        list.append(datensatzNeu);
     }
 }
 
