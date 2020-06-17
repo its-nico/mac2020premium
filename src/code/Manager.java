@@ -12,14 +12,21 @@ public class Manager {
     private static String grund;
     private static String mac;
 
+    private static Speichern speichern;
+
     private static Export export = new Export();
 
     private static Korrektur korrektur = new Korrektur();
 
     public static void main(String[] args) {
-        dateizudatensatz(); /* Datensätze, die in txt-Datei gespeichert sind, werden als Datensatz-Objekte in die Liste eingefügt (via insert-Methode) */
-        korrektur.autoKorrektur("5o  :aa-bb");
-        korrektur.logErstellen();
+        speichern.laden();
+        System.out.println(list.isEmpty());
+        //dateizudatensatz(); /* Datensätze, die in txt-Datei gespeichert sind, werden als Datensatz-Objekte in die Liste eingefügt (via insert-Methode) */
+
+       // korrektur.autoKorrektur("5o  :aa-bb");
+       // korrektur.logErstellen();
+        //speichern.abspeichern(list);
+
     }
 
     public static void dateizudatensatz() {

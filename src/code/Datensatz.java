@@ -1,6 +1,8 @@
 package code;
 
-public class Datensatz {
+import java.io.Serializable;
+
+public class Datensatz implements Serializable {
 
     private String kursstufe;
     private String nachname;

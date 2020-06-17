@@ -1,10 +1,12 @@
 package code;
 
-public class List<ContentType> {
+import java.io.Serializable;
+
+public class List<ContentType> implements Serializable {
 
     /* --------- Anfang der privaten inneren Klasse -------------- */
 
-    private class ListNode {
+    private class ListNode implements Serializable{
 
         // Anfang Attribute1
         private ContentType contentObject;
