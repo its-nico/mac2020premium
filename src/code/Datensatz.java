@@ -1,6 +1,7 @@
 package code;
 
 public class Datensatz {
+
     private String kursstufe;
     private String nachname;
     private String vorname;
@@ -57,4 +58,5 @@ public class Datensatz {
     public void setMac(String mac) {
         this.mac = mac;
     }
+
 }

@@ -1,4 +1,5 @@
 package code;
+
 import java.lang.*;
 import java.io.*;
 
@@ -64,3 +65,4 @@ public class Manager {
         mac = splittedline[4];
     }
 }
+
