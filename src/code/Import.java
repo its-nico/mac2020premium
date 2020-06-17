@@ -1,9 +1,8 @@
 package code;
 
-import java.lang.*;
 import java.io.*;
 
-public class Manager {
+public class Import {
     private static final List<Datensatz> list = new List<Datensatz>(); /* Neue generische Liste des Datentpys 'Datensatz' wird erstellt */
     private static Datensatz datensatz;
     private static String kursstufe;
@@ -12,28 +11,21 @@ public class Manager {
     private static String grund;
     private static String mac;
 
-    private static Export export = new Export();
+    OeffnenDialogClass odc = new OeffnenDialogClass();
 
-    private static Korrektur korrektur = new Korrektur();
-
-    public static void main(String[] args) {
-        dateizudatensatz(); /* Datensätze, die in txt-Datei gespeichert sind, werden als Datensatz-Objekte in die Liste eingefügt (via insert-Methode) */
-        korrektur.autoKorrektur("5o  :aa-bb");
-        korrektur.logErstellen();
+    public static void main(String[] args) { /* Main-Methode wird benötigt, damit Methode impoert1 eigenständig gestartet werden kann (ohne dass andere Main-Klasse Methode startet) */
+        import1();
     }
 
-    public static void dateizudatensatz() {
-        File fileRelative = new File("./main.txt");
-        String filepath = null;
-        try {
-            filepath = fileRelative.getCanonicalPath();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    public static List<Datensatz> import1() {
+        //odc.main();
+        //String importfilepath = odc.getInputVerzStr();
+        //File filepath = new File("importfile"); /* Dateiname wird durch OeffnenDialogClass übergeben */
+        String importfilepath = "C:/Users/user/Desktop/test.txt";
 
         FileReader fr = null;
         try {
-            fr = new FileReader(filepath);
+            fr = new FileReader(importfilepath);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
             System.out.println("The file could not be found by FileReader (FileNotFoundException)");
@@ -54,6 +46,7 @@ public class Manager {
                 list.append(datensatz);
             }
         }
+        return list;
     }
 
     public static void splitline(String line) {
@@ -65,4 +58,3 @@ public class Manager {
         mac = splittedline[4];
     }
 }
-
