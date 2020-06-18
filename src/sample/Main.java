@@ -43,6 +43,7 @@ public class Main extends JFrame {
         Container cp = getContentPane();
         cp.setLayout(null);
 
+
         // Anfang Komponenten
 
         ueberschrift.setBounds(16, 16, 390, 10);
