@@ -3,7 +3,7 @@ import java.io.*;
 
 public class Speichern {
     static String datnam = "savedList.ser";
-    public static void abspeichern(List pList) {
+    public static void abspeichern(List1 pList) {
         OutputStream fos = null;
         try {
             fos = new FileOutputStream(datnam);
@@ -21,13 +21,13 @@ public class Speichern {
             }
         }
     }
-    public static List laden () {
-            List liste;
+    public static List1 laden () {
+            List1 liste = null;
             InputStream fis = null;
             try {
                 fis = new FileInputStream(datnam);
                 ObjectInputStream stream = new ObjectInputStream(fis);
-                liste = (List) stream.readObject();
+                liste = (List1) stream.readObject();
                 stream.close();
                 return liste;
             } catch (ClassNotFoundException cnfex) {
@@ -39,8 +39,9 @@ public class Speichern {
                 try {
                     fis.close();
                 } catch (Exception e) {
+                    return liste = null;
                 }
-                return null;
+            return liste;
             }
         }
     }

@@ -3,7 +3,7 @@ package code;
 import java.io.*;
 
 public class Import {
-    private static final List<Datensatz> list = new List<Datensatz>(); /* Neue generische Liste des Datentpys 'Datensatz' wird erstellt */
+    private static final List1<Datensatz> LIST_1 = new List1<Datensatz>(); /* Neue generische Liste des Datentpys 'Datensatz' wird erstellt */
     private static Datensatz datensatz;
     private static String kursstufe;
     private static String nachname;
@@ -17,7 +17,7 @@ public class Import {
         import1();
     }
 
-    public static List<Datensatz> import1() {
+    public static List1<Datensatz> import1() {
         //odc.main();
         //String importfilepath = odc.getInputVerzStr();
         //File filepath = new File("importfile"); /* Dateiname wird durch OeffnenDialogClass übergeben */
@@ -43,10 +43,10 @@ public class Import {
             if (line != null) {
                 splitline(line); /* Die einzelnen Datensätze (lines) werden in ihre 5 Attribute aufgeteilt */
                 datensatz = new Datensatz(kursstufe, nachname, vorname, grund, mac);
-                list.append(datensatz);
+                LIST_1.append(datensatz);
             }
         }
-        return list;
+        return LIST_1;
     }
 
     public static void splitline(String line) {
