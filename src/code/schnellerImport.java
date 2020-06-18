@@ -45,9 +45,9 @@ public class schnellerImport {
                 System.out.println("An error has occurred (IOException)");
             }
             if (line != null) {
+                korrektur.logErstellen();
                 splitline(line); /* Die einzelnen Datensätze (lines) werden in ihre 5 Attribute aufgeteilt */
                 datensatz = new Datensatz(kursstufe, nachname, vorname, grund, mac);
-                korrektur.logErstellen();
                 liste.append(datensatz);
             }
         }

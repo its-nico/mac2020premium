@@ -1,3 +1,3 @@
-Q2; Jungmann; Noah; grundtest; 00:00:00:00:00:00
-Q2; Sierra Lago; Nicolás; grundtest2; 11:11:11:11:11:11
-Q2; Schulmeyer; Torben; grundtest3; 22:22:22:22:22:22
+Q2; Jungmann; Noah; 00:00:00:00:00:00; grundtest
+Q2; Sierra Lago; Nicolás; 11:11:11:11:11:11; grundtest2
+Q2; Schulmeyer; Torben; 22:22:22-22:2o:  22; grundtest3
