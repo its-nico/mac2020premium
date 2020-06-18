@@ -1,9 +1,14 @@
 package code;
 
-import java.io.*;
+import code.Datensatz;
+import code.OeffnenDialogClass;
 
-public class Import {
-    private static final List1<Datensatz> list = new List1<Datensatz>(); /* Neue generische Liste des Datentpys 'Datensatz' wird erstellt */
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class schnellerImport {
     private static Datensatz datensatz;
     private static String kursstufe;
     private static String nachname;
@@ -11,15 +16,16 @@ public class Import {
     private static String grund;
     private static String mac;
 
+    private static Korrektur korrektur = new Korrektur();
+
     OeffnenDialogClass odc = new OeffnenDialogClass();
 
 
 
-    public static List1<Datensatz> import1() {
+    public static void schnellerImport(String importfilepath, List1 liste) {
         //odc.main();
         //String importfilepath = odc.getInputVerzStr();
         //File filepath = new File("importfile"); /* Dateiname wird durch OeffnenDialogClass übergeben */
-        String importfilepath = "C:/Users/user/Desktop/test.txt";
 
         FileReader fr = null;
         try {
@@ -41,10 +47,10 @@ public class Import {
             if (line != null) {
                 splitline(line); /* Die einzelnen Datensätze (lines) werden in ihre 5 Attribute aufgeteilt */
                 datensatz = new Datensatz(kursstufe, nachname, vorname, grund, mac);
-                list.append(datensatz);
+                korrektur.logErstellen();
+                liste.append(datensatz);
             }
         }
-        return list;
     }
 
     public static void splitline(String line) {
@@ -52,7 +58,7 @@ public class Import {
         kursstufe = splittedline[0];
         nachname = splittedline[1];
         vorname = splittedline[2];
-        mac = splittedline[3];
+        mac = korrektur.autoKorrektur(splittedline[3]);
         grund = splittedline[4];
 
     }

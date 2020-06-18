@@ -1,7 +1,13 @@
 package sample;
+import code.FileOpener;
+import code.Manager;
+import code.OeffnenDialogClass;
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import java.lang.*;
+import java.io.*;
 
 public class Main extends JFrame {
     // Anfang Attribute
@@ -25,6 +31,9 @@ public class Main extends JFrame {
     private JButton aktuelleTextdateiRunterladen = new JButton();
     private ManuelleEingabe manuellesEingabefenster;
     private JButton importLogAnzeigen = new JButton();
+
+    private Manager manager = new Manager();
+    private OeffnenDialogClass oeffnenDialogClass = new OeffnenDialogClass();
 
     // Ende Attribute
 
@@ -202,7 +211,7 @@ public class Main extends JFrame {
 
     public void schnellerImport_ActionPerformed(ActionEvent evt) {
         // TODO hier Quelltext einfügen
-
+        manager.schnellerImport(oeffnenDialogClass.oeffnen());
     } // end of schnellerImport_ActionPerformed
 
     public void langsamerImport_ActionPerformed(ActionEvent evt) {
@@ -222,7 +231,7 @@ public class Main extends JFrame {
 
     public void exportMACAdressen_ActionPerformed(ActionEvent evt) {
         // TODO hier Quelltext einfügen
-
+        FileOpener fileOpen = new FileOpener("./export.txt");
     } // end of exportMACAdressen_ActionPerformed
 
     public void datenbankErgaenzen_ActionPerformed(ActionEvent evt) {

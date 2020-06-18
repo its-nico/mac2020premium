@@ -13,11 +13,15 @@ public class Manager {
     private static String grund;
 
 
+
     private static Export export = new Export();
     private static Korrektur korrektur = new Korrektur();
-    private static Import anImport = new Import();
+   // private static Import anImport = new Import();
+    private static schnellerImport schnellerImport = new schnellerImport();
 
     private static Speichern speichern;
+    private static SpeichernUnterClass speichernUnter = new SpeichernUnterClass();
+
 
     public static void main(String[] args) {
         System.out.println(LIST_1.isEmpty());
@@ -25,6 +29,10 @@ public class Manager {
         //   dateizudatensatz(); /* Datensätze, die in txt-Datei gespeichert sind, werden als Datensatz-Objekte in die Liste eingefügt (via insert-Methode) */
         //     speichern.abspeichern(LIST_1);
         System.out.println(LIST_1.isEmpty());
+
+
+
+
     }
 
     public static String korrigiere(String pText){
@@ -35,9 +43,16 @@ public class Manager {
         export.export();
     }
 
+    public static void schnellerImport (String pPfad){
+        schnellerImport.schnellerImport(pPfad, LIST_1);
+    }
+
     public static void ergaenze(String pKursstufe, String pNachname, String pVorname, String pMac, String pGrund) {
         Datensatz datensatzNeu = new Datensatz(pKursstufe, pNachname, pVorname, pMac, pGrund);
         LIST_1.append(datensatzNeu);
     }
+
+
+
 }
 

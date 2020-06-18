@@ -1,5 +1,7 @@
 package sample;
 
+import code.Manager;
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -20,6 +22,8 @@ public class ManuelleEingabe extends JFrame {
     private String kursstufe = new String();
     private String macAdresse = new String();
     private String weitereBemerkung = new String();
+
+    private Manager manager = new Manager();
 
     // Ende Attribute
 
@@ -92,7 +96,7 @@ public class ManuelleEingabe extends JFrame {
 
     public void pruefenUndHinzufuegen_ActionPerformed(ActionEvent evt) {
         // TODO hier Quelltext einfügen
-
+        manager.ergaenze(kursstufe, nachname, vorname, macAdresse, weitereBemerkung);
     } // end of pruefenUndHinzufuegen_ActionPerformed
 
     public void zurueck_ActionPerformed(ActionEvent evt) {

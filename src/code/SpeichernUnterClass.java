@@ -13,7 +13,7 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 public class SpeichernUnterClass extends JFrame {
 
     public SpeichernUnterClass() {
-        JButton butt = new JButton("Speichern unter...");
+       /* JButton butt = new JButton("Speichern unter...");
         butt.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 saveAs(null);
@@ -25,7 +25,7 @@ public class SpeichernUnterClass extends JFrame {
         this.setSize(400, 300);
         this.setLocationRelativeTo(null);
         this.setTitle("Speichern unter Demo");
-        this.setVisible(true);
+        this.setVisible(true); */
     }
 
     boolean saveAs(String pfad) {
@@ -39,11 +39,11 @@ public class SpeichernUnterClass extends JFrame {
         chooser.setDialogType(JFileChooser.SAVE_DIALOG);
         FileNameExtensionFilter plainFilter = new FileNameExtensionFilter(
                 "Plaintext: txt, csv", "txt", "csv");
-        FileNameExtensionFilter markUpFilter = new FileNameExtensionFilter(
-                "Markup: xml, htm, html", "xml", "html", "htm");
+       FileNameExtensionFilter markUpFilter = new FileNameExtensionFilter(
+               "Markup: xml, htm, html", "xml", "html", "htm");
         chooser.removeChoosableFileFilter(chooser.getAcceptAllFileFilter());
         chooser.setFileFilter(plainFilter);
-        chooser.setFileFilter(markUpFilter);
+       chooser.setFileFilter(markUpFilter);
         chooser.setDialogTitle("Speichern unter...");
         chooser.setVisible(true);
 
