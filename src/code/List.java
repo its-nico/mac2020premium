@@ -2,7 +2,7 @@ package code;
 
 import java.io.Serializable;
 
- class List1<ContentType> implements Serializable {
+public class List1<ContentType> implements Serializable {
 
     /* --------- Anfang der privaten inneren Klasse -------------- */
 

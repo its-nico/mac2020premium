@@ -1,6 +1,4 @@
 package sample;
-import javafx.fxml.JavaFXBuilderFactory;
-
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -18,7 +16,7 @@ public class Main extends JFrame {
     private JButton langsamerImport = new JButton();
     private JButton zurueckButton1 = new JButton();
     private JButton zurueckButton2 = new JButton();
-    private JButton importLogAnzeigen = new JButton();
+    private JButton exportMACAdressen = new JButton();
     private JButton datenbankErgaenzen = new JButton();
     private JButton datenbankBearbeiten = new JButton();
     private JButton handbuch = new JButton();
@@ -26,8 +24,7 @@ public class Main extends JFrame {
     private JButton credits = new JButton();
     private JButton datenbankRunterladen = new JButton();
     private JButton aktuelleTextdateiRunterladen = new JButton();
-    private JButton exportMACAdressen = new JButton();
-    private ManuelleEingabe manuellesEingabefenster = new ManuelleEingabe();
+    private JButton importLogAnzeigen = new JButton();
     // Ende Attribute
 
     public Main() {
@@ -57,13 +54,13 @@ public class Main extends JFrame {
         datenHinzufuegen.setText("Daten hinzufügen");
         cp.add(datenHinzufuegen);
         datenVerarbeiten.setBounds(272, 216, 190, 28);
-        datenVerarbeiten.setText("Log Anzeigen");
+        datenVerarbeiten.setText("Daten verarbeiten");
         cp.add(datenVerarbeiten);
         datenbankVerwaltung.setBounds(272, 320, 190, 28);
         datenbankVerwaltung.setText("Datenbank Verwaltung");
         cp.add(datenbankVerwaltung);
         datenAnsehen.setBounds(504, 216, 190, 28);
-        datenAnsehen.setText("Daten ansehen");
+        datenAnsehen.setText("Daten Ansehen");
         cp.add(datenAnsehen);
 
 
@@ -112,15 +109,15 @@ public class Main extends JFrame {
             }
         });
         cp.add(zurueckButton2);
-        importLogAnzeigen.setBounds(272, 264, 155, 41);
-        importLogAnzeigen.setText("Import Log anzeigen");
-        importLogAnzeigen.setMargin(new Insets(2, 2, 2, 2));
-        importLogAnzeigen.addActionListener(new ActionListener() {
+        exportMACAdressen.setBounds(272, 264, 155, 41);
+        exportMACAdressen.setText("Export MAC-Adressen");
+        exportMACAdressen.setMargin(new Insets(2, 2, 2, 2));
+        exportMACAdressen.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                importLogAnzeigen_ActionPerformed(evt);
+                exportMACAdressen_ActionPerformed(evt);
             }
         });
-        cp.add(importLogAnzeigen);
+        cp.add(exportMACAdressen);
         datenbankErgaenzen.setBounds(272, 360, 155, 41);
         datenbankErgaenzen.setText("Datenbank ergänzen");
         datenbankErgaenzen.setMargin(new Insets(2, 2, 2, 2));
@@ -176,7 +173,7 @@ public class Main extends JFrame {
         });
         cp.add(datenbankRunterladen);
         aktuelleTextdateiRunterladen.setBounds(504, 328, 155, 41);
-        aktuelleTextdateiRunterladen.setText("Textdatei Export");
+        aktuelleTextdateiRunterladen.setText("Aktuelle Textdatei runterladen");
         aktuelleTextdateiRunterladen.setMargin(new Insets(2, 2, 2, 2));
         aktuelleTextdateiRunterladen.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
@@ -184,15 +181,15 @@ public class Main extends JFrame {
             }
         });
         cp.add(aktuelleTextdateiRunterladen);
-        exportMACAdressen.setBounds(504, 392, 155, 41);
-        exportMACAdressen.setText("Export MAC-Adressen");
-        exportMACAdressen.setMargin(new Insets(2, 2, 2, 2));
-        exportMACAdressen.addActionListener(new ActionListener() {
+        importLogAnzeigen.setBounds(504, 392, 155, 41);
+        importLogAnzeigen.setText("Import-Log Anzeigen");
+        importLogAnzeigen.setMargin(new Insets(2, 2, 2, 2));
+        importLogAnzeigen.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                exportMACAdressen_ActionPerformed(evt);
+                importLogAnzeigen_ActionPerformed(evt);
             }
         });
-        cp.add(exportMACAdressen);
+        cp.add(importLogAnzeigen);
         // Ende Komponenten
 
         setVisible(true);
@@ -205,7 +202,8 @@ public class Main extends JFrame {
     } // end of main
 
     public void manuelleEingabe_ActionPerformed(ActionEvent evt) {
-        manuellesEingabefenster = new ManuelleEingabe();
+        // TODO hier Quelltext einfügen
+
     } // end of manuelleEingabe_ActionPerformed
 
     public void schnellerImport_ActionPerformed(ActionEvent evt) {
@@ -228,10 +226,10 @@ public class Main extends JFrame {
 
     } // end of zurueckButton2_ActionPerformed
 
-    public void importLogAnzeigen_ActionPerformed(ActionEvent evt) {
+    public void exportMACAdressen_ActionPerformed(ActionEvent evt) {
         // TODO hier Quelltext einfügen
 
-    } // end of importLogAnzeigen_ActionPerformed
+    } // end of exportMACAdressen_ActionPerformed
 
     public void datenbankErgaenzen_ActionPerformed(ActionEvent evt) {
         // TODO hier Quelltext einfügen
@@ -268,10 +266,10 @@ public class Main extends JFrame {
 
     } // end of aktuelleTextdateiRunterladen_ActionPerformed
 
-    public void exportMACAdressen_ActionPerformed(ActionEvent evt) {
+    public void importLogAnzeigen_ActionPerformed(ActionEvent evt) {
         // TODO hier Quelltext einfügen
 
-    } // end of exportMACAdressen_ActionPerformed
+    } // end of importLogAnzeigen_ActionPerformed
 
     // Ende Methoden
 } // end of class loool
