@@ -47,8 +47,13 @@ public class schnellerImport {
             if (line != null) {
                 korrektur.logErstellen();
                 splitline(line); /* Die einzelnen Datensätze (lines) werden in ihre 5 Attribute aufgeteilt */
-                datensatz = new Datensatz(kursstufe, nachname, vorname, grund, mac);
-                liste.append(datensatz);
+                if (korrektur.istIPOhneLog(mac)){
+                    System.out.println("Der Datensatz zur Adresse " + mac + " wurde nicht übernommen, da es sich um eine IP-Adresse handelt.");
+                }
+                else {
+                    datensatz = new Datensatz(kursstufe, nachname, vorname, grund, mac);
+                    liste.append(datensatz);
+                }
             }
         }
     }

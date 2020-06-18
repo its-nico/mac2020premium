@@ -266,7 +266,7 @@ public class Main extends JFrame {
 
     public void importLogAnzeigen_ActionPerformed(ActionEvent evt) {
         // TODO hier Quelltext einfügen
-
+        FileOpener fileOpen = new FileOpener("./Fehlerlog.txt");
     } // end of importLogAnzeigen_ActionPerformed
 
     // Ende Methoden

@@ -35,9 +35,9 @@ public class Manager {
 
     }
 
-    public static String korrigiere(String pText){
+  /*  public static String korrigiere(String pText){
         return korrektur.autoKorrektur(pText);
-    }
+    } */
 
     public static void  exportiere(){
         export.export();
@@ -48,8 +48,14 @@ public class Manager {
     }
 
     public static void ergaenze(String pKursstufe, String pNachname, String pVorname, String pMac, String pGrund) {
-        Datensatz datensatzNeu = new Datensatz(pKursstufe, pNachname, pVorname, pMac, pGrund);
-        LIST_1.append(datensatzNeu);
+        korrektur.logErstellen();
+        if (korrektur.istIPOhneLog(mac)){
+            System.out.println("Der Datensatz zur Adresse " + mac + " wurde nicht übernommen, da es sich um eine IP-Adresse handelt.");
+        }
+        else {
+            Datensatz datensatzNeu = new Datensatz(pKursstufe, pNachname, pVorname, korrektur.autoKorrektur(pMac), pGrund);
+            LIST_1.append(datensatzNeu);
+        }
     }
 
 
