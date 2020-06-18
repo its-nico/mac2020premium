@@ -62,4 +62,46 @@ public class Export {
         String[] splittedline = line.split("; "); /* Die Methode 'split' teilt den String 'line' mithilfe des definierten Trennzeichens '; '*/
         mac = splittedline[4]; /* Nur der 5. Wert der line wird auf der Variable 'mac' gespeichert */
     }
+
+    public void exportiereMac (List1<Datensatz> liste){
+        File file = new File("./export.txt");
+
+        //Zuvor alle mit dem File assoziierten Streams schließen...
+
+        if(file.exists()){
+            file.delete();
+        }
+
+        String exportfile = "./export.txt";
+        FileWriter fw = null;
+        try {
+            fw = new FileWriter(exportfile, true); /* FileWriter wird erstellt */
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        BufferedWriter bw = new BufferedWriter(fw);
+
+        liste.toFirst();
+
+        while (liste.hasAccess()){
+        String mac1 = (liste.getContent()).getMac();
+        try {
+            bw.write(mac1); /* Nur das Attribut 'mac' wird in die Datei 'export.txt' geschrieben */
+            bw.write(System.getProperty("line.separator")); /* So kann der bw die Werte untereinander einfügen, da er Zeilenümrüche erstellen kann*/
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+        try {
+        bw.close(); /* Wenn der bw nicht geschlossen wird, bleibt die export-Datei leer */
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+
+        liste.next();
+        }
+    }
 }

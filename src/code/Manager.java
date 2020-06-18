@@ -23,16 +23,14 @@ public class Manager {
     private static SpeichernUnterClass speichernUnter = new SpeichernUnterClass();
 
 
+
+
     public static void main(String[] args) {
+
         System.out.println(LIST_1.isEmpty());
         LIST_1 = speichern.laden();
-        //   dateizudatensatz(); /* Datensätze, die in txt-Datei gespeichert sind, werden als Datensatz-Objekte in die Liste eingefügt (via insert-Methode) */
         //     speichern.abspeichern(LIST_1);
         System.out.println(LIST_1.isEmpty());
-
-
-
-
     }
 
   /*  public static String korrigiere(String pText){
@@ -41,6 +39,18 @@ public class Manager {
 
     public static void  exportiere(){
         export.export();
+    }
+
+    public static void  exportiereMac(){
+        export.exportiereMac(LIST_1);
+    }
+
+    public static void laden(){
+        LIST_1 = speichern.laden();
+    }
+
+    public static void speichern(){
+        speichern.abspeichern(LIST_1);
     }
 
     public static void schnellerImport (String pPfad){

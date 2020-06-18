@@ -7,7 +7,6 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import java.lang.*;
-import java.io.*;
 
 public class Main extends JFrame {
     // Anfang Attribute
@@ -35,9 +34,12 @@ public class Main extends JFrame {
     private Manager manager = new Manager();
     private OeffnenDialogClass oeffnenDialogClass = new OeffnenDialogClass();
 
+
     // Ende Attribute
 
     public Main() {
+
+
         // Frame-Initialisierung
         super();
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
@@ -52,7 +54,6 @@ public class Main extends JFrame {
         setResizable(false);
         Container cp = getContentPane();
         cp.setLayout(null);
-
 
         // Anfang Komponenten
 
@@ -196,13 +197,37 @@ public class Main extends JFrame {
         cp.add(importLogAnzeigen);
         // Ende Komponenten
 
+        manager.laden();
+
         setVisible(true);
+
+        addWindowListener(new WindowAdapter()
+        {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                System.out.println("Closed");
+                int result = JOptionPane.showConfirmDialog(null,
+                        "Möchten Sie vor dem Beenden speichern?",
+                        "Beenden bestätigen",
+                        JOptionPane.YES_NO_OPTION);
+
+                switch (result) {
+                    case JOptionPane.YES_OPTION:
+                        manager.speichern();
+                        System.exit(0); //Aktion(en) bei Klicken auf den "Ja-Button"
+                    case JOptionPane.NO_OPTION:
+                        System.exit(0);
+                        //e.getWindow().dispose();
+                }
+            }
+        });
     } // end of public loool
 
     // Anfang Methoden
 
     public static void main(String[] args) {
         new Main();
+
     } // end of main
 
     public void manuelleEingabe_ActionPerformed(ActionEvent evt) {
@@ -231,6 +256,7 @@ public class Main extends JFrame {
 
     public void exportMACAdressen_ActionPerformed(ActionEvent evt) {
         // TODO hier Quelltext einfügen
+        manager.exportiereMac();
         FileOpener fileOpen = new FileOpener("./export.txt");
     } // end of exportMACAdressen_ActionPerformed
 
@@ -270,4 +296,5 @@ public class Main extends JFrame {
     } // end of importLogAnzeigen_ActionPerformed
 
     // Ende Methoden
+
 } // end of class loool
