@@ -9,22 +9,35 @@ public class Manager {
     private static String kursstufe;
     private static String nachname;
     private static String vorname;
-    private static String grund;
     private static String mac;
+    private static String grund;
 
-    private static Speichern speichern;
 
     private static Export export = new Export();
-
     private static Korrektur korrektur = new Korrektur();
+    private static Import anImport = new Import();
+
+    private static Speichern speichern;
 
     public static void main(String[] args) {
         System.out.println(LIST_1.isEmpty());
         LIST_1 = speichern.laden();
-    //   dateizudatensatz(); /* Datensätze, die in txt-Datei gespeichert sind, werden als Datensatz-Objekte in die Liste eingefügt (via insert-Methode) */
- //     speichern.abspeichern(LIST_1);
+        //   dateizudatensatz(); /* Datensätze, die in txt-Datei gespeichert sind, werden als Datensatz-Objekte in die Liste eingefügt (via insert-Methode) */
+        //     speichern.abspeichern(LIST_1);
         System.out.println(LIST_1.isEmpty());
+    }
 
+    public static String korrigiere(String pText){
+        return korrektur.autoKorrektur(pText);
+    }
+
+    public static void  exportiere(){
+        export.export();
+    }
+
+    public static void ergaenze(String pKursstufe, String pNachname, String pVorname, String pMac, String pGrund) {
+        Datensatz datensatzNeu = new Datensatz(pKursstufe, pNachname, pVorname, pMac, pGrund);
+        LIST_1.append(datensatzNeu);
     }
 }
 
