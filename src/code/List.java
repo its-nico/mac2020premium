@@ -1,10 +1,12 @@
 package code;
 
-public class List<ContentType> {
+import java.io.Serializable;
+
+ class List1<ContentType> implements Serializable {
 
     /* --------- Anfang der privaten inneren Klasse -------------- */
 
-    private class ListNode {
+    private class ListNode implements Serializable{
 
         // Anfang Attribute1
         private ContentType contentObject;
@@ -78,7 +80,7 @@ public class List<ContentType> {
     /**
      * Eine leere Liste wird erzeugt.
      */
-    public List() {
+    public List1() {
         first = null;
         last = null;
         current = null;
@@ -251,9 +253,9 @@ public class List<ContentType> {
      * unveraendert. Insbesondere bleibt hasAccess identisch.
      *
      * @param pList
-     *            die am Ende anzuhaengende Liste vom Typ List<ContentType>
+     *            die am Ende anzuhaengende Liste vom Typ List1<ContentType>
      */
-    public void concat(List<ContentType> pList) {
+    public void concat(List1<ContentType> pList) {
         if (pList != this && pList != null && !pList.isEmpty()) { // Nichts tun,
             // wenn pList und this identisch, pList leer oder nicht existent.
 

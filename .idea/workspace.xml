@@ -20,11 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="be2f5870-2328-4e79-86ce-fd2f67d0d91c" name="Default Changelist" comment="Ordner gui muss in sample umbenannt werden">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/mac2020premium/code/Manager.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/mac2020premium/code/Manager.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_06_06_2020_17_43__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_06_06_2020_17_43__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_06_06_2020_17_47__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Checkout_at_06_06_2020_17_47__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/code/Datensatz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/Datensatz.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/code/Export.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/Export.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/code/Import.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/Import.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/code/List.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/List.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/code/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/Manager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -198,10 +200,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="498" y="202" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1536.824@0.0.1536.824" timestamp="1591459634744" />
-    <state x="93" y="93" width="1350" height="638" key="DiffContextDialog" timestamp="1591458553531">
+    <state x="102" y="107" width="1350" height="638" key="DiffContextDialog" timestamp="1592463770196">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="93" y="93" width="1350" height="638" key="DiffContextDialog/0.0.1536.824@0.0.1536.824" timestamp="1591458553531" />
+    <state x="102" y="107" width="1350" height="638" key="DiffContextDialog/0.0.1536.824@0.0.1536.824" timestamp="1592463770196" />
     <state x="473" y="154" key="FileChooserDialogImpl" timestamp="1591459713724">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -234,6 +236,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="249" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1591459554573" />
+    <state x="72" y="135" width="1350" height="638" key="ShowDiffWithBranchDialog" timestamp="1592463770196">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="72" y="135" width="1350" height="638" key="ShowDiffWithBranchDialog/0.0.1536.824@0.0.1536.824" timestamp="1592463770196" />
     <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1592398224950">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
