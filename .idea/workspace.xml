@@ -19,10 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="be2f5870-2328-4e79-86ce-fd2f67d0d91c" name="Default Changelist" comment="Serialisierung gefixed">
-      <change afterPath="$PROJECT_DIR$/src/sample/ManuelleEingabe.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/code/Manager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/code/Manager.java" afterDir="false" />
-    </list>
+    <list default="true" id="be2f5870-2328-4e79-86ce-fd2f67d0d91c" name="Default Changelist" comment="Serialisierung gefixed 2.0" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -183,7 +180,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592462708612</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Serialisierung gefixed 2.0">
+      <created>1592463231492</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1592463231492</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -203,7 +207,8 @@
     <MESSAGE value="Ordner gui muss in sample umbenannt werden" />
     <MESSAGE value="Versuch, die Serialisierung zu ermöglichen" />
     <MESSAGE value="Serialisierung gefixed" />
-    <option name="LAST_COMMIT_MESSAGE" value="Serialisierung gefixed" />
+    <MESSAGE value="Serialisierung gefixed 2.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="Serialisierung gefixed 2.0" />
   </component>
   <component name="WindowStateProjectService">
     <state x="395" y="91" key="#Inspections" timestamp="1592461604480">
@@ -287,15 +292,15 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="249" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1591459554573" />
-    <state x="93" y="93" width="1350" height="638" key="ShowDiffWithBranchDialog" timestamp="1592463016878">
+    <state x="93" y="93" width="1350" height="638" key="ShowDiffWithBranchDialog" timestamp="1592463328455">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="93" y="93" width="1350" height="638" key="ShowDiffWithBranchDialog/0.0.1536.824@0.0.1536.824" timestamp="1592463016878" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1592462715777">
+    <state x="93" y="93" width="1350" height="638" key="ShowDiffWithBranchDialog/0.0.1536.824@0.0.1536.824" timestamp="1592463328455" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1592463237987">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824/-1920.0.1920.1040@0.0.1536.824" timestamp="1592404609057" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1592462715777" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1592463237987" />
     <state x="578" y="326" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1592398108280">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
