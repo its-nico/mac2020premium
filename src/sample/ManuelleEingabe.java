@@ -7,8 +7,6 @@ import javax.swing.event.*;
 
 public class ManuelleEingabe extends JFrame {
     // Anfang Attribute
-    private JTextArea logFeld = new JTextArea("");
-    private JScrollPane jTextArea1ScrollPane = new JScrollPane(logFeld);
     private JLabel erklaerungsFeld = new JLabel();
     private JTextField vornameFeld = new JTextField("Vorname");
     private JTextField nachnameFeld = new JTextField("Nachname");
@@ -17,13 +15,19 @@ public class ManuelleEingabe extends JFrame {
     private JTextField weitereBemerkungenFeld = new JTextField("Weitere Bemerkungen");
     private JButton pruefenUndHinzufuegen = new JButton();
     private JButton zurueck = new JButton();
+    private String vorname = new String();
+    private String nachname = new String();
+    private String kursstufe = new String();
+    private String macAdresse = new String();
+    private String weitereBemerkung = new String();
+
     // Ende Attribute
 
     public ManuelleEingabe() {
         // Frame-Initialisierung
         super();
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-        int frameWidth = 580;
+        int frameWidth = 342;
         int frameHeight = 450;
         setSize(frameWidth, frameHeight);
         Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
@@ -36,24 +40,26 @@ public class ManuelleEingabe extends JFrame {
         cp.setLayout(null);
         // Anfang Komponenten
 
-        jTextArea1ScrollPane.setBounds(320, 32, 200, 300);
-        cp.add(jTextArea1ScrollPane);
-
-        erklaerungsFeld.setBounds(24, 24, 240, 35);
-        erklaerungsFeld.setText("Hier könnte Ihre Erklärung stehen!");
+        erklaerungsFeld.setBounds(24, 24, 280, 35);
+        erklaerungsFeld.setText("Hier können Sie Datensätze manuell hinzufügen.");
         cp.add(erklaerungsFeld);
 
 
         vornameFeld.setBounds(24, 72, 190, 36);
         cp.add(vornameFeld);
+        vorname = vornameFeld.getText();
         nachnameFeld.setBounds(24, 128, 190, 36);
         cp.add(nachnameFeld);
+        nachname = nachnameFeld.getText();
         kursstufeFeld.setBounds(24, 184, 190, 36);
         cp.add(kursstufeFeld);
+        kursstufe = kursstufeFeld.getText();
         macAdresseFeld.setBounds(24, 240, 190, 36);
         cp.add(macAdresseFeld);
+        macAdresse = macAdresseFeld.getText();
         weitereBemerkungenFeld.setBounds(24, 296, 190, 36);
         cp.add(weitereBemerkungenFeld);
+        weitereBemerkung = weitereBemerkungenFeld.getText();
 
         pruefenUndHinzufuegen.setBounds(24, 352, 235, 33);
         pruefenUndHinzufuegen.setText("Prüfen und Hinzufügen");

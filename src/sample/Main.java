@@ -20,12 +20,11 @@ public class Main extends JFrame {
     private JButton datenbankErgaenzen = new JButton();
     private JButton datenbankBearbeiten = new JButton();
     private JButton handbuch = new JButton();
-    private JButton dokumentation = new JButton();
     private JButton credits = new JButton();
     private JButton datenbankRunterladen = new JButton();
     private JButton aktuelleTextdateiRunterladen = new JButton();
     private JButton exportMACAdressen = new JButton();
-    private ManuelleEingabe manuellesEingabefenster = new ManuelleEingabe();
+    private ManuelleEingabe manuellesEingabefenster;
     // Ende Attribute
 
     public Main() {
@@ -146,16 +145,7 @@ public class Main extends JFrame {
             }
         });
         cp.add(handbuch);
-        dokumentation.setBounds(528, 80, 155, 49);
-        dokumentation.setText("Dokumentation");
-        dokumentation.setMargin(new Insets(2, 2, 2, 2));
-        dokumentation.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                dokumentation_ActionPerformed(evt);
-            }
-        });
-        cp.add(dokumentation);
-        credits.setBounds(528, 144, 155, 49);
+        credits.setBounds(528, 80, 155, 49);
         credits.setText("Credits");
         credits.setMargin(new Insets(2, 2, 2, 2));
         credits.addActionListener(new ActionListener() {
@@ -164,6 +154,7 @@ public class Main extends JFrame {
             }
         });
         cp.add(credits);
+
         datenbankRunterladen.setBounds(504, 264, 155, 41);
         datenbankRunterladen.setText("Datenbank Runterladen");
         datenbankRunterladen.setMargin(new Insets(2, 2, 2, 2));
@@ -245,11 +236,6 @@ public class Main extends JFrame {
         // TODO hier Quelltext einfügen
 
     } // end of handbuch_ActionPerformed
-
-    public void dokumentation_ActionPerformed(ActionEvent evt) {
-        // TODO hier Quelltext einfügen
-
-    } // end of dokumentation_ActionPerformed
 
     public void credits_ActionPerformed(ActionEvent evt) {
         // TODO hier Quelltext einfügen
