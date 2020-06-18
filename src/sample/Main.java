@@ -23,8 +23,6 @@ public class Main extends JFrame {
     private JButton credits = new JButton();
     private JButton datenbankRunterladen = new JButton();
     private JButton aktuelleTextdateiRunterladen = new JButton();
-
-    private JButton exportMACAdressen = new JButton();
     private ManuelleEingabe manuellesEingabefenster;
     private JButton importLogAnzeigen = new JButton();
 
@@ -199,8 +197,7 @@ public class Main extends JFrame {
     } // end of main
 
     public void manuelleEingabe_ActionPerformed(ActionEvent evt) {
-        // TODO hier Quelltext einfügen
-
+        manuellesEingabefenster = new ManuelleEingabe();
     } // end of manuelleEingabe_ActionPerformed
 
     public void schnellerImport_ActionPerformed(ActionEvent evt) {
