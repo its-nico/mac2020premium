@@ -64,7 +64,7 @@ public class Main extends JFrame {
 
         ueberschrift.setBounds(16, 16, 390, 35);
         ueberschrift.setText("MAC-Projekt");
-
+        ueberschrift.setFont(new Font("Arial", Font.PLAIN, 30));
         cp.add(ueberschrift);
         beschreibung.setBounds(16, 50, 450, 150);
         beschreibung.setText("<html>Dieses Programm dient zur Verwaltung und Korrektur von MAC-Adressen. Es ist auf die Verwaltung von MAC-Adressen an Schulen optimiert und ermöglicht Ihnen deshalb das Speichern ganzer Datensätze, die Informationen über den Namen der Schüler*innen, deren Kursstufe und MAC-Adresse enthalten. \n" +
