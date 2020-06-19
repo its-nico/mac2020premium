@@ -15,6 +15,7 @@ public class Manager {
     private static Export export = new Export();
     private static Korrektur korrektur = new Korrektur();
     private static schnellerImport schnellerImport = new schnellerImport();
+    private static Fehlermeldungen fehlermeldungen = new Fehlermeldungen();
 
     private static Speichern speichern;
     private static SpeichernUnterClass speichernUnter = new SpeichernUnterClass();
@@ -54,6 +55,7 @@ public class Manager {
         korrektur.logErstellen();
         if (korrektur.istIPOhneLog(pMac)){
             System.out.println("Der Datensatz zur Adresse " + pMac + " wurde nicht übernommen, da es sich um eine IP-Adresse handelt.");
+            fehlermeldungen.keineMacAdresse(pMac);
         } else {
             Datensatz datensatzNeu = new Datensatz(pKursstufe, pNachname, pVorname, korrektur.autoKorrektur(pMac), pGrund);
             LIST_1.append(datensatzNeu);

@@ -1,5 +1,8 @@
 package code;
 
+import java.awt.*;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
 import java.io.*;
 
 public class Export {
@@ -67,6 +70,7 @@ public class Export {
 
     public void exportiereMac (List1<Datensatz> liste){ //Funktion: Exportiert die MAC-Adressen aus der Liste<Datensatz> in die Datei export.txt
         File file = new File("./export.txt");
+        String clipboardstring = "";
 
         //Zuvor alle mit dem File assoziierten Streams schließen...
 
@@ -89,11 +93,16 @@ public class Export {
             try {
                 bw.write(mac1); /* Nur das Attribut 'mac' wird in die Datei 'export.txt' geschrieben */
                 bw.write(System.getProperty("line.separator")); /* So kann der bw die Werte untereinander einfügen, da er Zeilenümrüche erstellen kann*/
+                clipboardstring = clipboardstring + mac1 + "\n";
             } catch (IOException e) {
                 e.printStackTrace();
             }
             liste.next();
         }
+
+        StringSelection stringSelection = new StringSelection(clipboardstring);
+        Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+        clipboard.setContents(stringSelection, null);
 
         try {
             bw.close(); /* Wenn der bw nicht geschlossen wird, bleibt die export-Datei leer */

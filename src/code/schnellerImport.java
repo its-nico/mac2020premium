@@ -17,13 +17,9 @@ public class schnellerImport {
     private static String mac;
 
     private static Korrektur korrektur = new Korrektur();
-
-    OeffnenDialogClass odc = new OeffnenDialogClass();
+    private OeffnenDialogClass odc = new OeffnenDialogClass();
 
     public static void schnellerImport(String importfilepath, List1 liste) {
-        //odc.main();
-        //String importfilepath = odc.getInputVerzStr();
-        //File filepath = new File("importfile"); /* Dateiname wird durch OeffnenDialogClass übergeben */
 
         FileReader fr = null;
         try {
