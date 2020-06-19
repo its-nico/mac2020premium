@@ -40,7 +40,7 @@ public class Import {
             }
             if (line != null) {
                 splitline(line); /* Die einzelnen Datensätze (lines) werden in ihre 5 Attribute aufgeteilt */
-                datensatz = new Datensatz(kursstufe, nachname, vorname, grund, mac);
+                datensatz = new Datensatz(kursstufe, nachname, vorname, mac, grund);
                 list.append(datensatz);
             }
         }

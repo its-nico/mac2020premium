@@ -12,8 +12,6 @@ public class Manager {
     private static String mac;
     private static String grund;
 
-
-
     private static Export export = new Export();
     private static Korrektur korrektur = new Korrektur();
    // private static Import anImport = new Import();
@@ -22,11 +20,7 @@ public class Manager {
     private static Speichern speichern;
     private static SpeichernUnterClass speichernUnter = new SpeichernUnterClass();
 
-
-
-
     public static void main(String[] args) {
-
         System.out.println(LIST_1.isEmpty());
         LIST_1 = speichern.laden();
         //     speichern.abspeichern(LIST_1);
@@ -59,16 +53,12 @@ public class Manager {
 
     public static void ergaenze(String pKursstufe, String pNachname, String pVorname, String pMac, String pGrund) {
         korrektur.logErstellen();
-        if (korrektur.istIPOhneLog(mac)){
-            System.out.println("Der Datensatz zur Adresse " + mac + " wurde nicht übernommen, da es sich um eine IP-Adresse handelt.");
-        }
-        else {
+        if (korrektur.istIPOhneLog(pMac)){ //wenn Eingabe IP-Adresse ist, ist Rückgabe der Methode istIPOhneLog
+            System.out.println("Der Datensatz zur Adresse " + pMac + " wurde nicht übernommen, da es sich um eine IP-Adresse handelt.");
+        } else {
             Datensatz datensatzNeu = new Datensatz(pKursstufe, pNachname, pVorname, korrektur.autoKorrektur(pMac), pGrund);
             LIST_1.append(datensatzNeu);
         }
     }
-
-
-
 }
 

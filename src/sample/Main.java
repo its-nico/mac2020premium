@@ -16,6 +16,7 @@ public class Main extends JFrame {
     private JLabel datenVerarbeiten = new JLabel();
     private JLabel datenbankVerwaltung = new JLabel();
     private JLabel datenAnsehen = new JLabel();
+
     private JButton manuelleEingabe = new JButton();
     private JButton schnellerImport = new JButton();
     private JButton langsamerImport = new JButton();
@@ -28,20 +29,24 @@ public class Main extends JFrame {
     private JButton credits = new JButton();
     private JButton datenbankRunterladen = new JButton();
     private JButton aktuelleTextdateiRunterladen = new JButton();
-    private ManuelleEingabe manuellesEingabefenster;
     private JButton importLogAnzeigen = new JButton();
+
+    private ManuelleEingabe manuellesEingabefenster;
 
     private Manager manager = new Manager();
     private OeffnenDialogClass oeffnenDialogClass = new OeffnenDialogClass();
-
-
     // Ende Attribute
 
     public Main() {
-
-
         // Frame-Initialisierung
         super();
+
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName()); //look & feel von Systwm wird hier gesetzt
+        } catch (Exception e) {
+            System.err.println("Error: " + e.getMessage());
+        }
+
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         int frameWidth = 720;
         int frameHeight = 520;
@@ -57,11 +62,14 @@ public class Main extends JFrame {
 
         // Anfang Komponenten
 
-        ueberschrift.setBounds(16, 16, 390, 10);
+        ueberschrift.setBounds(16, 16, 390, 35);
         ueberschrift.setText("MAC-Projekt");
+
         cp.add(ueberschrift);
-        beschreibung.setBounds(16, 104, 390, 60);
-        beschreibung.setText("Hier könnte Ihre Beschreibung stehen!");
+        beschreibung.setBounds(16, 50, 450, 150);
+        beschreibung.setText("<html>Dieses Programm dient zur Verwaltung und Korrektur von MAC-Adressen. Es ist auf die Verwaltung von MAC-Adressen an Schulen optimiert und ermöglicht Ihnen deshalb das Speichern ganzer Datensätze, die Informationen über den Namen der Schüler*innen, deren Kursstufe und MAC-Adresse enthalten. \n" +
+                "Kernfunktionen sind die Korrektur von MAC-Adressen, sowie deren Export. Außerdem lässt sich die Korrektur der MAC-Adressen in einem stetig wachsenden Korrektur-Log verfolgen.\n" +
+                "Das Speichern und Herunterladen der Datensätze auf, beziehungsweise von einer Datenbank, sind ebenfalls möglich.</html>");
         cp.add(beschreibung);
         datenHinzufuegen.setBounds(16, 216, 230, 28);
         datenHinzufuegen.setText("Daten hinzufügen");
@@ -221,80 +229,75 @@ public class Main extends JFrame {
                 }
             }
         });
-    } // end of public loool
+    } // end of public Main
 
     // Anfang Methoden
 
     public static void main(String[] args) {
         new Main();
 
-    } // end of main
+    }
 
     public void manuelleEingabe_ActionPerformed(ActionEvent evt) {
         manuellesEingabefenster = new ManuelleEingabe();
-    } // end of manuelleEingabe_ActionPerformed
+    }
 
     public void schnellerImport_ActionPerformed(ActionEvent evt) {
-        // TODO hier Quelltext einfügen
         manager.schnellerImport(oeffnenDialogClass.oeffnen());
-    } // end of schnellerImport_ActionPerformed
+    }
 
     public void langsamerImport_ActionPerformed(ActionEvent evt) {
         // TODO hier Quelltext einfügen
 
-    } // end of langsamerImport_ActionPerformed
+    }
 
     public void zurueckButton1_ActionPerformed(ActionEvent evt) {
         // TODO hier Quelltext einfügen
 
-    } // end of zurueckButton1_ActionPerformed
+    }
 
     public void zurueckButton2_ActionPerformed(ActionEvent evt) {
         // TODO hier Quelltext einfügen
 
-    } // end of zurueckButton2_ActionPerformed
+    }
 
     public void exportMACAdressen_ActionPerformed(ActionEvent evt) {
-        // TODO hier Quelltext einfügen
         manager.exportiereMac();
         FileOpener fileOpen = new FileOpener("./export.txt");
-    } // end of exportMACAdressen_ActionPerformed
+    }
 
     public void datenbankErgaenzen_ActionPerformed(ActionEvent evt) {
         // TODO hier Quelltext einfügen
 
-    } // end of datenbankErgaenzen_ActionPerformed
+    }
 
     public void datenbankBearbeiten_ActionPerformed(ActionEvent evt) {
         // TODO hier Quelltext einfügen
 
-    } // end of datenbankBearbeiten_ActionPerformed
+    }
 
     public void handbuch_ActionPerformed(ActionEvent evt) {
         // TODO hier Quelltext einfügen
 
-    } // end of handbuch_ActionPerformed
+    }
 
     public void credits_ActionPerformed(ActionEvent evt) {
         // TODO hier Quelltext einfügen
 
-    } // end of credits_ActionPerformed
+    }
 
     public void datenbankRunterladen_ActionPerformed(ActionEvent evt) {
         // TODO hier Quelltext einfügen
 
-    } // end of datenbankRunterladen_ActionPerformed
+    }
 
     public void aktuelleTextdateiRunterladen_ActionPerformed(ActionEvent evt) {
         // TODO hier Quelltext einfügen
 
-    } // end of aktuelleTextdateiRunterladen_ActionPerformed
+    }
 
     public void importLogAnzeigen_ActionPerformed(ActionEvent evt) {
         // TODO hier Quelltext einfügen
         FileOpener fileOpen = new FileOpener("./Fehlerlog.txt");
-    } // end of importLogAnzeigen_ActionPerformed
-
-    // Ende Methoden
-
-} // end of class loool
+    }
+}

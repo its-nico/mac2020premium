@@ -33,6 +33,9 @@ public class schnellerImport {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
             System.out.println("The file could not be found by FileReader (FileNotFoundException)");
+        } catch (NullPointerException f) {
+            f.printStackTrace();
+            System.out.println("Der Benutzer hat JFileChooser mit X geschlossen, ohne eine Datei auszuwählen");
         }
         BufferedReader br = new BufferedReader(fr);
 
@@ -51,7 +54,7 @@ public class schnellerImport {
                     System.out.println("Der Datensatz zur Adresse " + mac + " wurde nicht übernommen, da es sich um eine IP-Adresse handelt.");
                 }
                 else {
-                    datensatz = new Datensatz(kursstufe, nachname, vorname, grund, mac);
+                    datensatz = new Datensatz(kursstufe, nachname, vorname, mac, grund);
                     liste.append(datensatz);
                 }
             }
@@ -65,6 +68,5 @@ public class schnellerImport {
         vorname = splittedline[2];
         mac = korrektur.autoKorrektur(splittedline[3]);
         grund = splittedline[4];
-
     }
 }

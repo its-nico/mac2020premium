@@ -10,21 +10,23 @@ import javax.swing.event.*;
 public class ManuelleEingabe extends JFrame {
     // Anfang Attribute
     private JLabel erklaerungsFeld = new JLabel();
-    private JTextField vornameFeld = new JTextField("Vorname");
-    private JTextField nachnameFeld = new JTextField("Nachname");
-    private JTextField kursstufeFeld = new JTextField("Kursstufe");
-    private JTextField macAdresseFeld = new JTextField("MAC-Adresse");
-    private JTextField weitereBemerkungenFeld = new JTextField("Weitere Bemerkungen");
+
+    private JTextField vornameFeld = new JTextField();
+    private JTextField nachnameFeld = new JTextField();
+    private JTextField kursstufeFeld = new JTextField();
+    private JTextField macAdresseFeld = new JTextField();
+    private JTextField weitereBemerkungenFeld = new JTextField();
+
     private JButton pruefenUndHinzufuegen = new JButton();
     private JButton zurueck = new JButton();
-    private String vorname = new String();
-    private String nachname = new String();
-    private String kursstufe = new String();
-    private String macAdresse = new String();
-    private String weitereBemerkung = new String();
+
+    private String vorname;
+    private String nachname;
+    private String kursstufe;
+    private String macAdresse;
+    private String weitereBemerkung;
 
     private Manager manager = new Manager();
-
     // Ende Attribute
 
     public ManuelleEingabe() {
@@ -95,7 +97,11 @@ public class ManuelleEingabe extends JFrame {
     } // end of main
 
     public void pruefenUndHinzufuegen_ActionPerformed(ActionEvent evt) {
-        // TODO hier Quelltext einfügen
+        vorname = vornameFeld.getText();
+        nachname = nachnameFeld.getText();
+        kursstufe = kursstufeFeld.getText();
+        macAdresse = macAdresseFeld.getText();
+        weitereBemerkung = weitereBemerkungenFeld.getText();
         manager.ergaenze(kursstufe, nachname, vorname, macAdresse, weitereBemerkung);
     } // end of pruefenUndHinzufuegen_ActionPerformed
 

@@ -222,9 +222,8 @@ public class Korrektur {
     /* Überprüfung, ob es sich um eine IP-Adresse statt einer MAC-Adresse handelt, ohne dabei ins Log zu schreiben */
     public boolean istIPOhneLog(String text) {
         textVorIP = text;
-        bool = (Pattern.matches("[^a-z^A-Z]", text)) && text.contains(".") && !text.contains(":") && !text.contains(" ");
+        bool = (Pattern.matches("[^a-z^A-Z]", text)) && text.contains(".") && !text.contains(":") && text.contains(" "); //Variable bool wird hier noch nicht richtig definiert
         return bool;
     }
-
 }
 
