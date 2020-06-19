@@ -7,9 +7,6 @@ public class Export {
     private static String mac;
     private static String mac1;
 
-    public static void main(String[] args) {
-        export();
-    }
     public static void export() { //Funktion: Exportiert die MAC-Adressen aus der main.txt-Datei in die Datei export.txt
         String exportfile = "./export.txt";
         File fileRelative = new File("./main.txt");

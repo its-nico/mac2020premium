@@ -84,7 +84,6 @@ public class Main extends JFrame {
         datenAnsehen.setText("Daten Ansehen");
         cp.add(datenAnsehen);
 
-
         manuelleEingabe.setBounds(16, 264, 155, 41);
         manuelleEingabe.setText("Manuelle Eingabe");
         manuelleEingabe.setMargin(new Insets(2, 2, 2, 2));
@@ -185,6 +184,7 @@ public class Main extends JFrame {
             }
         });
         cp.add(datenbankRunterladen);
+
         aktuelleTextdateiRunterladen.setBounds(504, 328, 155, 41);
         aktuelleTextdateiRunterladen.setText("Aktuelle Textdatei runterladen");
         aktuelleTextdateiRunterladen.setMargin(new Insets(2, 2, 2, 2));
@@ -194,6 +194,7 @@ public class Main extends JFrame {
             }
         });
         cp.add(aktuelleTextdateiRunterladen);
+
         importLogAnzeigen.setBounds(504, 392, 155, 41);
         importLogAnzeigen.setText("Import-Log Anzeigen");
         importLogAnzeigen.setMargin(new Insets(2, 2, 2, 2));
@@ -232,10 +233,8 @@ public class Main extends JFrame {
     } // end of public Main
 
     // Anfang Methoden
-
     public static void main(String[] args) {
         new Main();
-
     }
 
     public void manuelleEingabe_ActionPerformed(ActionEvent evt) {
@@ -248,17 +247,14 @@ public class Main extends JFrame {
 
     public void langsamerImport_ActionPerformed(ActionEvent evt) {
         // TODO hier Quelltext einfügen
-
     }
 
     public void zurueckButton1_ActionPerformed(ActionEvent evt) {
         // TODO hier Quelltext einfügen
-
     }
 
     public void zurueckButton2_ActionPerformed(ActionEvent evt) {
         // TODO hier Quelltext einfügen
-
     }
 
     public void exportMACAdressen_ActionPerformed(ActionEvent evt) {
@@ -268,36 +264,29 @@ public class Main extends JFrame {
 
     public void datenbankErgaenzen_ActionPerformed(ActionEvent evt) {
         // TODO hier Quelltext einfügen
-
     }
 
     public void datenbankBearbeiten_ActionPerformed(ActionEvent evt) {
         // TODO hier Quelltext einfügen
-
     }
 
     public void handbuch_ActionPerformed(ActionEvent evt) {
         // TODO hier Quelltext einfügen
-
     }
 
     public void credits_ActionPerformed(ActionEvent evt) {
         // TODO hier Quelltext einfügen
-
     }
 
     public void datenbankRunterladen_ActionPerformed(ActionEvent evt) {
         // TODO hier Quelltext einfügen
-
     }
 
     public void aktuelleTextdateiRunterladen_ActionPerformed(ActionEvent evt) {
         // TODO hier Quelltext einfügen
-
     }
 
     public void importLogAnzeigen_ActionPerformed(ActionEvent evt) {
-        // TODO hier Quelltext einfügen
         FileOpener fileOpen = new FileOpener("./Fehlerlog.txt");
     }
 }

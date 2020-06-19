@@ -14,7 +14,6 @@ public class Manager {
 
     private static Export export = new Export();
     private static Korrektur korrektur = new Korrektur();
-   // private static Import anImport = new Import();
     private static schnellerImport schnellerImport = new schnellerImport();
 
     private static Speichern speichern;
@@ -23,7 +22,7 @@ public class Manager {
     public static void main(String[] args) {
         System.out.println(LIST_1.isEmpty());
         LIST_1 = speichern.laden();
-        //     speichern.abspeichern(LIST_1);
+        //speichern.abspeichern(LIST_1);
         System.out.println(LIST_1.isEmpty());
     }
 
@@ -53,7 +52,7 @@ public class Manager {
 
     public static void ergaenze(String pKursstufe, String pNachname, String pVorname, String pMac, String pGrund) {
         korrektur.logErstellen();
-        if (korrektur.istIPOhneLog(pMac)){ //wenn Eingabe IP-Adresse ist, ist Rückgabe der Methode istIPOhneLog
+        if (korrektur.istIPOhneLog(pMac)){
             System.out.println("Der Datensatz zur Adresse " + pMac + " wurde nicht übernommen, da es sich um eine IP-Adresse handelt.");
         } else {
             Datensatz datensatzNeu = new Datensatz(pKursstufe, pNachname, pVorname, korrektur.autoKorrektur(pMac), pGrund);

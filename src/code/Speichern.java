@@ -21,6 +21,7 @@ public class Speichern {
             }
         }
     }
+
     public static List1 laden () {
             List1 liste = null;
             InputStream fis = null;

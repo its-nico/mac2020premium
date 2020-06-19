@@ -20,8 +20,6 @@ public class schnellerImport {
 
     OeffnenDialogClass odc = new OeffnenDialogClass();
 
-
-
     public static void schnellerImport(String importfilepath, List1 liste) {
         //odc.main();
         //String importfilepath = odc.getInputVerzStr();

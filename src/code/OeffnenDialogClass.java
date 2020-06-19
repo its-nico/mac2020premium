@@ -7,6 +7,7 @@ import java.io.File;
 import javax.swing.JFileChooser;
 
 public class OeffnenDialogClass {
+
     String inputVerzStr;
 
     public static void main(String[] args) {
@@ -40,12 +41,8 @@ public class OeffnenDialogClass {
             System.out.println("Eingabepfad:" + inputVerzStr);
             return inputVerzStr;
         }
-        //System.out.println("Abbruch");
         chooser.setVisible(false);
-        return inputVerzStr;
-    }
 
-    public String getInputVerzStr() {
         return inputVerzStr;
     }
 }

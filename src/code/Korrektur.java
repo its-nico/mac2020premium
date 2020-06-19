@@ -9,27 +9,25 @@ public class Korrektur {
 
     public int zaehler = 1; //Zählervariable wird erstellt, damit die Logs später alle verschieden benannt werden können
 
-    String textVorIP; //Der ursprünglich zu überprüfende Text wird in der Variable gespeichert, damit später das Log damit erstellt werden kann
-    boolean bool;
-    String textVorO;
-    String textNachO; //Der korrigierte Text wird in der Variable gespeichert, damit später das Log damit erstellt werden kann
-    String textVorLeerzeichen;
-    String textNachLeerzeichen;
-    String textVorBindestriche;
-    String textNachBindestriche;
-
-
+    private String textVorIP; //Der ursprünglich zu überprüfende Text wird in der Variable gespeichert, damit später das Log damit erstellt werden kann
+    private boolean bool;
+    private String textVorO;
+    private String textNachO; //Der korrigierte Text wird in der Variable gespeichert, damit später das Log damit erstellt werden kann
+    private String textVorLeerzeichen;
+    private String textNachLeerzeichen;
+    private String textVorBindestriche;
+    private String textNachBindestriche;
 
     /* Klasse führt automatisch alle Korrektur-Methoden auf einmal aus */
-    public String autoKorrektur(String text) {
+    public String autoKorrektur (String text) {
         if (istIP(text)) {
             System.err.println("Es handelt sich hierbei um eine IP-Adresse. Bitte geben Sie eine MAC-Adresse ein!");
             return null;
         }
+
         if (istKorrekt(text)){
             return text;
-        }
-        else {
+        } else {
             return (o(bindestriche(leerzeichen(text))));
         }
     }
@@ -43,13 +41,13 @@ public class Korrektur {
 
         String exportfile = "./Fehlerlog.txt";
         FileWriter fw = null;
-      //  BufferedWriter bw = new BufferedWriter(fw);
         try {
             fw = new FileWriter(exportfile, true); /* FileWriter wird erstellt */
         } catch (IOException e) {
             e.printStackTrace();
         }
         BufferedWriter bw = new BufferedWriter(fw);
+
         try {
             if (!textVorO.equals(textNachO)){
                 bw.write("  Die Buchstaben 'O' wurden durch Nullen ersetzt: " + textNachO + "\n" );
@@ -68,7 +66,7 @@ public class Korrektur {
     }
 
     /* Alle Leerzeichen werden gelöscht */
-    public String leerzeichen(String text) {
+    public String leerzeichen (String text) {
         textVorLeerzeichen = text;
         text = text.replace(" ", "");
         textNachLeerzeichen = text;
@@ -81,12 +79,12 @@ public class Korrektur {
             e.printStackTrace();
         }
         BufferedWriter bw = new BufferedWriter(fw);
+
         try {
             if (!textVorLeerzeichen.equals(textNachLeerzeichen)) {
                 bw.write("  Die Leerzeichen wurden gelöscht: " + textNachLeerzeichen +"\n");
             }
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
         try {
@@ -99,7 +97,7 @@ public class Korrektur {
     }
 
     /* Alle Bindestriche werden mit Doppelpunkten ersetzt */
-    public String bindestriche(String text) {
+    public String bindestriche (String text) {
         textVorBindestriche = text;
         text = text.replace("-",":");
         textNachBindestriche = text;
@@ -112,12 +110,12 @@ public class Korrektur {
             e.printStackTrace();
         }
         BufferedWriter bw = new BufferedWriter(fw);
+
         try {
             if (!textVorBindestriche.equals(textNachBindestriche)) {
                 bw.write("  Die Bindestriche wurden durch Doppelpunkte ersetzt: " + textNachBindestriche + "\n" );
             }
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
         try {
@@ -130,7 +128,7 @@ public class Korrektur {
     }
 
     /* Überprüfung, ob es sich um eine IP-Adresse statt einer MAC-Adresse handelt */
-    public boolean istIP(String text) {
+    public boolean istIP (String text) {
         textVorIP = text;
         bool = (Pattern.matches("[^a-z^A-Z]", text)) && text.contains(".") && !text.contains(":") && !text.contains(" ");
 
@@ -142,12 +140,12 @@ public class Korrektur {
             e.printStackTrace();
         }
         BufferedWriter bw = new BufferedWriter(fw);
+
         try {
             if (bool == true){
                 bw.write("  Es handelt sich um eine IP-Adresse, nicht um eine MAC-Adresse." +"\n");
             }
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
         try {
@@ -160,8 +158,7 @@ public class Korrektur {
     }
 
     /* Überprüfung, ob die MAC-Adresse korrekt ist */
-    public boolean istKorrekt(String text) {
-
+    public boolean istKorrekt (String text) {
         String exportfile = "./Fehlerlog.txt";
         FileWriter fw = null;
         try {
@@ -170,6 +167,7 @@ public class Korrektur {
             e.printStackTrace();
         }
         BufferedWriter bw = new BufferedWriter(fw);
+
         try {
             if ((!text.contains("o") && !text.contains("O") && !text.contains("-") && !text.contains(" ") && !istIPOhneLog(text)) == true){
                 bw.write("  Die MAC-Adresse ist bereits korrekt und wurde daher nicht verändert.\n");
@@ -183,11 +181,11 @@ public class Korrektur {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
         return !text.contains("o") && !text.contains("O") && !text.contains("-") && !text.contains(" ") && !istIP(text);
     }
 
     public void logErstellen() {
-
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss:mm:");
        // SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
         String uhrzeit = sdf.format(new Date());

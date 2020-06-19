@@ -13,12 +13,7 @@ public class Import {
 
     OeffnenDialogClass odc = new OeffnenDialogClass();
 
-
-
     public static List1<Datensatz> import1() {
-        //odc.main();
-        //String importfilepath = odc.getInputVerzStr();
-        //File filepath = new File("importfile"); /* Dateiname wird durch OeffnenDialogClass übergeben */
         String importfilepath = "C:/Users/user/Desktop/test.txt";
 
         FileReader fr = null;
