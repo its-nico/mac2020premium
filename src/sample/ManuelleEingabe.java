@@ -11,17 +11,18 @@ public class ManuelleEingabe extends JFrame {
     // Anfang Attribute
     private JLabel erklaerungsFeld = new JLabel();
 
-    private JTextField vornameFeld = new JTextField();
-    private JTextField nachnameFeld = new JTextField();
-    private JTextField kursstufeFeld = new JTextField();
-    private JTextField macAdresseFeld = new JTextField();
-    private JTextField weitereBemerkungenFeld = new JTextField();
+    private JTextField vornameFeld = new JTextField("Vorname");
+    private JTextField nachnameFeld = new JTextField("Nachname");
+    private JTextField kursstufeFeld = new JTextField("Kursstufe");
+    private JTextField macAdresseFeld = new JTextField("MAC-Adresse");
+    private JTextField weitereBemerkungenFeld = new JTextField("Weitere Bemerkungen");
 
     private JButton pruefenUndHinzufuegen = new JButton();
     private JButton zurueck = new JButton();
 
     private JTextArea jTextArea1 = new JTextArea("");
     private JScrollPane jTextArea1ScrollPane = new JScrollPane(jTextArea1);
+
     private String vorname = new String();
     private String nachname = new String();
     private String kursstufe = new String();
@@ -46,6 +47,7 @@ public class ManuelleEingabe extends JFrame {
         setResizable(false);
         Container cp = getContentPane();
         cp.setLayout(null);
+        setIconImage(new ImageIcon(getClass().getResource("88208755.png")).getImage());
         // Anfang Komponenten
 
         erklaerungsFeld.setBounds(24, 24, 280, 35);
@@ -55,19 +57,48 @@ public class ManuelleEingabe extends JFrame {
 
         vornameFeld.setBounds(24, 72, 190, 36);
         cp.add(vornameFeld);
+        vornameFeld.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                vornameFeldMouseClicked(evt);
+            }
+        });
         vorname = vornameFeld.getText();
+
         nachnameFeld.setBounds(24, 128, 190, 36);
         cp.add(nachnameFeld);
         nachname = nachnameFeld.getText();
+        nachnameFeld.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                nachnameFeldMouseClicked(evt);
+            }
+        });
+
         kursstufeFeld.setBounds(24, 184, 190, 36);
         cp.add(kursstufeFeld);
         kursstufe = kursstufeFeld.getText();
+        kursstufeFeld.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                kursstufeFeldMouseClicked(evt);
+            }
+        });
+
         macAdresseFeld.setBounds(24, 240, 190, 36);
         cp.add(macAdresseFeld);
         macAdresse = macAdresseFeld.getText();
+        macAdresseFeld.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                macAdresseFeldMouseClicked(evt);
+            }
+        });
+
         weitereBemerkungenFeld.setBounds(24, 296, 190, 36);
         cp.add(weitereBemerkungenFeld);
         weitereBemerkung = weitereBemerkungenFeld.getText();
+        weitereBemerkungenFeld.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                weitereBemerkungenFeldMouseClicked(evt);
+            }
+        });
 
         jTextArea1ScrollPane.setBounds(273, 72, 216, 260);
         cp.add(jTextArea1ScrollPane);
@@ -115,6 +146,22 @@ public class ManuelleEingabe extends JFrame {
 
     } // end of zurueck_ActionPerformed
 
+    private void vornameFeldMouseClicked(java.awt.event.MouseEvent evt) {
+        vornameFeld.setText("");
+    }
+
+    private void nachnameFeldMouseClicked(java.awt.event.MouseEvent evt) {
+        nachnameFeld.setText("");
+    }
+    private void kursstufeFeldMouseClicked(java.awt.event.MouseEvent evt) {
+        kursstufeFeld.setText("");
+    }
+    private void macAdresseFeldMouseClicked(java.awt.event.MouseEvent evt) {
+        macAdresseFeld.setText("");
+    }
+    private void weitereBemerkungenFeldMouseClicked(java.awt.event.MouseEvent evt) {
+        weitereBemerkungenFeld.setText("");
+    }
     // Ende Methoden
 
 } // end of class ManuelleEingabe
