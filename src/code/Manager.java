@@ -12,32 +12,54 @@ public class Manager {
     private static String mac;
     private static String grund;
 
-
     private static Export export = new Export();
     private static Korrektur korrektur = new Korrektur();
-    private static Import anImport = new Import();
+    private static schnellerImport schnellerImport = new schnellerImport();
+    private static Fehlermeldungen fehlermeldungen = new Fehlermeldungen();
 
     private static Speichern speichern;
+    private static SpeichernUnterClass speichernUnter = new SpeichernUnterClass();
 
     public static void main(String[] args) {
         System.out.println(LIST_1.isEmpty());
         LIST_1 = speichern.laden();
-        //   dateizudatensatz(); /* Datensätze, die in txt-Datei gespeichert sind, werden als Datensatz-Objekte in die Liste eingefügt (via insert-Methode) */
-        //     speichern.abspeichern(LIST_1);
+        //speichern.abspeichern(LIST_1);
         System.out.println(LIST_1.isEmpty());
     }
 
-    public static String korrigiere(String pText){
+  /*  public static String korrigiere(String pText){
         return korrektur.autoKorrektur(pText);
-    }
+    } */
 
     public static void  exportiere(){
         export.export();
     }
 
+    public static void  exportiereMac(){
+        export.exportiereMac(LIST_1);
+    }
+
+    public static void laden(){
+        LIST_1 = speichern.laden();
+    }
+
+    public static void speichern(){
+        speichern.abspeichern(LIST_1);
+    }
+
+    public static void schnellerImport (String pPfad){
+        schnellerImport.schnellerImport(pPfad, LIST_1);
+    }
+
     public static void ergaenze(String pKursstufe, String pNachname, String pVorname, String pMac, String pGrund) {
-        Datensatz datensatzNeu = new Datensatz(pKursstufe, pNachname, pVorname, pMac, pGrund);
-        LIST_1.append(datensatzNeu);
+        korrektur.logErstellen();
+        if (korrektur.istIPOhneLog(pMac)){
+            System.out.println("Der Datensatz zur Adresse " + pMac + " wurde nicht übernommen, da es sich um eine IP-Adresse handelt.");
+            fehlermeldungen.keineMacAdresse(pMac);
+        } else {
+            Datensatz datensatzNeu = new Datensatz(pKursstufe, pNachname, pVorname, korrektur.autoKorrektur(pMac), pGrund);
+            LIST_1.append(datensatzNeu);
+        }
     }
 }
 

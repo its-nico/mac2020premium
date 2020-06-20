@@ -1,7 +1,12 @@
 package sample;
+import code.FileOpener;
+import code.Manager;
+import code.OeffnenDialogClass;
+
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import java.lang.*;
 
 public class Main extends JFrame {
     // Anfang Attribute
@@ -11,6 +16,7 @@ public class Main extends JFrame {
     private JLabel datenVerarbeiten = new JLabel();
     private JLabel datenbankVerwaltung = new JLabel();
     private JLabel datenAnsehen = new JLabel();
+
     private JButton manuelleEingabe = new JButton();
     private JButton schnellerImport = new JButton();
     private JButton langsamerImport = new JButton();
@@ -23,14 +29,24 @@ public class Main extends JFrame {
     private JButton credits = new JButton();
     private JButton datenbankRunterladen = new JButton();
     private JButton aktuelleTextdateiRunterladen = new JButton();
-    private ManuelleEingabe manuellesEingabefenster;
     private JButton importLogAnzeigen = new JButton();
 
+    private ManuelleEingabe manuellesEingabefenster;
+
+    private Manager manager = new Manager();
+    private OeffnenDialogClass oeffnenDialogClass = new OeffnenDialogClass();
     // Ende Attribute
 
     public Main() {
         // Frame-Initialisierung
         super();
+
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName()); //look & feel von Systwm wird hier gesetzt
+        } catch (Exception e) {
+            System.err.println("Error: " + e.getMessage());
+        }
+
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         int frameWidth = 720;
         int frameHeight = 520;
@@ -44,14 +60,16 @@ public class Main extends JFrame {
         Container cp = getContentPane();
         cp.setLayout(null);
 
-
         // Anfang Komponenten
 
-        ueberschrift.setBounds(16, 16, 390, 10);
+        ueberschrift.setBounds(16, 16, 390, 35);
         ueberschrift.setText("MAC-Projekt");
+        ueberschrift.setFont(new Font("Arial", Font.PLAIN, 30));
         cp.add(ueberschrift);
-        beschreibung.setBounds(16, 104, 390, 60);
-        beschreibung.setText("Hier könnte Ihre Beschreibung stehen!");
+        beschreibung.setBounds(16, 50, 450, 150);
+        beschreibung.setText("<html>Dieses Programm dient zur Verwaltung und Korrektur von MAC-Adressen. Es ist auf die Verwaltung von MAC-Adressen an Schulen optimiert und ermöglicht Ihnen deshalb das Speichern ganzer Datensätze, die Informationen über den Namen der Schüler*innen, deren Kursstufe und MAC-Adresse enthalten. \n" +
+                "Kernfunktionen sind die Korrektur von MAC-Adressen, sowie deren Export. Außerdem lässt sich die Korrektur der MAC-Adressen in einem stetig wachsenden Korrektur-Log verfolgen.\n" +
+                "Das Speichern und Herunterladen der Datensätze auf, beziehungsweise von einer Datenbank, sind ebenfalls möglich.</html>");
         cp.add(beschreibung);
         datenHinzufuegen.setBounds(16, 216, 230, 28);
         datenHinzufuegen.setText("Daten hinzufügen");
@@ -65,7 +83,6 @@ public class Main extends JFrame {
         datenAnsehen.setBounds(504, 216, 190, 28);
         datenAnsehen.setText("Daten Ansehen");
         cp.add(datenAnsehen);
-
 
         manuelleEingabe.setBounds(16, 264, 155, 41);
         manuelleEingabe.setText("Manuelle Eingabe");
@@ -167,6 +184,7 @@ public class Main extends JFrame {
             }
         });
         cp.add(datenbankRunterladen);
+
         aktuelleTextdateiRunterladen.setBounds(504, 328, 155, 41);
         aktuelleTextdateiRunterladen.setText("Aktuelle Textdatei runterladen");
         aktuelleTextdateiRunterladen.setMargin(new Insets(2, 2, 2, 2));
@@ -176,6 +194,7 @@ public class Main extends JFrame {
             }
         });
         cp.add(aktuelleTextdateiRunterladen);
+
         importLogAnzeigen.setBounds(504, 392, 155, 41);
         importLogAnzeigen.setText("Import-Log Anzeigen");
         importLogAnzeigen.setMargin(new Insets(2, 2, 2, 2));
@@ -187,78 +206,87 @@ public class Main extends JFrame {
         cp.add(importLogAnzeigen);
         // Ende Komponenten
 
+        manager.laden();
+
         setVisible(true);
-    } // end of public loool
+
+        addWindowListener(new WindowAdapter()
+        {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                System.out.println("Closed");
+                int result = JOptionPane.showConfirmDialog(null,
+                        "Möchten Sie vor dem Beenden speichern?",
+                        "Beenden bestätigen",
+                        JOptionPane.YES_NO_OPTION);
+
+                switch (result) {
+                    case JOptionPane.YES_OPTION:
+                        manager.speichern();
+                        System.exit(0); //Aktion(en) bei Klicken auf den "Ja-Button"
+                    case JOptionPane.NO_OPTION:
+                        System.exit(0);
+                        //e.getWindow().dispose();
+                }
+            }
+        });
+    } // end of public Main
 
     // Anfang Methoden
-
     public static void main(String[] args) {
         new Main();
-    } // end of main
+    }
 
     public void manuelleEingabe_ActionPerformed(ActionEvent evt) {
         manuellesEingabefenster = new ManuelleEingabe();
-    } // end of manuelleEingabe_ActionPerformed
+    }
 
     public void schnellerImport_ActionPerformed(ActionEvent evt) {
-        // TODO hier Quelltext einfügen
-
-    } // end of schnellerImport_ActionPerformed
+        manager.schnellerImport(oeffnenDialogClass.oeffnen());
+    }
 
     public void langsamerImport_ActionPerformed(ActionEvent evt) {
         // TODO hier Quelltext einfügen
-
-    } // end of langsamerImport_ActionPerformed
+    }
 
     public void zurueckButton1_ActionPerformed(ActionEvent evt) {
         // TODO hier Quelltext einfügen
-
-    } // end of zurueckButton1_ActionPerformed
+    }
 
     public void zurueckButton2_ActionPerformed(ActionEvent evt) {
         // TODO hier Quelltext einfügen
-
-    } // end of zurueckButton2_ActionPerformed
+    }
 
     public void exportMACAdressen_ActionPerformed(ActionEvent evt) {
-        // TODO hier Quelltext einfügen
-
-    } // end of exportMACAdressen_ActionPerformed
+        manager.exportiereMac();
+        FileOpener fileOpen = new FileOpener("./export.txt");
+    }
 
     public void datenbankErgaenzen_ActionPerformed(ActionEvent evt) {
         // TODO hier Quelltext einfügen
-
-    } // end of datenbankErgaenzen_ActionPerformed
+    }
 
     public void datenbankBearbeiten_ActionPerformed(ActionEvent evt) {
         // TODO hier Quelltext einfügen
-
-    } // end of datenbankBearbeiten_ActionPerformed
+    }
 
     public void handbuch_ActionPerformed(ActionEvent evt) {
         // TODO hier Quelltext einfügen
-
-    } // end of handbuch_ActionPerformed
+    }
 
     public void credits_ActionPerformed(ActionEvent evt) {
         // TODO hier Quelltext einfügen
-
-    } // end of credits_ActionPerformed
+    }
 
     public void datenbankRunterladen_ActionPerformed(ActionEvent evt) {
         // TODO hier Quelltext einfügen
-
-    } // end of datenbankRunterladen_ActionPerformed
+    }
 
     public void aktuelleTextdateiRunterladen_ActionPerformed(ActionEvent evt) {
         // TODO hier Quelltext einfügen
-
-    } // end of aktuelleTextdateiRunterladen_ActionPerformed
+    }
 
     public void importLogAnzeigen_ActionPerformed(ActionEvent evt) {
-        // TODO hier Quelltext einfügen
-
-    } // end of importLogAnzeigen_ActionPerformed
-
-    // Ende Methoden
-} // end of class loool
+        FileOpener fileOpen = new FileOpener("./Fehlerlog.txt");
+    }
+}

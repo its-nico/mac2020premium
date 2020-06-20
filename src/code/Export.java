@@ -1,15 +1,20 @@
 package code;
 
+import java.awt.*;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
 import java.io.*;
 
 public class Export {
 
     private static String mac;
+    private static String mac1;
 
-    public void export() {
+    public static void export() { //Funktion: Exportiert die MAC-Adressen aus der main.txt-Datei in die Datei export.txt
         String exportfile = "./export.txt";
         File fileRelative = new File("./main.txt");
         String maintextfile = null;
+
         try {
             maintextfile = fileRelative.getCanonicalPath();
         } catch (IOException e) {
@@ -37,7 +42,7 @@ public class Export {
         String line = "";
         while (line != null) {
             try {
-                line = br.readLine(); /* Jeweils ein komplette Zeile, also ein Datensatz, wird über die Variable 'line' gespeichert */
+                line = br.readLine(); /* Jeweils ein komplette Zeile, also ein Datensatz, wird aus main.txt ausgelesem und über die Variable 'line' gespeichert */
             } catch (IOException e) {
                 System.out.println("An error has occurred (IOException)");
             }
@@ -60,6 +65,49 @@ public class Export {
 
     public static void splitline(String line) {
         String[] splittedline = line.split("; "); /* Die Methode 'split' teilt den String 'line' mithilfe des definierten Trennzeichens '; '*/
-        mac = splittedline[4]; /* Nur der 5. Wert der line wird auf der Variable 'mac' gespeichert */
+        mac = splittedline[3]; /* Nur der 5. Wert der line wird auf der Variable 'mac' gespeichert */
+    }
+
+    public void exportiereMac (List1<Datensatz> liste){ //Funktion: Exportiert die MAC-Adressen aus der Liste<Datensatz> in die Datei export.txt
+        File file = new File("./export.txt");
+        String clipboardstring = "";
+
+        //Zuvor alle mit dem File assoziierten Streams schließen...
+
+        if(file.exists()){
+            file.delete();
+        }
+
+        String exportfile = "./export.txt";
+        FileWriter fw = null;
+        try {
+            fw = new FileWriter(exportfile, true); /* FileWriter wird erstellt */
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        BufferedWriter bw = new BufferedWriter(fw);
+
+        liste.toFirst();
+        while (liste.hasAccess()) {
+            mac1 = (liste.getContent()).getMac();
+            try {
+                bw.write(mac1); /* Nur das Attribut 'mac' wird in die Datei 'export.txt' geschrieben */
+                bw.write(System.getProperty("line.separator")); /* So kann der bw die Werte untereinander einfügen, da er Zeilenümrüche erstellen kann*/
+                clipboardstring = clipboardstring + mac1 + "\n";
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            liste.next();
+        }
+
+        StringSelection stringSelection = new StringSelection(clipboardstring);
+        Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+        clipboard.setContents(stringSelection, null);
+
+        try {
+            bw.close(); /* Wenn der bw nicht geschlossen wird, bleibt die export-Datei leer */
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

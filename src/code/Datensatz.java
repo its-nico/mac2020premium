@@ -7,11 +7,11 @@ public class Datensatz implements Serializable {
     private String kursstufe;
     private String nachname;
     private String vorname;
-    private String grund;
     private String mac;
+    private String grund;
 
-    /* >Konstruktor der Klasse Datensatz, ein neuesObjekt wird erstellt*/
-    public Datensatz(String pKursstufe, String pNachname, String pVorname, String pGrund, String pMac) {
+    /* >Konstruktor der Klasse Datensatz, ein neues Objekt wird erstellt*/
+    public Datensatz(String pKursstufe, String pNachname, String pVorname, String pMac, String pGrund) {
         kursstufe = pKursstufe;
         nachname = pNachname;
         vorname = pVorname;
@@ -45,14 +45,6 @@ public class Datensatz implements Serializable {
         this.vorname = vorname;
     }
 
-    public String getGrund() {
-        return grund;
-    }
-
-    public void setGrund(String grund) {
-        this.grund = grund;
-    }
-
     public String getMac() {
         return mac;
     }
@@ -61,4 +53,11 @@ public class Datensatz implements Serializable {
         this.mac = mac;
     }
 
+    public String getGrund() {
+        return grund;
+    }
+
+    public void setGrund(String grund) {
+        this.grund = grund;
+    }
 }

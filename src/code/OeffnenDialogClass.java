@@ -7,6 +7,7 @@ import java.io.File;
 import javax.swing.JFileChooser;
 
 public class OeffnenDialogClass {
+
     String inputVerzStr;
 
     public static void main(String[] args) {
@@ -14,7 +15,7 @@ public class OeffnenDialogClass {
         odc.oeffnen();
     }
 
-    public void oeffnen() {
+    public String oeffnen() {
         final JFileChooser chooser = new JFileChooser("Verzeichnis wählen");
         chooser.setDialogType(JFileChooser.OPEN_DIALOG);
         chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
@@ -38,12 +39,10 @@ public class OeffnenDialogClass {
             File inputVerzFile = chooser.getSelectedFile();
             String inputVerzStr = inputVerzFile.getPath();
             System.out.println("Eingabepfad:" + inputVerzStr);
+            return inputVerzStr;
         }
-        System.out.println("Abbruch");
         chooser.setVisible(false);
-    }
 
-    public String getInputVerzStr() {
         return inputVerzStr;
     }
 }

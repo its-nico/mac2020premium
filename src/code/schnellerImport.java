@@ -1,9 +1,14 @@
 package code;
 
-import java.io.*;
+import code.Datensatz;
+import code.OeffnenDialogClass;
 
-public class Import {
-    private static final List1<Datensatz> list = new List1<Datensatz>(); /* Neue generische Liste des Datentpys 'Datensatz' wird erstellt */
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class schnellerImport {
     private static Datensatz datensatz;
     private static String kursstufe;
     private static String nachname;
@@ -11,10 +16,10 @@ public class Import {
     private static String grund;
     private static String mac;
 
-    OeffnenDialogClass odc = new OeffnenDialogClass();
+    private static Korrektur korrektur = new Korrektur();
+    private OeffnenDialogClass odc = new OeffnenDialogClass();
 
-    public static List1<Datensatz> import1() {
-        String importfilepath = "C:/Users/user/Desktop/test.txt";
+    public static void schnellerImport(String importfilepath, List1 liste) {
 
         FileReader fr = null;
         try {
@@ -22,6 +27,9 @@ public class Import {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
             System.out.println("The file could not be found by FileReader (FileNotFoundException)");
+        } catch (NullPointerException f) {
+            f.printStackTrace();
+            System.out.println("Der Benutzer hat JFileChooser mit X geschlossen, ohne eine Datei auszuwählen");
         }
         BufferedReader br = new BufferedReader(fr);
 
@@ -34,12 +42,17 @@ public class Import {
                 System.out.println("An error has occurred (IOException)");
             }
             if (line != null) {
+                korrektur.logErstellen();
                 splitline(line); /* Die einzelnen Datensätze (lines) werden in ihre 5 Attribute aufgeteilt */
-                datensatz = new Datensatz(kursstufe, nachname, vorname, mac, grund);
-                list.append(datensatz);
+                if (korrektur.istIPOhneLog(mac)){
+                    System.out.println("Der Datensatz zur Adresse " + mac + " wurde nicht übernommen, da es sich um eine IP-Adresse handelt.");
+                }
+                else {
+                    datensatz = new Datensatz(kursstufe, nachname, vorname, mac, grund);
+                    liste.append(datensatz);
+                }
             }
         }
-        return list;
     }
 
     public static void splitline(String line) {
@@ -47,8 +60,7 @@ public class Import {
         kursstufe = splittedline[0];
         nachname = splittedline[1];
         vorname = splittedline[2];
-        mac = splittedline[3];
+        mac = korrektur.autoKorrektur(splittedline[3]);
         grund = splittedline[4];
-
     }
 }
