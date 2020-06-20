@@ -5,3 +5,35 @@ Log erstellt am 20.06.2020 um 13:27:50:27:.
 
 Folgende Änderungen wurden durch die Korrektur an der möglicherweise fehlerhaften MAC-Adresse (null) vorgenommen:
 
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Log erstellt am 20.06.2020 um 21:10:59:10:.
+
+Folgende Änderungen wurden durch die Korrektur an der möglicherweise fehlerhaften MAC-Adresse (null) vorgenommen:
+
+  Die MAC-Adresse ist bereits korrekt und wurde daher nicht verändert.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Log erstellt am 20.06.2020 um 21:36:23:36:.
+
+Folgende Änderungen wurden durch die Korrektur an der möglicherweise fehlerhaften MAC-Adresse (null) vorgenommen:
+
+  Die MAC-Adresse ist bereits korrekt und wurde daher nicht verändert.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Log erstellt am 20.06.2020 um 21:36:23:36:.
+
+Folgende Änderungen wurden durch die Korrektur an der möglicherweise fehlerhaften MAC-Adresse (00:00:00:00:00:00) vorgenommen:
+
+  Die MAC-Adresse ist bereits korrekt und wurde daher nicht verändert.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Log erstellt am 20.06.2020 um 21:36:23:36:.
+
+Folgende Änderungen wurden durch die Korrektur an der möglicherweise fehlerhaften MAC-Adresse (11:11:11:11:11:11) vorgenommen:
+
+  Die MAC-Adresse ist bereits korrekt und wurde daher nicht verändert.
