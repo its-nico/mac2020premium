@@ -42,7 +42,7 @@ public class Main extends JFrame {
         super();
 
         try {
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName()); //look & feel von Systwm wird hier gesetzt
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName()); //look & feel von System wird hier gesetzt
         } catch (Exception e) {
             System.err.println("Error: " + e.getMessage());
         }
@@ -59,6 +59,8 @@ public class Main extends JFrame {
         setResizable(false);
         Container cp = getContentPane();
         cp.setLayout(null);
+
+        setIconImage(new ImageIcon(getClass().getResource("88208755.png")).getImage());
 
         // Anfang Komponenten
 
