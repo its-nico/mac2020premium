@@ -221,6 +221,7 @@ public class Korrektur {
     public boolean istIPOhneLog(String text) {
         textVorIP = text;
         bool = (Pattern.matches("[^a-z^A-Z]", text)) && text.contains(".") && !text.contains(":") && text.contains(" "); //Variable bool wird hier noch nicht richtig definiert
+        bool = true;
         return bool;
     }
 }
