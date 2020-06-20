@@ -6,6 +6,7 @@ import code.OeffnenDialogClass;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import java.io.File;
 import java.lang.*;
 
 public class Main extends JFrame {
@@ -35,6 +36,7 @@ public class Main extends JFrame {
 
     private Manager manager = new Manager();
     private OeffnenDialogClass oeffnenDialogClass = new OeffnenDialogClass();
+    private File file1 = new File("./savedList.ser");
     // Ende Attribute
 
     public Main() {
@@ -208,7 +210,11 @@ public class Main extends JFrame {
         cp.add(importLogAnzeigen);
         // Ende Komponenten
 
+        if (!file1.exists()){
+            manager.speichern();
+        }
         manager.laden();
+
 
         setVisible(true);
 

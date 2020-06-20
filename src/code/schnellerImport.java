@@ -48,6 +48,7 @@ public class schnellerImport {
                     System.out.println("Der Datensatz zur Adresse " + mac + " wurde nicht übernommen, da es sich um eine IP-Adresse handelt.");
                 }
                 else {
+                    mac = korrektur.autoKorrektur(mac);
                     datensatz = new Datensatz(kursstufe, nachname, vorname, mac, grund);
                     liste.append(datensatz);
                 }
@@ -60,7 +61,7 @@ public class schnellerImport {
         kursstufe = splittedline[0];
         nachname = splittedline[1];
         vorname = splittedline[2];
-        mac = korrektur.autoKorrektur(splittedline[3]);
+        mac = splittedline[3];
         grund = splittedline[4];
     }
 }

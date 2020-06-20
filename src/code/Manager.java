@@ -61,5 +61,9 @@ public class Manager {
             LIST_1.append(datensatzNeu);
         }
     }
+
+    public static void listeLoeschen() {
+        LIST_1 = new List1<Datensatz>();
+    }
 }
 
