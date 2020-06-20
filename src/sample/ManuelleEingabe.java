@@ -28,13 +28,6 @@ public class ManuelleEingabe extends JFrame {
     private String macAdresse = new String();
     private String weitereBemerkung = new String();
 
-
-    private String vorname;
-    private String nachname;
-    private String kursstufe;
-    private String macAdresse;
-    private String weitereBemerkung;
-
     private Manager manager = new Manager();
     // Ende Attribute
 
