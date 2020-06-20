@@ -15,6 +15,8 @@ public class ManuelleEingabe extends JFrame {
     private JTextField weitereBemerkungenFeld = new JTextField("Weitere Bemerkungen");
     private JButton pruefenUndHinzufuegen = new JButton();
     private JButton zurueck = new JButton();
+    private JTextArea jTextArea1 = new JTextArea("");
+    private JScrollPane jTextArea1ScrollPane = new JScrollPane(jTextArea1);
     private String vorname = new String();
     private String nachname = new String();
     private String kursstufe = new String();
@@ -27,7 +29,7 @@ public class ManuelleEingabe extends JFrame {
         // Frame-Initialisierung
         super();
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-        int frameWidth = 342;
+        int frameWidth = 530;
         int frameHeight = 450;
         setSize(frameWidth, frameHeight);
         Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
@@ -60,6 +62,9 @@ public class ManuelleEingabe extends JFrame {
         weitereBemerkungenFeld.setBounds(24, 296, 190, 36);
         cp.add(weitereBemerkungenFeld);
         weitereBemerkung = weitereBemerkungenFeld.getText();
+
+        jTextArea1ScrollPane.setBounds(273, 72, 216, 260);
+        cp.add(jTextArea1ScrollPane);
 
         pruefenUndHinzufuegen.setBounds(24, 352, 235, 33);
         pruefenUndHinzufuegen.setText("Prüfen und Hinzufügen");
