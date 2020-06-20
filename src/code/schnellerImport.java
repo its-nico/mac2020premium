@@ -18,6 +18,7 @@ public class schnellerImport {
 
     private static Korrektur korrektur = new Korrektur();
     private OeffnenDialogClass odc = new OeffnenDialogClass();
+    private static Fehlermeldungen fehlermeldungen = new Fehlermeldungen();
 
     public static void schnellerImport(String importfilepath, List1 liste) {
 
@@ -45,6 +46,7 @@ public class schnellerImport {
                 korrektur.logErstellen();
                 splitline(line); /* Die einzelnen Datensätze (lines) werden in ihre 5 Attribute aufgeteilt */
                 if (korrektur.istIPOhneLog(mac)){
+                    fehlermeldungen.keineMacAdresse(mac);
                     System.out.println("Der Datensatz zur Adresse " + mac + " wurde nicht übernommen, da es sich um eine IP-Adresse handelt.");
                 }
                 else {

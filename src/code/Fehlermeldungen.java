@@ -4,6 +4,10 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Fehlermeldungen {
+    public static void main(String[] args) {
+        Fehlermeldungen fehlermeldungen = new Fehlermeldungen();
+        fehlermeldungen.keineMacAdresse("1");
+    }
 
     public void keineMacAdresse(String pMac) {
         Runnable runnable = (Runnable) Toolkit.getDefaultToolkit().getDesktopProperty("win.sound.exclamation");
