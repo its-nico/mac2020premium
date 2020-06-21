@@ -21,10 +21,7 @@ public class Manager {
     private static SpeichernUnterClass speichernUnter = new SpeichernUnterClass();
 
     public static void main(String[] args) {
-        System.out.println(LIST_1.isEmpty());
-        LIST_1 = speichern.laden();
-        //speichern.abspeichern(LIST_1);
-        System.out.println(LIST_1.isEmpty());
+
     }
 
   /*  public static String korrigiere(String pText){

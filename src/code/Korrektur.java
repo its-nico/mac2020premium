@@ -157,6 +157,10 @@ public class Korrektur {
         return bool;
     }
 
+    public boolean format(String text){
+    return (Pattern.matches("."+"."+":"+"."+"."+":"+"."+"."+":"+"."+"."+":"+"."+"."+":"+"."+".", text));
+    }
+
     /* Überprüfung, ob die MAC-Adresse korrekt ist */
     public boolean istKorrekt (String text) {
         String exportfile = "./Fehlerlog.txt";
