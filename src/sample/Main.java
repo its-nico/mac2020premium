@@ -1,4 +1,5 @@
 package sample;
+import code.Fehlermeldungen;
 import code.FileOpener;
 import code.Manager;
 import code.OeffnenDialogClass;
@@ -36,6 +37,7 @@ public class Main extends JFrame {
 
     private Manager manager = new Manager();
     private OeffnenDialogClass oeffnenDialogClass = new OeffnenDialogClass();
+    private Fehlermeldungen fehlermeldungen = new Fehlermeldungen();
     private File file1 = new File("./savedList.ser");
     // Ende Attribute
 
@@ -268,6 +270,7 @@ public class Main extends JFrame {
     public void exportMACAdressen_ActionPerformed(ActionEvent evt) {
         manager.exportiereMac();
         FileOpener fileOpen = new FileOpener("./export.txt");
+        fehlermeldungen.zwischenablage();
     }
 
     public void datenbankErgaenzen_ActionPerformed(ActionEvent evt) {
