@@ -1,4 +1,5 @@
 package sample;
+import code.Fehlermeldungen;
 import code.FileOpener;
 import code.Manager;
 import code.OeffnenDialogClass;
@@ -6,6 +7,7 @@ import code.OeffnenDialogClass;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import java.io.File;
 import java.lang.*;
 
 public class Main extends JFrame {
@@ -35,6 +37,8 @@ public class Main extends JFrame {
 
     private Manager manager = new Manager();
     private OeffnenDialogClass oeffnenDialogClass = new OeffnenDialogClass();
+    private Fehlermeldungen fehlermeldungen = new Fehlermeldungen();
+    private File file1 = new File("./savedList.ser");
     // Ende Attribute
 
     public Main() {
@@ -208,7 +212,11 @@ public class Main extends JFrame {
         cp.add(importLogAnzeigen);
         // Ende Komponenten
 
+        if (!file1.exists()){
+            manager.speichern();
+        }
         manager.laden();
+
 
         setVisible(true);
 
@@ -262,6 +270,7 @@ public class Main extends JFrame {
     public void exportMACAdressen_ActionPerformed(ActionEvent evt) {
         manager.exportiereMac();
         FileOpener fileOpen = new FileOpener("./export.txt");
+        fehlermeldungen.zwischenablage();
     }
 
     public void datenbankErgaenzen_ActionPerformed(ActionEvent evt) {

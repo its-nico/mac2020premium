@@ -52,14 +52,18 @@ public class Manager {
     }
 
     public static void ergaenze(String pKursstufe, String pNachname, String pVorname, String pMac, String pGrund) {
-        korrektur.logErstellen();
+        korrektur.logErstellen(pMac);
         if (korrektur.istIPOhneLog(pMac)){
             System.out.println("Der Datensatz zur Adresse " + pMac + " wurde nicht übernommen, da es sich um eine IP-Adresse handelt.");
-            fehlermeldungen.keineMacAdresse(pMac);
+
         } else {
             Datensatz datensatzNeu = new Datensatz(pKursstufe, pNachname, pVorname, korrektur.autoKorrektur(pMac), pGrund);
             LIST_1.append(datensatzNeu);
         }
+    }
+
+    public static void listeLoeschen() {
+        LIST_1 = new List1<Datensatz>();
     }
 }
 
