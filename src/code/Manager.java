@@ -52,7 +52,7 @@ public class Manager {
     }
 
     public static void ergaenze(String pKursstufe, String pNachname, String pVorname, String pMac, String pGrund) {
-        korrektur.logErstellen();
+        korrektur.logErstellen(pMac);
         if (korrektur.istIPOhneLog(pMac)){
             System.out.println("Der Datensatz zur Adresse " + pMac + " wurde nicht übernommen, da es sich um eine IP-Adresse handelt.");
 
