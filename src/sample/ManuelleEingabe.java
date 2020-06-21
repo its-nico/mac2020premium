@@ -5,6 +5,7 @@ import code.Manager;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import javax.swing.border.LineBorder;
 import javax.swing.event.*;
 
 public class ManuelleEingabe extends JFrame {
@@ -20,8 +21,7 @@ public class ManuelleEingabe extends JFrame {
     private JButton pruefenUndHinzufuegen = new JButton();
     private JButton zurueck = new JButton();
 
-    private JTextArea jTextArea1 = new JTextArea("");
-    private JScrollPane jTextArea1ScrollPane = new JScrollPane(jTextArea1);
+    private JLabel rueckgabeFenster = new JLabel("");
 
     private String vorname = new String();
     private String nachname = new String();
@@ -100,8 +100,11 @@ public class ManuelleEingabe extends JFrame {
             }
         });
 
-        jTextArea1ScrollPane.setBounds(273, 72, 216, 260);
-        cp.add(jTextArea1ScrollPane);
+        rueckgabeFenster.setBounds(273, 72, 216, 260);
+        cp.add(rueckgabeFenster);
+        rueckgabeFenster.setOpaque(true);
+        rueckgabeFenster.setBackground(Color.white);
+        rueckgabeFenster.setBorder(new LineBorder(Color.CYAN,2));
 
         pruefenUndHinzufuegen.setBounds(24, 352, 235, 33);
         pruefenUndHinzufuegen.setText("Prüfen und Hinzufügen");
@@ -153,12 +156,14 @@ public class ManuelleEingabe extends JFrame {
     private void nachnameFeldMouseClicked(java.awt.event.MouseEvent evt) {
         nachnameFeld.setText("");
     }
+
     private void kursstufeFeldMouseClicked(java.awt.event.MouseEvent evt) {
         kursstufeFeld.setText("");
     }
     private void macAdresseFeldMouseClicked(java.awt.event.MouseEvent evt) {
         macAdresseFeld.setText("");
     }
+
     private void weitereBemerkungenFeldMouseClicked(java.awt.event.MouseEvent evt) {
         weitereBemerkungenFeld.setText("");
     }
