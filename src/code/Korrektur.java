@@ -143,7 +143,7 @@ public class Korrektur {
 
         try {
             if (bool == true){
-                bw.write("  Es handelt sich um eine IP-Adresse, nicht um eine MAC-Adresse." +"\n");
+                bw.write("  Es handelt sich um eine IP-Adresse, nicht um eine MAC-Adresse. Die Adresse wurde daher nicht übernommen." +"\n");
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -185,8 +185,8 @@ public class Korrektur {
         return !text.contains("o") && !text.contains("O") && !text.contains("-") && !text.contains(" ") && !istIP(text);
     }
 
-    public void logErstellen() {
-        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss:mm:");
+    public void logErstellen(String pMac) {
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
        // SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
         String uhrzeit = sdf.format(new Date());
         SimpleDateFormat sdf2 = new SimpleDateFormat("dd.MM.yyyy");
@@ -203,7 +203,7 @@ public class Korrektur {
         try {
             bw.write("\n- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n\n");
             bw.write("Log erstellt am " + tag + " um " + uhrzeit + ".\n\n");
-            bw.write("Folgende Änderungen wurden durch die Korrektur an der möglicherweise fehlerhaften MAC-Adresse (" + textVorIP + ") vorgenommen:\n");
+            bw.write("Folgende Änderungen wurden durch die Korrektur an der möglicherweise fehlerhaften MAC-Adresse (" + pMac + ") vorgenommen:\n");
             bw.write("\n");
         } catch (IOException e) {
             e.printStackTrace();

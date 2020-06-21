@@ -43,9 +43,9 @@ public class schnellerImport {
                 System.out.println("An error has occurred (IOException)");
             }
             if (line != null) {
-                korrektur.logErstellen();
                 splitline(line); /* Die einzelnen Datensätze (lines) werden in ihre 5 Attribute aufgeteilt */
-                if (korrektur.istIPOhneLog(mac)){
+                korrektur.logErstellen(mac);
+                if (korrektur.istIP(mac)){
                     fehlermeldungen.keineMacAdresse(mac);
                     System.out.println("Der Datensatz zur Adresse " + mac + " wurde nicht übernommen, da es sich um eine IP-Adresse handelt.");
                 }
