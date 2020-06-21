@@ -1,7 +1,6 @@
 package code;
 
 import java.lang.*;
-import java.io.*;
 
 public class Manager {
     private static List1<Datensatz> LIST_1 = new List1<Datensatz>(); /* Neue generische Liste des Datentpys 'Datensatz' wird erstellt */
@@ -15,7 +14,7 @@ public class Manager {
     private static Export export = new Export();
     private static Korrektur korrektur = new Korrektur();
     private static schnellerImport schnellerImport = new schnellerImport();
-    private static Fehlermeldungen fehlermeldungen = new Fehlermeldungen();
+    private static Dialogfenster dialogfenster = new Dialogfenster();
 
     private static Speichern speichern;
     private static SpeichernUnterClass speichernUnter = new SpeichernUnterClass();

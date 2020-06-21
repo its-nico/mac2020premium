@@ -34,7 +34,7 @@ public class Main extends JFrame {
 
     private Manager manager = new Manager();
     private OeffnenDialogClass oeffnenDialogClass = new OeffnenDialogClass();
-    private Fehlermeldungen fehlermeldungen = new Fehlermeldungen();
+    private Dialogfenster dialogfenster = new Dialogfenster();
     private File file1 = new File("./savedList.ser");
 
     private Closing closing;
@@ -258,7 +258,7 @@ public class Main extends JFrame {
     public void exportMACAdressen_ActionPerformed(ActionEvent evt) {
         manager.exportiereMac();
         FileOpener fileOpen = new FileOpener("./export.txt");
-        fehlermeldungen.zwischenablage();
+        dialogfenster.zwischenablage();
     }
 
     public void datenbankErgaenzen_ActionPerformed(ActionEvent evt) {

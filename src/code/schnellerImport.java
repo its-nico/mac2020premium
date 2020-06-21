@@ -1,8 +1,5 @@
 package code;
 
-import code.Datensatz;
-import code.OeffnenDialogClass;
-
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -18,7 +15,7 @@ public class schnellerImport {
 
     private static Korrektur korrektur = new Korrektur();
     private OeffnenDialogClass odc = new OeffnenDialogClass();
-    private static Fehlermeldungen fehlermeldungen = new Fehlermeldungen();
+    private static Dialogfenster dialogfenster = new Dialogfenster();
 
     public static void schnellerImport(String importfilepath, List1 liste) {
 
@@ -46,7 +43,7 @@ public class schnellerImport {
                 splitline(line); /* Die einzelnen Datensätze (lines) werden in ihre 5 Attribute aufgeteilt */
                 korrektur.logErstellen(mac);
                 if (korrektur.istIP(mac)){
-                    fehlermeldungen.keineMacAdresse(mac);
+                    dialogfenster.keineMacAdresse(mac);
                     System.out.println("Der Datensatz zur Adresse " + mac + " wurde nicht übernommen, da es sich um eine IP-Adresse handelt.");
                 }
                 else {
