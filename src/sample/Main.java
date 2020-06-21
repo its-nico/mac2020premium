@@ -1,8 +1,5 @@
 package sample;
-import code.Fehlermeldungen;
-import code.FileOpener;
-import code.Manager;
-import code.OeffnenDialogClass;
+import code.*;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -39,6 +36,9 @@ public class Main extends JFrame {
     private OeffnenDialogClass oeffnenDialogClass = new OeffnenDialogClass();
     private Fehlermeldungen fehlermeldungen = new Fehlermeldungen();
     private File file1 = new File("./savedList.ser");
+
+    private Closing closing;
+
     // Ende Attribute
 
     public Main() {
@@ -223,21 +223,9 @@ public class Main extends JFrame {
         addWindowListener(new WindowAdapter()
         {
             @Override
-            public void windowClosing(WindowEvent e) {
-                System.out.println("Closed");
-                int result = JOptionPane.showConfirmDialog(null,
-                        "Möchten Sie vor dem Beenden speichern?",
-                        "Beenden bestätigen",
-                        JOptionPane.YES_NO_OPTION);
-
-                switch (result) {
-                    case JOptionPane.YES_OPTION:
-                        manager.speichern();
-                        System.exit(0); //Aktion(en) bei Klicken auf den "Ja-Button"
-                    case JOptionPane.NO_OPTION:
-                        System.exit(0);
-                        //e.getWindow().dispose();
-                }
+           public void windowClosing(WindowEvent e) {
+                closing = new Closing();
+                closing.close(manager);
             }
         });
     } // end of public Main
