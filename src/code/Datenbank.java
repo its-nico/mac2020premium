@@ -18,12 +18,6 @@ public class Datenbank {
 
         Connection con = DriverManager.getConnection(url, username, password);
 
-
-        /*Connection con = DriverManager.getConnection(
-                "jdbc:mysql://bplaced:3306/noahdyj_MAC-Adressen-Projekt",
-                username,
-                password); */
-
         Statement stmt = con.createStatement();
         ResultSet rs = stmt.executeQuery("SELECT a, b, c FROM Table1");
 

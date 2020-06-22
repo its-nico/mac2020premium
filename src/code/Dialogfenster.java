@@ -3,9 +3,9 @@ package code;
 import javax.swing.*;
 import java.awt.*;
 
-public class Fehlermeldungen {
+public class Dialogfenster {
     public static void main(String[] args) {
-        Fehlermeldungen fehlermeldungen = new Fehlermeldungen();
+        Dialogfenster fehlermeldungen = new Dialogfenster();
         fehlermeldungen.keineMacAdresse("1");
     }
 
