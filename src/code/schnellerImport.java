@@ -1,12 +1,6 @@
 package code;
 
-import code.Datensatz;
-import code.OeffnenDialogClass;
-
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 
 public class schnellerImport {
     private static Datensatz datensatz;
@@ -16,11 +10,20 @@ public class schnellerImport {
     private static String grund;
     private static String mac;
 
+    private static String IPString;
+    private static String FormatString;
+    private static String test = "";
+
+    private boolean bereitsImportiert;
+
     private static Korrektur korrektur = new Korrektur();
     private OeffnenDialogClass odc = new OeffnenDialogClass();
-    private static Fehlermeldungen fehlermeldungen = new Fehlermeldungen();
+    private static Dialogfenster dialogfenster = new Dialogfenster();
 
     public static void schnellerImport(String importfilepath, List1 liste) {
+
+        IPString = "";
+        FormatString = "";
 
         FileReader fr = null;
         try {
@@ -46,15 +49,31 @@ public class schnellerImport {
                 splitline(line); /* Die einzelnen Datensätze (lines) werden in ihre 5 Attribute aufgeteilt */
                 korrektur.logErstellen(mac);
                 if (korrektur.istIP(mac)){
-                    fehlermeldungen.keineMacAdresse(mac);
+                   // dialogfenster.keineMacAdresse(mac);
                     System.out.println("Der Datensatz zur Adresse " + mac + " wurde nicht übernommen, da es sich um eine IP-Adresse handelt.");
+                    IPString = IPString + "<br>"+  mac;
                 }
                 else {
                     mac = korrektur.autoKorrektur(mac);
-                    datensatz = new Datensatz(kursstufe, nachname, vorname, mac, grund);
-                    liste.append(datensatz);
+                    if (korrektur.format(mac)) {
+                        datensatz = new Datensatz(kursstufe, nachname, vorname, mac, grund);
+                        liste.append(datensatz);
+                    }
+                    else {
+                       // dialogfenster.falschesFormat(mac);
+                        System.out.println("Die Adresse befindet sich nicht im für MAC-Adressen erforderlichen Format (xx:xx:xx:xx:xx:xx). Sie konnte nicht übernommen werden.");
+                        FormatString = FormatString + "<br>" + mac;
+                    }
+
                 }
             }
+        }
+
+        if (!IPString.equals(test)){
+            dialogfenster.keineMacAdresse(IPString);
+        }
+        if (!FormatString.equals(test)){
+            dialogfenster.falschesFormat(FormatString);
         }
     }
 
@@ -65,5 +84,69 @@ public class schnellerImport {
         vorname = splittedline[2];
         mac = splittedline[3];
         grund = splittedline[4];
+    }
+
+    public void merkeDateipfad (String pPfad) {
+        String merkeDateipfadFile = "./Importpfade.txt";
+        FileWriter fw = null;
+        try {
+            fw = new FileWriter(merkeDateipfadFile, true); /* FileWriter wird erstellt */
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        BufferedWriter bw = new BufferedWriter(fw);
+
+        try {
+            bw.write(pPfad);
+            bw.write(System.getProperty("line.separator")); /* So kann der bw die Werte untereinander einfügen, da er Zeilenümrüche erstellen kann*/
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            bw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public boolean bereitsImportiert (String pPfad) {
+        String merkeDateipfadFile = "./Importpfade.txt";
+
+        FileWriter fw = null;
+        try {
+            fw = new FileWriter(merkeDateipfadFile, true); /* FileWriter wird erstellt */
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        BufferedWriter bw = new BufferedWriter(fw);
+
+        try {
+            bw.write("");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        FileReader fr = null;
+        try {
+            fr = new FileReader(merkeDateipfadFile); /* FileReader wird erstellt */
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        BufferedReader br = new BufferedReader(fr);
+
+        String line = "";
+        while (line != null) {
+            try {
+                line = br.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+                System.out.println("An error has occurred (IOException)");
+            }
+            if (line != null) {
+                line.equals(pPfad);
+            }
+        }
+        return bereitsImportiert;
     }
 }
