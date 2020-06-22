@@ -35,6 +35,13 @@ public class ManuelleEingabe extends JFrame {
     public ManuelleEingabe() {
         // Frame-Initialisierung
         super();
+
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName()); //look & feel von System wird hier gesetzt
+        } catch (Exception e) {
+            System.err.println("Error: " + e.getMessage());
+        }
+
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         int frameWidth = 530;
         int frameHeight = 450;
@@ -48,6 +55,8 @@ public class ManuelleEingabe extends JFrame {
         Container cp = getContentPane();
         cp.setLayout(null);
         setIconImage(new ImageIcon(getClass().getResource("88208755.png")).getImage());
+
+
         // Anfang Komponenten
 
         erklaerungsFeld.setBounds(24, 24, 280, 35);
@@ -160,6 +169,7 @@ public class ManuelleEingabe extends JFrame {
     private void kursstufeFeldMouseClicked(java.awt.event.MouseEvent evt) {
         kursstufeFeld.setText("");
     }
+
     private void macAdresseFeldMouseClicked(java.awt.event.MouseEvent evt) {
         macAdresseFeld.setText("");
     }

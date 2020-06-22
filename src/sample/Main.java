@@ -5,7 +5,10 @@ import code.OeffnenDialogClass;
 
 import java.awt.*;
 import java.awt.event.*;
+import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.lang.*;
 
 public class Main extends JFrame {
@@ -34,6 +37,7 @@ public class Main extends JFrame {
     private ManuelleEingabe manuellesEingabefenster;
 
     private Manager manager = new Manager();
+
     private OeffnenDialogClass oeffnenDialogClass = new OeffnenDialogClass();
     // Ende Attribute
 
@@ -59,6 +63,11 @@ public class Main extends JFrame {
         setResizable(false);
         Container cp = getContentPane();
         cp.setLayout(null);
+
+        /* ImageIcon bild = new ImageIcon("hintergrundbild.jpg");
+        JLabel label = new JLabel(bild);
+        label.setSize(720,520);
+        label.setLocation(0,0); */
 
         setIconImage(new ImageIcon(getClass().getResource("88208755.png")).getImage());
 
@@ -95,6 +104,8 @@ public class Main extends JFrame {
             }
         });
         cp.add(manuelleEingabe);
+        manuelleEingabe.setBackground(Color.magenta);
+
         schnellerImport.setBounds(16, 328, 155, 41);
         schnellerImport.setText("Schneller Import");
         schnellerImport.setMargin(new Insets(2, 2, 2, 2));
@@ -104,6 +115,8 @@ public class Main extends JFrame {
             }
         });
         cp.add(schnellerImport);
+        schnellerImport.setBackground(Color.yellow);
+
         langsamerImport.setBounds(16, 392, 155, 41);
         langsamerImport.setText("Import");
         langsamerImport.setMargin(new Insets(2, 2, 2, 2));
@@ -113,6 +126,8 @@ public class Main extends JFrame {
             }
         });
         cp.add(langsamerImport);
+        langsamerImport.setBackground(Color.cyan);
+
         zurueckButton1.setBounds(200, 328, 43, 41);
         zurueckButton1.setText("↺");
         zurueckButton1.setMargin(new Insets(2, 2, 2, 2));
@@ -122,6 +137,8 @@ public class Main extends JFrame {
             }
         });
         cp.add(zurueckButton1);
+        zurueckButton1.setBackground(Color.lightGray);
+
         zurueckButton2.setBounds(200, 392, 43, 41);
         zurueckButton2.setText("↺");
         zurueckButton2.setMargin(new Insets(2, 2, 2, 2));
@@ -131,6 +148,8 @@ public class Main extends JFrame {
             }
         });
         cp.add(zurueckButton2);
+        zurueckButton2.setBackground(Color.lightGray);
+
         exportMACAdressen.setBounds(272, 264, 155, 41);
         exportMACAdressen.setText("Export MAC-Adressen");
         exportMACAdressen.setMargin(new Insets(2, 2, 2, 2));
@@ -140,6 +159,8 @@ public class Main extends JFrame {
             }
         });
         cp.add(exportMACAdressen);
+        exportMACAdressen.setBackground(Color.magenta);
+
         datenbankErgaenzen.setBounds(272, 360, 155, 41);
         datenbankErgaenzen.setText("Datenbank ergänzen");
         datenbankErgaenzen.setMargin(new Insets(2, 2, 2, 2));
@@ -149,6 +170,8 @@ public class Main extends JFrame {
             }
         });
         cp.add(datenbankErgaenzen);
+        datenbankErgaenzen.setBackground(Color.yellow);
+
         datenbankBearbeiten.setBounds(272, 416, 155, 41);
         datenbankBearbeiten.setText("Datenbank Bearbeiten");
         datenbankBearbeiten.setMargin(new Insets(2, 2, 2, 2));
@@ -158,6 +181,8 @@ public class Main extends JFrame {
             }
         });
         cp.add(datenbankBearbeiten);
+        datenbankBearbeiten.setBackground(Color.cyan);
+
         handbuch.setBounds(528, 16, 155, 49);
         handbuch.setText("Handbuch");
         handbuch.setMargin(new Insets(2, 2, 2, 2));
@@ -167,6 +192,8 @@ public class Main extends JFrame {
             }
         });
         cp.add(handbuch);
+        handbuch.setBackground(Color.cyan);
+
         credits.setBounds(528, 80, 155, 49);
         credits.setText("Credits");
         credits.setMargin(new Insets(2, 2, 2, 2));
