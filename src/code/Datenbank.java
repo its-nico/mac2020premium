@@ -3,6 +3,7 @@ package code;
 import javax.xml.transform.Result;
 import java.io.IOException;
 import java.sql.*;
+import java.util.ArrayList;
 
 public class Datenbank {
 
@@ -62,27 +63,27 @@ public class Datenbank {
 
     }
 
-    public void datenbankErgaenzen(List1<Datensatz> liste) throws SQLException {
+    public void datenbankErgaenzen(ArrayList<Datensatz> liste) throws SQLException {
         String url = "jdbc:mysql://bplaced:3306/ngr_macfilter";
         String username = "ngr";
         String password = "ngrSecret";
 
         //Connection con = DriverManager.getConnection(url, username, password);
 
-        liste.toFirst();
-        while (liste.hasAccess()) {
-            kursstufe = (liste.getContent()).getKursstufe();
-            nachname = (liste.getContent()).getNachname();
-            vorname = (liste.getContent()).getVorname();
-            mac = (liste.getContent()).getMac();
-            grund = (liste.getContent()).getGrund();
+        int len = liste.size();
+        for (int i = 0; i < len; i++) {
+            Datensatz aktDatensatz = liste.get(i);
+            kursstufe = aktDatensatz.getKursstufe();
+            nachname = aktDatensatz.getNachname();
+            vorname = aktDatensatz.getVorname();
+            mac = aktDatensatz.getMac();
+            grund = aktDatensatz.getGrund();
 
             //Statement stmt1 = con.createStatement();
             //stmt1.executeQuery("INSERT INTO Table2 (Kursstufe, Nachname, Vorname, MAC, Grund) VALUES ('" + kursstufe + "','" + nachname + "','"+ vorname + "','" + mac + "','" + grund + "')");
             String stmt1 = "INSERT INTO Table2 (Kursstufe, Nachname, Vorname, MAC, Grund) VALUES ('" + kursstufe + "','" + nachname + "','"+ vorname + "','" + mac + "','" + grund + "')";
             System.out.println(stmt1);
 
-            liste.next();
         }
     }
 }
