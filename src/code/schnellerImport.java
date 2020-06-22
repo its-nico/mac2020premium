@@ -60,7 +60,6 @@ public class schnellerImport {
                         liste.append(datensatz);
                     }
                     else {
-                        dialogfenster.falschesFormat(mac);
                        // dialogfenster.falschesFormat(mac);
                         System.out.println("Die Adresse befindet sich nicht im für MAC-Adressen erforderlichen Format (xx:xx:xx:xx:xx:xx). Sie konnte nicht übernommen werden.");
                         FormatString = FormatString + "<br>" + mac;
