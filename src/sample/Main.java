@@ -12,6 +12,7 @@ import java.awt.event.*;
 import javax.swing.*;
 import java.io.File;
 import java.lang.*;
+import java.sql.SQLException;
 
 public class Main extends JFrame {
     // Anfang Attribute
@@ -37,6 +38,8 @@ public class Main extends JFrame {
     private Manager manager = new Manager();
     private OeffnenDialogClass oeffnenDialogClass = new OeffnenDialogClass();
     private Dialogfenster dialogfenster = new Dialogfenster();
+    private Datenbank datenbank = new Datenbank();
+
     private File file1 = new File("./savedList.ser");
 
     private Closing closing;
@@ -259,11 +262,21 @@ public class Main extends JFrame {
     }
 
     public void inDatenbankSpeichern_ActionPerformed(ActionEvent evt) {
-        // TODO hier Quelltext einfügen
+        try {
+            manager.datenbankErgaenzen();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("SQLException occured");
+        }
+
     }
 
     public void datenbankImportieren_ActionPerformed(ActionEvent evt) {
-        // TODO hier Quelltext einfügen
+        try {
+            datenbank.datenbankImportieren();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public void importLogAnzeigen_ActionPerformed(ActionEvent evt) {

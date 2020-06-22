@@ -1,8 +1,12 @@
 package code;
 
 import java.lang.*;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.sql.SQLException;
+import java.util.Date;
+
 
 public class Manager {
     private static ArrayList<Datensatz> LIST_1 = new ArrayList<>(); /* Neue generische Liste des Datentpys 'Datensatz' wird erstellt */
@@ -12,6 +16,7 @@ public class Manager {
     private static Korrektur korrektur = new Korrektur();
     private static schnellerImport schnellerImport = new schnellerImport();
     private static Dialogfenster dialogfenster = new Dialogfenster();
+    private static Datenbank datenbank = new Datenbank();
 
     private static Speichern speichern;
     private static SpeichernUnterClass speichernUnter = new SpeichernUnterClass();
@@ -38,14 +43,16 @@ public class Manager {
     }
 
     public static void schnellerImport (String pPfad){
-        boolean bereitsImportiert = schnellerImport.bereitsImportiert(pPfad); //true, wenn Dateipfad bereits Dateipfad einer der letzten Import-Dateien war
-        //schnellerImport.behalteFünfPfade();
-        boolean answer = false;
-        if (!bereitsImportiert) {
-            schnellerImport.merkeDateipfad(pPfad);
-            schnellerImport.schnellerImport(pPfad, LIST_1);
-        } else {
-            dialogfenster.bereitsImportiertDialog(pPfad, LIST_1);
+        if (pPfad != null) {
+            boolean bereitsImportiert = schnellerImport.bereitsImportiert(pPfad); //true, wenn Dateipfad bereits Dateipfad einer der letzten Import-Dateien war
+            //schnellerImport.behalteFünfPfade();
+            boolean answer = false;
+            if (!bereitsImportiert) {
+                schnellerImport.merkeDateipfad(pPfad);
+                schnellerImport.schnellerImport(pPfad, LIST_1);
+            } else {
+                dialogfenster.bereitsImportiertDialog(pPfad, LIST_1);
+            }
         }
     }
 
@@ -73,6 +80,10 @@ public class Manager {
 
     public static void dopplungenLoeschen() {
         LIST_1 = dopplung.removeDuplicate(LIST_1);
+    }
+
+    public static  void datenbankErgaenzen() throws SQLException {
+        datenbank.datenbankErgaenzen(LIST_1);
     }
 }
 

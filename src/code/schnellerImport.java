@@ -84,7 +84,12 @@ public class schnellerImport {
         nachname = splittedline[1];
         vorname = splittedline[2];
         mac = splittedline[3];
-        grund = splittedline[4];
+        if (splittedline[4] != null) {
+            grund = splittedline[4];
+        } else {
+            grund = "";
+        }
+
     }
 
     public void merkeDateipfad (String pPfad) {
