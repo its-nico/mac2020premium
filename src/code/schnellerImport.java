@@ -1,10 +1,6 @@
 package code;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.text.Normalizer;
+import java.io.*;
 
 public class schnellerImport {
     private static Datensatz datensatz;
@@ -17,6 +13,8 @@ public class schnellerImport {
     private static String IPString;
     private static String FormatString;
     private static String test = "";
+
+    private boolean bereitsImportiert;
 
     private static Korrektur korrektur = new Korrektur();
     private OeffnenDialogClass odc = new OeffnenDialogClass();
@@ -62,6 +60,7 @@ public class schnellerImport {
                         liste.append(datensatz);
                     }
                     else {
+                        dialogfenster.falschesFormat(mac);
                        // dialogfenster.falschesFormat(mac);
                         System.out.println("Die Adresse befindet sich nicht im für MAC-Adressen erforderlichen Format (xx:xx:xx:xx:xx:xx). Sie konnte nicht übernommen werden.");
                         FormatString = FormatString + "<br>" + mac;
@@ -86,5 +85,69 @@ public class schnellerImport {
         vorname = splittedline[2];
         mac = splittedline[3];
         grund = splittedline[4];
+    }
+
+    public void merkeDateipfad (String pPfad) {
+        String merkeDateipfadFile = "./Importpfade.txt";
+        FileWriter fw = null;
+        try {
+            fw = new FileWriter(merkeDateipfadFile, true); /* FileWriter wird erstellt */
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        BufferedWriter bw = new BufferedWriter(fw);
+
+        try {
+            bw.write(pPfad);
+            bw.write(System.getProperty("line.separator")); /* So kann der bw die Werte untereinander einfügen, da er Zeilenümrüche erstellen kann*/
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            bw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public boolean bereitsImportiert (String pPfad) {
+        String merkeDateipfadFile = "./Importpfade.txt";
+
+        FileWriter fw = null;
+        try {
+            fw = new FileWriter(merkeDateipfadFile, true); /* FileWriter wird erstellt */
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        BufferedWriter bw = new BufferedWriter(fw);
+
+        try {
+            bw.write("");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        FileReader fr = null;
+        try {
+            fr = new FileReader(merkeDateipfadFile); /* FileReader wird erstellt */
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        BufferedReader br = new BufferedReader(fr);
+
+        String line = "";
+        while (line != null) {
+            try {
+                line = br.readLine();
+            } catch (IOException e) {
+                e.printStackTrace();
+                System.out.println("An error has occurred (IOException)");
+            }
+            if (line != null) {
+                line.equals(pPfad);
+            }
+        }
+        return bereitsImportiert;
     }
 }

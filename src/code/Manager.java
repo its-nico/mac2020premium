@@ -27,11 +27,11 @@ public class Manager {
         return korrektur.autoKorrektur(pText);
     } */
 
-    public static void  exportiere(){
+    public static void exportiere(){
         export.export();
     }
 
-    public static void  exportiereMac(){
+    public static void exportiereMac(){
         export.exportiereMac(LIST_1);
     }
 
@@ -44,7 +44,19 @@ public class Manager {
     }
 
     public static void schnellerImport (String pPfad){
-        schnellerImport.schnellerImport(pPfad, LIST_1);
+        boolean bereitsImportiert = schnellerImport.bereitsImportiert(pPfad);
+        boolean answer = false;
+        if (!bereitsImportiert) {
+            schnellerImport.merkeDateipfad(pPfad);
+            schnellerImport.schnellerImport(pPfad, LIST_1);
+        } else {
+            answer = dialogfenster.bereitsImportiertDialog();
+            if (answer) {
+                schnellerImport.schnellerImport(pPfad, LIST_1);
+            } else {
+                System.out.println("Die Datei wurde nicht importiert");
+            }
+        }
     }
 
     public static void ergaenze(String pKursstufe, String pNachname, String pVorname, String pMac, String pGrund) {

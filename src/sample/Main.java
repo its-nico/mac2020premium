@@ -213,7 +213,7 @@ public class Main extends JFrame {
         // Ende Komponenten
 
         if (!file1.exists()){
-            manager.speichern();
+            manager.speichern(); //hier wird überprüft, ob die serialisierte Listen-Datei schon vorhanden ist. Wenn nicht, wird eine erstellt, da sonst eine NullPointerException auftritt
         }
         manager.laden();
 
