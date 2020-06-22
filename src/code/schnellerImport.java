@@ -53,7 +53,7 @@ public class schnellerImport {
                 if (korrektur.istIP(mac)){
                    // dialogfenster.keineMacAdresse(mac);
                     System.out.println("Der Datensatz zur Adresse " + mac + " wurde nicht übernommen, da es sich um eine IP-Adresse handelt.");
-                    IPString = IPString + "\n"+  mac;
+                    IPString = IPString + "<br>"+  mac;
                 }
                 else {
                     mac = korrektur.autoKorrektur(mac);
@@ -64,7 +64,7 @@ public class schnellerImport {
                     else {
                        // dialogfenster.falschesFormat(mac);
                         System.out.println("Die Adresse befindet sich nicht im für MAC-Adressen erforderlichen Format (xx:xx:xx:xx:xx:xx). Sie konnte nicht übernommen werden.");
-                        FormatString = FormatString + "\n" + mac;
+                        FormatString = FormatString + "<br>" + mac;
                     }
 
                 }

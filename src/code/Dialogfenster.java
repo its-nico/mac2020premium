@@ -19,8 +19,10 @@ public class Dialogfenster {
     public void falschesFormat(String pMac){
         Runnable runnable = (Runnable) Toolkit.getDefaultToolkit().getDesktopProperty("win.sound.exclamation");
         runnable.run();
-        String message = "Die Datensätze der folgenden Adressen wutden nicht übernommen," + "\n" + "da sich diese nicht im für MAC-Adressen erforderlichen Format (xx:xx:xx:xx:xx:xx) befinden:" + pMac;
-        JOptionPane.showMessageDialog(null, message, "Fehler", JOptionPane.ERROR_MESSAGE);
+        String message = "<html><p align=\"center\">" + "Die Datensätze der folgenden Adressen wurden nicht übernommen," + "<br>" + "da sich diese nicht im für MAC-Adressen erforderlichen Format (xx:xx:xx:xx:xx:xx) befinden:" + pMac + "</p></html>\"";
+        JLabel label = new JLabel(message);
+        label.setHorizontalAlignment(SwingConstants.CENTER);
+        JOptionPane.showMessageDialog(null, label, "Fehler", JOptionPane.ERROR_MESSAGE);
     }
 
     public void zwischenablage() {
