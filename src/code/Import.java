@@ -1,9 +1,10 @@
 package code;
 
 import java.io.*;
+import java.util.ArrayList;
 
 public class Import {
-    private static final List1<Datensatz> list = new List1<Datensatz>(); /* Neue generische Liste des Datentpys 'Datensatz' wird erstellt */
+    private static final ArrayList<Datensatz> list = new ArrayList<Datensatz>(); /* Neue generische Liste des Datentpys 'Datensatz' wird erstellt */
     private static Datensatz datensatz;
     private static String kursstufe;
     private static String nachname;
@@ -13,7 +14,7 @@ public class Import {
 
     OeffnenDialogClass odc = new OeffnenDialogClass();
 
-    public static List1<Datensatz> import1() {
+    public static ArrayList<Datensatz> import1() {
         String importfilepath = "C:/Users/user/Desktop/test.txt";
 
         FileReader fr = null;
@@ -36,7 +37,7 @@ public class Import {
             if (line != null) {
                 splitline(line); /* Die einzelnen Datensätze (lines) werden in ihre 5 Attribute aufgeteilt */
                 datensatz = new Datensatz(kursstufe, nachname, vorname, mac, grund);
-                list.append(datensatz);
+                list.add(datensatz);
             }
         }
         return list;

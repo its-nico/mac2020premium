@@ -1,11 +1,15 @@
 package code;
 
 import java.lang.*;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.sql.SQLException;
 import java.util.Date;
 
+
 public class Manager {
-    private static List1<Datensatz> LIST_1 = new List1<Datensatz>(); /* Neue generische Liste des Datentpys 'Datensatz' wird erstellt */
+    private static ArrayList<Datensatz> LIST_1 = new ArrayList<>(); /* Neue generische Liste des Datentpys 'Datensatz' wird erstellt */
     private static Datensatz datensatz;
 
     private static Export export = new Export();
@@ -17,16 +21,13 @@ public class Manager {
     private static Speichern speichern;
     private static SpeichernUnterClass speichernUnter = new SpeichernUnterClass();
 
+    private static CollectionUtil dopplung = new CollectionUtil();
+
     public static void main(String[] args) {
-
-    }
-
-  /*  public static String korrigiere(String pText){
-        return korrektur.autoKorrektur(pText);
-    } */
-
-    public static void exportiere(){
-        export.export();
+        Datensatz dTest = new Datensatz("test","test", "test", "11:11:11:11:11:11", "test");
+        LIST_1.add(dTest);
+        System.out.println(LIST_1.size());
+        System.out.println(LIST_1);
     }
 
     public static void exportiereMac(){
@@ -64,7 +65,7 @@ public class Manager {
             pMac = korrektur.autoKorrektur(pMac);
             if (korrektur.format(pMac)) {
                 datensatz = new Datensatz(pKursstufe, pNachname, pVorname, pMac, pGrund);
-                LIST_1.append(datensatz);
+                LIST_1.add(datensatz);
                 return ("Der Datensatz zur MAC-Adresse " + pMac + " wurde erfolgreich hinzugefügt.\nWeitere Informationen finden Sie im Korrektur-Verzeichnis.");
             }
             else {
@@ -74,7 +75,11 @@ public class Manager {
     }
 
     public static void listeLoeschen() {
-        LIST_1 = new List1<Datensatz>();
+        LIST_1 = new ArrayList<Datensatz>();
+    }
+
+    public static void dopplungenLoeschen() {
+        LIST_1 = dopplung.removeDuplicate(LIST_1);
     }
 
     public static  void datenbankErgaenzen() throws SQLException {

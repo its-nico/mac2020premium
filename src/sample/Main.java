@@ -234,6 +234,7 @@ public class Main extends JFrame {
 
     public void datenLöschen_ActionPerformed(ActionEvent evt) {
         // TODO hier Quelltext einfügen
+        manager.listeLoeschen();
     }
 
     public void exportMACAdressen_ActionPerformed(ActionEvent evt) {
@@ -249,6 +250,7 @@ public class Main extends JFrame {
 
     public void doppelteDatensaetzeLoeschen_ActionPerformed(ActionEvent evt) {
         // TODO hier Quelltext einfügen
+        manager.dopplungenLoeschen();
     }
 
     public void handbuch_ActionPerformed(ActionEvent evt) {

@@ -1,6 +1,7 @@
 package code;
 
 import java.io.*;
+import java.util.ArrayList;
 
 public class schnellerImport {
     private static Datensatz datensatz;
@@ -20,7 +21,7 @@ public class schnellerImport {
     private OeffnenDialogClass odc = new OeffnenDialogClass();
     private static Dialogfenster dialogfenster = new Dialogfenster();
 
-    public static void schnellerImport(String importfilepath, List1 liste) {
+    public static void schnellerImport(String importfilepath, ArrayList liste) {
 
         IPString = "";
         FormatString = "";
@@ -57,7 +58,7 @@ public class schnellerImport {
                     mac = korrektur.autoKorrektur(mac);
                     if (korrektur.format(mac)) {
                         datensatz = new Datensatz(kursstufe, nachname, vorname, mac, grund);
-                        liste.append(datensatz);
+                        liste.add(datensatz);
                     }
                     else {
                        // dialogfenster.falschesFormat(mac);

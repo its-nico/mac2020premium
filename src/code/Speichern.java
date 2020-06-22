@@ -1,9 +1,10 @@
 package code;
 import java.io.*;
+import java.util.ArrayList;
 
 public class Speichern {
     static String datnam = "savedList.ser";
-    public static void abspeichern(List1 pList) {
+    public static void abspeichern(ArrayList pList) {
         OutputStream fos = null;
         try {
             fos = new FileOutputStream(datnam);
@@ -22,13 +23,13 @@ public class Speichern {
         }
     }
 
-    public static List1 laden () {
-            List1 liste = null;
+    public static ArrayList laden () {
+            ArrayList liste = null;
             InputStream fis = null;
             try {
                 fis = new FileInputStream(datnam);
                 ObjectInputStream stream = new ObjectInputStream(fis);
-                liste = (List1) stream.readObject();
+                liste = (ArrayList) stream.readObject();
                 stream.close();
                 return liste;
             } catch (ClassNotFoundException cnfex) {
