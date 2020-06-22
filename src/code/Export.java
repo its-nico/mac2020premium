@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 import java.io.*;
+import java.util.ArrayList;
 
 public class Export {
 
@@ -68,7 +69,7 @@ public class Export {
         mac = splittedline[3]; /* Nur der 5. Wert der line wird auf der Variable 'mac' gespeichert */
     }
 
-    public void exportiereMac (List1<Datensatz> liste){ //Funktion: Exportiert die MAC-Adressen aus der Liste<Datensatz> in die Datei export.txt
+    public void exportiereMac (ArrayList<Datensatz> liste){ //Funktion: Exportiert die MAC-Adressen aus der Liste<Datensatz> in die Datei export.txt
         File file = new File("./export.txt");
         String clipboardstring = "";
 
@@ -87,9 +88,10 @@ public class Export {
         }
         BufferedWriter bw = new BufferedWriter(fw);
 
-        liste.toFirst();
-        while (liste.hasAccess()) {
-            mac1 = (liste.getContent()).getMac();
+        int len = liste.size();
+        for (int i = 0; i < len; i++) {
+            Datensatz datensatz1 = liste.get(i);
+            mac1 = datensatz1.getMac();
             try {
                 bw.write(mac1); /* Nur das Attribut 'mac' wird in die Datei 'export.txt' geschrieben */
                 bw.write(System.getProperty("line.separator")); /* So kann der bw die Werte untereinander einfügen, da er Zeilenümrüche erstellen kann*/
@@ -97,8 +99,22 @@ public class Export {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            liste.next();
         }
+
+        /*
+        liste.
+        liste.toFirst();
+        while (liste.hasAccess()) {
+            mac1 = (liste.getContent()).getMac();
+            try {
+                bw.write(mac1); // Nur das Attribut 'mac' wird in die Datei 'export.txt' geschrieben
+                bw.write(System.getProperty("line.separator")); // So kann der bw die Werte untereinander einfügen, da er Zeilenümrüche erstellen kann
+                clipboardstring = clipboardstring + mac1 + "\n";
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            liste.next();
+        } */
 
         StringSelection stringSelection = new StringSelection(clipboardstring);
         Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();

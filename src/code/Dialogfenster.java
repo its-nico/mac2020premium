@@ -2,6 +2,7 @@ package code;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class Dialogfenster {
 
@@ -32,7 +33,7 @@ public class Dialogfenster {
         JOptionPane.showMessageDialog(null, message, "Kopie in Zwischenablage", JOptionPane.INFORMATION_MESSAGE);
     }
 
-    public boolean bereitsImportiertDialog(String pPfad, List1 LIST_1) {
+    public boolean bereitsImportiertDialog(String pPfad, ArrayList LIST_1) {
         String message = "Die Datei unter diesem Dateipfad wurde von ihnen bereits als Import-Datei verwendet. \nMöchten sie die Datei trotzdem importieren?";
         boolean answer = false;
         int result = JOptionPane.showConfirmDialog(null, message, "Dateiauswahl bestätigen", JOptionPane.YES_NO_OPTION);
