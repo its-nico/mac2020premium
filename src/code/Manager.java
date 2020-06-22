@@ -59,14 +59,21 @@ public class Manager {
         }
     }
 
-    public static void ergaenze(String pKursstufe, String pNachname, String pVorname, String pMac, String pGrund) {
+    public static String ergaenze(String pKursstufe, String pNachname, String pVorname, String pMac, String pGrund) {
         korrektur.logErstellen(pMac);
         if (korrektur.istIPOhneLog(pMac)){
-            System.out.println("Der Datensatz zur Adresse " + pMac + " wurde nicht übernommen, da es sich um eine IP-Adresse handelt.");
+            return ("Der Datensatz zur Adresse " + pMac + " wurde nicht übernommen, da es sich um eine IP-Adresse handelt.");
 
         } else {
-            Datensatz datensatzNeu = new Datensatz(pKursstufe, pNachname, pVorname, korrektur.autoKorrektur(pMac), pGrund);
-            LIST_1.append(datensatzNeu);
+            mac = korrektur.autoKorrektur(mac);
+            if (korrektur.format(mac)) {
+                datensatz = new Datensatz(kursstufe, nachname, vorname, mac, grund);
+                LIST_1.append(datensatz);
+                return ("Der Datensatz zur MAC-Adresse " + pMac + " wurde erfolgreich hinzugefügt.");
+            }
+            else {
+                return ("Die Adresse befindet sich nicht im für MAC-Adressen erforderlichen Format (xx:xx:xx:xx:xx:xx). Sie konnte nicht übernommen werden.");
+            }
         }
     }
 
