@@ -18,6 +18,7 @@ public class schnellerImport {
 
     private static Korrektur korrektur = new Korrektur();
     private OeffnenDialogClass odc = new OeffnenDialogClass();
+    private static Fehlermeldungen fehlermeldungen = new Fehlermeldungen();
 
     public static void schnellerImport(String importfilepath, List1 liste) {
 
@@ -42,12 +43,14 @@ public class schnellerImport {
                 System.out.println("An error has occurred (IOException)");
             }
             if (line != null) {
-                korrektur.logErstellen();
                 splitline(line); /* Die einzelnen Datensätze (lines) werden in ihre 5 Attribute aufgeteilt */
-                if (korrektur.istIPOhneLog(mac)){
+                korrektur.logErstellen(mac);
+                if (korrektur.istIP(mac)){
+                    fehlermeldungen.keineMacAdresse(mac);
                     System.out.println("Der Datensatz zur Adresse " + mac + " wurde nicht übernommen, da es sich um eine IP-Adresse handelt.");
                 }
                 else {
+                    mac = korrektur.autoKorrektur(mac);
                     datensatz = new Datensatz(kursstufe, nachname, vorname, mac, grund);
                     liste.append(datensatz);
                 }
@@ -60,7 +63,7 @@ public class schnellerImport {
         kursstufe = splittedline[0];
         nachname = splittedline[1];
         vorname = splittedline[2];
-        mac = korrektur.autoKorrektur(splittedline[3]);
+        mac = splittedline[3];
         grund = splittedline[4];
     }
 }
