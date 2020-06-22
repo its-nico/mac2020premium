@@ -5,11 +5,6 @@ import java.lang.*;
 public class Manager {
     private static List1<Datensatz> LIST_1 = new List1<Datensatz>(); /* Neue generische Liste des Datentpys 'Datensatz' wird erstellt */
     private static Datensatz datensatz;
-    private static String kursstufe;
-    private static String nachname;
-    private static String vorname;
-    private static String mac;
-    private static String grund;
 
     private static Export export = new Export();
     private static Korrektur korrektur = new Korrektur();
@@ -58,17 +53,17 @@ public class Manager {
     public static String ergaenze(String pKursstufe, String pNachname, String pVorname, String pMac, String pGrund) {
         korrektur.logErstellen(pMac);
         if (korrektur.istIPOhneLog(pMac)){
-            return ("Der Datensatz zur Adresse " + pMac + " wurde nicht übernommen, da es sich um eine IP-Adresse handelt.");
+            return ("Der Datensatz zur Adresse " + pMac + " wurde nicht übernommen, da es sich um eine IP-Adresse handelt.\nWeitere Informationen finden Sie im Korrektur-Verzeichnis.");
 
         } else {
-            mac = korrektur.autoKorrektur(mac);
-            if (korrektur.format(mac)) {
-                datensatz = new Datensatz(kursstufe, nachname, vorname, mac, grund);
+            pMac = korrektur.autoKorrektur(pMac);
+            if (korrektur.format(pMac)) {
+                datensatz = new Datensatz(pKursstufe, pNachname, pVorname, pMac, pGrund);
                 LIST_1.append(datensatz);
-                return ("Der Datensatz zur MAC-Adresse " + pMac + " wurde erfolgreich hinzugefügt.");
+                return ("Der Datensatz zur MAC-Adresse " + pMac + " wurde erfolgreich hinzugefügt.\nWeitere Informationen finden Sie im Korrektur-Verzeichnis.");
             }
             else {
-                return ("Die Adresse befindet sich nicht im für MAC-Adressen erforderlichen Format (xx:xx:xx:xx:xx:xx). Sie konnte nicht übernommen werden.");
+                return ("<html>Die Adresse befindet sich nicht im für MAC-Adressen erforderlichen Format (xx:xx:xx:xx:xx:xx). <br> Der Datensatz konnte daher nicht übernommen werden.<br>Weitere Informationen finden Sie im Korrektur-Verzeichnis.</html>");
             }
         }
     }

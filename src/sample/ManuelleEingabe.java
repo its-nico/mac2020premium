@@ -5,10 +5,13 @@ import code.Manager;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 import javax.swing.event.*;
 
 public class ManuelleEingabe extends JFrame {
+
+
     // Anfang Attribute
     private JLabel erklaerungsFeld = new JLabel();
 
@@ -114,7 +117,11 @@ public class ManuelleEingabe extends JFrame {
         cp.add(rueckgabeFenster);
         rueckgabeFenster.setOpaque(true);
         rueckgabeFenster.setBackground(Color.white);
-        rueckgabeFenster.setBorder(new LineBorder(Color.CYAN,2));
+        rueckgabeFenster.setBorder(new LineBorder(Color.DARK_GRAY,1));
+
+        EmptyBorder eBorder = new EmptyBorder(2, 10, 2, 10); // oben, rechts, unten, links
+        LineBorder lBorder = new LineBorder(new Color(100, 100, 100));
+        rueckgabeFenster.setBorder(BorderFactory.createCompoundBorder(lBorder, eBorder));
 
         pruefenUndHinzufuegen.setBounds(24, 352, 235, 33);
         pruefenUndHinzufuegen.setText("Prüfen und Hinzufügen");
@@ -151,7 +158,9 @@ public class ManuelleEingabe extends JFrame {
         kursstufe = kursstufeFeld.getText();
         macAdresse = macAdresseFeld.getText();
         weitereBemerkung = weitereBemerkungenFeld.getText();
-        manager.ergaenze(kursstufe, nachname, vorname, macAdresse, weitereBemerkung);
+        rueckgabeFenster.setText(manager.ergaenze(kursstufe, nachname, vorname, macAdresse, weitereBemerkung));
+      //  rueckgabeFenster.setVerticalAlignment(JLabel.TOP);
+     //   manager.ergaenze(kursstufe, nachname, vorname, macAdresse, weitereBemerkung);
     } // end of pruefenUndHinzufuegen_ActionPerformed
 
     public void zurueck_ActionPerformed(ActionEvent evt) {

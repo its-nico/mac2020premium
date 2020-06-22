@@ -236,7 +236,7 @@ public class Korrektur {
         BufferedWriter bw = new BufferedWriter(fw);
         try {
             bw.write("\n- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n\n");
-            bw.write("Log erstellt am " + tag + " um " + uhrzeit + ".\n\n");
+            bw.write("Eintrag erstellt am " + tag + " um " + uhrzeit + ".\n\n");
             bw.write("Folgende Änderungen wurden durch die Korrektur an der möglicherweise fehlerhaften MAC-Adresse (" + pMac + ") vorgenommen:\n");
             bw.write("\n");
         } catch (IOException e) {
