@@ -16,19 +16,13 @@ public class Manager {
     private static Speichern speichern;
     private static SpeichernUnterClass speichernUnter = new SpeichernUnterClass();
 
+    private static CollectionUtil dopplung = new CollectionUtil();
+
     public static void main(String[] args) {
         Datensatz dTest = new Datensatz("test","test", "test", "11:11:11:11:11:11", "test");
         LIST_1.add(dTest);
         System.out.println(LIST_1.size());
         System.out.println(LIST_1);
-    }
-
-  /*  public static String korrigiere(String pText){
-        return korrektur.autoKorrektur(pText);
-    } */
-
-    public static void exportiere(){
-        export.export();
     }
 
     public static void exportiereMac(){
@@ -75,6 +69,10 @@ public class Manager {
 
     public static void listeLoeschen() {
         LIST_1 = new ArrayList<Datensatz>();
+    }
+
+    public static void dopplungenLoeschen() {
+        LIST_1 = dopplung.removeDuplicate(LIST_1);
     }
 }
 
