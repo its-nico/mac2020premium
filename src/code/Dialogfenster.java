@@ -12,14 +12,16 @@ public class Dialogfenster {
     public void keineMacAdresse(String pMac) {
         Runnable runnable = (Runnable) Toolkit.getDefaultToolkit().getDesktopProperty("win.sound.exclamation");
         runnable.run();
-        String message = "Die Datensätze der folgenden Adressen wurden nicht übernommen," + "\n" + "da es sich bei diesen um IP-Adressen handelt:" + pMac;
-        JOptionPane.showMessageDialog(null, message, "Fehler", JOptionPane.ERROR_MESSAGE);
+        String message = "Die Datensätze der folgenden Adressen wurden nicht übernommen," + "\n" + "da es sich bei diesen um IP-Adressen handelt:" + "<br>" + pMac;
+        JLabel label = new JLabel(message);
+        label.setHorizontalAlignment(SwingConstants.CENTER);
+        JOptionPane.showMessageDialog(null, label, "Fehler", JOptionPane.ERROR_MESSAGE);
     }
 
     public void falschesFormat(String pMac){
         Runnable runnable = (Runnable) Toolkit.getDefaultToolkit().getDesktopProperty("win.sound.exclamation");
         runnable.run();
-        String message = "<html><p align=\"center\">" + "Die Datensätze der folgenden Adressen wurden nicht übernommen," + "<br>" + "da sich diese nicht im für MAC-Adressen erforderlichen Format (xx:xx:xx:xx:xx:xx) befinden:" + pMac + "</p></html>\"";
+        String message = "<html><p align=\"center\">" + "Die Datensätze der folgenden Adressen wurden nicht übernommen, da sich diese nicht" + "<br>" + "im für MAC-Adressen erforderlichen Format (xx:xx:xx:xx:xx:xx) befinden:" + pMac + "<br>" + "</p></html>\"";
         JLabel label = new JLabel(message);
         label.setHorizontalAlignment(SwingConstants.CENTER);
         JOptionPane.showMessageDialog(null, label, "Fehler", JOptionPane.ERROR_MESSAGE);
