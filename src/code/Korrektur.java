@@ -1,4 +1,5 @@
 package code;
+import javax.swing.*;
 import java.io.*;
 import java.util.regex.*;
 import java.util.*;
@@ -158,7 +159,36 @@ public class Korrektur {
     }
 
     public boolean format(String text){
+        String exportfile = "./Fehlerlog.txt";
+        FileWriter fw = null;
+        try {
+            fw = new FileWriter(exportfile, true); /* FileWriter wird erstellt */
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        BufferedWriter bw = new BufferedWriter(fw);
+
+        try {
+            if (Pattern.matches("."+"."+":"+"."+"."+":"+"."+"."+":"+"."+"."+":"+"."+"."+":"+"."+".", text)){
+            }
+            else {
+                bw.write("  Die Adresse befindet sich nicht im für MAC-Adressen erforderlichen Format (xx:xx:xx:xx:xx:xx). Sie konnte nicht übernommen werden.\n");
+            }
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            bw.close(); /* Wenn der bw nicht geschlossen wird, bleibt die log-Datei leer */
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
     return (Pattern.matches("."+"."+":"+"."+"."+":"+"."+"."+":"+"."+"."+":"+"."+"."+":"+"."+".", text));
+    }
+
+    public boolean formatOhneLog(String text){
+        return (Pattern.matches("."+"."+":"+"."+"."+":"+"."+"."+":"+"."+"."+":"+"."+"."+":"+"."+".", text));
     }
 
     /* Überprüfung, ob die MAC-Adresse korrekt ist */
@@ -173,7 +203,7 @@ public class Korrektur {
         BufferedWriter bw = new BufferedWriter(fw);
 
         try {
-            if ((!text.contains("o") && !text.contains("O") && !text.contains("-") && !text.contains(" ") && !istIPOhneLog(text)) == true){
+            if ((!text.contains("o") && !text.contains("O") && !text.contains("-") && !text.contains(" ") && !istIPOhneLog(text)) && formatOhneLog(text)){
                 bw.write("  Die MAC-Adresse ist bereits korrekt und wurde daher nicht verändert.\n");
             }
         }
@@ -186,7 +216,7 @@ public class Korrektur {
             e.printStackTrace();
         }
 
-        return !text.contains("o") && !text.contains("O") && !text.contains("-") && !text.contains(" ") && !istIP(text);
+        return !text.contains("o") && !text.contains("O") && !text.contains("-") && !text.contains(" ") && !istIP(text) &&  formatOhneLog(text);
     }
 
     public void logErstellen(String pMac) {

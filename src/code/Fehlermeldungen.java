@@ -16,6 +16,13 @@ public class Fehlermeldungen {
         JOptionPane.showMessageDialog(null, message, "Fehler", JOptionPane.ERROR_MESSAGE);
     }
 
+    public void falschesFormat(String pMac){
+        Runnable runnable = (Runnable) Toolkit.getDefaultToolkit().getDesktopProperty("win.sound.exclamation");
+        runnable.run();
+        String message = "Der Datensatz zur Adresse " + pMac + " wurde nicht übernommen, da sich die Adresse nicht im für MAC-Adressen erforderlichen Format (xx:xx:xx:xx:xx:xx) befindet.";
+        JOptionPane.showMessageDialog(null, message, "Fehler", JOptionPane.ERROR_MESSAGE);
+    }
+
     public void zwischenablage() {
         //Runnable runnable = (Runnable) Toolkit.getDefaultToolkit().getDesktopProperty("win.sound.exclamation");
         //runnable.run();

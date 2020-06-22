@@ -16,6 +16,8 @@ public class schnellerImport {
     private static String grund;
     private static String mac;
 
+    private static String mac2;
+
     private static Korrektur korrektur = new Korrektur();
     private OeffnenDialogClass odc = new OeffnenDialogClass();
     private static Fehlermeldungen fehlermeldungen = new Fehlermeldungen();
@@ -51,8 +53,15 @@ public class schnellerImport {
                 }
                 else {
                     mac = korrektur.autoKorrektur(mac);
-                    datensatz = new Datensatz(kursstufe, nachname, vorname, mac, grund);
-                    liste.append(datensatz);
+                    if (korrektur.format(mac)) {
+                        datensatz = new Datensatz(kursstufe, nachname, vorname, mac, grund);
+                        liste.append(datensatz);
+                    }
+                    else {
+                        fehlermeldungen.falschesFormat(mac);
+                        System.out.println("Die Adresse befindet sich nicht im für MAC-Adressen erforderlichen Format (xx:xx:xx:xx:xx:xx). Sie konnte nicht übernommen werden.");
+                    }
+
                 }
             }
         }
