@@ -12,14 +12,14 @@ public class Dialogfenster {
     public void keineMacAdresse(String pMac) {
         Runnable runnable = (Runnable) Toolkit.getDefaultToolkit().getDesktopProperty("win.sound.exclamation");
         runnable.run();
-        String message = "Der Datensatz zur Adresse " + pMac + " wurde nicht übernommen, da es sich um eine IP-Adresse handelt";
+        String message = "Die Datensätze der folgenden Adressen wurden nicht übernommen," + "\n" + "da es sich bei diesen um IP-Adressen handelt:" + pMac;
         JOptionPane.showMessageDialog(null, message, "Fehler", JOptionPane.ERROR_MESSAGE);
     }
 
     public void falschesFormat(String pMac){
         Runnable runnable = (Runnable) Toolkit.getDefaultToolkit().getDesktopProperty("win.sound.exclamation");
         runnable.run();
-        String message = "Der Datensatz zur Adresse " + pMac + " wurde nicht übernommen, da sich die Adresse nicht im für MAC-Adressen erforderlichen Format (xx:xx:xx:xx:xx:xx) befindet.";
+        String message = "Die Datensätze der folgenden Adressen wutden nicht übernommen," + "\n" + "da sich diese nicht im für MAC-Adressen erforderlichen Format (xx:xx:xx:xx:xx:xx) befinden:" + pMac;
         JOptionPane.showMessageDialog(null, message, "Fehler", JOptionPane.ERROR_MESSAGE);
     }
 

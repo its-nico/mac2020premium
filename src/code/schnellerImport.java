@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.Normalizer;
 
 public class schnellerImport {
     private static Datensatz datensatz;
@@ -13,13 +14,18 @@ public class schnellerImport {
     private static String grund;
     private static String mac;
 
-    private static String mac2;
+    private static String IPString;
+    private static String FormatString;
+    private static String test = "";
 
     private static Korrektur korrektur = new Korrektur();
     private OeffnenDialogClass odc = new OeffnenDialogClass();
     private static Dialogfenster dialogfenster = new Dialogfenster();
 
     public static void schnellerImport(String importfilepath, List1 liste) {
+
+        IPString = "";
+        FormatString = "";
 
         FileReader fr = null;
         try {
@@ -45,8 +51,9 @@ public class schnellerImport {
                 splitline(line); /* Die einzelnen Datensätze (lines) werden in ihre 5 Attribute aufgeteilt */
                 korrektur.logErstellen(mac);
                 if (korrektur.istIP(mac)){
-                    dialogfenster.keineMacAdresse(mac);
+                   // dialogfenster.keineMacAdresse(mac);
                     System.out.println("Der Datensatz zur Adresse " + mac + " wurde nicht übernommen, da es sich um eine IP-Adresse handelt.");
+                    IPString = IPString + "\n"+  mac;
                 }
                 else {
                     mac = korrektur.autoKorrektur(mac);
@@ -55,12 +62,20 @@ public class schnellerImport {
                         liste.append(datensatz);
                     }
                     else {
-                        fehlermeldungen.falschesFormat(mac);
+                       // dialogfenster.falschesFormat(mac);
                         System.out.println("Die Adresse befindet sich nicht im für MAC-Adressen erforderlichen Format (xx:xx:xx:xx:xx:xx). Sie konnte nicht übernommen werden.");
+                        FormatString = FormatString + "\n" + mac;
                     }
 
                 }
             }
+        }
+
+        if (!IPString.equals(test)){
+            dialogfenster.keineMacAdresse(IPString);
+        }
+        if (!FormatString.equals(test)){
+            dialogfenster.falschesFormat(FormatString);
         }
     }
 
