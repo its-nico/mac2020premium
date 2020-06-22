@@ -4,10 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Dialogfenster {
-    public static void main(String[] args) {
-        Dialogfenster fehlermeldungen = new Dialogfenster();
-        fehlermeldungen.keineMacAdresse("1");
-    }
+
+    private schnellerImport schnellerImport = new schnellerImport();
 
     public void keineMacAdresse(String pMac) {
         Runnable runnable = (Runnable) Toolkit.getDefaultToolkit().getDesktopProperty("win.sound.exclamation");
@@ -34,18 +32,15 @@ public class Dialogfenster {
         JOptionPane.showMessageDialog(null, message, "Kopie in Zwischenablage", JOptionPane.INFORMATION_MESSAGE);
     }
 
-    public boolean bereitsImportiertDialog() {
+    public boolean bereitsImportiertDialog(String pPfad, List1 LIST_1) {
         String message = "Die Datei unter diesem Dateipfad wurde von ihnen bereits als Import-Datei verwendet. \nMöchten sie die Datei trotzdem importieren?";
         boolean answer = false;
         int result = JOptionPane.showConfirmDialog(null, message, "Dateiauswahl bestätigen", JOptionPane.YES_NO_OPTION);
         switch (result) {
             case JOptionPane.YES_OPTION:
-                answer = true;
-                System.exit(0); //Aktion(en) bei Klicken auf den "Ja-Button"
+                schnellerImport.schnellerImport(pPfad, LIST_1); //Aktion(en) bei Klicken auf den "Ja-Button"
             case JOptionPane.NO_OPTION:
-                answer = false;
-                System.exit(0);
-                // e.getWindow().dispose();
+                System.out.println("Die Datei wurde nicht importiert, da der Benutzer diese Option gewählt hat");
         }
         return answer;
     }

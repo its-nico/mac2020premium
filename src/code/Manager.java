@@ -44,18 +44,14 @@ public class Manager {
     }
 
     public static void schnellerImport (String pPfad){
-        boolean bereitsImportiert = schnellerImport.bereitsImportiert(pPfad);
+        boolean bereitsImportiert = schnellerImport.bereitsImportiert(pPfad); //true, wenn Dateipfad bereits Dateipfad einer der letzten Import-Dateien war
+        //schnellerImport.behalteFünfPfade();
         boolean answer = false;
         if (!bereitsImportiert) {
             schnellerImport.merkeDateipfad(pPfad);
             schnellerImport.schnellerImport(pPfad, LIST_1);
         } else {
-            answer = dialogfenster.bereitsImportiertDialog();
-            if (answer) {
-                schnellerImport.schnellerImport(pPfad, LIST_1);
-            } else {
-                System.out.println("Die Datei wurde nicht importiert");
-            }
+            dialogfenster.bereitsImportiertDialog(pPfad, LIST_1);
         }
     }
 

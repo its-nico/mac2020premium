@@ -14,7 +14,7 @@ public class schnellerImport {
     private static String FormatString;
     private static String test = "";
 
-    private boolean bereitsImportiert;
+    private boolean bereitsImportiert = false;
 
     private static Korrektur korrektur = new Korrektur();
     private OeffnenDialogClass odc = new OeffnenDialogClass();
@@ -110,6 +110,55 @@ public class schnellerImport {
         }
     }
 
+    public void behalteFünfPfade() { /* Hier wird sichergestellt, dass nur die letzten 5 Dateipfade gespeichert werden */
+        String merkeDateipfadFile = "./Importpfade.txt";
+        int anzahlDateipfade = 0;
+
+        FileReader fr = null;
+        try {
+            fr = new FileReader(merkeDateipfadFile); /* FileReader wird erstellt */
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        BufferedReader br = new BufferedReader(fr);
+
+        String line = "";
+        while (line != null) {
+            if (line != null) {
+                try {
+                    line = br.readLine();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    System.out.println("An error has occurred (IOException)");
+                }
+                anzahlDateipfade++;
+                System.out.println("Anzahl: " + anzahlDateipfade);
+            }
+        }
+
+        FileReader fr2 = null;
+        try {
+            fr2 = new FileReader(merkeDateipfadFile); /* FileReader wird erstellt */
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        BufferedReader br2 = new BufferedReader(fr2);
+
+        while (anzahlDateipfade > 5) {
+            try {
+                String currentline = br2.readLine();
+                //System.out.println(currentline);
+                if (currentline != null) {
+                    currentline.trim();
+                    System.out.println("Versucht, Zeile zu löschen. Anzahl: " + anzahlDateipfade);
+                }
+                anzahlDateipfade--;
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
     public boolean bereitsImportiert (String pPfad) {
         String merkeDateipfadFile = "./Importpfade.txt";
 
@@ -122,7 +171,7 @@ public class schnellerImport {
         BufferedWriter bw = new BufferedWriter(fw);
 
         try {
-            bw.write("");
+            bw.write(""); //Hier wird nichts in die Datei geschrieben, damit eine Datei Importpfade.txt erstellt wird, falls keine existiert
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -135,17 +184,20 @@ public class schnellerImport {
         }
         BufferedReader br = new BufferedReader(fr);
 
+        int anzahlDateipfade = 0;
         String line = "";
-        while (line != null) {
+        while (line != null && anzahlDateipfade < 5) {
             try {
                 line = br.readLine();
             } catch (IOException e) {
                 e.printStackTrace();
                 System.out.println("An error has occurred (IOException)");
             }
-            if (line != null) {
-                line.equals(pPfad);
-            }
+            anzahlDateipfade++;
+            if (line != null && line.equals(pPfad)) {
+                bereitsImportiert = true;
+            } /*Hier darf keine else-Statement sein, da jede Zeile der Datei Importpfade.txt überprüft wird.
+            bereitsImportiert hat am Anfang den Wert false und wirt auf true gesetzt, sobald der Dateipfad einmal in der Datei vorkommt */
         }
         return bereitsImportiert;
     }
