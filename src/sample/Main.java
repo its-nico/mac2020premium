@@ -1,10 +1,15 @@
 package sample;
+
+import code.FileOpener;
+import code.Manager;
+import code.OeffnenDialogClass;
+
 import code.*;
+
 
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import java.io.File;
 import java.lang.*;
 
 public class Main extends JFrame {
@@ -215,8 +220,8 @@ public class Main extends JFrame {
         if (!file1.exists()){
             manager.speichern(); //hier wird überprüft, ob die serialisierte Listen-Datei schon vorhanden ist. Wenn nicht, wird eine erstellt, da sonst eine NullPointerException auftritt
         }
-        manager.laden();
 
+        manager.laden();
 
         setVisible(true);
 
@@ -258,6 +263,7 @@ public class Main extends JFrame {
     public void exportMACAdressen_ActionPerformed(ActionEvent evt) {
         manager.exportiereMac();
         FileOpener fileOpen = new FileOpener("./export.txt");
+
         dialogfenster.zwischenablage();
     }
 
