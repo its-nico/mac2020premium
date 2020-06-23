@@ -257,5 +257,34 @@ public class Korrektur {
         bool = (text.contains(".") && !text.contains(":")); //Variable bool wird hier noch nicht richtig definiert
         return bool;
     }
+
+    public void logEnde (boolean bool1) {
+        String exportfile = "./Fehlerlog.txt";
+        FileWriter fw = null;
+        try {
+            fw = new FileWriter(exportfile, true); /* FileWriter wird erstellt */
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        BufferedWriter bw = new BufferedWriter(fw);
+
+        try {
+            bw.write("\n");
+            if (bool){
+                bw.write("Status: Hinzufügen fehlgeschlagen \n");
+            }
+            else {
+                bw.write("Status: Erfolgreich hinzugefügt \n");
+            }
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            bw.close(); /* Wenn der bw nicht geschlossen wird, bleibt die log-Datei leer */
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }
 

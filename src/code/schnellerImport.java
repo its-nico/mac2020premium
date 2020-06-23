@@ -50,18 +50,19 @@ public class schnellerImport {
                 splitline(line); /* Die einzelnen Datensätze (lines) werden in ihre 5 Attribute aufgeteilt */
                 korrektur.logErstellen(mac);
                 if (korrektur.istIP(mac)){
-                   // dialogfenster.keineMacAdresse(mac);
+                    korrektur.logEnde(false);
                     System.out.println("Der Datensatz zur Adresse " + mac + " wurde nicht übernommen, da es sich um eine IP-Adresse handelt.");
                     IPString = "<html><p align=\"center\">" + IPString + "<br>"+  mac + "</p></html>";
                 }
                 else {
                     mac = korrektur.autoKorrektur(mac);
                     if (korrektur.format(mac)) {
+                        korrektur.logEnde(true);
                         datensatz = new Datensatz(kursstufe, nachname, vorname, mac, grund);
                         liste.add(datensatz);
                     }
                     else {
-                       // dialogfenster.falschesFormat(mac);
+                        korrektur.logEnde(false);
                         System.out.println("Die Adresse befindet sich nicht im für MAC-Adressen erforderlichen Format (xx:xx:xx:xx:xx:xx). Sie konnte nicht übernommen werden.");
                         FormatString = "<html><p align=\"center\">" + FormatString + "<br>" + mac + "</p></html>";
                     }
