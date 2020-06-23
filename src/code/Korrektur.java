@@ -1,10 +1,8 @@
 package code;
-import javax.swing.*;
 import java.io.*;
 import java.util.regex.*;
 import java.util.*;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class Korrektur {
 
@@ -12,12 +10,6 @@ public class Korrektur {
 
     private String textVorIP; //Der ursprünglich zu überprüfende Text wird in der Variable gespeichert, damit später das Log damit erstellt werden kann
     private boolean bool;
-    private String textVorO;
-    private String textNachO; //Der korrigierte Text wird in der Variable gespeichert, damit später das Log damit erstellt werden kann
-    private String textVorLeerzeichen;
-    private String textNachLeerzeichen;
-    private String textVorBindestriche;
-    private String textNachBindestriche;
 
     /* Klasse führt automatisch alle Korrektur-Methoden auf einmal aus */
     public String autoKorrektur (String text) {
@@ -35,10 +27,11 @@ public class Korrektur {
 
     /* Alle Os (groß- und kleingeschrieben) werden mit Nullen ersetzt */
     public String o(String text) {
-        textVorO = text;
+        String textVorO = text;
         text = text.replace("o", "0");
         text = text.replace("O", "0");
-        textNachO = text;
+        //Der korrigierte Text wird in der Variable gespeichert, damit später das Log damit erstellt werden kann
+        String textNachO = text;
 
         String exportfile = "./Fehlerlog.txt";
         FileWriter fw = null;
@@ -68,9 +61,9 @@ public class Korrektur {
 
     /* Alle Leerzeichen werden gelöscht */
     public String leerzeichen (String text) {
-        textVorLeerzeichen = text;
+        String textVorLeerzeichen = text;
         text = text.replace(" ", "");
-        textNachLeerzeichen = text;
+        String textNachLeerzeichen = text;
 
         String exportfile = "./Fehlerlog.txt";
         FileWriter fw = null;
@@ -99,9 +92,9 @@ public class Korrektur {
 
     /* Alle Bindestriche werden mit Doppelpunkten ersetzt */
     public String bindestriche (String text) {
-        textVorBindestriche = text;
+        String textVorBindestriche = text;
         text = text.replace("-",":");
-        textNachBindestriche = text;
+        String textNachBindestriche = text;
 
         String exportfile = "./Fehlerlog.txt";
         FileWriter fw = null;
@@ -270,7 +263,7 @@ public class Korrektur {
 
         try {
             bw.write("\n");
-            if (bool){
+            if (bool1){
                 bw.write("Status: Hinzufügen fehlgeschlagen \n");
             }
             else {

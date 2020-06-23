@@ -7,9 +7,8 @@ import java.util.Set;
 /**
  * CollectionUtil bietet Methoden zur Umwandlung und Behandlung von
  * Collection-Typen an.
- *
- * @autor Gernot Segieth
  */
+@SuppressWarnings("SpellCheckingInspection")
 public class CollectionUtil {
 
     /**
@@ -31,8 +30,7 @@ public class CollectionUtil {
      * @return der Ergebnis-Typ, ein Set
      */
     public static Set<Datensatz> transformListIntoSet(ArrayList<Datensatz> list) {
-        Set<Datensatz> set = new LinkedHashSet<>();
-        set.addAll(list);
+        Set<Datensatz> set = new LinkedHashSet<>(list);
         return set;
     }
 
@@ -43,8 +41,6 @@ public class CollectionUtil {
      * @return der Ergebnis-Typ, eine List
      */
     public static ArrayList<Datensatz> transformSetIntoList(Set<Datensatz> set) {
-        ArrayList<Datensatz> list = new ArrayList<>();
-        list.addAll(set);
-        return list;
+        return new ArrayList<>(set);
     }
 }

@@ -8,12 +8,9 @@ import java.util.ArrayList;
 
 public class Export {
 
-    private static String mac;
-    private static String mac1;
-
     public void exportiereMac (ArrayList<Datensatz> liste){ //Funktion: Exportiert die MAC-Adressen aus der Liste<Datensatz> in die Datei export.txt
         File file = new File("./export.txt");
-        String clipboardstring = "";
+        StringBuilder clipboardstring = new StringBuilder();
 
         //Zuvor alle mit dem File assoziierten Streams schließen...
 
@@ -33,17 +30,17 @@ public class Export {
         int len = liste.size();
         for (int i = 0; i < len; i++) {
             Datensatz datensatz1 = liste.get(i);
-            mac1 = datensatz1.getMac();
+            String mac1 = datensatz1.getMac();
             try {
                 bw.write(mac1); /* Nur das Attribut 'mac' wird in die Datei 'export.txt' geschrieben */
                 bw.write(System.getProperty("line.separator")); /* So kann der bw die Werte untereinander einfügen, da er Zeilenümrüche erstellen kann*/
-                clipboardstring = clipboardstring + mac1 + "\n";
+                clipboardstring.append(mac1).append("\n");
             } catch (IOException e) {
                 e.printStackTrace();
             }
         }
 
-        StringSelection stringSelection = new StringSelection(clipboardstring);
+        StringSelection stringSelection = new StringSelection(clipboardstring.toString());
         Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
         clipboard.setContents(stringSelection, null);
 

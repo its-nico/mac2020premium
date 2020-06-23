@@ -1,8 +1,5 @@
 package sample;
 
-import code.FileOpener;
-import code.Manager;
-import code.OeffnenDialogClass;
 import code.*;
 
 
@@ -15,31 +12,31 @@ import java.sql.SQLException;
 
 public class Main extends JFrame {
     // Anfang Attribute
-    private JLabel ueberschrift = new JLabel();
-    private JLabel beschreibung = new JLabel();
-    private JLabel datenHinzufuegen = new JLabel();
-    private JLabel datenAnsehen = new JLabel();
+    private final JLabel ueberschrift = new JLabel();
+    private final JLabel beschreibung = new JLabel();
+    private final JLabel datenHinzufuegen = new JLabel();
+    private final JLabel datenAnsehen = new JLabel();
 
-    private JButton manuelleEingabe = new JButton();
-    private JButton schnellerImport = new JButton();
-    private JButton datenLoeschen = new JButton();
-    private JButton exportMACAdressen = new JButton();
-    private JButton importLogAnzeigen = new JButton();
-    private JButton doppelteDatensaetzeLoeschen = new JButton();
-    private JButton handbuch = new JButton();
-    private JButton credits = new JButton();
-    private JButton inDatenbankSpeichern = new JButton();
-    private JButton datenbankImportieren = new JButton();
-    private JButton leerenDatenbank = new JButton();
+    private final JButton manuelleEingabe = new JButton();
+    private final JButton schnellerImport = new JButton();
+    private final JButton datenLoeschen = new JButton();
+    private final JButton exportMACAdressen = new JButton();
+    private final JButton importLogAnzeigen = new JButton();
+    private final JButton doppelteDatensaetzeLoeschen = new JButton();
+    private final JButton handbuch = new JButton();
+    private final JButton credits = new JButton();
+    private final JButton inDatenbankSpeichern = new JButton();
+    private final JButton datenbankImportieren = new JButton();
+    private final JButton leerenDatenbank = new JButton();
 
     private ManuelleEingabe manuellesEingabefenster;
 
-    private Manager manager = new Manager();
-    private OeffnenDialogClass oeffnenDialogClass = new OeffnenDialogClass();
-    private Dialogfenster dialogfenster = new Dialogfenster();
-    private Datenbank datenbank = new Datenbank();
+    private final Manager manager = new Manager();
+    private final OeffnenDialogClass oeffnenDialogClass = new OeffnenDialogClass();
+    private final Dialogfenster dialogfenster = new Dialogfenster();
+    private final Datenbank datenbank = new Datenbank();
 
-    private File file1 = new File("./savedList.ser");
+    private final File file1 = new File("./savedList.ser");
 
     private Closing closing;
 

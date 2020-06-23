@@ -13,13 +13,13 @@ public class schnellerImport {
 
     private static String IPString;
     private static String FormatString;
-    private static String test = "";
+    private static final String test = "";
 
     private boolean bereitsImportiert = false;
 
-    private static Korrektur korrektur = new Korrektur();
-    private OeffnenDialogClass odc = new OeffnenDialogClass();
-    private static Dialogfenster dialogfenster = new Dialogfenster();
+    private static final Korrektur korrektur = new Korrektur();
+    private final OeffnenDialogClass odc = new OeffnenDialogClass();
+    private static final Dialogfenster dialogfenster = new Dialogfenster();
 
     public static void schnellerImport(String importfilepath, ArrayList liste) {
 
@@ -57,12 +57,12 @@ public class schnellerImport {
                 else {
                     mac = korrektur.autoKorrektur(mac);
                     if (korrektur.format(mac)) {
-                       // korrektur.logEnde(true);
+                       korrektur.logEnde(true);
                         datensatz = new Datensatz(kursstufe, nachname, vorname, mac, grund);
                         liste.add(datensatz);
                     }
                     else {
-                        //korrektur.logEnde(false);
+                        korrektur.logEnde(false);
                         System.out.println("Die Adresse befindet sich nicht im für MAC-Adressen erforderlichen Format (xx:xx:xx:xx:xx:xx). Sie konnte nicht übernommen werden.");
                         FormatString = "<html>" + FormatString + "<br>" + mac + "</html>";
                     }

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class Dialogfenster {
 
-    private schnellerImport schnellerImport = new schnellerImport();
+    private final schnellerImport schnellerImport = new schnellerImport();
 
     public void keineMacAdresse(String pMac) {
         Runnable runnable = (Runnable) Toolkit.getDefaultToolkit().getDesktopProperty("win.sound.exclamation");
@@ -31,16 +31,14 @@ public class Dialogfenster {
         JOptionPane.showMessageDialog(null, message, "Kopie in Zwischenablage", JOptionPane.INFORMATION_MESSAGE);
     }
 
-    public boolean bereitsImportiertDialog(String pPfad, ArrayList LIST_1) {
+    public void bereitsImportiertDialog(String pPfad, ArrayList LIST_1) {
         String message = "Die Datei unter diesem Dateipfad wurde von ihnen bereits als Import-Datei verwendet. \nMöchten sie die Datei trotzdem importieren?";
-        boolean answer = false;
         int result = JOptionPane.showConfirmDialog(null, message, "Dateiauswahl bestätigen", JOptionPane.YES_NO_OPTION);
         switch (result) {
             case JOptionPane.YES_OPTION:
                 schnellerImport.schnellerImport(pPfad, LIST_1); //Aktion(en) bei Klicken auf den "Ja-Button"
             case JOptionPane.NO_OPTION:
         }
-        return answer;
     }
 
     public void DatenbankErgaenzt(int anzahl) {

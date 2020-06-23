@@ -3,25 +3,23 @@ package code;
 import java.lang.*;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.sql.SQLException;
-import java.util.Date;
 
 
 public class Manager {
     private static ArrayList<Datensatz> LIST_1 = new ArrayList<>(); /* Neue generische Liste des Datentpys 'Datensatz' wird erstellt */
     private static Datensatz datensatz;
 
-    private static Export export = new Export();
-    private static Korrektur korrektur = new Korrektur();
-    private static schnellerImport schnellerImport = new schnellerImport();
-    private static Dialogfenster dialogfenster = new Dialogfenster();
-    private static Datenbank datenbank = new Datenbank();
+    private static final Export export = new Export();
+    private static final Korrektur korrektur = new Korrektur();
+    private static final schnellerImport schnellerImport = new schnellerImport();
+    private static final Dialogfenster dialogfenster = new Dialogfenster();
+    private static final Datenbank datenbank = new Datenbank();
 
     private static Speichern speichern;
-    private static SpeichernUnterClass speichernUnter = new SpeichernUnterClass();
+    private static final SpeichernUnterClass speichernUnter = new SpeichernUnterClass();
 
-    private static CollectionUtil dopplung = new CollectionUtil();
+    private static final CollectionUtil dopplung = new CollectionUtil();
 
     public static void main(String[] args) {
     }
@@ -73,7 +71,7 @@ public class Manager {
     }
 
     public static void listeLoeschen() {
-        LIST_1 = new ArrayList<Datensatz>();
+        LIST_1 = new ArrayList<>();
     }
 
     public static void dopplungenLoeschen() {

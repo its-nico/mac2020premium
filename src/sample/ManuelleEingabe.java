@@ -7,32 +7,31 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
-import javax.swing.event.*;
 
 public class ManuelleEingabe extends JFrame {
 
 
     // Anfang Attribute
-    private JLabel erklaerungsFeld = new JLabel();
+    private final JLabel erklaerungsFeld = new JLabel();
 
-    private JTextField vornameFeld = new JTextField("Vorname");
-    private JTextField nachnameFeld = new JTextField("Nachname");
-    private JTextField kursstufeFeld = new JTextField("Kursstufe");
-    private JTextField macAdresseFeld = new JTextField("MAC-Adresse");
-    private JTextField weitereBemerkungenFeld = new JTextField("Weitere Bemerkungen");
+    private final JTextField vornameFeld = new JTextField("Vorname");
+    private final JTextField nachnameFeld = new JTextField("Nachname");
+    private final JTextField kursstufeFeld = new JTextField("Kursstufe");
+    private final JTextField macAdresseFeld = new JTextField("MAC-Adresse");
+    private final JTextField weitereBemerkungenFeld = new JTextField("Weitere Bemerkungen");
 
-    private JButton pruefenUndHinzufuegen = new JButton();
-    private JButton zurueck = new JButton();
+    private final JButton pruefenUndHinzufuegen = new JButton();
+    private final JButton zurueck = new JButton();
 
-    private JLabel rueckgabeFenster = new JLabel("");
+    private final JLabel rueckgabeFenster = new JLabel("");
 
-    private String vorname = new String();
-    private String nachname = new String();
-    private String kursstufe = new String();
-    private String macAdresse = new String();
-    private String weitereBemerkung = new String();
+    private String vorname;
+    private String nachname;
+    private String kursstufe;
+    private String macAdresse;
+    private String weitereBemerkung;
 
-    private Manager manager = new Manager();
+    private final Manager manager = new Manager();
     // Ende Attribute
 
     public ManuelleEingabe() {
