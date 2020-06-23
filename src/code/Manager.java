@@ -45,7 +45,6 @@ public class Manager {
     public static void schnellerImport (String pPfad){
         if (pPfad != null) {
             boolean bereitsImportiert = schnellerImport.bereitsImportiert(pPfad); //true, wenn Dateipfad bereits Dateipfad einer der letzten Import-Dateien war
-            //schnellerImport.behalteFünfPfade();
             boolean answer = false;
             if (!bereitsImportiert) {
                 schnellerImport.merkeDateipfad(pPfad);

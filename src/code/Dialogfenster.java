@@ -27,8 +27,6 @@ public class Dialogfenster {
     }
 
     public void zwischenablage() {
-        //Runnable runnable = (Runnable) Toolkit.getDefaultToolkit().getDesktopProperty("win.sound.exclamation");
-        //runnable.run();
         String message = "Die MAC-Adressen aus dieser Datei wurden in ihre Zwischenablage kopiert";
         JOptionPane.showMessageDialog(null, message, "Kopie in Zwischenablage", JOptionPane.INFORMATION_MESSAGE);
     }
@@ -41,8 +39,13 @@ public class Dialogfenster {
             case JOptionPane.YES_OPTION:
                 schnellerImport.schnellerImport(pPfad, LIST_1); //Aktion(en) bei Klicken auf den "Ja-Button"
             case JOptionPane.NO_OPTION:
-                System.out.println("Die Datei wurde nicht importiert, da der Benutzer diese Option gewählt hat");
         }
         return answer;
+    }
+
+    public void DatenbankErgaenzt(int anzahl) {
+        String anzahlString = Integer.toString(anzahl);
+        String message = anzahlString + " Datensätze wurden erfolgreich in die Datenbank hochgeladen";
+        JOptionPane.showMessageDialog(null, message, "Hochladen erfolgreich", JOptionPane.INFORMATION_MESSAGE);
     }
 }

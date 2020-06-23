@@ -258,7 +258,12 @@ public class Main extends JFrame {
     }
 
     public void credits_ActionPerformed(ActionEvent evt) {
-        // TODO hier Quelltext einfügen
+        try {
+            manager.datenbankErgaenzen();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("SQLException occured");
+        }
     }
 
     public void inDatenbankSpeichern_ActionPerformed(ActionEvent evt) {

@@ -1,7 +1,5 @@
 package code;
 
-import javax.xml.transform.Result;
-import java.io.IOException;
 import java.sql.*;
 import java.util.ArrayList;
 
@@ -14,40 +12,16 @@ public class Datenbank {
     String grund;
 
     Manager manager = new Manager();
+    Dialogfenster dialogfenster = new Dialogfenster();
 
-    public static void main(String[] args) {
-        Datenbank datenbank = new Datenbank();
-        try {
-            datenbank.datenbankAusgabe("ngr","ngrSecret");
-        } catch (SQLException throwables) {
-            throwables.printStackTrace();
-        }
-    }
+    String url = "jdbc:mysql://ngr.bplaced.net:3306/ngr_macfilter?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UCT"; //Die Zeitzone UTC muss hier festgelegt werden, um einen Kommunikationsfehler zu vermeiden
+    String username = "ngr";
+    String password = "ngrSecret";
 
-    public void datenbankAusgabe(String username, String password) throws SQLException {
-        String url = "jdbc:mysql://bplaced:3306/ngr_macfilter";
-
-        Connection con = DriverManager.getConnection(url, username, password);
-
-        Statement stmt = con.createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT a, b, c FROM Table1");
-
-        while (rs.next()) {
-            int a = rs.getInt("a");
-            int b = rs.getInt("b");
-            int c = rs.getInt("c");
-            System.out.print(a);
-            System.out.print(b);
-            System.out.print(c);
-        }
-    }
-
-    public void datenbankImportieren() throws SQLException {
-        String url = "jdbc:mysql://bplaced:3306/ngr_macfilter";
-        String username = "ngr";
-        String password = "ngrSecret";
-
-        Connection con = DriverManager.getConnection(url, username, password);
+    public void datenbankImportieren() throws SQLException { /* Importiert die Datensätze, die aktuell in der Liste vorhanden sind, in eine Datenbank-Tabelle*/
+        System.out.println("Connecting database...");
+        Connection con = DriverManager.getConnection(url, username, password); /* Verbindung zur Datenbank wird hergestellt */
+        System.out.println("Connected!");
 
         Statement stmt1 = con.createStatement();
         ResultSet rs1 = stmt1.executeQuery("SELECT * FROM table2");
@@ -64,11 +38,9 @@ public class Datenbank {
     }
 
     public void datenbankErgaenzen(ArrayList<Datensatz> liste) throws SQLException {
-        String url = "jdbc:mysql://bplaced:3306/ngr_macfilter";
-        String username = "ngr";
-        String password = "ngrSecret";
-
-        //Connection con = DriverManager.getConnection(url, username, password);
+        System.out.println("Connecting database...");
+        Connection con = DriverManager.getConnection(url, username, password); /* Verbindung zur Datenbank wird hergestellt */
+        System.out.println("Connected!");
 
         int len = liste.size();
         for (int i = 0; i < len; i++) {
@@ -79,11 +51,9 @@ public class Datenbank {
             mac = aktDatensatz.getMac();
             grund = aktDatensatz.getGrund();
 
-            //Statement stmt1 = con.createStatement();
-            //stmt1.executeQuery("INSERT INTO Table2 (Kursstufe, Nachname, Vorname, MAC, Grund) VALUES ('" + kursstufe + "','" + nachname + "','"+ vorname + "','" + mac + "','" + grund + "')");
-            String stmt1 = "INSERT INTO Table2 (Kursstufe, Nachname, Vorname, MAC, Grund) VALUES ('" + kursstufe + "','" + nachname + "','"+ vorname + "','" + mac + "','" + grund + "')";
-            System.out.println(stmt1);
-
+            Statement stmt1 = con.createStatement();
+            stmt1.executeUpdate("INSERT INTO Table2 (Kursstufe, Nachname, Vorname, MAC, Grund) VALUES ('" + kursstufe + "','" + nachname + "','"+ vorname + "','" + mac + "','" + grund + "')");
         }
+        dialogfenster.DatenbankErgaenzt(len);
     }
 }
