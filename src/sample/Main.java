@@ -167,7 +167,7 @@ public class Main extends JFrame {
         cp.add(credits);
 
         inDatenbankSpeichern.setBounds(504, 264, 155, 41);
-        inDatenbankSpeichern.setText("Datenbank herunterladen");
+        inDatenbankSpeichern.setText("Datenbank ergänzen");
         inDatenbankSpeichern.setMargin(new Insets(2, 2, 2, 2));
         inDatenbankSpeichern.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
@@ -240,10 +240,6 @@ public class Main extends JFrame {
         dialogfenster.zwischenablage();
     }
 
-    public void leerenDatenbank_ActionPerformed(ActionEvent evt) {
-        // TODO hier Quelltext einfügen
-    }
-
     public void doppelteDatensaetzeLoeschen_ActionPerformed(ActionEvent evt) {
         // TODO hier Quelltext einfügen
         manager.dopplungenLoeschen();
@@ -269,12 +265,19 @@ public class Main extends JFrame {
             e.printStackTrace();
             System.out.println("SQLException occured");
         }
-
     }
 
     public void datenbankImportieren_ActionPerformed(ActionEvent evt) {
         try {
             datenbank.datenbankImportieren();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void leerenDatenbank_ActionPerformed(ActionEvent evt) {
+        try {
+            datenbank.datenbankLeeren();
         } catch (SQLException e) {
             e.printStackTrace();
         }
