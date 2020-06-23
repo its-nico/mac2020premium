@@ -3,7 +3,6 @@ package sample;
 import code.FileOpener;
 import code.Manager;
 import code.OeffnenDialogClass;
-import java.io.*;
 import code.*;
 
 
@@ -23,7 +22,7 @@ public class Main extends JFrame {
 
     private JButton manuelleEingabe = new JButton();
     private JButton schnellerImport = new JButton();
-    private JButton datenLöschen = new JButton();
+    private JButton datenLoeschen = new JButton();
     private JButton exportMACAdressen = new JButton();
     private JButton importLogAnzeigen = new JButton();
     private JButton doppelteDatensaetzeLoeschen = new JButton();
@@ -78,9 +77,9 @@ public class Main extends JFrame {
         ueberschrift.setFont(new Font("Arial", Font.PLAIN, 30));
         cp.add(ueberschrift);
         beschreibung.setBounds(16, 50, 450, 150);
-        beschreibung.setText("<html>Dieses Programm dient zur Verwaltung und Korrektur von MAC-Adressen. Es ist auf die Verwaltung von MAC-Adressen an Schulen optimiert und ermöglicht Ihnen deshalb das Speichern ganzer Datensätze, die Informationen über den Namen der Schüler*innen, deren Kursstufe und MAC-Adresse enthalten. \n" +
-                "Kernfunktionen sind die Korrektur von MAC-Adressen, sowie deren Export. Außerdem lässt sich die Korrektur der MAC-Adressen in einem stetig wachsenden Korrektur-Log verfolgen.\n" +
-                "Das Speichern und Herunterladen der Datensätze auf, beziehungsweise von einer Datenbank, sind ebenfalls möglich.</html>");
+        beschreibung.setText("<html>Dieses Programm dient der Verwaltung und Korrektur von MAC-Adressen. Es ermöglicht das Speichern ganzer Datensätze, die Informationen über den Namen der Schüler*innen, deren Kursstufe und MAC-Adresse enthalten. <br>" +
+                "Verknüpfungen mit einer Datenbank sind ebenfalls möglich.<br>" +
+                "Das Programm ist für die Nutzung an Schulen optimiert.</html>");
         cp.add(beschreibung);
 
         datenHinzufuegen.setBounds(16, 216, 230, 28);
@@ -88,7 +87,7 @@ public class Main extends JFrame {
         cp.add(datenHinzufuegen);
 
         datenAnsehen.setBounds(504, 216, 190, 28);
-        datenAnsehen.setText("Datenbank Verwaltung");
+        datenAnsehen.setText("Datenbank-Verwaltung");
         cp.add(datenAnsehen);
 
         manuelleEingabe.setBounds(16, 264, 155, 41);
@@ -111,15 +110,15 @@ public class Main extends JFrame {
         });
         cp.add(schnellerImport);
 
-        datenLöschen.setBounds(16, 392, 155, 41);
-        datenLöschen.setText("Datensätze löschen");
-        datenLöschen.setMargin(new Insets(2, 2, 2, 2));
-        datenLöschen.addActionListener(new ActionListener() {
+        datenLoeschen.setBounds(16, 392, 155, 41);
+        datenLoeschen.setText("Datensätze löschen");
+        datenLoeschen.setMargin(new Insets(2, 2, 2, 2));
+        datenLoeschen.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                datenLöschen_ActionPerformed(evt);
+                datenLoeschen_ActionPerformed(evt);
             }
         });
-        cp.add(datenLöschen);
+        cp.add(datenLoeschen);
 
         exportMACAdressen.setBounds(272, 264, 155, 41);
         exportMACAdressen.setText("Export MAC-Adressen");
@@ -132,7 +131,7 @@ public class Main extends JFrame {
         cp.add(exportMACAdressen);
 
         importLogAnzeigen.setBounds(272, 328, 155, 41);
-        importLogAnzeigen.setText("Log Anzeigen");
+        importLogAnzeigen.setText("Berichte anzeigen");
         importLogAnzeigen.setMargin(new Insets(2, 2, 2, 2));
         importLogAnzeigen.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
@@ -142,7 +141,7 @@ public class Main extends JFrame {
         cp.add(importLogAnzeigen);
 
         doppelteDatensaetzeLoeschen.setBounds(272, 392, 155, 41);
-        doppelteDatensaetzeLoeschen.setText("Doppelungen löschen");
+        doppelteDatensaetzeLoeschen.setText("Dopplungen löschen");
         doppelteDatensaetzeLoeschen.setMargin(new Insets(2, 2, 2, 2));
         doppelteDatensaetzeLoeschen.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
@@ -171,7 +170,7 @@ public class Main extends JFrame {
         cp.add(credits);
 
         inDatenbankSpeichern.setBounds(504, 264, 155, 41);
-        inDatenbankSpeichern.setText("Datenbank Runterladen");
+        inDatenbankSpeichern.setText("Datenbank herunterladen");
         inDatenbankSpeichern.setMargin(new Insets(2, 2, 2, 2));
         inDatenbankSpeichern.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
@@ -181,7 +180,7 @@ public class Main extends JFrame {
         cp.add(inDatenbankSpeichern);
 
         datenbankImportieren.setBounds(504, 328, 155, 41);
-        datenbankImportieren.setText("Datenbank Importieren");
+        datenbankImportieren.setText("Datenbank importieren");
         datenbankImportieren.setMargin(new Insets(2, 2, 2, 2));
         datenbankImportieren.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
@@ -191,7 +190,7 @@ public class Main extends JFrame {
         cp.add(datenbankImportieren);
 
         leerenDatenbank.setBounds(504, 392, 155, 41);
-        leerenDatenbank.setText("Import-Log Anzeigen");
+        leerenDatenbank.setText("Datenbank leeren");
         leerenDatenbank.setMargin(new Insets(2, 2, 2, 2));
         leerenDatenbank.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
@@ -232,7 +231,7 @@ public class Main extends JFrame {
         manager.schnellerImport(oeffnenDialogClass.oeffnen());
     }
 
-    public void datenLöschen_ActionPerformed(ActionEvent evt) {
+    public void datenLoeschen_ActionPerformed(ActionEvent evt) {
         // TODO hier Quelltext einfügen
         manager.listeLoeschen();
     }
