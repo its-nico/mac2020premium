@@ -116,7 +116,7 @@ public class schnellerImport {
         }
     }
 
-    public void behalteFünfPfade() { /* Hier wird sichergestellt, dass nur die letzten 5 Dateipfade gespeichert werden */
+    public void behalteFuenfPfade() { /* Hier wird sichergestellt, dass nur die letzten 5 Dateipfade gespeichert werden */
         String merkeDateipfadFile = "./Importpfade.txt";
         int anzahlDateipfade = 0;
 

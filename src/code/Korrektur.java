@@ -143,7 +143,7 @@ public class Korrektur {
         BufferedWriter bw = new BufferedWriter(fw);
 
         try {
-            if (bool == true){
+            if (bool){
                 bw.write("  Es handelt sich um eine IP-Adresse, nicht um eine MAC-Adresse. Die Adresse wurde daher nicht übernommen." +"\n");
             }
         } catch (IOException e) {

@@ -3,7 +3,6 @@ package sample;
 import code.FileOpener;
 import code.Manager;
 import code.OeffnenDialogClass;
-import java.io.*;
 import code.*;
 
 
@@ -23,7 +22,7 @@ public class Main extends JFrame {
 
     private JButton manuelleEingabe = new JButton();
     private JButton schnellerImport = new JButton();
-    private JButton datenLöschen = new JButton();
+    private JButton datenLoeschen = new JButton();
     private JButton exportMACAdressen = new JButton();
     private JButton importLogAnzeigen = new JButton();
     private JButton doppelteDatensaetzeLoeschen = new JButton();
@@ -111,15 +110,15 @@ public class Main extends JFrame {
         });
         cp.add(schnellerImport);
 
-        datenLöschen.setBounds(16, 392, 155, 41);
-        datenLöschen.setText("Datensätze löschen");
-        datenLöschen.setMargin(new Insets(2, 2, 2, 2));
-        datenLöschen.addActionListener(new ActionListener() {
+        datenLoeschen.setBounds(16, 392, 155, 41);
+        datenLoeschen.setText("Datensätze löschen");
+        datenLoeschen.setMargin(new Insets(2, 2, 2, 2));
+        datenLoeschen.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                datenLöschen_ActionPerformed(evt);
+                datenLoeschen_ActionPerformed(evt);
             }
         });
-        cp.add(datenLöschen);
+        cp.add(datenLoeschen);
 
         exportMACAdressen.setBounds(272, 264, 155, 41);
         exportMACAdressen.setText("Export MAC-Adressen");
@@ -232,7 +231,7 @@ public class Main extends JFrame {
         manager.schnellerImport(oeffnenDialogClass.oeffnen());
     }
 
-    public void datenLöschen_ActionPerformed(ActionEvent evt) {
+    public void datenLoeschen_ActionPerformed(ActionEvent evt) {
         // TODO hier Quelltext einfügen
         manager.listeLoeschen();
     }
