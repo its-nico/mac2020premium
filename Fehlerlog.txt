@@ -1,0 +1,42 @@
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Eintrag erstellt am 23.06.2020 um 15:18:11.
+
+Folgende Änderungen wurden durch die Korrektur an der möglicherweise fehlerhaften MAC-Adresse (00:00:00:00:00:00) vorgenommen:
+
+  Die MAC-Adresse ist bereits korrekt und wurde daher nicht verändert.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Eintrag erstellt am 23.06.2020 um 15:18:11.
+
+Folgende Änderungen wurden durch die Korrektur an der möglicherweise fehlerhaften MAC-Adresse (11:11:11:11:11:11) vorgenommen:
+
+  Die MAC-Adresse ist bereits korrekt und wurde daher nicht verändert.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Eintrag erstellt am 23.06.2020 um 15:18:11.
+
+Folgende Änderungen wurden durch die Korrektur an der möglicherweise fehlerhaften MAC-Adresse (22:22:22:22:2:22) vorgenommen:
+
+  Die Adresse befindet sich nicht im für MAC-Adressen erforderlichen Format (xx:xx:xx:xx:xx:xx). Sie konnte nicht übernommen werden.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Eintrag erstellt am 23.06.2020 um 15:18:11.
+
+Folgende Änderungen wurden durch die Korrektur an der möglicherweise fehlerhaften MAC-Adresse (22.44.2) vorgenommen:
+
+  Es handelt sich um eine IP-Adresse, nicht um eine MAC-Adresse. Die Adresse wurde daher nicht übernommen.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Eintrag erstellt am 23.06.2020 um 15:18:11.
+
+Folgende Änderungen wurden durch die Korrektur an der möglicherweise fehlerhaften MAC-Adresse (9o-2 2:55:55:55:55) vorgenommen:
+
+  Die Leerzeichen wurden gelöscht: 9o-22:55:55:55:55
+  Die Bindestriche wurden durch Doppelpunkte ersetzt: 9o:22:55:55:55:55
+  Die Buchstaben 'O' wurden durch Nullen ersetzt: 90:22:55:55:55:55

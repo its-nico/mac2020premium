@@ -24,10 +24,6 @@ public class Manager {
     private static CollectionUtil dopplung = new CollectionUtil();
 
     public static void main(String[] args) {
-        Datensatz dTest = new Datensatz("test","test", "test", "11:11:11:11:11:11", "test");
-        LIST_1.add(dTest);
-        System.out.println(LIST_1.size());
-        System.out.println(LIST_1);
     }
 
     public static void exportiereMac(){
