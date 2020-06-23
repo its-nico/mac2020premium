@@ -55,14 +55,14 @@ public class Manager {
     public static String ergaenze(String pKursstufe, String pNachname, String pVorname, String pMac, String pGrund) {
         korrektur.logErstellen(pMac);
         if (korrektur.istIPOhneLog(pMac)){
-            return ("Der Datensatz zur Adresse " + pMac + " wurde nicht übernommen, da es sich um eine IP-Adresse handelt.\nWeitere Informationen finden Sie im Korrektur-Verzeichnis.");
+            return ("<html>Der Datensatz zur Adresse " + pMac + " wurde nicht übernommen, da es sich um eine IP-Adresse handelt.<br>Weitere Informationen finden Sie im Korrektur-Verzeichnis.</html>");
 
         } else {
             pMac = korrektur.autoKorrektur(pMac);
             if (korrektur.format(pMac)) {
                 datensatz = new Datensatz(pKursstufe, pNachname, pVorname, pMac, pGrund);
                 LIST_1.add(datensatz);
-                return ("Der Datensatz zur MAC-Adresse " + pMac + " wurde erfolgreich hinzugefügt.\nWeitere Informationen finden Sie im Korrektur-Verzeichnis.");
+                return ("<html>Der Datensatz zur MAC-Adresse " + pMac + " wurde erfolgreich hinzugefügt.<br>Weitere Informationen finden Sie im Korrektur-Verzeichnis.</html>");
             }
             else {
                 return ("<html>Die Adresse befindet sich nicht im für MAC-Adressen erforderlichen Format (xx:xx:xx:xx:xx:xx). <br> Der Datensatz konnte daher nicht übernommen werden.<br>Weitere Informationen finden Sie im Korrektur-Verzeichnis.</html>");

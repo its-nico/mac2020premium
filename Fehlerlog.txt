@@ -40,3 +40,43 @@ Folgende Änderungen wurden durch die Korrektur an der möglicherweise fehlerhaf
   Die Leerzeichen wurden gelöscht: 9o-22:55:55:55:55
   Die Bindestriche wurden durch Doppelpunkte ersetzt: 9o:22:55:55:55:55
   Die Buchstaben 'O' wurden durch Nullen ersetzt: 90:22:55:55:55:55
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Eintrag erstellt am 23.06.2020 um 15:44:41.
+
+Folgende Änderungen wurden durch die Korrektur an der möglicherweise fehlerhaften MAC-Adresse (MAC-Adresse) vorgenommen:
+
+  Die Bindestriche wurden durch Doppelpunkte ersetzt: MAC:Adresse
+  Die Adresse befindet sich nicht im für MAC-Adressen erforderlichen Format (xx:xx:xx:xx:xx:xx). Sie konnte nicht übernommen werden.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Eintrag erstellt am 23.06.2020 um 15:44:50.
+
+Folgende Änderungen wurden durch die Korrektur an der möglicherweise fehlerhaften MAC-Adresse (11:11:11:11:11:11) vorgenommen:
+
+  Die MAC-Adresse ist bereits korrekt und wurde daher nicht verändert.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Eintrag erstellt am 23.06.2020 um 15:48:56.
+
+Folgende Änderungen wurden durch die Korrektur an der möglicherweise fehlerhaften MAC-Adresse (11:11:11:11:11:11) vorgenommen:
+
+  Die MAC-Adresse ist bereits korrekt und wurde daher nicht verändert.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Eintrag erstellt am 23.06.2020 um 15:49:04.
+
+Folgende Änderungen wurden durch die Korrektur an der möglicherweise fehlerhaften MAC-Adresse (11:11:11:11:11:1) vorgenommen:
+
+  Die Adresse befindet sich nicht im für MAC-Adressen erforderlichen Format (xx:xx:xx:xx:xx:xx). Sie konnte nicht übernommen werden.
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Eintrag erstellt am 23.06.2020 um 15:49:13.
+
+Folgende Änderungen wurden durch die Korrektur an der möglicherweise fehlerhaften MAC-Adresse ( 22.4) vorgenommen:
+
