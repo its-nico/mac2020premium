@@ -13,6 +13,7 @@ import java.sql.SQLException;
 
 public class Main extends JFrame {
     // Anfang Attribute
+
     private final JLabel ueberschrift = new JLabel();
     private final JLabel beschreibung = new JLabel();
     private final JLabel datenHinzufuegen = new JLabel();
@@ -74,6 +75,7 @@ public class Main extends JFrame {
         ueberschrift.setText("MAC-Projekt");
         ueberschrift.setFont(new Font("Arial", Font.PLAIN, 30));
         cp.add(ueberschrift);
+
         beschreibung.setBounds(16, 50, 450, 150);
         beschreibung.setText("<html>Dieses Programm dient der Verwaltung und Korrektur von MAC-Adressen. Es ermöglicht das Speichern ganzer Datensätze, die Informationen über den Namen der Schüler*innen, deren Kursstufe und MAC-Adresse enthalten. <br>" +
                 "Verknüpfungen mit einer Datenbank sind ebenfalls möglich.<br>" +
@@ -97,8 +99,8 @@ public class Main extends JFrame {
             }
         });
         cp.add(manuelleEingabe);
-        manuelleEingabe.setBackground(new Color(255, 166, 77));
-        manuelleEingabe.setBorder(new LineBorder(new Color(255,166,77),1));
+        manuelleEingabe.setBackground(new Color(255, 130, 0));
+        manuelleEingabe.setBorder(new LineBorder(new Color(255,130,0),1));
 
         schnellerImport.setBounds(16, 328, 155, 41);
         schnellerImport.setText("Datensätze importieren");
@@ -109,6 +111,8 @@ public class Main extends JFrame {
             }
         });
         cp.add(schnellerImport);
+        schnellerImport.setBackground(new Color(255, 130, 0));
+        schnellerImport.setBorder(new LineBorder(new Color(255,130,0),1));
 
         datenLoeschen.setBounds(16, 392, 155, 41);
         datenLoeschen.setText("Datensätze löschen");
@@ -119,6 +123,9 @@ public class Main extends JFrame {
             }
         });
         cp.add(datenLoeschen);
+
+        datenLoeschen.setBackground(new Color(255, 130, 0));
+        datenLoeschen.setBorder(new LineBorder(new Color(255,130,0),1));
 
         exportMACAdressen.setBounds(272, 264, 155, 41);
         exportMACAdressen.setText("Export MAC-Adressen");
@@ -232,7 +239,10 @@ public class Main extends JFrame {
     }
 
     public void datenLoeschen_ActionPerformed(ActionEvent evt) {
+
+        // TODO hier Quelltext einfügen
         manager.listeLoeschen();
+
     }
 
     public void exportMACAdressen_ActionPerformed(ActionEvent evt) {
