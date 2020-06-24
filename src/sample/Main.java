@@ -23,7 +23,7 @@ public class Main extends JFrame {
 
     private JButton manuelleEingabe = new JButton();
     private JButton schnellerImport = new JButton();
-    private JButton datenLöschen = new JButton();
+    private JButton datenLoeschen = new JButton();
     private JButton exportMACAdressen = new JButton();
     private JButton importLogAnzeigen = new JButton();
     private JButton doppelteDatensaetzeLoeschen = new JButton();
@@ -75,6 +75,7 @@ public class Main extends JFrame {
         ueberschrift.setText("MAC-Projekt");
         ueberschrift.setFont(new Font("Arial", Font.PLAIN, 30));
         cp.add(ueberschrift);
+
         beschreibung.setBounds(16, 50, 450, 150);
         beschreibung.setText("<html>Dieses Programm dient zur Verwaltung und Korrektur von MAC-Adressen. Es ist auf die Verwaltung von MAC-Adressen an Schulen optimiert und ermöglicht Ihnen deshalb das Speichern ganzer Datensätze, die Informationen über den Namen der Schüler*innen, deren Kursstufe und MAC-Adresse enthalten. \n" +
                 "Kernfunktionen sind die Korrektur von MAC-Adressen, sowie deren Export. Außerdem lässt sich die Korrektur der MAC-Adressen in einem stetig wachsenden Korrektur-Log verfolgen.\n" +
@@ -98,8 +99,8 @@ public class Main extends JFrame {
             }
         });
         cp.add(manuelleEingabe);
-        manuelleEingabe.setBackground(new Color(255, 166, 77));
-        manuelleEingabe.setBorder(new LineBorder(new Color(255,166,77),1));
+        manuelleEingabe.setBackground(new Color(255, 130, 0));
+        manuelleEingabe.setBorder(new LineBorder(new Color(255,130,0),1));
 
         schnellerImport.setBounds(16, 328, 155, 41);
         schnellerImport.setText("Datensätze importieren");
@@ -110,16 +111,20 @@ public class Main extends JFrame {
             }
         });
         cp.add(schnellerImport);
+        schnellerImport.setBackground(new Color(255, 130, 0));
+        schnellerImport.setBorder(new LineBorder(new Color(255,130,0),1));
 
-        datenLöschen.setBounds(16, 392, 155, 41);
-        datenLöschen.setText("Datensätze löschen");
-        datenLöschen.setMargin(new Insets(2, 2, 2, 2));
-        datenLöschen.addActionListener(new ActionListener() {
+        datenLoeschen.setBounds(16, 392, 155, 41);
+        datenLoeschen.setText("Datensätze löschen");
+        datenLoeschen.setMargin(new Insets(2, 2, 2, 2));
+        datenLoeschen.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                datenLöschen_ActionPerformed(evt);
+                datenLoeschen_ActionPerformed(evt);
             }
         });
-        cp.add(datenLöschen);
+        cp.add(datenLoeschen);
+        datenLoeschen.setBackground(new Color(255, 130, 0));
+        datenLoeschen.setBorder(new LineBorder(new Color(255,130,0),1));
 
         exportMACAdressen.setBounds(272, 264, 155, 41);
         exportMACAdressen.setText("Export MAC-Adressen");
@@ -191,7 +196,7 @@ public class Main extends JFrame {
         cp.add(datenbankImportieren);
 
         leerenDatenbank.setBounds(504, 392, 155, 41);
-        leerenDatenbank.setText("Import-Log Anzeigen");
+        leerenDatenbank.setText("Datenbank leeren");
         leerenDatenbank.setMargin(new Insets(2, 2, 2, 2));
         leerenDatenbank.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
@@ -232,7 +237,7 @@ public class Main extends JFrame {
         manager.schnellerImport(oeffnenDialogClass.oeffnen());
     }
 
-    public void datenLöschen_ActionPerformed(ActionEvent evt) {
+    public void datenLoeschen_ActionPerformed(ActionEvent evt) {
         // TODO hier Quelltext einfügen
     }
 
