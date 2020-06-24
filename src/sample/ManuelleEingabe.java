@@ -56,7 +56,7 @@ public class ManuelleEingabe extends JFrame {
         int x = (d.width - getSize().width) / 2;
         int y = (d.height - getSize().height) / 2;
         setLocation(x, y);
-        setTitle("ManuelleEingabe");
+        setTitle("Manuelle Eingabe");
         setResizable(false);
         Container cp = getContentPane();
         cp.setLayout(null);
@@ -123,7 +123,7 @@ public class ManuelleEingabe extends JFrame {
         LineBorder lBorder = new LineBorder(new Color(100, 100, 100));
         rueckgabeFenster.setBorder(BorderFactory.createCompoundBorder(lBorder, eBorder));
 
-        pruefenUndHinzufuegen.setBounds(24, 352, 235, 33);
+        pruefenUndHinzufuegen.setBounds(24, 352, 190, 33);
         pruefenUndHinzufuegen.setText("Prüfen und Hinzufügen");
         pruefenUndHinzufuegen.setMargin(new Insets(2, 2, 2, 2));
         pruefenUndHinzufuegen.addActionListener(new ActionListener() {
@@ -134,36 +134,25 @@ public class ManuelleEingabe extends JFrame {
         cp.add(pruefenUndHinzufuegen);
 
         /* Labels zu Eingabefenstern */
-        kursstufeLabel.setBounds(24, 72, 190, 25);
+        kursstufeLabel.setBounds(25, 215, 190, 25);
         cp.add(kursstufeLabel);
         kursstufeLabel.setOpaque(true);
-        kursstufeLabel.setBackground(Color.white);
-        kursstufeLabel.setBorder(new LineBorder(Color.DARK_GRAY,0));
 
-        nachnameLabel.setBounds(24, 72, 190, 25);
+        nachnameLabel.setBounds(25, 159, 190, 25);
         cp.add(nachnameLabel);
         nachnameLabel.setOpaque(true);
-        nachnameLabel.setBackground(Color.white);
-        nachnameLabel.setBorder(new LineBorder(Color.DARK_GRAY,0));
 
-        vornameLabel.setBounds(24, 108, 190, 25);
+        vornameLabel.setBounds(25, 103, 190, 25);
         cp.add(vornameLabel);
         vornameLabel.setOpaque(true);
-        vornameLabel.setBackground(Color.white);
-        vornameLabel.setBorder(new LineBorder(Color.DARK_GRAY,0));
 
-        macLabel.setBounds(24, 72, 190, 25);
+        macLabel.setBounds(25, 271, 190, 25);
         cp.add(macLabel);
         macLabel.setOpaque(true);
-        macLabel.setBackground(Color.white);
-        macLabel.setBorder(new LineBorder(Color.DARK_GRAY,0));
 
-        grundLabel.setBounds(24, 72, 190, 25);
+        grundLabel.setBounds(25, 272, 190, 25);
         cp.add(grundLabel);
         grundLabel.setOpaque(true);
-        grundLabel.setBackground(Color.white);
-        grundLabel.setBorder(new LineBorder(Color.DARK_GRAY,0));
-
         // Ende Komponenten
 
         setVisible(true);
