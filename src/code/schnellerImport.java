@@ -33,10 +33,8 @@ public class schnellerImport {
             fr = new FileReader(importfilepath);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-            System.out.println("The file could not be found by FileReader (FileNotFoundException)");
         } catch (NullPointerException f) {
             f.printStackTrace();
-            System.out.println("Der Benutzer hat JFileChooser mit X geschlossen, ohne eine Datei auszuwählen");
         }
         BufferedReader br = new BufferedReader(fr);
 
@@ -46,13 +44,11 @@ public class schnellerImport {
                 line = br.readLine(); /* Jeweils ein komplette Zeile, also ein Datensatz, wird über die Variable 'line' gespeichert */
             } catch (IOException e) {
                 e.printStackTrace();
-                System.out.println("An error has occurred (IOException)");
             }
             if (line != null) {
                 splitline(line); /* Die einzelnen Datensätze (lines) werden in ihre 5 Attribute aufgeteilt */
                 korrektur.logErstellen(mac);
                 if (korrektur.istIP(mac)){
-                    System.out.println("Der Datensatz zur Adresse " + mac + " wurde nicht übernommen, da es sich um eine IP-Adresse handelt.");
                     IPString = "<html>" + IPString + "<br>" + mac + "</html>";
                 }
                 else {
@@ -62,7 +58,6 @@ public class schnellerImport {
                         liste.add(datensatz);
                     }
                     else {
-                        System.out.println("Die Adresse befindet sich nicht im für MAC-Adressen erforderlichen Format (xx:xx:xx:xx:xx:xx). Sie konnte nicht übernommen werden.");
                         FormatString = "<html>" + FormatString + "<br>" + mac + "</html>";
                     }
 
@@ -117,55 +112,6 @@ public class schnellerImport {
         }
     }
 
-    public void behalteFuenfPfade() { /* Hier wird sichergestellt, dass nur die letzten 5 Dateipfade gespeichert werden */
-        String merkeDateipfadFile = "./Importpfade.txt";
-        int anzahlDateipfade = 0;
-
-        FileReader fr = null;
-        try {
-            fr = new FileReader(merkeDateipfadFile); /* FileReader wird erstellt */
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        BufferedReader br = new BufferedReader(fr);
-
-        String line = "";
-        while (line != null) {
-            if (line != null) {
-                try {
-                    line = br.readLine();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                    System.out.println("An error has occurred (IOException)");
-                }
-                anzahlDateipfade++;
-                System.out.println("Anzahl: " + anzahlDateipfade);
-            }
-        }
-
-        FileReader fr2 = null;
-        try {
-            fr2 = new FileReader(merkeDateipfadFile); /* FileReader wird erstellt */
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        BufferedReader br2 = new BufferedReader(fr2);
-
-        while (anzahlDateipfade > 5) {
-            try {
-                String currentline = br2.readLine();
-                //System.out.println(currentline);
-                if (currentline != null) {
-                    currentline.trim();
-                    System.out.println("Versucht, Zeile zu löschen. Anzahl: " + anzahlDateipfade);
-                }
-                anzahlDateipfade--;
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
     public boolean bereitsImportiert (String pPfad) {
         String merkeDateipfadFile = "./Importpfade.txt";
 
@@ -198,7 +144,6 @@ public class schnellerImport {
                 line = br.readLine();
             } catch (IOException e) {
                 e.printStackTrace();
-                System.out.println("An error has occurred (IOException)");
             }
             anzahlDateipfade++;
             if (line != null && line.equals(pPfad)) {

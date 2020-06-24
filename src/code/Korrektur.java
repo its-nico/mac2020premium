@@ -14,7 +14,6 @@ public class Korrektur {
     /* Klasse führt automatisch alle Korrektur-Methoden auf einmal aus */
     public String autoKorrektur (String text) {
         if (istIP(text)) {
-            System.err.println("Es handelt sich hierbei um eine IP-Adresse. Bitte geben Sie eine MAC-Adresse ein!");
             return null;
         }
 

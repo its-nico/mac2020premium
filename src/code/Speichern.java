@@ -1,9 +1,13 @@
 package code;
+import javax.swing.*;
 import java.io.*;
 import java.util.ArrayList;
 
 public class Speichern {
     static String datnam = "savedList.ser";
+
+
+
     public static void abspeichern(ArrayList pList) {
         OutputStream fos = null;
         try {
@@ -24,6 +28,7 @@ public class Speichern {
     }
 
     public static ArrayList laden () {
+        Dialogfenster dialogfenster = new Dialogfenster();
             ArrayList liste = null;
             InputStream fis = null;
             try {
@@ -33,9 +38,9 @@ public class Speichern {
                 stream.close();
                 return liste;
             } catch (ClassNotFoundException cnfex) {
-                System.err.println("Die Klasse des geladenen Objekts konnte nicht gefunden werden.");
+                dialogfenster.ObjektKlasse();
             } catch (IOException ioex) {
-                System.err.println("Das Objekt konnte nicht geladen werden.");
+                dialogfenster.ObjektLaden();
                 ioex.printStackTrace();
             } finally {
                 try {

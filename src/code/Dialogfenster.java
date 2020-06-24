@@ -57,4 +57,14 @@ public class Dialogfenster {
         String message = "Alle Datensätze wurden aus der Datenbank gelöscht";
         JOptionPane.showMessageDialog(null, message, "Datenbank geleert", JOptionPane.INFORMATION_MESSAGE);
     }
+
+    public void ObjektLaden (){
+        String message = "Das Objekt konnte nicht geladen werden.";
+        JOptionPane.showMessageDialog(null, message, "Datenbank geleert", JOptionPane.ERROR_MESSAGE);
+    }
+
+    public void ObjektKlasse (){
+        String message = "Die Klasse des geladenen Objekts konnte nicht gefunden werden.";
+        JOptionPane.showMessageDialog(null, message, "Datenbank geleert", JOptionPane.ERROR_MESSAGE);
+    }
 }

@@ -38,7 +38,6 @@ public class OeffnenDialogClass {
         if (result == JFileChooser.APPROVE_OPTION) {
             File inputVerzFile = chooser.getSelectedFile();
             String inputVerzStr = inputVerzFile.getPath();
-            System.out.println("Eingabepfad:" + inputVerzStr);
             return inputVerzStr;
         }
         chooser.setVisible(false);

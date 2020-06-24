@@ -17,7 +17,6 @@ public class Manager {
     private static final Datenbank datenbank = new Datenbank();
 
     private static Speichern speichern;
-    private static final SpeichernUnterClass speichernUnter = new SpeichernUnterClass();
 
     private static final CollectionUtil dopplung = new CollectionUtil();
 

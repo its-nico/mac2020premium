@@ -32,7 +32,6 @@ public class Closing extends JFrame{
     }
 
     public static void close(Manager manager){
-        System.out.println("Closed");
         int result = JOptionPane.showConfirmDialog(null,
                 "Möchten Sie vor dem Beenden speichern?",
                 "Beenden bestätigen",
