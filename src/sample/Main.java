@@ -6,6 +6,7 @@ import code.*;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import javax.swing.border.LineBorder;
 import java.io.File;
 import java.lang.*;
 import java.sql.SQLException;
@@ -65,7 +66,7 @@ public class Main extends JFrame {
         Container cp = getContentPane();
         cp.setLayout(null);
 
-        setIconImage(new ImageIcon(getClass().getResource("88208755.png")).getImage());
+        setIconImage(new ImageIcon(getClass().getResource("Logo2.png")).getImage());
 
         // Anfang Komponenten
 
@@ -96,6 +97,8 @@ public class Main extends JFrame {
             }
         });
         cp.add(manuelleEingabe);
+        manuelleEingabe.setBackground(new Color(255, 166, 77));
+        manuelleEingabe.setBorder(new LineBorder(new Color(255,166,77),1));
 
         schnellerImport.setBounds(16, 328, 155, 41);
         schnellerImport.setText("Datensätze importieren");
