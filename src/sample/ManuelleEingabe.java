@@ -55,7 +55,7 @@ public class ManuelleEingabe extends JFrame {
         Container cp = getContentPane();
         cp.setLayout(null);
 
-        setIconImage(new ImageIcon(getClass().getResource("88208755.png")).getImage());
+        setIconImage(new ImageIcon(getClass().getResource("Logo2.png")).getImage());
 
 
         // Anfang Komponenten
