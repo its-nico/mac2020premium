@@ -27,7 +27,7 @@ public class Dialogfenster {
     }
 
     public void zwischenablage() {
-        String message = "Die MAC-Adressen aus dieser Datei wurden in ihre Zwischenablage kopiert";
+        String message = "Die MAC-Adressen aus dieser Datei wurden (wenn vorhanden) in ihre Zwischenablage kopiert";
         JOptionPane.showMessageDialog(null, message, "Kopie in Zwischenablage", JOptionPane.INFORMATION_MESSAGE);
     }
 

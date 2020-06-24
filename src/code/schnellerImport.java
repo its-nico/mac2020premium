@@ -11,6 +11,8 @@ public class schnellerImport {
     private static String grund;
     private static String mac;
 
+    private static String[] splittedline;
+
     private static String IPString;
     private static String FormatString;
     private static final String test = "";
@@ -77,17 +79,18 @@ public class schnellerImport {
     }
 
     public static void splitline(String line) {
-        String[] splittedline = line.split("; "); /* Die Methode 'split' teilt den String 'line' mithilfe des definierten Trennzeichens '; '*/
+        splittedline = line.split("; "); /* Die Methode 'split' teilt den String 'line' mithilfe des definierten Trennzeichens '; '*/
         kursstufe = splittedline[0];
         nachname = splittedline[1];
         vorname = splittedline[2];
         mac = splittedline[3];
-        if (splittedline[4] != null) {
-            grund = splittedline[4];
-        } else {
-            grund = "";
-        }
 
+        int length = splittedline.length;
+        if (length > 4) {
+            if (splittedline[4] != null) {
+                grund = splittedline[4];
+            }
+        }
     }
 
     public void merkeDateipfad (String pPfad) {

@@ -229,19 +229,16 @@ public class Main extends JFrame {
     }
 
     public void datenLoeschen_ActionPerformed(ActionEvent evt) {
-        // TODO hier Quelltext einfügen
         manager.listeLoeschen();
     }
 
     public void exportMACAdressen_ActionPerformed(ActionEvent evt) {
         manager.exportiereMac();
-        FileOpener fileOpen = new FileOpener("./export.txt");
-
         dialogfenster.zwischenablage();
+        FileOpener fileOpen = new FileOpener("./export.txt");
     }
 
     public void doppelteDatensaetzeLoeschen_ActionPerformed(ActionEvent evt) {
-        // TODO hier Quelltext einfügen
         manager.dopplungenLoeschen();
     }
 
