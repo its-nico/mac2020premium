@@ -67,4 +67,16 @@ public class Dialogfenster {
         String message = "Die Klasse des geladenen Objekts konnte nicht gefunden werden.";
         JOptionPane.showMessageDialog(null, message, "Datenbank geleert", JOptionPane.ERROR_MESSAGE);
     }
+
+    public void verbindungWirdAufgebaut() {
+        String message = "Die Datenbank-Verbindung wird hergestellt\nDieser Vorgang kann mehrere Sekunden dauern\nDas Programm reagiert während dieser Zeit nicht auf Eingaben\nBitte warten...";
+        JOptionPane.showMessageDialog(null, message, "Verbindungsaufbau...", JOptionPane.INFORMATION_MESSAGE);
+    }
+
+    public void datenbankListeLeer() {
+        Runnable runnable = (Runnable) Toolkit.getDefaultToolkit().getDesktopProperty("win.sound.exclamation");
+        runnable.run();
+        String message = "Es gibt keine Datensätze, die in die Datenbank hochgeladen werden können";
+        JOptionPane.showMessageDialog(null, message, "Upload verhindert", JOptionPane.ERROR_MESSAGE);
+    }
 }

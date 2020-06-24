@@ -437,6 +437,266 @@ Status: Hinzufügen fehlgeschlagen
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+Eintrag erstellt am 24.06.2020 um 15:47:07.
+
+Folgende Änderungen wurden durch die Korrektur an der möglicherweise fehlerhaften MAC-Adresse (55.44.22) vorgenommen:
+
+  Es handelt sich um eine IP-Adresse, nicht um eine MAC-Adresse. Die Adresse wurde daher nicht übernommen.
+
+Status: Hinzufügen fehlgeschlagen
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Eintrag erstellt am 24.06.2020 um 15:59:18.
+
+Folgende Änderungen wurden durch die Korrektur an der möglicherweise fehlerhaften MAC-Adresse (00:00:00:00:00:00) vorgenommen:
+
+  Die MAC-Adresse ist bereits korrekt und wurde daher nicht verändert.
+
+Status: Erfolgreich hinzugefügt
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Eintrag erstellt am 24.06.2020 um 15:59:18.
+
+Folgende Änderungen wurden durch die Korrektur an der möglicherweise fehlerhaften MAC-Adresse (11:11:11:11:11:11) vorgenommen:
+
+  Die MAC-Adresse ist bereits korrekt und wurde daher nicht verändert.
+
+Status: Erfolgreich hinzugefügt
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Eintrag erstellt am 24.06.2020 um 15:59:18.
+
+Folgende Änderungen wurden durch die Korrektur an der möglicherweise fehlerhaften MAC-Adresse (22:22:22:22:2:22) vorgenommen:
+
+  Die Adresse befindet sich nicht im für MAC-Adressen erforderlichen Format (xx:xx:xx:xx:xx:xx). Sie konnte nicht übernommen werden.
+
+Status: Hinzufügen fehlgeschlagen
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Eintrag erstellt am 24.06.2020 um 15:59:18.
+
+Folgende Änderungen wurden durch die Korrektur an der möglicherweise fehlerhaften MAC-Adresse (55.44.22) vorgenommen:
+
+  Es handelt sich um eine IP-Adresse, nicht um eine MAC-Adresse. Die Adresse wurde daher nicht übernommen.
+
+Status: Hinzufügen fehlgeschlagen
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Eintrag erstellt am 24.06.2020 um 15:59:18.
+
+Folgende Änderungen wurden durch die Korrektur an der möglicherweise fehlerhaften MAC-Adresse (32:32:32:32:02:32) vorgenommen:
+
+  Die MAC-Adresse ist bereits korrekt und wurde daher nicht verändert.
+
+Status: Erfolgreich hinzugefügt
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Eintrag erstellt am 24.06.2020 um 15:59:18.
+
+Folgende Änderungen wurden durch die Korrektur an der möglicherweise fehlerhaften MAC-Adresse (44:44:44:44:44:44;) vorgenommen:
+
+  Die Adresse befindet sich nicht im für MAC-Adressen erforderlichen Format (xx:xx:xx:xx:xx:xx). Sie konnte nicht übernommen werden.
+
+Status: Hinzufügen fehlgeschlagen
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Eintrag erstellt am 24.06.2020 um 15:59:18.
+
+Folgende Änderungen wurden durch die Korrektur an der möglicherweise fehlerhaften MAC-Adresse (55:55:55:55:55:55) vorgenommen:
+
+  Die MAC-Adresse ist bereits korrekt und wurde daher nicht verändert.
+
+Status: Erfolgreich hinzugefügt
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Eintrag erstellt am 24.06.2020 um 16:01:20.
+
+Folgende Änderungen wurden durch die Korrektur an der möglicherweise fehlerhaften MAC-Adresse (00:00:00:00:00:00) vorgenommen:
+
+  Die MAC-Adresse ist bereits korrekt und wurde daher nicht verändert.
+
+Status: Erfolgreich hinzugefügt
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Eintrag erstellt am 24.06.2020 um 16:01:20.
+
+Folgende Änderungen wurden durch die Korrektur an der möglicherweise fehlerhaften MAC-Adresse (11:11:11:11:11:11) vorgenommen:
+
+  Die MAC-Adresse ist bereits korrekt und wurde daher nicht verändert.
+
+Status: Erfolgreich hinzugefügt
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Eintrag erstellt am 24.06.2020 um 16:01:20.
+
+Folgende Änderungen wurden durch die Korrektur an der möglicherweise fehlerhaften MAC-Adresse (22:22:22:22:2:22) vorgenommen:
+
+  Die Adresse befindet sich nicht im für MAC-Adressen erforderlichen Format (xx:xx:xx:xx:xx:xx). Sie konnte nicht übernommen werden.
+
+Status: Hinzufügen fehlgeschlagen
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Eintrag erstellt am 24.06.2020 um 16:01:20.
+
+Folgende Änderungen wurden durch die Korrektur an der möglicherweise fehlerhaften MAC-Adresse (55.44.22) vorgenommen:
+
+  Es handelt sich um eine IP-Adresse, nicht um eine MAC-Adresse. Die Adresse wurde daher nicht übernommen.
+
+Status: Hinzufügen fehlgeschlagen
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Eintrag erstellt am 24.06.2020 um 16:01:20.
+
+Folgende Änderungen wurden durch die Korrektur an der möglicherweise fehlerhaften MAC-Adresse (32:32:32:32:02:32:77) vorgenommen:
+
+  Die Adresse befindet sich nicht im für MAC-Adressen erforderlichen Format (xx:xx:xx:xx:xx:xx). Sie konnte nicht übernommen werden.
+
+Status: Hinzufügen fehlgeschlagen
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Eintrag erstellt am 24.06.2020 um 16:01:20.
+
+Folgende Änderungen wurden durch die Korrektur an der möglicherweise fehlerhaften MAC-Adresse (44:44:44:44:44:44;) vorgenommen:
+
+  Die Adresse befindet sich nicht im für MAC-Adressen erforderlichen Format (xx:xx:xx:xx:xx:xx). Sie konnte nicht übernommen werden.
+
+Status: Hinzufügen fehlgeschlagen
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Eintrag erstellt am 24.06.2020 um 16:01:20.
+
+Folgende Änderungen wurden durch die Korrektur an der möglicherweise fehlerhaften MAC-Adresse (55:55:55:55:55:55) vorgenommen:
+
+  Die MAC-Adresse ist bereits korrekt und wurde daher nicht verändert.
+
+Status: Erfolgreich hinzugefügt
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Eintrag erstellt am 24.06.2020 um 16:02:27.
+
+Folgende Änderungen wurden durch die Korrektur an der möglicherweise fehlerhaften MAC-Adresse (00:00:00:00:00:00) vorgenommen:
+
+  Die MAC-Adresse ist bereits korrekt und wurde daher nicht verändert.
+
+Status: Erfolgreich hinzugefügt
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Eintrag erstellt am 24.06.2020 um 16:02:27.
+
+Folgende Änderungen wurden durch die Korrektur an der möglicherweise fehlerhaften MAC-Adresse (11:11:11:11:11:11) vorgenommen:
+
+  Die MAC-Adresse ist bereits korrekt und wurde daher nicht verändert.
+
+Status: Erfolgreich hinzugefügt
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Eintrag erstellt am 24.06.2020 um 16:02:27.
+
+Folgende Änderungen wurden durch die Korrektur an der möglicherweise fehlerhaften MAC-Adresse (22:22:22:22:2:22) vorgenommen:
+
+  Die Adresse befindet sich nicht im für MAC-Adressen erforderlichen Format (xx:xx:xx:xx:xx:xx). Sie konnte nicht übernommen werden.
+
+Status: Hinzufügen fehlgeschlagen
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Eintrag erstellt am 24.06.2020 um 16:02:27.
+
+Folgende Änderungen wurden durch die Korrektur an der möglicherweise fehlerhaften MAC-Adresse (55.44.22) vorgenommen:
+
+  Es handelt sich um eine IP-Adresse, nicht um eine MAC-Adresse. Die Adresse wurde daher nicht übernommen.
+
+Status: Hinzufügen fehlgeschlagen
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Eintrag erstellt am 24.06.2020 um 16:02:27.
+
+Folgende Änderungen wurden durch die Korrektur an der möglicherweise fehlerhaften MAC-Adresse (32:32:32:32:02:32:77) vorgenommen:
+
+  Die Adresse befindet sich nicht im für MAC-Adressen erforderlichen Format (xx:xx:xx:xx:xx:xx). Sie konnte nicht übernommen werden.
+
+Status: Hinzufügen fehlgeschlagen
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Eintrag erstellt am 24.06.2020 um 16:02:27.
+
+Folgende Änderungen wurden durch die Korrektur an der möglicherweise fehlerhaften MAC-Adresse (44:44:44:44:44:44;) vorgenommen:
+
+  Die Adresse befindet sich nicht im für MAC-Adressen erforderlichen Format (xx:xx:xx:xx:xx:xx). Sie konnte nicht übernommen werden.
+
+Status: Hinzufügen fehlgeschlagen
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Eintrag erstellt am 24.06.2020 um 16:02:27.
+
+Folgende Änderungen wurden durch die Korrektur an der möglicherweise fehlerhaften MAC-Adresse (55:55:55:55:55:55) vorgenommen:
+
+  Die MAC-Adresse ist bereits korrekt und wurde daher nicht verändert.
+
+Status: Erfolgreich hinzugefügt
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Eintrag erstellt am 24.06.2020 um 16:12:23.
+
+Folgende Änderungen wurden durch die Korrektur an der möglicherweise fehlerhaften MAC-Adresse (11:11:11:11:11:11) vorgenommen:
+
+  Die MAC-Adresse ist bereits korrekt und wurde daher nicht verändert.
+
+Status: Erfolgreich hinzugefügt
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Eintrag erstellt am 24.06.2020 um 16:12:37.
+
+Folgende Änderungen wurden durch die Korrektur an der möglicherweise fehlerhaften MAC-Adresse (11:11:11:11:11:11) vorgenommen:
+
+  Die MAC-Adresse ist bereits korrekt und wurde daher nicht verändert.
+
+Status: Erfolgreich hinzugefügt
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Eintrag erstellt am 24.06.2020 um 16:12:42.
+
+Folgende Änderungen wurden durch die Korrektur an der möglicherweise fehlerhaften MAC-Adresse (11:11:11:11:11:11) vorgenommen:
+
+  Die MAC-Adresse ist bereits korrekt und wurde daher nicht verändert.
+
+Status: Erfolgreich hinzugefügt
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Eintrag erstellt am 24.06.2020 um 16:12:51.
+
+Folgende Änderungen wurden durch die Korrektur an der möglicherweise fehlerhaften MAC-Adresse (11:11:11:11:11:12) vorgenommen:
+
+  Die MAC-Adresse ist bereits korrekt und wurde daher nicht verändert.
+
+Status: Erfolgreich hinzugefügt
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 Eintrag erstellt am 24.06.2020 um 16:06:23.
 
 Folgende Änderungen wurden durch die Korrektur an der möglicherweise fehlerhaften MAC-Adresse () vorgenommen:
@@ -566,3 +826,23 @@ Folgende Änderungen wurden durch die Korrektur an der möglicherweise fehlerhaf
   Die Adresse befindet sich nicht im für MAC-Adressen erforderlichen Format (xx:xx:xx:xx:xx:xx). Sie konnte nicht übernommen werden.
 
 Status: Hinzufügen fehlgeschlagen
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Eintrag erstellt am 24.06.2020 um 16:16:10.
+
+Folgende Änderungen wurden durch die Korrektur an der möglicherweise fehlerhaften MAC-Adresse (11:11:11:11:11:11) vorgenommen:
+
+  Die MAC-Adresse ist bereits korrekt und wurde daher nicht verändert.
+
+Status: Erfolgreich hinzugefügt
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Eintrag erstellt am 24.06.2020 um 16:20:24.
+
+Folgende Änderungen wurden durch die Korrektur an der möglicherweise fehlerhaften MAC-Adresse (11:11:11:11:11:11) vorgenommen:
+
+  Die MAC-Adresse ist bereits korrekt und wurde daher nicht verändert.
+
+Status: Erfolgreich hinzugefügt

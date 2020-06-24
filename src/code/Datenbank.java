@@ -19,6 +19,7 @@ public class Datenbank {
     String password = "ngrSecret";
 
     public void datenbankImportieren() throws SQLException { /* Importiert alle Datensätze, die aktuell in der Datenbank vorhanden sind, in die ArrayList */
+        dialogfenster.verbindungWirdAufgebaut();
         System.out.println("Connecting database...");
         Connection con = DriverManager.getConnection(url, username, password); /* Verbindung zur Datenbank wird hergestellt */
         System.out.println("Connected!");
@@ -40,26 +41,33 @@ public class Datenbank {
     }
 
     public void datenbankErgaenzen(ArrayList<Datensatz> liste) throws SQLException { /* Importiert die Datensätze, die aktuell in der Liste vorhanden sind, in eine Datenbank-Tabelle*/
-        System.out.println("Connecting database...");
-        Connection con = DriverManager.getConnection(url, username, password); /* Verbindung zur Datenbank wird hergestellt */
-        System.out.println("Connected!");
+        if (liste.isEmpty()) {
+            dialogfenster.datenbankListeLeer();
+        } else {
+            dialogfenster.verbindungWirdAufgebaut();
+            System.out.println("Connecting database...");
+            Connection con = DriverManager.getConnection(url, username, password); /* Verbindung zur Datenbank wird hergestellt */
+            System.out.println("Connected!");
 
-        int len = liste.size();
-        for (int i = 0; i < len; i++) {
-            Datensatz aktDatensatz = liste.get(i);
-            kursstufe = aktDatensatz.getKursstufe();
-            nachname = aktDatensatz.getNachname();
-            vorname = aktDatensatz.getVorname();
-            mac = aktDatensatz.getMac();
-            grund = aktDatensatz.getGrund();
+            int len = liste.size();
+            for (int i = 0; i < len; i++) {
+                Datensatz aktDatensatz = liste.get(i);
+                kursstufe = aktDatensatz.getKursstufe();
+                nachname = aktDatensatz.getNachname();
+                vorname = aktDatensatz.getVorname();
+                mac = aktDatensatz.getMac();
+                grund = aktDatensatz.getGrund();
 
-            Statement stmt1 = con.createStatement();
-            stmt1.executeUpdate("INSERT INTO Table2 (Kursstufe, Nachname, Vorname, MAC, Grund) VALUES ('" + kursstufe + "','" + nachname + "','"+ vorname + "','" + mac + "','" + grund + "')");
+                Statement stmt1 = con.createStatement();
+                stmt1.executeUpdate("INSERT INTO Table2 (Kursstufe, Nachname, Vorname, MAC, Grund) VALUES ('" + kursstufe + "','" + nachname + "','"+ vorname + "','" + mac + "','" + grund + "')");
+            }
+            dialogfenster.DatenbankErgaenzt(len);
         }
-        dialogfenster.DatenbankErgaenzt(len);
+
     }
 
     public void datenbankLeeren() throws SQLException {
+        dialogfenster.verbindungWirdAufgebaut();
         System.out.println("Connecting database...");
         Connection con = DriverManager.getConnection(url, username, password); /* Verbindung zur Datenbank wird hergestellt */
         System.out.println("Connected!");

@@ -82,9 +82,7 @@ public class schnellerImport {
 
         int length = splittedline.length;
         if (length > 4) {
-            if (splittedline[4] != null) {
-                grund = splittedline[4];
-            }
+            grund = splittedline[4];
         }
     }
 
