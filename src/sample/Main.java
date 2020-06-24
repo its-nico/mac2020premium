@@ -1,9 +1,5 @@
 package sample;
 
-import code.FileOpener;
-import code.Manager;
-import code.OeffnenDialogClass;
-
 import code.*;
 
 
@@ -13,32 +9,36 @@ import javax.swing.*;
 import javax.swing.border.LineBorder;
 import java.io.File;
 import java.lang.*;
+import java.sql.SQLException;
 
 public class Main extends JFrame {
     // Anfang Attribute
-    private JLabel ueberschrift = new JLabel();
-    private JLabel beschreibung = new JLabel();
-    private JLabel datenHinzufuegen = new JLabel();
-    private JLabel datenAnsehen = new JLabel();
 
-    private JButton manuelleEingabe = new JButton();
-    private JButton schnellerImport = new JButton();
-    private JButton datenLoeschen = new JButton();
-    private JButton exportMACAdressen = new JButton();
-    private JButton importLogAnzeigen = new JButton();
-    private JButton doppelteDatensaetzeLoeschen = new JButton();
-    private JButton handbuch = new JButton();
-    private JButton credits = new JButton();
-    private JButton inDatenbankSpeichern = new JButton();
-    private JButton datenbankImportieren = new JButton();
-    private JButton leerenDatenbank = new JButton();
+    private final JLabel ueberschrift = new JLabel();
+    private final JLabel beschreibung = new JLabel();
+    private final JLabel datenHinzufuegen = new JLabel();
+    private final JLabel datenAnsehen = new JLabel();
+
+    private final JButton manuelleEingabe = new JButton();
+    private final JButton schnellerImport = new JButton();
+    private final JButton datenLoeschen = new JButton();
+    private final JButton exportMACAdressen = new JButton();
+    private final JButton importLogAnzeigen = new JButton();
+    private final JButton doppelteDatensaetzeLoeschen = new JButton();
+    private final JButton handbuch = new JButton();
+    private final JButton credits = new JButton();
+    private final JButton inDatenbankSpeichern = new JButton();
+    private final JButton datenbankImportieren = new JButton();
+    private final JButton leerenDatenbank = new JButton();
 
     private ManuelleEingabe manuellesEingabefenster;
 
-    private Manager manager = new Manager();
-    private OeffnenDialogClass oeffnenDialogClass = new OeffnenDialogClass();
-    private Dialogfenster dialogfenster = new Dialogfenster();
-    private File file1 = new File("./savedList.ser");
+    private final Manager manager = new Manager();
+    private final OeffnenDialogClass oeffnenDialogClass = new OeffnenDialogClass();
+    private final Dialogfenster dialogfenster = new Dialogfenster();
+    private final Datenbank datenbank = new Datenbank();
+
+    private final File file1 = new File("./savedList.ser");
 
     private Closing closing;
 
@@ -77,9 +77,9 @@ public class Main extends JFrame {
         cp.add(ueberschrift);
 
         beschreibung.setBounds(16, 50, 450, 150);
-        beschreibung.setText("<html>Dieses Programm dient zur Verwaltung und Korrektur von MAC-Adressen. Es ist auf die Verwaltung von MAC-Adressen an Schulen optimiert und ermöglicht Ihnen deshalb das Speichern ganzer Datensätze, die Informationen über den Namen der Schüler*innen, deren Kursstufe und MAC-Adresse enthalten. \n" +
-                "Kernfunktionen sind die Korrektur von MAC-Adressen, sowie deren Export. Außerdem lässt sich die Korrektur der MAC-Adressen in einem stetig wachsenden Korrektur-Log verfolgen.\n" +
-                "Das Speichern und Herunterladen der Datensätze auf, beziehungsweise von einer Datenbank, sind ebenfalls möglich.</html>");
+        beschreibung.setText("<html>Dieses Programm dient der Verwaltung und Korrektur von MAC-Adressen. Es ermöglicht das Speichern ganzer Datensätze, die Informationen über den Namen der Schüler*innen, deren Kursstufe und MAC-Adresse enthalten. <br>" +
+                "Verknüpfungen mit einer Datenbank sind ebenfalls möglich.<br>" +
+                "Das Programm ist für die Nutzung an Schulen optimiert.</html>");
         cp.add(beschreibung);
 
         datenHinzufuegen.setBounds(16, 216, 230, 28);
@@ -87,7 +87,7 @@ public class Main extends JFrame {
         cp.add(datenHinzufuegen);
 
         datenAnsehen.setBounds(504, 216, 190, 28);
-        datenAnsehen.setText("Datenbank Verwaltung");
+        datenAnsehen.setText("Datenbank-Verwaltung");
         cp.add(datenAnsehen);
 
         manuelleEingabe.setBounds(16, 264, 155, 41);
@@ -123,6 +123,7 @@ public class Main extends JFrame {
             }
         });
         cp.add(datenLoeschen);
+
         datenLoeschen.setBackground(new Color(255, 130, 0));
         datenLoeschen.setBorder(new LineBorder(new Color(255,130,0),1));
 
@@ -137,7 +138,7 @@ public class Main extends JFrame {
         cp.add(exportMACAdressen);
 
         importLogAnzeigen.setBounds(272, 328, 155, 41);
-        importLogAnzeigen.setText("Log Anzeigen");
+        importLogAnzeigen.setText("Berichte anzeigen");
         importLogAnzeigen.setMargin(new Insets(2, 2, 2, 2));
         importLogAnzeigen.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
@@ -147,7 +148,7 @@ public class Main extends JFrame {
         cp.add(importLogAnzeigen);
 
         doppelteDatensaetzeLoeschen.setBounds(272, 392, 155, 41);
-        doppelteDatensaetzeLoeschen.setText("Doppelungen löschen");
+        doppelteDatensaetzeLoeschen.setText("Dopplungen löschen");
         doppelteDatensaetzeLoeschen.setMargin(new Insets(2, 2, 2, 2));
         doppelteDatensaetzeLoeschen.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
@@ -176,7 +177,7 @@ public class Main extends JFrame {
         cp.add(credits);
 
         inDatenbankSpeichern.setBounds(504, 264, 155, 41);
-        inDatenbankSpeichern.setText("Datenbank Runterladen");
+        inDatenbankSpeichern.setText("Datenbank ergänzen");
         inDatenbankSpeichern.setMargin(new Insets(2, 2, 2, 2));
         inDatenbankSpeichern.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
@@ -186,7 +187,7 @@ public class Main extends JFrame {
         cp.add(inDatenbankSpeichern);
 
         datenbankImportieren.setBounds(504, 328, 155, 41);
-        datenbankImportieren.setText("Datenbank Importieren");
+        datenbankImportieren.setText("Datenbank importieren");
         datenbankImportieren.setMargin(new Insets(2, 2, 2, 2));
         datenbankImportieren.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
@@ -238,22 +239,20 @@ public class Main extends JFrame {
     }
 
     public void datenLoeschen_ActionPerformed(ActionEvent evt) {
+
         // TODO hier Quelltext einfügen
+        manager.listeLoeschen();
+
     }
 
     public void exportMACAdressen_ActionPerformed(ActionEvent evt) {
         manager.exportiereMac();
-        FileOpener fileOpen = new FileOpener("./export.txt");
-
         dialogfenster.zwischenablage();
-    }
-
-    public void leerenDatenbank_ActionPerformed(ActionEvent evt) {
-        // TODO hier Quelltext einfügen
+        FileOpener fileOpen = new FileOpener("./export.txt");
     }
 
     public void doppelteDatensaetzeLoeschen_ActionPerformed(ActionEvent evt) {
-        // TODO hier Quelltext einfügen
+        manager.dopplungenLoeschen();
     }
 
     public void handbuch_ActionPerformed(ActionEvent evt) {
@@ -261,15 +260,37 @@ public class Main extends JFrame {
     }
 
     public void credits_ActionPerformed(ActionEvent evt) {
-        // TODO hier Quelltext einfügen
+        try {
+            manager.datenbankErgaenzen();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("SQLException occured");
+        }
     }
 
     public void inDatenbankSpeichern_ActionPerformed(ActionEvent evt) {
-        // TODO hier Quelltext einfügen
+        try {
+            manager.datenbankErgaenzen();
+        } catch (SQLException e) {
+            e.printStackTrace();
+            System.out.println("SQLException occured");
+        }
     }
 
     public void datenbankImportieren_ActionPerformed(ActionEvent evt) {
-        // TODO hier Quelltext einfügen
+        try {
+            datenbank.datenbankImportieren();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void leerenDatenbank_ActionPerformed(ActionEvent evt) {
+        try {
+            datenbank.datenbankLeeren();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public void importLogAnzeigen_ActionPerformed(ActionEvent evt) {

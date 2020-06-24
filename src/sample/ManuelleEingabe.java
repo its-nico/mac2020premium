@@ -1,35 +1,42 @@
 package sample;
 
+import code.FileOpener;
 import code.Manager;
 
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
-import javax.swing.event.*;
 
 public class ManuelleEingabe extends JFrame {
     // Anfang Attribute
-    private JLabel erklaerungsFeld = new JLabel();
+    private final JLabel erklaerungsFeld = new JLabel();
 
-    private JTextField vornameFeld = new JTextField("Vorname");
-    private JTextField nachnameFeld = new JTextField("Nachname");
-    private JTextField kursstufeFeld = new JTextField("Kursstufe");
-    private JTextField macAdresseFeld = new JTextField("MAC-Adresse");
-    private JTextField weitereBemerkungenFeld = new JTextField("Weitere Bemerkungen");
+    private final JTextField vornameFeld = new JTextField();
+    private final JTextField nachnameFeld = new JTextField();
+    private final JTextField kursstufeFeld = new JTextField();
+    private final JTextField macAdresseFeld = new JTextField();
+    private final JTextField weitereBemerkungenFeld = new JTextField();
 
-    private JButton pruefenUndHinzufuegen = new JButton();
-    private JButton zurueck = new JButton();
+    private final JButton pruefenUndHinzufuegen = new JButton();
+    private final JButton importLogAnzeigen = new JButton();
 
-    private JLabel rueckgabeFenster = new JLabel("");
+    private final JLabel kursstufeLabel = new JLabel("Kursstufe");
+    private final JLabel nachnameLabel = new JLabel("Nachname");
+    private final JLabel vornameLabel = new JLabel("Vorname");
+    private final JLabel macLabel = new JLabel("MAC-Adresse");
+    private final JLabel grundLabel = new JLabel("Weitere Bemerkungen");
 
-    private String vorname = new String();
-    private String nachname = new String();
-    private String kursstufe = new String();
-    private String macAdresse = new String();
-    private String weitereBemerkung = new String();
+    private final JLabel rueckgabeFenster = new JLabel("");
 
-    private Manager manager = new Manager();
+    private String vorname;
+    private String nachname;
+    private String kursstufe;
+    private String macAdresse;
+    private String weitereBemerkung;
+
+    private final Manager manager = new Manager();
     // Ende Attribute
 
     public ManuelleEingabe() {
@@ -50,73 +57,49 @@ public class ManuelleEingabe extends JFrame {
         int x = (d.width - getSize().width) / 2;
         int y = (d.height - getSize().height) / 2;
         setLocation(x, y);
-        setTitle("ManuelleEingabe");
+        setTitle("Manuelle Eingabe");
         setResizable(false);
         Container cp = getContentPane();
         cp.setLayout(null);
 
-        setIconImage(new ImageIcon(getClass().getResource("Logo2.png")).getImage());
-
 
         // Anfang Komponenten
-
         erklaerungsFeld.setBounds(24, 24, 280, 35);
-        erklaerungsFeld.setText("Hier können Sie Datensätze manuell hinzufügen.");
+        erklaerungsFeld.setText("Hier können Sie Datensätze manuell hinzufügen");
         cp.add(erklaerungsFeld);
-
 
         vornameFeld.setBounds(24, 72, 190, 36);
         cp.add(vornameFeld);
-        vornameFeld.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                vornameFeldMouseClicked(evt);
-            }
-        });
         vorname = vornameFeld.getText();
 
         nachnameFeld.setBounds(24, 128, 190, 36);
         cp.add(nachnameFeld);
         nachname = nachnameFeld.getText();
-        nachnameFeld.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                nachnameFeldMouseClicked(evt);
-            }
-        });
 
         kursstufeFeld.setBounds(24, 184, 190, 36);
         cp.add(kursstufeFeld);
-        kursstufe = kursstufeFeld.getText();
-        kursstufeFeld.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                kursstufeFeldMouseClicked(evt);
-            }
-        });
+        kursstufe = kursstufeFeld.getText();;
 
         macAdresseFeld.setBounds(24, 240, 190, 36);
         cp.add(macAdresseFeld);
         macAdresse = macAdresseFeld.getText();
-        macAdresseFeld.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                macAdresseFeldMouseClicked(evt);
-            }
-        });
 
         weitereBemerkungenFeld.setBounds(24, 296, 190, 36);
         cp.add(weitereBemerkungenFeld);
         weitereBemerkung = weitereBemerkungenFeld.getText();
-        weitereBemerkungenFeld.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                weitereBemerkungenFeldMouseClicked(evt);
-            }
-        });
 
         rueckgabeFenster.setBounds(273, 72, 216, 260);
         cp.add(rueckgabeFenster);
         rueckgabeFenster.setOpaque(true);
         rueckgabeFenster.setBackground(Color.white);
-        rueckgabeFenster.setBorder(new LineBorder(Color.CYAN,2));
+        rueckgabeFenster.setBorder(new LineBorder(Color.DARK_GRAY,1));
 
-        pruefenUndHinzufuegen.setBounds(24, 352, 235, 33);
+        EmptyBorder eBorder = new EmptyBorder(2, 10, 2, 10); // oben, rechts, unten, links
+        LineBorder lBorder = new LineBorder(new Color(100, 100, 100));
+        rueckgabeFenster.setBorder(BorderFactory.createCompoundBorder(lBorder, eBorder));
+
+        /* Buttons */
+        pruefenUndHinzufuegen.setBounds(24, 352, 190, 33);
         pruefenUndHinzufuegen.setText("Prüfen und Hinzufügen");
         pruefenUndHinzufuegen.setMargin(new Insets(2, 2, 2, 2));
         pruefenUndHinzufuegen.addActionListener(new ActionListener() {
@@ -125,15 +108,37 @@ public class ManuelleEingabe extends JFrame {
             }
         });
         cp.add(pruefenUndHinzufuegen);
-        zurueck.setBounds(273, 352, 35, 33);
-        zurueck.setText("↺");
-        zurueck.setMargin(new Insets(2, 2, 2, 2));
-        zurueck.addActionListener(new ActionListener() {
+
+        importLogAnzeigen.setBounds(272, 352, 216, 33);
+        importLogAnzeigen.setText("Berichte anzeigen");
+        importLogAnzeigen.setMargin(new Insets(2, 2, 2, 2));
+        importLogAnzeigen.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                zurueck_ActionPerformed(evt);
+                importLogAnzeigen_ActionPerformed(evt);
             }
         });
-        cp.add(zurueck);
+        cp.add(importLogAnzeigen);
+
+        /* Labels zu Eingabefenstern */
+        kursstufeLabel.setBounds(26, 215, 190, 25);
+        cp.add(kursstufeLabel);
+        kursstufeLabel.setOpaque(true);
+
+        nachnameLabel.setBounds(26, 159, 190, 25);
+        cp.add(nachnameLabel);
+        nachnameLabel.setOpaque(true);
+
+        vornameLabel.setBounds(26, 103, 190, 25);
+        cp.add(vornameLabel);
+        vornameLabel.setOpaque(true);
+
+        macLabel.setBounds(26, 271, 190, 25);
+        cp.add(macLabel);
+        macLabel.setOpaque(true);
+
+        grundLabel.setBounds(26, 327, 190, 25);
+        cp.add(grundLabel);
+        grundLabel.setOpaque(true);
         // Ende Komponenten
 
         setVisible(true);
@@ -151,32 +156,11 @@ public class ManuelleEingabe extends JFrame {
         kursstufe = kursstufeFeld.getText();
         macAdresse = macAdresseFeld.getText();
         weitereBemerkung = weitereBemerkungenFeld.getText();
-        manager.ergaenze(kursstufe, nachname, vorname, macAdresse, weitereBemerkung);
+        rueckgabeFenster.setText(manager.ergaenze(kursstufe, nachname, vorname, macAdresse, weitereBemerkung));
     } // end of pruefenUndHinzufuegen_ActionPerformed
 
-    public void zurueck_ActionPerformed(ActionEvent evt) {
-        // TODO hier Quelltext einfügen
-
-    } // end of zurueck_ActionPerformed
-
-    private void vornameFeldMouseClicked(java.awt.event.MouseEvent evt) {
-        vornameFeld.setText("");
-    }
-
-    private void nachnameFeldMouseClicked(java.awt.event.MouseEvent evt) {
-        nachnameFeld.setText("");
-    }
-
-    private void kursstufeFeldMouseClicked(java.awt.event.MouseEvent evt) {
-        kursstufeFeld.setText("");
-    }
-
-    private void macAdresseFeldMouseClicked(java.awt.event.MouseEvent evt) {
-        macAdresseFeld.setText("");
-    }
-
-    private void weitereBemerkungenFeldMouseClicked(java.awt.event.MouseEvent evt) {
-        weitereBemerkungenFeld.setText("");
+    private void importLogAnzeigen_ActionPerformed(ActionEvent evt) {
+        FileOpener fileOpen = new FileOpener("./Fehlerlog.txt");
     }
     // Ende Methoden
 

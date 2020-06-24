@@ -1,10 +1,8 @@
 package code;
-import javax.swing.*;
 import java.io.*;
 import java.util.regex.*;
 import java.util.*;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 public class Korrektur {
 
@@ -12,12 +10,6 @@ public class Korrektur {
 
     private String textVorIP; //Der ursprünglich zu überprüfende Text wird in der Variable gespeichert, damit später das Log damit erstellt werden kann
     private boolean bool;
-    private String textVorO;
-    private String textNachO; //Der korrigierte Text wird in der Variable gespeichert, damit später das Log damit erstellt werden kann
-    private String textVorLeerzeichen;
-    private String textNachLeerzeichen;
-    private String textVorBindestriche;
-    private String textNachBindestriche;
 
     /* Klasse führt automatisch alle Korrektur-Methoden auf einmal aus */
     public String autoKorrektur (String text) {
@@ -35,10 +27,11 @@ public class Korrektur {
 
     /* Alle Os (groß- und kleingeschrieben) werden mit Nullen ersetzt */
     public String o(String text) {
-        textVorO = text;
+        String textVorO = text;
         text = text.replace("o", "0");
         text = text.replace("O", "0");
-        textNachO = text;
+        //Der korrigierte Text wird in der Variable gespeichert, damit später das Log damit erstellt werden kann
+        String textNachO = text;
 
         String exportfile = "./Fehlerlog.txt";
         FileWriter fw = null;
@@ -68,9 +61,9 @@ public class Korrektur {
 
     /* Alle Leerzeichen werden gelöscht */
     public String leerzeichen (String text) {
-        textVorLeerzeichen = text;
+        String textVorLeerzeichen = text;
         text = text.replace(" ", "");
-        textNachLeerzeichen = text;
+        String textNachLeerzeichen = text;
 
         String exportfile = "./Fehlerlog.txt";
         FileWriter fw = null;
@@ -99,9 +92,9 @@ public class Korrektur {
 
     /* Alle Bindestriche werden mit Doppelpunkten ersetzt */
     public String bindestriche (String text) {
-        textVorBindestriche = text;
+        String textVorBindestriche = text;
         text = text.replace("-",":");
-        textNachBindestriche = text;
+        String textNachBindestriche = text;
 
         String exportfile = "./Fehlerlog.txt";
         FileWriter fw = null;
@@ -143,8 +136,10 @@ public class Korrektur {
         BufferedWriter bw = new BufferedWriter(fw);
 
         try {
-            if (bool == true){
+            if (bool){
                 bw.write("  Es handelt sich um eine IP-Adresse, nicht um eine MAC-Adresse. Die Adresse wurde daher nicht übernommen." +"\n");
+                bw.write("\n");
+                bw.write("Status: Hinzufügen fehlgeschlagen\n");
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -170,9 +165,13 @@ public class Korrektur {
 
         try {
             if (Pattern.matches("."+"."+":"+"."+"."+":"+"."+"."+":"+"."+"."+":"+"."+"."+":"+"."+".", text)){
+                bw.write("\n");
+                bw.write("Status: Erfolgreich hinzugefügt\n");
             }
             else {
                 bw.write("  Die Adresse befindet sich nicht im für MAC-Adressen erforderlichen Format (xx:xx:xx:xx:xx:xx). Sie konnte nicht übernommen werden.\n");
+                bw.write("\n");
+                bw.write("Status: Hinzufügen fehlgeschlagen\n");
             }
         }
         catch (IOException e) {
@@ -205,6 +204,8 @@ public class Korrektur {
         try {
             if ((!text.contains("o") && !text.contains("O") && !text.contains("-") && !text.contains(" ") && !istIPOhneLog(text)) && formatOhneLog(text)){
                 bw.write("  Die MAC-Adresse ist bereits korrekt und wurde daher nicht verändert.\n");
+              //  bw.write("\n");
+               // bw.write("Status: Erfolgreich hinzugefügt\n");
             }
         }
         catch (IOException e) {
@@ -236,7 +237,7 @@ public class Korrektur {
         BufferedWriter bw = new BufferedWriter(fw);
         try {
             bw.write("\n- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n\n");
-            bw.write("Log erstellt am " + tag + " um " + uhrzeit + ".\n\n");
+            bw.write("Eintrag erstellt am " + tag + " um " + uhrzeit + ".\n\n");
             bw.write("Folgende Änderungen wurden durch die Korrektur an der möglicherweise fehlerhaften MAC-Adresse (" + pMac + ") vorgenommen:\n");
             bw.write("\n");
         } catch (IOException e) {
@@ -257,5 +258,36 @@ public class Korrektur {
         bool = (text.contains(".") && !text.contains(":")); //Variable bool wird hier noch nicht richtig definiert
         return bool;
     }
+
+    /*public void logEnde (boolean bool1) {
+        String exportfile = "./Fehlerlog.txt";
+        FileWriter fw = null;
+        try {
+            fw = new FileWriter(exportfile, true);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        BufferedWriter bw = new BufferedWriter(fw);
+
+        try {
+            bw.write("\n");
+            if (bool1){
+                bw.write("\n");
+                bw.write("Status: Erfolgreich hinzugefügt\n");
+            }
+            else {
+                bw.write("\n");
+                bw.write("Status: Hinzufügen fehlgeschlagen\n");
+            }
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        try {
+            bw.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    } */
 }
 
