@@ -2,7 +2,7 @@ package code;
 
 import java.io.Serializable;
 
-public class Datensatz implements Serializable {
+public class Datensatz implements Serializable { //Die Serialisierung ermöglicht das Speichern aller Datensätze innerhalb der Liste
 
     private final String kursstufe;
     private final String nachname;
@@ -10,7 +10,7 @@ public class Datensatz implements Serializable {
     private String mac;
     private final String grund;
 
-    /* >Konstruktor der Klasse Datensatz, ein neues Objekt wird erstellt*/
+    /* >Konstruktor der Klasse Datensatz, ein neues Objekt wird erstellt, dabei werden alle Attribute als Parameter übergeben*/
     public Datensatz(String pKursstufe, String pNachname, String pVorname, String pMac, String pGrund) {
         kursstufe = pKursstufe;
         nachname = pNachname;
@@ -19,7 +19,7 @@ public class Datensatz implements Serializable {
         mac = pMac;
     }
 
-    /* getter und setter Methoden */
+    /* getter-Methoden */
 
     public String getKursstufe() {
         return kursstufe;
