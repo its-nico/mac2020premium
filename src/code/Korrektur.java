@@ -138,6 +138,8 @@ public class Korrektur {
         try {
             if (bool){
                 bw.write("  Es handelt sich um eine IP-Adresse, nicht um eine MAC-Adresse. Die Adresse wurde daher nicht übernommen." +"\n");
+                bw.write("\n");
+                bw.write("Status: Hinzufügen fehlgeschlagen\n");
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -163,9 +165,13 @@ public class Korrektur {
 
         try {
             if (Pattern.matches("."+"."+":"+"."+"."+":"+"."+"."+":"+"."+"."+":"+"."+"."+":"+"."+".", text)){
+                bw.write("\n");
+                bw.write("Status: Erfolgreich hinzugefügt\n");
             }
             else {
                 bw.write("  Die Adresse befindet sich nicht im für MAC-Adressen erforderlichen Format (xx:xx:xx:xx:xx:xx). Sie konnte nicht übernommen werden.\n");
+                bw.write("\n");
+                bw.write("Status: Hinzufügen fehlgeschlagen\n");
             }
         }
         catch (IOException e) {
@@ -198,6 +204,8 @@ public class Korrektur {
         try {
             if ((!text.contains("o") && !text.contains("O") && !text.contains("-") && !text.contains(" ") && !istIPOhneLog(text)) && formatOhneLog(text)){
                 bw.write("  Die MAC-Adresse ist bereits korrekt und wurde daher nicht verändert.\n");
+              //  bw.write("\n");
+               // bw.write("Status: Erfolgreich hinzugefügt\n");
             }
         }
         catch (IOException e) {
@@ -251,11 +259,11 @@ public class Korrektur {
         return bool;
     }
 
-    public void logEnde (boolean bool1) {
+    /*public void logEnde (boolean bool1) {
         String exportfile = "./Fehlerlog.txt";
         FileWriter fw = null;
         try {
-            fw = new FileWriter(exportfile, true); /* FileWriter wird erstellt */
+            fw = new FileWriter(exportfile, true);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -264,20 +272,22 @@ public class Korrektur {
         try {
             bw.write("\n");
             if (bool1){
-                bw.write("Status: Hinzufügen fehlgeschlagen \n");
+                bw.write("\n");
+                bw.write("Status: Erfolgreich hinzugefügt\n");
             }
             else {
-                bw.write("Status: Erfolgreich hinzugefügt \n");
+                bw.write("\n");
+                bw.write("Status: Hinzufügen fehlgeschlagen\n");
             }
         }
         catch (IOException e) {
             e.printStackTrace();
         }
         try {
-            bw.close(); /* Wenn der bw nicht geschlossen wird, bleibt die log-Datei leer */
+            bw.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
+    } */
 }
 
