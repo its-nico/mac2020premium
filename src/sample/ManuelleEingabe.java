@@ -1,5 +1,6 @@
 package sample;
 
+import code.FileOpener;
 import code.Manager;
 
 import java.awt.*;
@@ -12,14 +13,14 @@ public class ManuelleEingabe extends JFrame {
     // Anfang Attribute
     private final JLabel erklaerungsFeld = new JLabel();
 
-    private final JTextField vornameFeld = new JTextField("vorname");
-    private final JTextField nachnameFeld = new JTextField("nachname");
-    private final JTextField kursstufeFeld = new JTextField("kursstufe");
-    private final JTextField macAdresseFeld = new JTextField("mac");
-    private final JTextField weitereBemerkungenFeld = new JTextField("Bemerkung");
+    private final JTextField vornameFeld = new JTextField();
+    private final JTextField nachnameFeld = new JTextField();
+    private final JTextField kursstufeFeld = new JTextField();
+    private final JTextField macAdresseFeld = new JTextField();
+    private final JTextField weitereBemerkungenFeld = new JTextField();
 
     private final JButton pruefenUndHinzufuegen = new JButton();
-    private final JButton zurueck = new JButton();
+    private final JButton importLogAnzeigen = new JButton();
 
     private final JLabel kursstufeLabel = new JLabel("Kursstufe");
     private final JLabel nachnameLabel = new JLabel("Nachname");
@@ -70,48 +71,23 @@ public class ManuelleEingabe extends JFrame {
 
         vornameFeld.setBounds(24, 72, 190, 36);
         cp.add(vornameFeld);
-        vornameFeld.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                vornameFeldMouseClicked(evt);
-            }
-        });
         vorname = vornameFeld.getText();
 
         nachnameFeld.setBounds(24, 128, 190, 36);
         cp.add(nachnameFeld);
         nachname = nachnameFeld.getText();
-        nachnameFeld.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                nachnameFeldMouseClicked(evt);
-            }
-        });
 
         kursstufeFeld.setBounds(24, 184, 190, 36);
         cp.add(kursstufeFeld);
-        kursstufe = kursstufeFeld.getText();
-        kursstufeFeld.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                kursstufeFeldMouseClicked(evt);
-            }
-        });
+        kursstufe = kursstufeFeld.getText();;
 
         macAdresseFeld.setBounds(24, 240, 190, 36);
         cp.add(macAdresseFeld);
         macAdresse = macAdresseFeld.getText();
-        macAdresseFeld.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                macAdresseFeldMouseClicked(evt);
-            }
-        });
 
         weitereBemerkungenFeld.setBounds(24, 296, 190, 36);
         cp.add(weitereBemerkungenFeld);
         weitereBemerkung = weitereBemerkungenFeld.getText();
-        weitereBemerkungenFeld.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                weitereBemerkungenFeldMouseClicked(evt);
-            }
-        });
 
         rueckgabeFenster.setBounds(273, 72, 216, 260);
         cp.add(rueckgabeFenster);
@@ -123,34 +99,45 @@ public class ManuelleEingabe extends JFrame {
         LineBorder lBorder = new LineBorder(new Color(100, 100, 100));
         rueckgabeFenster.setBorder(BorderFactory.createCompoundBorder(lBorder, eBorder));
 
+        /* Buttons */
         pruefenUndHinzufuegen.setBounds(24, 352, 190, 33);
         pruefenUndHinzufuegen.setText("Prüfen und Hinzufügen");
         pruefenUndHinzufuegen.setMargin(new Insets(2, 2, 2, 2));
-        pruefenUndHinzufuegen.addActionListener(new ActionListener() {
+        importLogAnzeigen.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 pruefenUndHinzufuegen_ActionPerformed(evt);
             }
         });
         cp.add(pruefenUndHinzufuegen);
 
+        importLogAnzeigen.setBounds(272, 352, 216, 33);
+        importLogAnzeigen.setText("Berichte anzeigen");
+        importLogAnzeigen.setMargin(new Insets(2, 2, 2, 2));
+        importLogAnzeigen.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                importLogAnzeigen_ActionPerformed(evt);
+            }
+        });
+        cp.add(importLogAnzeigen);
+
         /* Labels zu Eingabefenstern */
-        kursstufeLabel.setBounds(25, 215, 190, 25);
+        kursstufeLabel.setBounds(26, 215, 190, 25);
         cp.add(kursstufeLabel);
         kursstufeLabel.setOpaque(true);
 
-        nachnameLabel.setBounds(25, 159, 190, 25);
+        nachnameLabel.setBounds(26, 159, 190, 25);
         cp.add(nachnameLabel);
         nachnameLabel.setOpaque(true);
 
-        vornameLabel.setBounds(25, 103, 190, 25);
+        vornameLabel.setBounds(26, 103, 190, 25);
         cp.add(vornameLabel);
         vornameLabel.setOpaque(true);
 
-        macLabel.setBounds(25, 271, 190, 25);
+        macLabel.setBounds(26, 271, 190, 25);
         cp.add(macLabel);
         macLabel.setOpaque(true);
 
-        grundLabel.setBounds(25, 272, 190, 25);
+        grundLabel.setBounds(26, 327, 190, 25);
         cp.add(grundLabel);
         grundLabel.setOpaque(true);
         // Ende Komponenten
@@ -173,24 +160,8 @@ public class ManuelleEingabe extends JFrame {
         rueckgabeFenster.setText(manager.ergaenze(kursstufe, nachname, vorname, macAdresse, weitereBemerkung));
     } // end of pruefenUndHinzufuegen_ActionPerformed
 
-    private void vornameFeldMouseClicked(java.awt.event.MouseEvent evt) {
-        vornameFeld.setText("");
-    }
-
-    private void nachnameFeldMouseClicked(java.awt.event.MouseEvent evt) {
-        nachnameFeld.setText("");
-    }
-
-    private void kursstufeFeldMouseClicked(java.awt.event.MouseEvent evt) {
-        kursstufeFeld.setText("");
-    }
-
-    private void macAdresseFeldMouseClicked(java.awt.event.MouseEvent evt) {
-        macAdresseFeld.setText("");
-    }
-
-    private void weitereBemerkungenFeldMouseClicked(java.awt.event.MouseEvent evt) {
-        weitereBemerkungenFeld.setText("");
+    private void importLogAnzeigen_ActionPerformed(ActionEvent evt) {
+        FileOpener fileOpen = new FileOpener("./Fehlerlog.txt");
     }
     // Ende Methoden
 

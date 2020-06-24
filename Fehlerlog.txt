@@ -414,3 +414,23 @@ Folgende Änderungen wurden durch die Korrektur an der möglicherweise fehlerhaf
   Die MAC-Adresse ist bereits korrekt und wurde daher nicht verändert.
 
 Status: Hinzufügen fehlgeschlagen 
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Eintrag erstellt am 24.06.2020 um 15:41:31.
+
+Folgende Änderungen wurden durch die Korrektur an der möglicherweise fehlerhaften MAC-Adresse () vorgenommen:
+
+  Die Adresse befindet sich nicht im für MAC-Adressen erforderlichen Format (xx:xx:xx:xx:xx:xx). Sie konnte nicht übernommen werden.
+
+Status: Hinzufügen fehlgeschlagen
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+Eintrag erstellt am 24.06.2020 um 15:42:48.
+
+Folgende Änderungen wurden durch die Korrektur an der möglicherweise fehlerhaften MAC-Adresse (55.44.22) vorgenommen:
+
+  Es handelt sich um eine IP-Adresse, nicht um eine MAC-Adresse. Die Adresse wurde daher nicht übernommen.
+
+Status: Hinzufügen fehlgeschlagen
