@@ -5,8 +5,11 @@ import code.*;
 
 import java.awt.*;
 import java.awt.event.*;
+import javax.imageio.ImageIO;
 import javax.swing.*;
+import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 import java.lang.*;
 import java.sql.SQLException;
 
@@ -41,8 +44,23 @@ public class Main extends JFrame {
     private Closing closing;
 
     // Ende Attribute
+    class ImagePanel extends JComponent {
+        private Image image;
+        public ImagePanel(Image image) {
+            this.image = image;
+        }
+        @Override
+        protected void paintComponent(Graphics g) {
+            super.paintComponent(g);
+            g.drawImage(image, 0, 0, this);
+        }
+    }
 
-    public Main() {
+    // elsewhere
+
+
+
+    public Main() throws IOException {
         // Frame-Initialisierung
         super();
 
@@ -213,10 +231,16 @@ public class Main extends JFrame {
                 closing.close(manager);
             }
         });
+
+        BufferedImage myImage = ImageIO.read(new File("hintergrund2.jpg"));
+        JFrame myJFrame = new JFrame("Image pane");
+        myJFrame.setContentPane(new ImagePanel(myImage));
+
+        this.setBackground(new Color(1,1,1));
     } // end of public Main
 
     // Anfang Methoden
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         new Main();
     }
 
