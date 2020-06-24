@@ -5,11 +5,9 @@ import code.*;
 
 import java.awt.*;
 import java.awt.event.*;
-import javax.imageio.ImageIO;
 import javax.swing.*;
-import java.awt.image.BufferedImage;
+import javax.swing.border.LineBorder;
 import java.io.File;
-import java.io.IOException;
 import java.lang.*;
 import java.sql.SQLException;
 
@@ -44,23 +42,8 @@ public class Main extends JFrame {
     private Closing closing;
 
     // Ende Attribute
-    class ImagePanel extends JComponent {
-        private Image image;
-        public ImagePanel(Image image) {
-            this.image = image;
-        }
-        @Override
-        protected void paintComponent(Graphics g) {
-            super.paintComponent(g);
-            g.drawImage(image, 0, 0, this);
-        }
-    }
 
-    // elsewhere
-
-
-
-    public Main() throws IOException {
+    public Main() {
         // Frame-Initialisierung
         super();
 
@@ -83,7 +66,7 @@ public class Main extends JFrame {
         Container cp = getContentPane();
         cp.setLayout(null);
 
-        setIconImage(new ImageIcon(getClass().getResource("88208755.png")).getImage());
+        setIconImage(new ImageIcon(getClass().getResource("Logo2.png")).getImage());
 
         // Anfang Komponenten
 
@@ -114,6 +97,8 @@ public class Main extends JFrame {
             }
         });
         cp.add(manuelleEingabe);
+        manuelleEingabe.setBackground(new Color(255, 166, 77));
+        manuelleEingabe.setBorder(new LineBorder(new Color(255,166,77),1));
 
         schnellerImport.setBounds(16, 328, 155, 41);
         schnellerImport.setText("Datensätze importieren");
@@ -231,16 +216,10 @@ public class Main extends JFrame {
                 closing.close(manager);
             }
         });
-
-        BufferedImage myImage = ImageIO.read(new File("hintergrund2.jpg"));
-        JFrame myJFrame = new JFrame("Image pane");
-        myJFrame.setContentPane(new ImagePanel(myImage));
-
-        this.setBackground(new Color(1,1,1));
     } // end of public Main
 
     // Anfang Methoden
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
         new Main();
     }
 
@@ -253,19 +232,16 @@ public class Main extends JFrame {
     }
 
     public void datenLoeschen_ActionPerformed(ActionEvent evt) {
-        // TODO hier Quelltext einfügen
         manager.listeLoeschen();
     }
 
     public void exportMACAdressen_ActionPerformed(ActionEvent evt) {
         manager.exportiereMac();
-        FileOpener fileOpen = new FileOpener("./export.txt");
-
         dialogfenster.zwischenablage();
+        FileOpener fileOpen = new FileOpener("./export.txt");
     }
 
     public void doppelteDatensaetzeLoeschen_ActionPerformed(ActionEvent evt) {
-        // TODO hier Quelltext einfügen
         manager.dopplungenLoeschen();
     }
 

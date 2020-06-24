@@ -9,19 +9,23 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
 public class ManuelleEingabe extends JFrame {
-
-
     // Anfang Attribute
     private final JLabel erklaerungsFeld = new JLabel();
 
-    private final JTextField vornameFeld = new JTextField("Vorname");
-    private final JTextField nachnameFeld = new JTextField("Nachname");
-    private final JTextField kursstufeFeld = new JTextField("Kursstufe");
-    private final JTextField macAdresseFeld = new JTextField("MAC-Adresse");
-    private final JTextField weitereBemerkungenFeld = new JTextField("Weitere Bemerkungen");
+    private final JTextField vornameFeld = new JTextField("vorname");
+    private final JTextField nachnameFeld = new JTextField("nachname");
+    private final JTextField kursstufeFeld = new JTextField("kursstufe");
+    private final JTextField macAdresseFeld = new JTextField("mac");
+    private final JTextField weitereBemerkungenFeld = new JTextField("Bemerkung");
 
     private final JButton pruefenUndHinzufuegen = new JButton();
     private final JButton zurueck = new JButton();
+
+    private final JLabel kursstufeLabel = new JLabel("Kursstufe");
+    private final JLabel nachnameLabel = new JLabel("Nachname");
+    private final JLabel vornameLabel = new JLabel("Vorname");
+    private final JLabel macLabel = new JLabel("MAC-Adresse");
+    private final JLabel grundLabel = new JLabel("Weitere Bemerkungen");
 
     private final JLabel rueckgabeFenster = new JLabel("");
 
@@ -57,15 +61,12 @@ public class ManuelleEingabe extends JFrame {
         Container cp = getContentPane();
         cp.setLayout(null);
 
-        setIconImage(new ImageIcon(getClass().getResource("88208755.png")).getImage());
-
+        setIconImage(new ImageIcon(getClass().getResource("Logo2.png")).getImage());
 
         // Anfang Komponenten
-
         erklaerungsFeld.setBounds(24, 24, 280, 35);
-        erklaerungsFeld.setText("Hier können Sie Datensätze manuell hinzufügen.");
+        erklaerungsFeld.setText("Hier können Sie Datensätze manuell hinzufügen");
         cp.add(erklaerungsFeld);
-
 
         vornameFeld.setBounds(24, 72, 190, 36);
         cp.add(vornameFeld);
@@ -131,15 +132,38 @@ public class ManuelleEingabe extends JFrame {
             }
         });
         cp.add(pruefenUndHinzufuegen);
-        zurueck.setBounds(273, 352, 35, 33);
-        zurueck.setText("↺");
-        zurueck.setMargin(new Insets(2, 2, 2, 2));
-        zurueck.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                zurueck_ActionPerformed(evt);
-            }
-        });
-        cp.add(zurueck);
+
+        /* Labels zu Eingabefenstern */
+        kursstufeLabel.setBounds(24, 72, 190, 25);
+        cp.add(kursstufeLabel);
+        kursstufeLabel.setOpaque(true);
+        kursstufeLabel.setBackground(Color.white);
+        kursstufeLabel.setBorder(new LineBorder(Color.DARK_GRAY,0));
+
+        nachnameLabel.setBounds(24, 72, 190, 25);
+        cp.add(nachnameLabel);
+        nachnameLabel.setOpaque(true);
+        nachnameLabel.setBackground(Color.white);
+        nachnameLabel.setBorder(new LineBorder(Color.DARK_GRAY,0));
+
+        vornameLabel.setBounds(24, 108, 190, 25);
+        cp.add(vornameLabel);
+        vornameLabel.setOpaque(true);
+        vornameLabel.setBackground(Color.white);
+        vornameLabel.setBorder(new LineBorder(Color.DARK_GRAY,0));
+
+        macLabel.setBounds(24, 72, 190, 25);
+        cp.add(macLabel);
+        macLabel.setOpaque(true);
+        macLabel.setBackground(Color.white);
+        macLabel.setBorder(new LineBorder(Color.DARK_GRAY,0));
+
+        grundLabel.setBounds(24, 72, 190, 25);
+        cp.add(grundLabel);
+        grundLabel.setOpaque(true);
+        grundLabel.setBackground(Color.white);
+        grundLabel.setBorder(new LineBorder(Color.DARK_GRAY,0));
+
         // Ende Komponenten
 
         setVisible(true);
@@ -158,14 +182,7 @@ public class ManuelleEingabe extends JFrame {
         macAdresse = macAdresseFeld.getText();
         weitereBemerkung = weitereBemerkungenFeld.getText();
         rueckgabeFenster.setText(manager.ergaenze(kursstufe, nachname, vorname, macAdresse, weitereBemerkung));
-      //  rueckgabeFenster.setVerticalAlignment(JLabel.TOP);
-     //   manager.ergaenze(kursstufe, nachname, vorname, macAdresse, weitereBemerkung);
     } // end of pruefenUndHinzufuegen_ActionPerformed
-
-    public void zurueck_ActionPerformed(ActionEvent evt) {
-        // TODO hier Quelltext einfügen
-
-    } // end of zurueck_ActionPerformed
 
     private void vornameFeldMouseClicked(java.awt.event.MouseEvent evt) {
         vornameFeld.setText("");
