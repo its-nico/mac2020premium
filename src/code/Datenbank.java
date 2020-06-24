@@ -5,18 +5,18 @@ import java.util.ArrayList;
 
 public class Datenbank {
 
-    String kursstufe;
-    String nachname;
-    String vorname;
-    String mac;
-    String grund;
+    private String kursstufe;
+    private String nachname;
+    private String vorname;
+    private String mac;
+    private String grund;
 
-    Manager manager = new Manager();
-    Dialogfenster dialogfenster = new Dialogfenster();
+    private final Manager manager = new Manager();
+    private final Dialogfenster dialogfenster = new Dialogfenster();
 
-    String url = "jdbc:mysql://ngr.bplaced.net:3306/ngr_macfilter?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UCT"; //Die Zeitzone UTC muss hier festgelegt werden, um einen Kommunikationsfehler zu vermeiden
-    String username = "ngr";
-    String password = "ngrSecret";
+    private String url = "jdbc:mysql://ngr.bplaced.net:3306/ngr_macfilter?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UCT"; //Die Zeitzone UTC muss hier festgelegt werden, um einen Kommunikationsfehler zu vermeiden
+    private String username = "ngr";
+    private String password = "ngrSecret";
 
     public void datenbankImportieren() throws SQLException { /* Importiert alle Datensätze, die aktuell in der Datenbank vorhanden sind, in die ArrayList */
         dialogfenster.verbindungWirdAufgebaut();
@@ -59,11 +59,10 @@ public class Datenbank {
                 grund = aktDatensatz.getGrund();
 
                 Statement stmt1 = con.createStatement();
-                stmt1.executeUpdate("INSERT INTO Table2 (Kursstufe, Nachname, Vorname, MAC, Grund) VALUES ('" + kursstufe + "','" + nachname + "','"+ vorname + "','" + mac + "','" + grund + "')");
+                stmt1.executeUpdate("INSERT INTO Table2 (Kursstufe, Nachname, Vorname, MAC, Grund) VALUES ('" + kursstufe + "','" + nachname + "','" + vorname + "','" + mac + "','" + grund + "')");
             }
             dialogfenster.DatenbankErgaenzt(len);
         }
-
     }
 
     public void datenbankLeeren() throws SQLException {
@@ -74,6 +73,7 @@ public class Datenbank {
 
         Statement stmt1 = con.createStatement();
         stmt1.executeUpdate("TRUNCATE Table2");
+        manager.aktualisiereListeGeaendert(); //keine Datensätze mehr in Datenbank, also: keine Redundanz-Gefahr
 
         dialogfenster.DatenbankGeleert();
     }

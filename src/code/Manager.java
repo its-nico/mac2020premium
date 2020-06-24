@@ -1,9 +1,12 @@
 package code;
 
+import java.io.*;
 import java.lang.*;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.sql.SQLException;
+import java.util.Date;
 
 
 public class Manager {
@@ -77,6 +80,140 @@ public class Manager {
 
     public static  void datenbankErgaenzen() throws SQLException {
         datenbank.datenbankErgaenzen(LIST_1);
+    }
+
+    public static  ArrayList getList ()  {
+        return LIST_1;
+    }
+    
+    public static String wannListeGeaendert() { //speichert in Text-Datei, wann folgende Funktionen ausgeführt wurden: Liste leeren, Datenbank leeren (da dann keine Redundanz-Gefahr bei Datenbank-Upload besteht)
+        String wannGeändert = null;
+        
+        String listeGeaendertFile = "./listeGeändert.txt";
+
+        FileWriter fw = null;
+        try {
+            fw = new FileWriter(listeGeaendertFile, true); /* FileWriter wird erstellt */
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        BufferedWriter bw = new BufferedWriter(fw);
+
+        try {
+            bw.write(""); //Hier wird nichts in die Datei geschrieben, damit eine Datei Importpfade.txt erstellt wird, falls keine existiert
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        FileReader fr = null;
+        try {
+            fr = new FileReader(listeGeaendertFile); /* FileReader wird erstellt */
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        BufferedReader br = new BufferedReader(fr);
+
+        try {
+            wannGeändert = br.readLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return wannGeändert;
+    }
+    
+    public static void aktualisiereListeGeaendert() {
+        String listeGeändertFile = "./listeGeändert.txt";
+
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+        String uhrzeit = sdf.format(new Date());
+        SimpleDateFormat sdf2 = new SimpleDateFormat("dd.MM.yyyy");
+        String tag = sdf2.format(new Date());
+
+        FileWriter fw = null;
+        try {
+            fw = new FileWriter(listeGeändertFile, true); /* FileWriter wird erstellt */
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        BufferedWriter bw = new BufferedWriter(fw);
+
+        try {
+            bw.write(""); //Hier wird nichts in die Datei geschrieben, damit eine Datei Importpfade.txt erstellt wird, falls keine existiert
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            bw.write(uhrzeit+tag);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static String wannListeHochgeladen() { //speichert in Text-Datei, wann folgende Funktionen ausgeführt wurden: Liste leeren, Datenbank leeren (da dann keine Redundanz-Gefahr bei Datenbank-Upload besteht)
+        String wannHochgeladen = null;
+
+        String listeHochgeladenFile = "./listeHochgeladen.txt";
+
+        FileWriter fw = null;
+        try {
+            fw = new FileWriter(listeHochgeladenFile, true); /* FileWriter wird erstellt */
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        BufferedWriter bw = new BufferedWriter(fw);
+
+        try {
+            bw.write(""); //Hier wird nichts in die Datei geschrieben, damit eine Datei Importpfade.txt erstellt wird, falls keine existiert
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        FileReader fr = null;
+        try {
+            fr = new FileReader(listeHochgeladenFile); /* FileReader wird erstellt */
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        BufferedReader br = new BufferedReader(fr);
+
+        try {
+            wannHochgeladen = br.readLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return wannHochgeladen;
+    }
+
+    public static void aktualisiereListeHochgeladen() {
+        String listeGeaendertFile = "./listeGeändert.txt";
+
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+        String uhrzeit = sdf.format(new Date());
+        SimpleDateFormat sdf2 = new SimpleDateFormat("dd.MM.yyyy");
+        String tag = sdf2.format(new Date());
+
+        FileWriter fw = null;
+        try {
+            fw = new FileWriter(listeGeaendertFile, true); /* FileWriter wird erstellt */
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        BufferedWriter bw = new BufferedWriter(fw);
+
+        try {
+            bw.write(""); //Hier wird nichts in die Datei geschrieben, damit eine Datei Importpfade.txt erstellt wird, falls keine existiert
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            bw.write(uhrzeit+tag);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
 

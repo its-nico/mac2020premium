@@ -22,6 +22,7 @@ public class schnellerImport {
     private static final Korrektur korrektur = new Korrektur();
     private final OeffnenDialogClass odc = new OeffnenDialogClass();
     private static final Dialogfenster dialogfenster = new Dialogfenster();
+    private static final Manager manager = new Manager();
 
     public static void schnellerImport(String importfilepath, ArrayList liste) {
 
