@@ -212,6 +212,7 @@ public class Korrektur {
         return !text.contains("o") && !text.contains("O") && !text.contains("-") && !text.contains(" ") && !istIP(text) &&  formatOhneLog(text);
     }
 
+    //Der "Kopf" des Logs wird erstellt
     public void logErstellen(String pMac) {
         SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss"); // Das Obejkt sdf speichert die aktuelle Systemzeit, diese wird später ins Log gesschrieben
         String uhrzeit = sdf.format(new Date()); //sdf wird in String umgewandelt

@@ -152,7 +152,6 @@ public class Main extends JFrame {
         doppelteDatensaetzeLoeschen.setMargin(new Insets(2, 2, 2, 2));
         doppelteDatensaetzeLoeschen.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                doppelteDatensaetzeLoeschen_ActionPerformed(evt);
             }
         });
         cp.add(doppelteDatensaetzeLoeschen);
@@ -249,10 +248,6 @@ public class Main extends JFrame {
         manager.exportiereMac();
         dialogfenster.zwischenablage();
         FileOpener fileOpen = new FileOpener("./export.txt");
-    }
-
-    public void doppelteDatensaetzeLoeschen_ActionPerformed(ActionEvent evt) {
-        manager.dopplungenLoeschen();
     }
 
     public void handbuch_ActionPerformed(ActionEvent evt) {
