@@ -96,4 +96,11 @@ public class Dialogfenster {
             case JOptionPane.NO_OPTION:
         }
     }
+
+    public void verbindungFehlgeschlagen() {
+        Runnable runnable = (Runnable) Toolkit.getDefaultToolkit().getDesktopProperty("win.sound.exclamation");
+        runnable.run();
+        String message = "Die Verbindung zur Datenbank konnte nicht hergestellt werden";
+        JOptionPane.showMessageDialog(null, message, "Verbindung fehleschlagen", JOptionPane.ERROR_MESSAGE);
+    }
 }
