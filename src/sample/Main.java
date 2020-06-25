@@ -271,26 +271,17 @@ public class Main extends JFrame {
     public void inDatenbankSpeichern_ActionPerformed(ActionEvent evt) {
         try {
             manager.datenbankErgaenzen();
-        } catch (SQLException e) {
-            e.printStackTrace();
-            System.out.println("SQLException occured");
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
         }
     }
 
     public void datenbankImportieren_ActionPerformed(ActionEvent evt) {
-        try {
-            datenbank.datenbankImportieren();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        datenbank.datenbankImportieren();
     }
 
     public void leerenDatenbank_ActionPerformed(ActionEvent evt) {
-        try {
-            datenbank.datenbankLeeren();
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        datenbank.datenbankLeeren();
     }
 
     public void importLogAnzeigen_ActionPerformed(ActionEvent evt) {
