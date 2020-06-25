@@ -21,8 +21,6 @@ public class Manager {
 
     private static Speichern speichern;
 
-    private static final CollectionUtil dopplung = new CollectionUtil();
-
     public static void main(String[] args) {
     }
 
@@ -76,10 +74,6 @@ public class Manager {
         if (file.exists()) {
             file.delete();
         }
-    }
-
-    public static void dopplungenLoeschen() {
-        LIST_1 = dopplung.removeDuplicate(LIST_1);
     }
 
     public static  void datenbankErgaenzen() throws SQLException {
