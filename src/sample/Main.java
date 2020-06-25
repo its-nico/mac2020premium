@@ -136,6 +136,8 @@ public class Main extends JFrame {
             }
         });
         cp.add(exportMACAdressen);
+        exportMACAdressen.setBackground(new Color(255, 130, 0));
+        exportMACAdressen.setBorder(new LineBorder(new Color(255,130,0),1));
 
         importLogAnzeigen.setBounds(272, 328, 155, 41);
         importLogAnzeigen.setText("Berichte anzeigen");
@@ -146,6 +148,8 @@ public class Main extends JFrame {
             }
         });
         cp.add(importLogAnzeigen);
+        importLogAnzeigen.setBackground(new Color(255, 130, 0));
+        importLogAnzeigen.setBorder(new LineBorder(new Color(255,130,0),1));
 
         doppelteDatensaetzeLoeschen.setBounds(272, 392, 155, 41);
         doppelteDatensaetzeLoeschen.setText("Dopplungen löschen");
@@ -155,6 +159,8 @@ public class Main extends JFrame {
             }
         });
         cp.add(doppelteDatensaetzeLoeschen);
+        doppelteDatensaetzeLoeschen.setBackground(new Color(255, 130, 0));
+        doppelteDatensaetzeLoeschen.setBorder(new LineBorder(new Color(255,130,0),1));
 
         handbuch.setBounds(528, 16, 155, 49);
         handbuch.setText("Handbuch");
@@ -165,6 +171,9 @@ public class Main extends JFrame {
             }
         });
         cp.add(handbuch);
+        handbuch.setBackground(new Color(0, 255, 255));
+        handbuch.setBorder(new LineBorder(new Color(0,255,255),1));
+
         credits.setBounds(528, 80, 155, 49);
         credits.setText("Credits");
         credits.setMargin(new Insets(2, 2, 2, 2));
@@ -174,6 +183,8 @@ public class Main extends JFrame {
             }
         });
         cp.add(credits);
+        credits.setBackground(new Color(0, 255, 255));
+        credits.setBorder(new LineBorder(new Color(0,255,255),1));
 
         inDatenbankSpeichern.setBounds(504, 264, 155, 41);
         inDatenbankSpeichern.setText("Datenbank ergänzen");
@@ -184,6 +195,8 @@ public class Main extends JFrame {
             }
         });
         cp.add(inDatenbankSpeichern);
+        inDatenbankSpeichern.setBackground(new Color(255, 130, 0));
+        inDatenbankSpeichern.setBorder(new LineBorder(new Color(255,130,0),1));
 
         datenbankImportieren.setBounds(504, 328, 155, 41);
         datenbankImportieren.setText("Datenbank importieren");
@@ -194,6 +207,8 @@ public class Main extends JFrame {
             }
         });
         cp.add(datenbankImportieren);
+        datenbankImportieren.setBackground(new Color(255, 130, 0));
+        datenbankImportieren.setBorder(new LineBorder(new Color(255,130,0),1));
 
         leerenDatenbank.setBounds(504, 392, 155, 41);
         leerenDatenbank.setText("Datenbank leeren");
@@ -204,6 +219,9 @@ public class Main extends JFrame {
             }
         });
         cp.add(leerenDatenbank);
+        leerenDatenbank.setBackground(new Color(255, 130, 0));
+        leerenDatenbank.setBorder(new LineBorder(new Color(255,130,0),1));
+
         // Ende Komponenten
 
         if (!file1.exists()){

@@ -109,16 +109,6 @@ public class ManuelleEingabe extends JFrame {
         });
         cp.add(pruefenUndHinzufuegen);
 
-        importLogAnzeigen.setBounds(272, 352, 216, 33);
-        importLogAnzeigen.setText("Berichte anzeigen");
-        importLogAnzeigen.setMargin(new Insets(2, 2, 2, 2));
-        importLogAnzeigen.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent evt) {
-                importLogAnzeigen_ActionPerformed(evt);
-            }
-        });
-        cp.add(importLogAnzeigen);
-
         /* Labels zu Eingabefenstern */
         kursstufeLabel.setBounds(26, 215, 190, 25);
         cp.add(kursstufeLabel);
