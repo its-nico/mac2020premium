@@ -8,7 +8,7 @@ import javax.swing.JFileChooser;
 
 public class OeffnenDialogClass {
 
-    String inputVerzStr;
+    String inputVerzStr; //Hier wird spächer der Dateipfad gespeichert
 
     public static void main(String[] args) {
         OeffnenDialogClass odc = new OeffnenDialogClass();
@@ -16,7 +16,7 @@ public class OeffnenDialogClass {
     }
 
     public String oeffnen() {
-        final JFileChooser chooser = new JFileChooser("Verzeichnis wählen");
+        final JFileChooser chooser = new JFileChooser("Verzeichnis wählen"); //FileChooser-Fenster wird geöffnet
         chooser.setDialogType(JFileChooser.OPEN_DIALOG);
         chooser.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
         final File file = new File("/home");
