@@ -2,14 +2,15 @@ package code;
 
 import javax.swing.*;
 import java.awt.*;
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class Dialogfenster {
 
     private final schnellerImport schnellerImport = new schnellerImport();
-    //private final Datenbank datenbank = new Datenbank();
-    private static final Manager manager = new Manager();
+    private final Manager manager = new Manager();
+    private ArrayList<Einstellung> LIST_2 = new ArrayList<>();
+    private Einstellung einstellung;
+
 
     public void keineMacAdresse(String pMac) {
         Runnable runnable = (Runnable) Toolkit.getDefaultToolkit().getDesktopProperty("win.sound.exclamation");
@@ -35,12 +36,15 @@ public class Dialogfenster {
     }
 
     public void bereitsImportiertDialog(String pPfad, ArrayList LIST_1) {
-        String message = "Die Datei unter diesem Dateipfad wurde von ihnen bereits als Import-Datei verwendet\nMöchten sie die Datei trotzdem importieren?";
-        int result = JOptionPane.showConfirmDialog(null, message, "Dateiauswahl bestätigen", JOptionPane.YES_NO_OPTION);
-        switch (result) {
-            case JOptionPane.YES_OPTION:
-                schnellerImport.schnellerImport(pPfad, LIST_1); //Aktion(en) bei Klicken auf den "Ja-Button"
-            case JOptionPane.NO_OPTION:
+        LIST_2 = manager.getList2();
+        if (manager.getEinstellungWertZuEinstellungTyp("Dialogfenster anzeigen")) {
+            String message = "Die Datei unter diesem Dateipfad wurde von ihnen bereits als Import-Datei verwendet\nMöchten sie die Datei trotzdem importieren?";
+            int result = JOptionPane.showConfirmDialog(null, message, "Dateiauswahl bestätigen", JOptionPane.YES_NO_OPTION);
+            switch (result) {
+                case JOptionPane.YES_OPTION:
+                    schnellerImport.schnellerImport(pPfad, LIST_1); //Aktion(en) bei Klicken auf den "Ja-Button"
+                case JOptionPane.NO_OPTION:
+            }
         }
     }
 

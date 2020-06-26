@@ -27,11 +27,13 @@ public class Main extends JFrame {
     private final JButton doppelteDatensaetzeLoeschen = new JButton();
     private final JButton handbuch = new JButton();
     private final JButton credits = new JButton();
+    private final JButton einstellungn = new JButton();
     private final JButton inDatenbankSpeichern = new JButton();
     private final JButton datenbankImportieren = new JButton();
     private final JButton leerenDatenbank = new JButton();
 
     private ManuelleEingabe manuellesEingabefenster;
+    private Einstellungen einstellungenFenster;
 
     private final Manager manager = new Manager();
     private final OeffnenDialogClass oeffnenDialogClass = new OeffnenDialogClass();
@@ -39,6 +41,7 @@ public class Main extends JFrame {
     private final Datenbank datenbank = new Datenbank();
 
     private final File file1 = new File("./savedList.ser");
+    private final File file2 = new File("./settings.ser");
 
     private Closing closing;
 
@@ -186,6 +189,18 @@ public class Main extends JFrame {
         credits.setBackground(new Color(0, 255, 255));
         credits.setBorder(new LineBorder(new Color(0,255,255),1));
 
+        einstellungn.setBounds(528, 144, 155, 49);
+        einstellungn.setText("Einstellungen");
+        einstellungn.setMargin(new Insets(2, 2, 2, 2));
+        einstellungn.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                einstellungn_ActionPerformed(evt);
+            }
+        });
+        cp.add(einstellungn);
+        einstellungn.setBackground(new Color(0, 255, 255));
+        einstellungn.setBorder(new LineBorder(new Color(0,255,255),1));
+
         inDatenbankSpeichern.setBounds(504, 264, 155, 41);
         inDatenbankSpeichern.setText("Datenbank ergänzen");
         inDatenbankSpeichern.setMargin(new Insets(2, 2, 2, 2));
@@ -227,8 +242,12 @@ public class Main extends JFrame {
         if (!file1.exists()){
             manager.speichern(); //hier wird überprüft, ob die serialisierte Listen-Datei schon vorhanden ist. Wenn nicht, wird eine erstellt, da sonst eine NullPointerException auftritt
         }
+        if (!file2.exists()){
+            manager.speichernEinstellungen(); //hier wird überprüft, ob die serialisierte Listen-Datei schon vorhanden ist. Wenn nicht, wird eine erstellt, da sonst eine NullPointerException auftritt
+        }
 
         manager.laden();
+        manager.ladenEinstellungen();
 
         setVisible(true);
 
@@ -236,6 +255,7 @@ public class Main extends JFrame {
         {
             @Override
            public void windowClosing(WindowEvent e) {
+                manager.speichernEinstellungen();
                 closing = new Closing();
                 closing.close(manager);
             }
@@ -256,8 +276,6 @@ public class Main extends JFrame {
     }
 
     public void datenLoeschen_ActionPerformed(ActionEvent evt) {
-
-        // TODO hier Quelltext einfügen
         manager.listeLoeschen();
 
     }
@@ -269,16 +287,15 @@ public class Main extends JFrame {
     }
 
     public void handbuch_ActionPerformed(ActionEvent evt) {
-        // TODO hier Quelltext einfügen
+        // TODO
     }
 
     public void credits_ActionPerformed(ActionEvent evt) {
-        try {
-            manager.datenbankErgaenzen();
-        } catch (SQLException e) {
-            e.printStackTrace();
-            System.out.println("SQLException occured");
-        }
+        // TODO
+    }
+
+    private void einstellungn_ActionPerformed(ActionEvent evt) {
+        einstellungenFenster = new Einstellungen();
     }
 
     public void inDatenbankSpeichern_ActionPerformed(ActionEvent evt) {

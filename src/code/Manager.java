@@ -10,8 +10,10 @@ import java.util.Date;
 
 
 public class Manager {
-    private static ArrayList<Datensatz> LIST_1 = new ArrayList<>(); /* Neue generische Liste des Datentpys 'Datensatz' wird erstellt */
+    private static ArrayList<Datensatz> LIST_1 = new ArrayList<>(); // Neue generische Liste des Datentpys 'Datensatz' wird erstellt
+    private static ArrayList<Einstellung> LIST_2 = new ArrayList<>(); // Neue generische Liste des Datentpys 'Einstellung' wird erstellt
     private static Datensatz datensatz;
+    private static Einstellung einstellung;
 
     //Referenzen auf fremde Klassen
     private static final Export export = new Export();
@@ -38,6 +40,16 @@ public class Manager {
     //Die Liste wird hier gespeichert (Serialisierung). Hierfür wir die Methode abspeichern() aus Speichern aufgerufen.
     public static void speichern(){
         speichern.abspeichern(LIST_1);
+    }
+
+    //Methode ladenEinstellungen() aus Speichern wird aufgrufen. So lädt das Programm die Einstellungen (Serialisierung).
+    public static void ladenEinstellungen(){
+        LIST_2 = speichern.ladenEinstellungen();
+    }
+
+    //Die Einstellungen werden hier gespeichert (Serialisierung). Hierfür wir die Methode abspeichernEinstellungen() aus Speichern aufgerufen.
+    public static void speichernEinstellungen(){
+        speichern.abspeichernEinstellungen(LIST_2);
     }
 
     //Import wir hier ausgeführt. Als Parameter muss ein Pfad übergeben werden, dieser wird in der Klasse ManuelleEingabe durch OeffnenDialogClass bestimmt
@@ -88,8 +100,29 @@ public class Manager {
     }
 
     //Die aktuelle Liste wird zurückgegeben
-    public static  ArrayList getList ()  {
+    public static  ArrayList getList1()  {
         return LIST_1;
+    }
+
+    public static ArrayList getList2 ()  {
+        return LIST_2;
+    }
+
+    public static void aendereEinstellung(String pEinstellungTyp, boolean pEinstellungWert) {
+        einstellung = new Einstellung(pEinstellungTyp, pEinstellungWert);
+        LIST_2.add(einstellung);
+    }
+
+    public boolean getEinstellungWertZuEinstellungTyp(String pEinstellungTyp) {
+        boolean getEinstellungWert = true;
+        int len = LIST_2.size();
+        for (int i = 0; i < len; i++) {
+            Einstellung einstellung = LIST_2.get(i);
+            if (einstellung.getEinstellungTyp().equals(pEinstellungTyp)) { //Wenn Listen-Element gefunden wird, dass den Einstellungswert für den übergebenen Einstellungstyp speichert, wird der Einstellungstyp auf den entsprechenden Wert gesetzt
+                getEinstellungWert = einstellung.getEinstellungWert();
+            }
+        }
+        return getEinstellungWert;
     }
 }
 
