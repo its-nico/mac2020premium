@@ -44,7 +44,12 @@ public class ManuelleEingabe extends JFrame {
         super();
 
         try {
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName()); //look & feel von System wird hier gesetzt
+            for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()){
+                if ("Nimbus".equals(info.getName())){
+                    UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
         } catch (Exception e) {
             System.err.println("Error: " + e.getMessage());
         }
@@ -60,7 +65,8 @@ public class ManuelleEingabe extends JFrame {
         setTitle("Manuelle Eingabe");
         setResizable(false);
         Container cp = getContentPane();
-        cp.setLayout(null);
+        cp.setLayout(null);setIconImage(new ImageIcon(getClass().getResource("Logo2.png")).getImage());
+
 
 
         // Anfang Komponenten
