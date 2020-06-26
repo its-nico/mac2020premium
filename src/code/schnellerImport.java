@@ -61,7 +61,6 @@ public class schnellerImport {
                     else {
                         FormatString = "<html>" + FormatString + "<br>" + mac + "</html>";
                     }
-
                 }
             }
         }
@@ -75,7 +74,7 @@ public class schnellerImport {
     }
 
     public static void splitline(String line) {
-        splittedline = line.split("; "); /* Die Methode 'split' teilt den String 'line' mithilfe des definierten Trennzeichens '; '*/
+        splittedline = line.split(";"); // Die Methode 'split' teilt den String 'line' mithilfe des definierten Trennzeichens ';'
         kursstufe = splittedline[0];
         nachname = splittedline[1];
         vorname = splittedline[2];
@@ -130,7 +129,7 @@ public class schnellerImport {
 
         FileReader fr = null;
         try {
-            fr = new FileReader(merkeDateipfadFile); /* FileReader wird erstellt */
+            fr = new FileReader(merkeDateipfadFile); // FileReader wird erstellt
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -147,9 +146,9 @@ public class schnellerImport {
             anzahlDateipfade++;
             if (line != null && line.equals(pPfad)) {
                 bereitsImportiert = true;
-            } /*Hier darf keine else-Statement sein, da jede Zeile der Datei Importpfade.txt überprüft wird.
-            bereitsImportiert hat am Anfang den Wert false und wirt auf true gesetzt, sobald der Dateipfad einmal in der Datei vorkommt */
+            }
         }
+
         return bereitsImportiert;
     }
 }

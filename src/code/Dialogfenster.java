@@ -75,9 +75,17 @@ public class Dialogfenster {
         JOptionPane.showMessageDialog(null, message, "Lade-Fehler", JOptionPane.ERROR_MESSAGE);
     }
 
-    public void verbindungWirdAufgebaut() {
-        String message = "Die Datenbank-Verbindung wird hergestellt\nDieser Vorgang kann mehrere Sekunden dauern und das Programm reagiert während dieser Zeit nicht auf Eingaben\nBitte wählen sie OK um fortzufahren";
-        JOptionPane.showMessageDialog(null, message, "Verbindungsaufbau", JOptionPane.INFORMATION_MESSAGE);
+    public boolean verbindungWirdAufgebaut() {
+        boolean antwort = false;
+        String message = "Die Datenbank-Verbindung wird hergestellt\nDieser Vorgang kann mehrere Sekunden dauern\nund das Programm reagiert während dieser Zeit nicht auf Eingaben\n\nMöchten sie die Datenbank-Verbindung herstellen?";
+        int result = JOptionPane.showConfirmDialog(null, message, "Verbindungsaufbau", JOptionPane.YES_NO_OPTION);
+        switch (result) {
+            case JOptionPane.YES_OPTION:
+                antwort = true; //Aktion(en) bei Klicken auf den "Ja-Button"
+            case JOptionPane.NO_OPTION:
+                antwort = false;
+        }
+        return antwort;
     }
 
     public void datenbankListeLeer() {
@@ -85,20 +93,6 @@ public class Dialogfenster {
         runnable.run();
         String message = "Es gibt keine Datensätze, die in die Datenbank hochgeladen werden können";
         JOptionPane.showMessageDialog(null, message, "Upload verhindert", JOptionPane.ERROR_MESSAGE);
-    }
-
-    public void datenbankListeNichtGeändert() {
-        String message = "Es gibt keine Datensätze, die nicht schon bereits in der Datenbank vorhanden sind\nWenn sie die Datensätze trotzdem hochladen, sind manche Datensätze möglicherweise mehrmahls vorhanden\nMöchten sie die vorhandenen Datensätze trotzdem hochladen?";
-        int result = JOptionPane.showConfirmDialog(null, message, "Hochladen bestätigen", JOptionPane.YES_NO_OPTION);
-        switch (result) {
-            case JOptionPane.YES_OPTION:
-                /*try {
-                    datenbank.datenbankErgaenzen(manager.getList(), true); //für die listeGeaendert-Variable wird hier true angegeben, damit die Datensätze trotz ungeänderter Liste in die Datenbank hochgeladen werden
-                } catch (SQLException throwables) {
-                    throwables.printStackTrace();
-                }*/
-            case JOptionPane.NO_OPTION:
-        }
     }
 
     public void verbindungFehlgeschlagen() {
