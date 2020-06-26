@@ -24,11 +24,10 @@ public class Datenbank {
     private final String password = "ngrSecret";
 
     public void datenbankImportieren() { /* Importiert alle Datensätze, die aktuell in der Datenbank vorhanden sind, in die ArrayList */
-        dialogfenster.verbindungWirdAufgebaut();
-
-        Connection con = null; /* Verbindung zur Datenbank wird hergestellt */
+        dialogfenster.verbindungWirdAufgebaut(); //Zeigt Dialogfenster, das Benutzer über Verbindungsaufbau informiert
+        Connection con = null;
         try {
-            con = DriverManager.getConnection(url, username, password);
+            con = DriverManager.getConnection(url, username, password); //Verbindung zur Datenbank wird hergestellt
         } catch (CommunicationsException c) {
             dialogfenster.verbindungFehlgeschlagen();
             verbunden = false;
@@ -40,7 +39,7 @@ public class Datenbank {
             Statement stmt1 = null;
             try {
                 stmt1 = con.createStatement();
-                ResultSet rs1 = stmt1.executeQuery("SELECT * FROM table2");
+                ResultSet rs1 = stmt1.executeQuery("SELECT * FROM table2"); //SQL-Anweisung wird auf Datenbank ausgführt und Ausabe wird in rs1-Variable gespeichert
 
                 int anzahl = 0;
                 while (rs1.next()) { /* Cursor der Datenbank wechselt mit jedem rs1.next()-Aufruf in die nächste Zeile */
@@ -49,24 +48,24 @@ public class Datenbank {
                     vorname = rs1.getString("Vorname");
                     mac = rs1.getString("MAC");
                     grund = rs1.getString("Grund");
-                    manager.ergaenze(kursstufe, nachname, vorname, mac, grund); /* Aus jeder Zeile wird ein Datensatz-Objekt erstellt und in die Liste eingefügt */
+                    manager.ergaenze(kursstufe, nachname, vorname, mac, grund); // Aus jeder Zeile wird ein Datensatz-Objekt erstellt und in die Liste eingefügt
                     anzahl++;
                 }
-                dialogfenster.DatenbankImportiert(anzahl);
+                dialogfenster.DatenbankImportiert(anzahl); //Dialogfenster zeigt, wie viele Datensätze erfolgreich in das Programm importiert wurden
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
         }
     }
 
-    public void datenbankErgaenzen(ArrayList<Datensatz> liste) { /* Importiert die Datensätze, die aktuell in der Liste vorhanden sind, in eine Datenbank-Tabelle*/
+    public void datenbankErgaenzen(ArrayList<Datensatz> liste) { // Importiert die Datensätze, die aktuell in der Liste vorhanden sind, in eine Datenbank-Tabelle
         if (liste.isEmpty()) {
-            dialogfenster.datenbankListeLeer();
+            dialogfenster.datenbankListeLeer(); //Falls Liste leer ist, wird Benutzer informiert
         } else {
             dialogfenster.verbindungWirdAufgebaut();
             Connection con = null; /* Verbindung zur Datenbank wird hergestellt */
             try {
-                con = DriverManager.getConnection(url, username, password);
+                con = DriverManager.getConnection(url, username, password); //Verbindung zur Datenbank wird hergestellt
             } catch (CommunicationsException c) {
                 dialogfenster.verbindungFehlgeschlagen();
                 verbunden = false;
@@ -76,7 +75,7 @@ public class Datenbank {
 
             int len = liste.size();
             boolean hochgeladen = false;
-            for (int i = 0; i < len; i++) {
+            for (int i = 0; i < len; i++) { //Geht alle Listen-Elemente durch und lädt sie in die Datenbank, falls Verbindung existiert
                 Datensatz aktDatensatz = liste.get(i);
                 kursstufe = aktDatensatz.getKursstufe();
                 nachname = aktDatensatz.getNachname();
@@ -84,12 +83,12 @@ public class Datenbank {
                 mac = aktDatensatz.getMac();
                 grund = aktDatensatz.getGrund();
 
-                if (verbunden) {
+                if (verbunden) { //Falls Verbindung zur Datenbank existiert
                     Statement stmt1 = null;
                     try {
                         stmt1 = con.createStatement();
                         stmt1.executeUpdate("INSERT INTO Table2 (Kursstufe, Nachname, Vorname, MAC, Grund) VALUES ('" + kursstufe + "','" + nachname + "','" + vorname + "','" + mac + "','" + grund + "')");
-                        hochgeladen = true;
+                        hochgeladen = true; //Wenn mind. 1 Element aus Liste hochgeladen wird, wird Variable auf true gesetzt
                     } catch (NullPointerException e) {
                         e.printStackTrace();
                     } catch (SQLException throwables) {
@@ -98,35 +97,32 @@ public class Datenbank {
                 }
             }
             if (hochgeladen) {
-                dialogfenster.DatenbankErgaenzt(len);
+                dialogfenster.DatenbankErgaenzt(len); //Falls (mind. 1) Datensatz hochgeladen wurde, wird Dialogfenster geöffnet, das über erfolgreiches Hochladen von Datensätzen informiert
             }
         }
     }
 
     public void datenbankLeeren() {
         dialogfenster.verbindungWirdAufgebaut();
-        System.out.println("Connecting database...");
         Connection con = null; /* Verbindung zur Datenbank wird hergestellt */
         try {
-            con = DriverManager.getConnection(url, username, password);
+            con = DriverManager.getConnection(url, username, password); //Verbindung zur Datenbank wird hergestellt
         } catch (CommunicationsException c) {
             dialogfenster.verbindungFehlgeschlagen();
             verbunden = false;
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        System.out.println("Connected!");
 
-        if (verbunden) {
+        if (verbunden) { //Falls Verbindung zur Datenbank existiert
             Statement stmt1 = null;
             try {
                 stmt1 = con.createStatement();
-                stmt1.executeUpdate("TRUNCATE Table2");
+                stmt1.executeUpdate("TRUNCATE Table2"); //Löscht den kompletten Inhalt aus Datenbank
             } catch (SQLException throwables) {
                 throwables.printStackTrace();
             }
-
-            dialogfenster.DatenbankGeleert();
+            dialogfenster.DatenbankGeleert(); //Informiert über erfolgreich geleerte Datenbank
         }
     }
 }
