@@ -73,18 +73,21 @@ public class Manager {
         }
     }
 
+    //Die Methode löscht die Liste, indem sie sie mit einer leeren Liste überschreibt
     public static void listeLoeschen() {
         LIST_1 = new ArrayList<>();
         File file = new File("./Importpfade.txt");
         if (file.exists()) {
-            file.delete();
+            file.delete(); //Außerdem wird die Datei, in der die letzten Importe gepseichert werden, auch gelöscht
         }
     }
 
+    //Die Liste wird in die Datenbank durch die Methode datenbankErgaenzen() aus Datenbank aufgenommen
     public static  void datenbankErgaenzen() throws SQLException {
         datenbank.datenbankErgaenzen(LIST_1);
     }
 
+    //Die aktuelle Liste wird zurückgegeben
     public static  ArrayList getList ()  {
         return LIST_1;
     }
