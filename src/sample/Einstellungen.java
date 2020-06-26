@@ -29,7 +29,12 @@ public class Einstellungen extends JFrame {
         super();
 
         try {
-            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName()); //look & feel von System wird hier gesetzt
+            for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()){
+                if ("Nimbus".equals(info.getName())){
+                    UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
         } catch (Exception e) {
             System.err.println("Error: " + e.getMessage());
         }
@@ -46,6 +51,7 @@ public class Einstellungen extends JFrame {
         setResizable(false);
         Container cp = getContentPane();
         cp.setLayout(null);
+        setIconImage(new ImageIcon(getClass().getResource("Logo2.png")).getImage());
 
         List_2 = manager.getList2();
 
