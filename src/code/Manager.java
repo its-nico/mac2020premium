@@ -80,7 +80,7 @@ public class Manager {
                 return ("<html>Der Datensatz zur MAC-Adresse " + pMac + " wurde erfolgreich hinzugefügt.<br>Weitere Informationen finden Sie im Korrektur-Verzeichnis.</html>"); //Rückgabe wird für das Text-Feld in der GUI-genutzt
             }
             else {
-                return ("<html>Die Adresse befindet sich nicht im für MAC-Adressen erforderlichen Format (xx:xx:xx:xx:xx:xx). <br> Der Datensatz konnte daher nicht übernommen werden.<br>Weitere Informationen finden Sie im Korrektur-Verzeichnis.</html>"); //Rückgabe wird für das Text-Feld in der GUI-genutzt
+                return ("<html>Die Adresse befindet sich nicht im für MAC-Adressen erforderlichen Format (xx:xx:xx:xx:xx:xx) oder enthält unerlaubte Zeichen. <br> Der Datensatz konnte daher nicht übernommen werden.<br>Weitere Informationen finden Sie im Korrektur-Verzeichnis.</html>"); //Rückgabe wird für das Text-Feld in der GUI-genutzt
             }
         }
     }

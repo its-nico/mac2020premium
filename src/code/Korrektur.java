@@ -157,13 +157,19 @@ public class Korrektur {
         }
         BufferedWriter bw = new BufferedWriter(fw);
 
+        boolean bool1 = Pattern.matches ("[0123456789abcdefgABCDEFG:]*", text); //Enthält die Adresse Zahlen oder Buchstaben A-F bzw. a-f?
+        boolean bool2 = Pattern.matches("[^!\"#$%&'()*+,./;<=>?@^_`{|}~]*", text); //Sind keine Sonderzeichen enthalten?
+        boolean bool3 = Pattern.matches("[^g-zG-Z]*", text); //Sind keine Buchstaben G-Z bzw. g-z enthalten?
+        boolean bool4 = Pattern.matches("."+"."+":"+"."+"."+":"+"."+"."+":"+"."+"."+":"+"."+"."+":"+"."+".", text); //mit pattern.matches wird der text mit einer Vorlage verglichen. "." steht dabei für einen beliebigen Buchstaben
+
         try {
-            if (Pattern.matches("."+"."+":"+"."+"."+":"+"."+"."+":"+"."+"."+":"+"."+"."+":"+"."+".", text)){ //mit pattern.matches wird der text mit einer Vorlage verglichen. "." steht dabei für einen beliebigen Buchstaben
+            if (bool1 && bool2 && bool3 && bool4){ //Bedingungen (siehe oben) werden überprüft
+                bw.write("  Die Adresse befindet sich im erforderlichen Format (xx:xx:xx:xx:xx:xx) und besteht nur aus Zahlen oder den Buchstaben A-F. \n");
                 bw.write("\n");
                 bw.write("Status: Erfolgreich hinzugefügt\n");
             }
             else {
-                bw.write("  Die Adresse befindet sich nicht im für MAC-Adressen erforderlichen Format (xx:xx:xx:xx:xx:xx). Sie konnte nicht übernommen werden.\n");
+                bw.write("  Die Adresse befindet sich nicht im korrekten Format (xx:xx:xx:xx:xx:xx) oder enthält unerlaubte Zeichen und konnte nicht übernommen werden.\n");
                 bw.write("\n");
                 bw.write("Status: Hinzufügen fehlgeschlagen\n");
             }
@@ -177,11 +183,15 @@ public class Korrektur {
             e.printStackTrace();
         }
 
-    return (Pattern.matches("."+"."+":"+"."+"."+":"+"."+"."+":"+"."+"."+":"+"."+"."+":"+"."+".", text));
+    return (bool1 && bool2 && bool3 && bool4);
     }
 
     public boolean formatOhneLog(String text){ //Klasse überprüft ebenfalls Format, allerdings wird hierbei nicht in das Log geschrieben
-        return (Pattern.matches("."+"."+":"+"."+"."+":"+"."+"."+":"+"."+"."+":"+"."+"."+":"+"."+".", text));
+        boolean bool1 = Pattern.matches ("[0123456789abcdefgABCDEFG:]*", text);
+        boolean bool2 = Pattern.matches("[^!\"#$%&'()*+,./;<=>?@^_`{|}~]*", text);
+        boolean bool3 = Pattern.matches("[^g-zG-Z]*", text);
+        boolean bool4 = Pattern.matches("."+"."+":"+"."+"."+":"+"."+"."+":"+"."+"."+":"+"."+"."+":"+"."+".", text);
+        return bool1 && bool2 && bool3 && bool4;
     }
 
     /* Überprüfung, ob die MAC-Adresse korrekt ist */
@@ -228,7 +238,7 @@ public class Korrektur {
         }
         BufferedWriter bw = new BufferedWriter(fw);
         try {
-            bw.write("\n- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n\n");
+            bw.write("\n- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n\n");
             bw.write("Eintrag erstellt am " + tag + " um " + uhrzeit + ".\n\n");
             bw.write("Folgende Änderungen wurden durch die Korrektur an der möglicherweise fehlerhaften MAC-Adresse (" + pMac + ") vorgenommen:\n");
             bw.write("\n");
