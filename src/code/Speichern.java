@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Speichern {
     static String datnam = "savedList.ser";
-    static String datnam2 = "setting.ser";
+    static String datnam2 = "settings.ser";
 
     public static void abspeichern(ArrayList pList) {
         OutputStream fos = null;

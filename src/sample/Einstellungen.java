@@ -16,7 +16,7 @@ public class Einstellungen extends JFrame {
 
     private final JButton speichern = new JButton();
 
-    private final Checkbox dialogfensterBox = new Checkbox("Dialogfenster anzeigen");
+    private final Checkbox dialogfensterBox = new Checkbox("Dialogfenster anzeigen.................................");
     private final Manager manager = new Manager();
     private ArrayList<Einstellung> List_2;
 
@@ -40,7 +40,7 @@ public class Einstellungen extends JFrame {
         }
 
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-        int frameWidth =250;
+        int frameWidth =270;
         int frameHeight = 400;
         setSize(frameWidth, frameHeight);
         Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
@@ -62,7 +62,7 @@ public class Einstellungen extends JFrame {
 
 
         /* Buttons */
-        speichern.setBounds(18, 320, 200, 30);
+        speichern.setBounds(28, 320, 200, 30);
         speichern.setText("Speichern & Verlassen");
         speichern.setMargin(new Insets(2, 2, 2, 2));
         speichern.addActionListener(new ActionListener() {
@@ -72,7 +72,7 @@ public class Einstellungen extends JFrame {
         });
         cp.add(speichern);
 
-        dialogfensterBox.setBounds(50,50,200,30);
+        dialogfensterBox.setBounds(50,50,150,30);
         dialogfensterBox.setState(getEinstellungWert(dialogfensterBox.getLabel()));
         cp.add(dialogfensterBox);
 
