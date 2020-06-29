@@ -104,7 +104,7 @@ public class ManuelleEingabe extends JFrame {
         rueckgabeFenster.setBorder(BorderFactory.createCompoundBorder(lBorder, eBorder));
         rueckgabeFenster.setToolTipText("Hier werden verkürzte Rückgaben der Autokorrektur angezeigt");
 
-        /* Buttons */
+        // Buttons
         pruefenUndHinzufuegen.setBounds(24, 352, 190, 33);
         pruefenUndHinzufuegen.setText("Prüfen und Hinzufügen");
         pruefenUndHinzufuegen.setMargin(new Insets(2, 2, 2, 2));
@@ -116,7 +116,7 @@ public class ManuelleEingabe extends JFrame {
         cp.add(pruefenUndHinzufuegen);
         pruefenUndHinzufuegen.setToolTipText("Der eingegebene Datensatz wird korrigiert und gespeichert");
 
-        /* Labels zu Eingabefenstern */
+        // Labels zu Eingabefenstern
         kursstufeLabel.setBounds(26, 215, 190, 25);
         cp.add(kursstufeLabel);
         kursstufeLabel.setOpaque(true);

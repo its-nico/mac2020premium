@@ -7,19 +7,29 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 import javax.swing.*;
+import javax.swing.border.LineBorder;
 
 public class Einstellungen extends JFrame {
     // Anfang Attribute
-    private final JLabel erklaerungsFeld = new JLabel();
+    //JLabel
+    private final JLabel erklaerung = new JLabel();
+    private final JLabel kategorie1 = new JLabel();
 
-    private final JTextField vornameFeld = new JTextField();
+    private final JLabel hinweisfensterBoxTooltipLabel = new JLabel("?");
+    private final JLabel fehlerfensterBoxTooltipLabel = new JLabel("?");
 
+    //JButton
     private final JButton speichern = new JButton();
 
-    private final Checkbox dialogfensterBox = new Checkbox("Dialogfenster anzeigen.................................");
+    //Checkbox
+    private final Checkbox hinweisfensterBox = new Checkbox("Hinweisfenster anzeigen");
+    private final Checkbox fehlerfensterBox = new Checkbox("Fehlerfenster anzeigen");
+
+    //Sonstige Klassen
     private final Manager manager = new Manager();
     private ArrayList<Einstellung> List_2;
 
+    //Variablen
     private String einstellungTyp;
     private boolean einstellungWert;
     // Ende Attribute
@@ -56,12 +66,16 @@ public class Einstellungen extends JFrame {
         List_2 = manager.getList2();
 
         // Anfang Komponenten
-        erklaerungsFeld.setBounds(25, 15, 250, 35);
-        erklaerungsFeld.setText("Erklärung");
-        cp.add(erklaerungsFeld);
+        erklaerung.setBounds(25,15,250,35);
+        erklaerung.setText("<html>Bewegen sie die Maus für mehr<br>Informationen über die Fragezeichen</html>");
+        cp.add(erklaerung);
+
+        kategorie1.setBounds(25, 45, 250, 35);
+        kategorie1.setText("<html><u>Dialogfenster</u></html>");
+        cp.add(kategorie1);
 
 
-        /* Buttons */
+        // Buttons
         speichern.setBounds(28, 320, 200, 30);
         speichern.setText("Speichern & Verlassen");
         speichern.setMargin(new Insets(2, 2, 2, 2));
@@ -72,9 +86,24 @@ public class Einstellungen extends JFrame {
         });
         cp.add(speichern);
 
-        dialogfensterBox.setBounds(50,50,150,30);
-        dialogfensterBox.setState(getEinstellungWert(dialogfensterBox.getLabel()));
-        cp.add(dialogfensterBox);
+        //Hinweisfenster-Option
+        hinweisfensterBox.setBounds(50,80,170,20);
+        hinweisfensterBox.setState(getEinstellungWert(hinweisfensterBox.getLabel()));
+        cp.add(hinweisfensterBox);
+
+        hinweisfensterBoxTooltipLabel.setBounds(220, 80, 20, 20);
+        hinweisfensterBoxTooltipLabel.setToolTipText("Einige essentielle Dialogfenster werden durch diese Einstellung möglicherweise nicht beeinflusst");
+        //hinweisfensterBoxTooltipLabel.setBorder(new LineBorder(new Color(0,0,0),1));
+        cp.add(hinweisfensterBoxTooltipLabel);
+
+        //Fehlerfenster-Option
+        fehlerfensterBox.setBounds(50,105,170,20);
+        fehlerfensterBox.setState(getEinstellungWert(fehlerfensterBox.getLabel()));
+        cp.add(fehlerfensterBox);
+
+        fehlerfensterBoxTooltipLabel.setBounds(220, 105, 20, 20);
+        fehlerfensterBoxTooltipLabel.setToolTipText("Einige essentielle Dialogfenster werden durch diese Einstellung möglicherweise nicht beeinflusst");
+        cp.add(fehlerfensterBoxTooltipLabel);
 
         setVisible(true);
     } // end of public ManuelleEingabe
@@ -98,9 +127,14 @@ public class Einstellungen extends JFrame {
     }
 
     public void speichern_ActionPerformed(ActionEvent evt) {
-        einstellungWert = dialogfensterBox.getState();
-        einstellungTyp = dialogfensterBox.getLabel();
+        einstellungWert = hinweisfensterBox.getState();
+        einstellungTyp = hinweisfensterBox.getLabel();
         manager.aendereEinstellung(einstellungTyp, einstellungWert);
+
+        einstellungWert = fehlerfensterBox.getState();
+        einstellungTyp = fehlerfensterBox.getLabel();
+        manager.aendereEinstellung(einstellungTyp, einstellungWert);
+
         dispose();
     } // end of pruefenUndHinzufuegen_ActionPerformed
 

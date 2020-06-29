@@ -264,13 +264,6 @@ public class Main extends JFrame {
 
         manager.laden();
         manager.ladenEinstellungen();
-        int len = manager.getList2().size();
-        if (manager.getList2().isEmpty()) {
-            System.out.println("Einstellungen-Liste ist leer");
-        } else {
-            System.out.println(manager.getList2().get(len-1));
-        }
-
 
         setVisible(true);
 
