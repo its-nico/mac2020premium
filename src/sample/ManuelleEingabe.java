@@ -99,10 +99,10 @@ public class ManuelleEingabe extends JFrame {
         rueckgabeFenster.setOpaque(true);
         rueckgabeFenster.setBackground(Color.white);
         rueckgabeFenster.setBorder(new LineBorder(Color.DARK_GRAY,1));
-
         EmptyBorder eBorder = new EmptyBorder(2, 10, 2, 10); // oben, rechts, unten, links
         LineBorder lBorder = new LineBorder(new Color(100, 100, 100));
         rueckgabeFenster.setBorder(BorderFactory.createCompoundBorder(lBorder, eBorder));
+        rueckgabeFenster.setToolTipText("Hier werden verkürzte Rückgaben der Autokorrektur angezeigt");
 
         /* Buttons */
         pruefenUndHinzufuegen.setBounds(24, 352, 190, 33);
@@ -114,6 +114,7 @@ public class ManuelleEingabe extends JFrame {
             }
         });
         cp.add(pruefenUndHinzufuegen);
+        pruefenUndHinzufuegen.setToolTipText("Der eingegebene Datensatz wird korrigiert und gespeichert");
 
         /* Labels zu Eingabefenstern */
         kursstufeLabel.setBounds(26, 215, 190, 25);

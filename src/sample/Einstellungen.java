@@ -18,7 +18,7 @@ public class Einstellungen extends JFrame {
 
     private final Checkbox dialogfensterBox = new Checkbox("Dialogfenster anzeigen");
     private final Manager manager = new Manager();
-    private ArrayList<Einstellung> List_2 = new ArrayList<>();
+    private ArrayList<Einstellung> List_2;
 
     private String einstellungTyp;
     private boolean einstellungWert;
@@ -86,21 +86,22 @@ public class Einstellungen extends JFrame {
     } // end of main
 
     public boolean getEinstellungWert(String pEinstellungTyp) {
-        boolean getEinstellungWert = true;
+        boolean einstellungWert = true;
         int len = List_2.size();
         for (int i = 0; i < len; i++) {
             Einstellung einstellung = List_2.get(i);
             if (einstellung.getEinstellungTyp().equals(pEinstellungTyp)) { //Wenn Listen-Element gefunden wird, dass den Einstellungswert für den übergebenen Einstellungstyp speichert, wird der Einstellungstyp auf den entsprechenden Wert gesetzt
-                getEinstellungWert = einstellung.getEinstellungWert();
+                einstellungWert = einstellung.getEinstellungWert();
             }
         }
-        return getEinstellungWert;
+        return einstellungWert;
     }
 
     public void speichern_ActionPerformed(ActionEvent evt) {
         einstellungWert = dialogfensterBox.getState();
         einstellungTyp = dialogfensterBox.getLabel();
         manager.aendereEinstellung(einstellungTyp, einstellungWert);
+        dispose();
     } // end of pruefenUndHinzufuegen_ActionPerformed
 
     // Ende Methoden
