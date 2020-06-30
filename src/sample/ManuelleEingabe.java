@@ -83,7 +83,7 @@ public class ManuelleEingabe extends JFrame {
 
         kursstufeFeld.setBounds(24, 184, 190, 36);
         cp.add(kursstufeFeld);
-        kursstufe = kursstufeFeld.getText();;
+        kursstufe = kursstufeFeld.getText();
 
         macAdresseFeld.setBounds(24, 240, 190, 36);
         cp.add(macAdresseFeld);

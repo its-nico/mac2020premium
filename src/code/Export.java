@@ -49,4 +49,46 @@ public class Export {
             e.printStackTrace();
         }
     }
+
+    public void exportiereDatensaetze (ArrayList<Datensatz> liste){ //Funktion: Exportiert die MAC-Adressen aus der Liste<Datensatz> in die Datei export.txt
+        File file = new File("./datensaetze.txt");
+
+        //Zuvor alle mit dem File assoziierten Streams schließen...
+        if(file.exists()){
+            file.delete(); //Falls export.txt existiert, wird es gelöscht, damit immer nur die aktuelle in der Liste gespeicherten MAC-Adressen angezeigt werden
+        }
+
+        String datensaetzeFile = "./datensaetze.txt";
+        FileWriter fw = null;
+        try {
+            fw = new FileWriter(datensaetzeFile, true); //FileWriter wird erstellt
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        BufferedWriter bw = new BufferedWriter(fw);
+
+        int len = liste.size();
+        for (int i = 0; i < len; i++) { //Jedes Element in der Liste...
+            Datensatz datensatz1 = liste.get(i); //Datensatz an der aktuellen Position i wird auf Datensatz-Objekt gespeichert
+
+            String kursstufe = datensatz1.getKursstufe();
+            String vorname = datensatz1.getVorname();
+            String nachname = datensatz1.getNachname();
+            String mac = datensatz1.getMac();
+            String grund = datensatz1.getGrund();
+
+            try {
+                bw.write(kursstufe + ";" + vorname + ";" + nachname + ";" + mac + ";" + grund); //Alle Attribute des Datenssatzes werden, von ; getrennt, in die txt-Datei geschrieben
+                bw.write(System.getProperty("line.separator")); //So kann der bw die Werte untereinander einfügen, da er Zeilenümrüche erstellen kann
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        try {
+            bw.close(); //Wenn der bw nicht geschlossen wird, bleibt die datensaetze-Datei leer
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 }

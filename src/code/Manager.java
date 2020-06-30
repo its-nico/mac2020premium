@@ -28,6 +28,11 @@ public class Manager {
         export.exportiereMac(LIST_1);
     }
 
+    //Methode exportiereDatensaetze() aus Export wird aufgerufen. Die Liste wird als Parameter übergeben
+    public static void exportiereDatensaetze() {
+        export.exportiereDatensaetze(LIST_1);
+    }
+
     //Methode laden() aus Speichern wird aufgrufen. So lädt das Programm die zuvor gespeicherte Liste (Serialisierung)
     public static void laden(){
         LIST_1 = speichern.laden();

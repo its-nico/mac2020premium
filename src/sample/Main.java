@@ -23,7 +23,7 @@ public class Main extends JFrame {
     private final JButton datenLoeschen = new JButton();
     private final JButton exportMACAdressen = new JButton();
     private final JButton importLogAnzeigen = new JButton();
-    private final JButton doppelteDatensaetzeLoeschen = new JButton();
+    private final JButton datensaetzeZeigen = new JButton();
     private final JButton handbuch = new JButton();
     private final JButton credits = new JButton();
     private final JButton einstellungn = new JButton();
@@ -162,17 +162,18 @@ public class Main extends JFrame {
         importLogAnzeigen.setBorder(new LineBorder(new Color(255,162,0),1));
         importLogAnzeigen.setToolTipText("Details über die Änderungen der Autokorrektur an den MAC-Adressen einsehen");
 
-        doppelteDatensaetzeLoeschen.setBounds(272, 392, 155, 41);
-        doppelteDatensaetzeLoeschen.setText("Dopplungen löschen");
-        doppelteDatensaetzeLoeschen.setMargin(new Insets(2, 2, 2, 2));
-        doppelteDatensaetzeLoeschen.addActionListener(new ActionListener() {
+        datensaetzeZeigen.setBounds(272, 392, 155, 41);
+        datensaetzeZeigen.setText("Datensätze anzeigen");
+        datensaetzeZeigen.setMargin(new Insets(2, 2, 2, 2));
+        datensaetzeZeigen.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
+                datensaetzeZeigen_ActionPerformed(evt);
             }
         });
-        cp.add(doppelteDatensaetzeLoeschen);
-        doppelteDatensaetzeLoeschen.setBackground(new Color(255, 162, 0));
-        doppelteDatensaetzeLoeschen.setBorder(new LineBorder(new Color(255,162,0),1));
-        doppelteDatensaetzeLoeschen.setToolTipText("Im Progamm doppelt vorhandene Datensätze so löschen, dass jeder Datensatz nur ein mal gespeichert ist");
+        cp.add(datensaetzeZeigen);
+        datensaetzeZeigen.setBackground(new Color(255, 162, 0));
+        datensaetzeZeigen.setBorder(new LineBorder(new Color(255,162,0),1));
+        datensaetzeZeigen.setToolTipText("Alle gespeicherten Datensätze vollständig anzeigen");
 
         handbuch.setBounds(528, 16, 155, 49);
         handbuch.setText("Handbuch");
@@ -277,6 +278,7 @@ public class Main extends JFrame {
         });
     } // end of public Main
 
+
     // Anfang Methoden
     public static void main(String[] args) {
         new Main();
@@ -331,5 +333,10 @@ public class Main extends JFrame {
 
     public void importLogAnzeigen_ActionPerformed(ActionEvent evt) {
         FileOpener fileOpen = new FileOpener("./Fehlerlog.txt");
+    }
+
+    private void datensaetzeZeigen_ActionPerformed(ActionEvent evt) {
+        manager.exportiereDatensaetze();
+        FileOpener fileOpen = new FileOpener("./datensaetze.txt");
     }
 }
