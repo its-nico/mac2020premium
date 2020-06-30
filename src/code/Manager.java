@@ -112,8 +112,24 @@ public class Manager {
 
     //Die Einstellungen werden mit Hilfe der Liste geändert
     public static void aendereEinstellung(String pEinstellungTyp, boolean pEinstellungWert) {
-        einstellung = new Einstellung(pEinstellungTyp, pEinstellungWert);
-        LIST_2.add(einstellung);
+        Einstellung einstellung;
+        int len = LIST_2.size();
+        if (len == 0) { //Wenn serialisierte Listen-Datei nicht vorhanden war, sondern neu erstellt werden musste...
+            //...werden alle Einstellungen-Objekte neu erstellt und mit dem Einstellungswert true in die Liste eingefügt
+            einstellung = new Einstellung("Hinweisfenster anzeigen", true);
+            LIST_2.add(einstellung);
+            einstellung = new Einstellung("Fehlerfenster anzeigen", true);
+            LIST_2.add(einstellung);
+            einstellung = new Einstellung("Bei Export kopieren", true);
+            LIST_2.add(einstellung);
+        }
+
+        for (int i = 0; i < len; i++) {
+            einstellung = LIST_2.get(i);
+            if (einstellung.getEinstellungTyp().equals(pEinstellungTyp)) {
+                einstellung.setEinstellungWert(pEinstellungWert); //Wenn richtiges Einstellungs-Objekt gefunden ist, wird der Einstellungswert verändert
+            }
+        }
     }
 
     //Aktuelle Einstellungen werden zurückgegeben

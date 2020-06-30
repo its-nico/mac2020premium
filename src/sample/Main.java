@@ -9,6 +9,7 @@ import javax.swing.border.LineBorder;
 import java.io.File;
 import java.lang.*;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class Main extends JFrame {
 
@@ -41,6 +42,8 @@ public class Main extends JFrame {
 
     private final File file1 = new File("./savedList.ser");
     private final File file2 = new File("./settings.ser");
+
+    private ArrayList<Einstellung> LIST_2 = new ArrayList<>();
 
     private Closing closing;
 
@@ -299,7 +302,10 @@ public class Main extends JFrame {
 
     public void exportMACAdressen_ActionPerformed(ActionEvent evt) {
         manager.exportiereMac();
-        dialogfenster.zwischenablage();
+        LIST_2 = manager.getList2();
+        if (manager.getEinstellungWertZuEinstellungTyp("Bei Export kopieren")) {
+            dialogfenster.zwischenablage(); //Wird nur geöffnet, wenn Inhalt con txt-Datei tatsächlich kopiert wird
+        }
         FileOpener fileOpen = new FileOpener("./export.txt");
     }
 

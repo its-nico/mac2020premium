@@ -8,6 +8,9 @@ import java.util.ArrayList;
 
 public class Export {
 
+    private final Manager manager = new Manager();
+    private ArrayList<Einstellung> LIST_2;
+
     public void exportiereMac (ArrayList<Datensatz> liste){ //Funktion: Exportiert die MAC-Adressen aus der Liste<Datensatz> in die Datei export.txt
         File file = new File("./export.txt");
         StringBuilder clipboardstring = new StringBuilder();
@@ -39,9 +42,12 @@ public class Export {
             }
         }
 
-        StringSelection stringSelection = new StringSelection(clipboardstring.toString());
-        Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard(); //Zwischenablage-Objekt wird erstellt
-        clipboard.setContents(stringSelection, null); //String, der alle MAC-Adressen in Export.txt enthält, wird in Zwischenablage abgelegt
+        LIST_2 = manager.getList2();
+        if (manager.getEinstellungWertZuEinstellungTyp("Bei Export kopieren")) {
+            StringSelection stringSelection = new StringSelection(clipboardstring.toString());
+            Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard(); //Zwischenablage-Objekt wird erstellt
+            clipboard.setContents(stringSelection, null); //String, der alle MAC-Adressen in Export.txt enthält, wird in Zwischenablage abgelegt
+        }
 
         try {
             bw.close(); //Wenn der bw nicht geschlossen wird, bleibt die export-Datei leer

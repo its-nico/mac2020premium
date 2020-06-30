@@ -97,7 +97,7 @@ public class Einstellungen extends JFrame {
         cp.add(hinweisfensterBox);
 
         hinweisfensterBoxTooltipLabel.setBounds(220, 80, 20, 20);
-        hinweisfensterBoxTooltipLabel.setToolTipText("Einige essentielle Dialogfenster werden durch diese Einstellung möglicherweise nicht beeinflusst");
+        hinweisfensterBoxTooltipLabel.setToolTipText("Einige essentielle Dialogfenster werden durch diese Einstellung nicht beeinflusst");
         cp.add(hinweisfensterBoxTooltipLabel);
 
         //Fehlerfenster-Option
@@ -106,7 +106,7 @@ public class Einstellungen extends JFrame {
         cp.add(fehlerfensterBox);
 
         fehlerfensterBoxTooltipLabel.setBounds(220, 105, 20, 20);
-        fehlerfensterBoxTooltipLabel.setToolTipText("Einige essentielle Dialogfenster werden durch diese Einstellung möglicherweise nicht beeinflusst");
+        fehlerfensterBoxTooltipLabel.setToolTipText("Einige essentielle Dialogfenster werden durch diese Einstellung nicht beeinflusst");
         cp.add(fehlerfensterBoxTooltipLabel);
 
         //Bei Export kopieren-Funktion
@@ -115,7 +115,7 @@ public class Einstellungen extends JFrame {
         cp.add(exportkopieBox);
 
         exportkopieBoxTooltipLabel.setBounds(220, 160, 20, 20);
-        exportkopieBoxTooltipLabel.setToolTipText("Die in der Textdatei enthaltenen MAC-Adressen werden durch die Export-Funktion nicht in die Zwischenablage kopiert");
+        exportkopieBoxTooltipLabel.setToolTipText("Sollen die (in der Textdatei enthaltenen) MAC-Adressen durch die Export-Funktion in die Zwischenablage kopiert werden?");
         cp.add(exportkopieBoxTooltipLabel);
 
 
@@ -141,6 +141,7 @@ public class Einstellungen extends JFrame {
     }
 
     public void speichern_ActionPerformed(ActionEvent evt) {
+        //Der Einstellungswert jeder Einstellung wird beim Schließen aktualisiert
         einstellungWert = hinweisfensterBox.getState();
         einstellungTyp = hinweisfensterBox.getLabel();
         manager.aendereEinstellung(einstellungTyp, einstellungWert);

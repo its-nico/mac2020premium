@@ -5,8 +5,8 @@ import java.util.ArrayList;
 
 public class Einstellung implements Serializable { //Die Serialisierung ermöglicht das Speichern der Einstellungen innerhalb der Liste
 
-    private final String einstellungTyp;
-    private final boolean einstellungWert;
+    private String einstellungTyp;
+    private boolean einstellungWert;
 
     private ArrayList<Einstellung> einstellungenList = new ArrayList<>();
 
@@ -24,6 +24,10 @@ public class Einstellung implements Serializable { //Die Serialisierung ermögli
 
     public boolean getEinstellungWert() {
         return einstellungWert;
+    }
+
+    public void setEinstellungWert(boolean pEinstellungWert) {
+        einstellungWert = pEinstellungWert;
     }
 }
 
