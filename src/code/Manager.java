@@ -100,15 +100,18 @@ public class Manager {
         return LIST_1;
     }
 
+    //Die Liste zum Abspeichern der Einstellungen wird zurückgegeben
     public static ArrayList getList2 ()  {
         return LIST_2;
     }
 
+    //Die Einstellungen werden mit Hilfe der Liste geändert
     public static void aendereEinstellung(String pEinstellungTyp, boolean pEinstellungWert) {
         einstellung = new Einstellung(pEinstellungTyp, pEinstellungWert);
         LIST_2.add(einstellung);
     }
 
+    //Aktuelle Einstellungen werden zurückgegeben
     public boolean getEinstellungWertZuEinstellungTyp(String pEinstellungTyp) {
         boolean getEinstellungWert = true;
         int len = LIST_2.size();
