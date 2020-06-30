@@ -12,29 +12,38 @@ public class Dialogfenster { //In dieser Klasse werden die Dialogfenster zu vers
 
     //Dialogfenster wird bei Import und manueller Eingabe genutzt
     public void keineMacAdresse(String pMac) { //Kategorie: Fehlermeldung (Autokorrektur)
-        Runnable runnable = (Runnable) Toolkit.getDefaultToolkit().getDesktopProperty("win.sound.exclamation");
-        runnable.run();
-        //Dieser Text wird im Fenster angezeigt
-        String message = "<html>" + "Die Datensätze der folgenden Adressen wurden nicht übernommen," + "\n" + "da es sich bei diesen um IP-Adressen handelt:" + "<br>" + pMac + "<br>" + "</html>";
-        JLabel label = new JLabel(message);
-        label.setHorizontalAlignment(SwingConstants.CENTER);
-        JOptionPane.showMessageDialog(null, label, "Keine MAC-Adresse", JOptionPane.ERROR_MESSAGE); //Es handelt sich um eine Fehlermeldung
+        LIST_2 = manager.getList2();
+        if (manager.getEinstellungWertZuEinstellungTyp("Fehlerfenster anzeigen")) {
+            Runnable runnable = (Runnable) Toolkit.getDefaultToolkit().getDesktopProperty("win.sound.exclamation");
+            runnable.run();
+            //Dieser Text wird im Fenster angezeigt
+            String message = "<html>" + "Die Datensätze der folgenden Adressen wurden nicht übernommen," + "\n" + "da es sich bei diesen um IP-Adressen handelt:" + "<br>" + pMac + "<br>" + "</html>";
+            JLabel label = new JLabel(message);
+            label.setHorizontalAlignment(SwingConstants.CENTER);
+            JOptionPane.showMessageDialog(null, label, "Keine MAC-Adresse", JOptionPane.ERROR_MESSAGE); //Es handelt sich um eine Fehlermeldung
+        }
     }
 
     //Dialogfenster wird bei Import und manueller Eingabe genutzt
     public void falschesFormat(String pMac) { //Kategorie: Fehlermeldung (Autokorrektur)
-        Runnable runnable = (Runnable) Toolkit.getDefaultToolkit().getDesktopProperty("win.sound.exclamation");
-        runnable.run();
-        String message = "<html>" + "Die Datensätze der folgenden Adressen wurden nicht übernommen, da sich diese nicht" + "<br>" + "im für MAC-Adressen erforderlichen Format (xx:xx:xx:xx:xx:xx) befinden:" + "<br>" + pMac + "<br>" + "</html>";
-        JLabel label = new JLabel(message);
-        label.setHorizontalAlignment(SwingConstants.CENTER);
-        JOptionPane.showMessageDialog(null, label, "Falsches Format", JOptionPane.ERROR_MESSAGE); //Es handelt sich um eine Fehlermeldung
+        LIST_2 = manager.getList2();
+        if (manager.getEinstellungWertZuEinstellungTyp("Fehlerfenster anzeigen")) {
+            Runnable runnable = (Runnable) Toolkit.getDefaultToolkit().getDesktopProperty("win.sound.exclamation");
+            runnable.run();
+            String message = "<html>" + "Die Datensätze der folgenden Adressen wurden nicht übernommen, da sich diese nicht" + "<br>" + "im für MAC-Adressen erforderlichen Format (xx:xx:xx:xx:xx:xx) befinden:" + "<br>" + pMac + "<br>" + "</html>";
+            JLabel label = new JLabel(message);
+            label.setHorizontalAlignment(SwingConstants.CENTER);
+            JOptionPane.showMessageDialog(null, label, "Falsches Format", JOptionPane.ERROR_MESSAGE); //Es handelt sich um eine Fehlermeldung
+        }
     }
 
     //Fenster infomiert darüber, dass exportierte MAC-Adressen in die Zwischenablage kopiert wurden
     public void zwischenablage() { //Kategorie: Hinweis (Export)
-        String message = "Die MAC-Adressen aus dieser Datei wurden (wenn vorhanden) in ihre Zwischenablage kopiert";
-        JOptionPane.showMessageDialog(null, message, "Kopie in Zwischenablage", JOptionPane.INFORMATION_MESSAGE); //Es handelt sich um ein Informationsfenster
+        LIST_2 = manager.getList2();
+        if (manager.getEinstellungWertZuEinstellungTyp("Hinweisfenster anzeigen")) {
+            String message = "Die MAC-Adressen aus dieser Datei wurden (wenn vorhanden) in ihre Zwischenablage kopiert";
+            JOptionPane.showMessageDialog(null, message, "Kopie in Zwischenablage", JOptionPane.INFORMATION_MESSAGE); //Es handelt sich um ein Informationsfenster
+        }
     }
 
     //Fenster informiert bei Import darüber, dass bereits eine gleichlautende Datei in der Vergangenheit importiert wurde
@@ -53,34 +62,49 @@ public class Dialogfenster { //In dieser Klasse werden die Dialogfenster zu vers
 
     //Fenster informiert, dass erfolgreich Datensätze aus der Datenbank importiert wurden
     public void DatenbankImportiert (int anzahl) { //Kategorie: Hinweis (Datenbank)
-        String anzahlString = Integer.toString(anzahl);
-        String message = anzahlString + " Datensätze wurden wurden aus der Datenbank heruntergeladen\nund in das Programm importiert";
-        JOptionPane.showMessageDialog(null, message, "Import erfolgreich", JOptionPane.INFORMATION_MESSAGE); //Es handelt sich um ein Informationsfenster
+        LIST_2 = manager.getList2();
+        if (manager.getEinstellungWertZuEinstellungTyp("Hinweisfenster anzeigen")) {
+            String anzahlString = Integer.toString(anzahl);
+            String message = anzahlString + " Datensätze wurden wurden aus der Datenbank heruntergeladen\nund in das Programm importiert";
+            JOptionPane.showMessageDialog(null, message, "Import erfolgreich", JOptionPane.INFORMATION_MESSAGE); //Es handelt sich um ein Informationsfenster
+        }
     }
 
     //Fenster informiert, dass erfolgreich Datensätze in der Datenbank ergänzt wurden
     public void DatenbankErgaenzt(int anzahl) { //Kategorie: Hinweis (Datenbank)
-        String anzahlString = Integer.toString(anzahl);
-        String message = anzahlString + " Datensätze wurden erfolgreich in die Datenbank hochgeladen";
-        JOptionPane.showMessageDialog(null, message, "Hochladen erfolgreich", JOptionPane.INFORMATION_MESSAGE); //Es handelt sich um ein Informationsfenster
+        LIST_2 = manager.getList2();
+        if (manager.getEinstellungWertZuEinstellungTyp("Hinweisfenster anzeigen")) {
+            String anzahlString = Integer.toString(anzahl);
+            String message = anzahlString + " Datensätze wurden erfolgreich in die Datenbank hochgeladen";
+            JOptionPane.showMessageDialog(null, message, "Hochladen erfolgreich", JOptionPane.INFORMATION_MESSAGE); //Es handelt sich um ein Informationsfenster
+        }
     }
 
     //Rückmeldung, sobald die Datenbank geleert wurde
     public void DatenbankGeleert () { //Kategorie: Hinweis (Datenbank)
-        String message = "Alle Datensätze wurden aus der Datenbank gelöscht";
-        JOptionPane.showMessageDialog(null, message, "Datenbank geleert", JOptionPane.INFORMATION_MESSAGE); //Es handelt sich um ein Informationsfenster
+        LIST_2 = manager.getList2();
+        if (manager.getEinstellungWertZuEinstellungTyp("Hinweisfenster anzeigen")) {
+            String message = "Alle Datensätze wurden aus der Datenbank gelöscht";
+            JOptionPane.showMessageDialog(null, message, "Datenbank geleert", JOptionPane.INFORMATION_MESSAGE); //Es handelt sich um ein Informationsfenster
+        }
     }
 
     //Fehlermeldung aus der Klasse Speichern
     public void ObjektLaden (){ //Kategorie: Fehlermeldung (serialisierte ArrayList)
-        String message = "Das Objekt konnte nicht geladen werden";
-        JOptionPane.showMessageDialog(null, message, "Lade-Fehler", JOptionPane.ERROR_MESSAGE); //Es handelt sich um eine Fehlermeldung
+        LIST_2 = manager.getList2();
+        if (manager.getEinstellungWertZuEinstellungTyp("Fehlerfenster anzeigen")) {
+            String message = "Das Objekt konnte nicht geladen werden";
+            JOptionPane.showMessageDialog(null, message, "Lade-Fehler", JOptionPane.ERROR_MESSAGE); //Es handelt sich um eine Fehlermeldung
+        }
     }
 
     //Fehlermeldung aus der Klasse Speichern
     public void ObjektKlasse (){ //Kategorie: Fehlermeldung (serialisierte ArrayList)
-        String message = "Die Klasse des geladenen Objekts konnte nicht gefunden werden";
-        JOptionPane.showMessageDialog(null, message, "Lade-Fehler", JOptionPane.ERROR_MESSAGE); //Es handelt sich um eine Fehlermeldung
+        LIST_2 = manager.getList2();
+        if (manager.getEinstellungWertZuEinstellungTyp("Fehlerfenster anzeigen")) {
+            String message = "Die Klasse des geladenen Objekts konnte nicht gefunden werden";
+            JOptionPane.showMessageDialog(null, message, "Lade-Fehler", JOptionPane.ERROR_MESSAGE); //Es handelt sich um eine Fehlermeldung
+        }
     }
 
     //Nutzer wird bei Zugriff auf DB informiert, dass dieser Vorgang evtl. lange Ladezeiten erfordert
@@ -99,16 +123,22 @@ public class Dialogfenster { //In dieser Klasse werden die Dialogfenster zu vers
 
 
     public void datenbankListeLeer() { //Kategorie: Fehlermeldung (Datenbank)
-        Runnable runnable = (Runnable) Toolkit.getDefaultToolkit().getDesktopProperty("win.sound.exclamation");
-        runnable.run();
-        String message = "Es gibt keine Datensätze, die in die Datenbank hochgeladen werden können";
-        JOptionPane.showMessageDialog(null, message, "Upload verhindert", JOptionPane.ERROR_MESSAGE); //Es handelt sich um eine Fehlermeldung
+        LIST_2 = manager.getList2();
+        if (manager.getEinstellungWertZuEinstellungTyp("Fehlerfenster anzeigen")) {
+            Runnable runnable = (Runnable) Toolkit.getDefaultToolkit().getDesktopProperty("win.sound.exclamation");
+            runnable.run();
+            String message = "Es gibt keine Datensätze, die in die Datenbank hochgeladen werden können";
+            JOptionPane.showMessageDialog(null, message, "Upload verhindert", JOptionPane.ERROR_MESSAGE); //Es handelt sich um eine Fehlermeldung
+        }
     }
 
     public void verbindungFehlgeschlagen() { //Kategorie: Fehlermeldung (Datenbank)
-        Runnable runnable = (Runnable) Toolkit.getDefaultToolkit().getDesktopProperty("win.sound.exclamation");
-        runnable.run();
-        String message = "Die Verbindung zur Datenbank konnte nicht hergestellt werden";
-        JOptionPane.showMessageDialog(null, message, "Verbindung fehleschlagen", JOptionPane.ERROR_MESSAGE); //Es handelt sich um eine Fehlermeldung
+        LIST_2 = manager.getList2();
+        if (manager.getEinstellungWertZuEinstellungTyp("Fehlerfenster anzeigen")) {
+            Runnable runnable = (Runnable) Toolkit.getDefaultToolkit().getDesktopProperty("win.sound.exclamation");
+            runnable.run();
+            String message = "Die Verbindung zur Datenbank konnte nicht hergestellt werden";
+            JOptionPane.showMessageDialog(null, message, "Verbindung fehleschlagen", JOptionPane.ERROR_MESSAGE); //Es handelt sich um eine Fehlermeldung
+        }
     }
 }

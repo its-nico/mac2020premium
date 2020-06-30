@@ -13,9 +13,11 @@ public class Einstellungen extends JFrame {
     //JLabel
     private final JLabel erklaerung = new JLabel();
     private final JLabel kategorie1 = new JLabel();
+    private final JLabel kategorie2 = new JLabel();
 
     private final JLabel hinweisfensterBoxTooltipLabel = new JLabel("?");
     private final JLabel fehlerfensterBoxTooltipLabel = new JLabel("?");
+    private final JLabel exportkopieBoxTooltipLabel = new JLabel("?");
 
     //JButton
     private final JButton speichern = new JButton();
@@ -23,6 +25,7 @@ public class Einstellungen extends JFrame {
     //Checkbox
     private final Checkbox hinweisfensterBox = new Checkbox("Hinweisfenster anzeigen");
     private final Checkbox fehlerfensterBox = new Checkbox("Fehlerfenster anzeigen");
+    private final Checkbox exportkopieBox = new Checkbox("Bei Export kopieren");
 
     //Sonstige Klassen
     private final Manager manager = new Manager();
@@ -73,6 +76,9 @@ public class Einstellungen extends JFrame {
         kategorie1.setText("<html><u>Dialogfenster</u></html>");
         cp.add(kategorie1);
 
+        kategorie2.setBounds(25,125,250,35);
+        kategorie2.setText("<html><u>Export</u></html>");
+        cp.add(kategorie2);
 
         // Buttons
         speichern.setBounds(28, 320, 200, 30);
@@ -92,7 +98,6 @@ public class Einstellungen extends JFrame {
 
         hinweisfensterBoxTooltipLabel.setBounds(220, 80, 20, 20);
         hinweisfensterBoxTooltipLabel.setToolTipText("Einige essentielle Dialogfenster werden durch diese Einstellung möglicherweise nicht beeinflusst");
-        //hinweisfensterBoxTooltipLabel.setBorder(new LineBorder(new Color(0,0,0),1));
         cp.add(hinweisfensterBoxTooltipLabel);
 
         //Fehlerfenster-Option
@@ -103,6 +108,16 @@ public class Einstellungen extends JFrame {
         fehlerfensterBoxTooltipLabel.setBounds(220, 105, 20, 20);
         fehlerfensterBoxTooltipLabel.setToolTipText("Einige essentielle Dialogfenster werden durch diese Einstellung möglicherweise nicht beeinflusst");
         cp.add(fehlerfensterBoxTooltipLabel);
+
+        //Bei Export kopieren-Funktion
+        exportkopieBox.setBounds(50,160,170,20);
+        exportkopieBox.setState(getEinstellungWert(exportkopieBox.getLabel()));
+        cp.add(exportkopieBox);
+
+        exportkopieBoxTooltipLabel.setBounds(220, 160, 20, 20);
+        exportkopieBoxTooltipLabel.setToolTipText("Die in der Textdatei enthaltenen MAC-Adressen werden durch die Export-Funktion nicht in die Zwischenablage kopiert");
+        cp.add(exportkopieBoxTooltipLabel);
+
 
         setVisible(true);
     } // end of public ManuelleEingabe
@@ -132,6 +147,10 @@ public class Einstellungen extends JFrame {
 
         einstellungWert = fehlerfensterBox.getState();
         einstellungTyp = fehlerfensterBox.getLabel();
+        manager.aendereEinstellung(einstellungTyp, einstellungWert);
+
+        einstellungWert = exportkopieBox.getState();
+        einstellungTyp = exportkopieBox.getLabel();
         manager.aendereEinstellung(einstellungTyp, einstellungWert);
 
         dispose();

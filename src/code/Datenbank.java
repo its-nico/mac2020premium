@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 public class Datenbank {
 
+    //Datensatz-Attribute
     private String kursstufe;
     private String nachname;
     private String vorname;
@@ -18,6 +19,7 @@ public class Datenbank {
     private final Manager manager = new Manager();
     private final Dialogfenster dialogfenster = new Dialogfenster();
 
+    //getConnection-Attribute
     //Die Zeitzone UTC muss hier in der URL festgelegt werden, um einen Kommunikationsfehler zu vermeiden
     private final String url = "jdbc:mysql://ngr.bplaced.net:3306/ngr_macfilter?useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UCT";
     private final String username = "ngr";
