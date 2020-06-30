@@ -10,13 +10,13 @@ public class Einstellung implements Serializable { //Die Serialisierung ermögli
 
     private ArrayList<Einstellung> einstellungenList = new ArrayList<>();
 
-    // Konstruktor der Klasse Datensatz, ein neues Objekt wird erstellt, dabei werden alle Attribute als Parameter übergeben
+    //Konstruktor der Klasse Datensatz, ein neues Objekt wird erstellt, dabei werden alle Attribute als Parameter übergeben
     public Einstellung(String pEinstellungTyp, boolean pEinstellungWert) {
         einstellungTyp = pEinstellungTyp;
         einstellungWert = pEinstellungWert;
     }
 
-    // getter-Methoden
+    //getter-Methoden
 
     public String getEinstellungTyp() {
         return einstellungTyp;

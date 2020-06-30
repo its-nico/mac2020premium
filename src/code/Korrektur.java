@@ -1,4 +1,5 @@
 package code;
+
 import java.io.*;
 import java.util.regex.*;
 import java.util.*;
@@ -8,7 +9,7 @@ public class Korrektur {
 
     private boolean bool;
 
-    // Klasse führt automatisch alle Korrektur-Methoden auf einmal aus. Dabei wrid die korrigierte Adresse zurückgegeben
+    //Klasse führt automatisch alle Korrektur-Methoden auf einmal aus. Dabei wrid die korrigierte Adresse zurückgegeben
     public String autoKorrektur (String text) {
         if (istIP(text)) {
             return null;
@@ -21,7 +22,7 @@ public class Korrektur {
         }
     }
 
-    /* Alle Os (groß- und kleingeschrieben) werden mit Nullen ersetzt */
+    //Alle Os (groß- und kleingeschrieben) werden mit Nullen ersetzt
     public String o(String text) {
         String textVorO = text; //Text vor der möglichen Veränderungen wird gespeichert, sodass später ein Vegleich möglich ist
         text = text.replace("o", "0"); //replace() ersetzt Textbausteine durch beliebige Zeichenfolgen (hier kleiner Buchstabe o durch Zahl 0)
@@ -46,7 +47,7 @@ public class Korrektur {
             e.printStackTrace();
         }
         try {
-            bw.close(); /* Wenn der bw nicht geschlossen wird, bleibt die log-Datei leer */
+            bw.close(); //Wenn der bw nicht geschlossen wird, bleibt die log-Datei leer
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -54,7 +55,7 @@ public class Korrektur {
         return text;
     }
 
-    /* Alle Leerzeichen werden gelöscht */
+    //Alle Leerzeichen werden gelöscht
     public String leerzeichen (String text) {
         String textVorLeerzeichen = text; //Text vor der möglichen Veränderungen wird gespeichert, sodass später ein Vegleich möglich ist
         text = text.replace(" ", ""); //replace() ersetzt Textbausteine durch beliebige Zeichenfolgen (hier Leerzeichen gelöscht)
@@ -63,7 +64,7 @@ public class Korrektur {
         String exportfile = "./Fehlerlog.txt"; //es wird in die Fehlerlog-Datei geschrieben
         FileWriter fw = null;
         try {
-            fw = new FileWriter(exportfile, true); /* FileWriter wird erstellt */
+            fw = new FileWriter(exportfile, true); //FileWriter wird erstellt
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -77,7 +78,7 @@ public class Korrektur {
             e.printStackTrace();
         }
         try {
-            bw.close(); /* Wenn der bw nicht geschlossen wird, bleibt die log-Datei leer */
+            bw.close(); //Wenn der bw nicht geschlossen wird, bleibt die log-Datei leer
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -85,7 +86,7 @@ public class Korrektur {
         return text;
     }
 
-    /* Alle Bindestriche werden mit Doppelpunkten ersetzt */
+    //Alle Bindestriche werden mit Doppelpunkten ersetzt
     public String bindestriche (String text) {
         String textVorBindestriche = text; //Text vor der möglichen Veränderungen wird gespeichert, sodass später ein Vegleich möglich ist
         text = text.replace("-",":"); //replace() ersetzt Textbausteine durch beliebige Zeichenfolgen (hier Bindestriche durch Doppelpunkte)
@@ -94,7 +95,7 @@ public class Korrektur {
         String exportfile = "./Fehlerlog.txt"; //es wird in die Fehlerlog-Datei geschrieben
         FileWriter fw = null;
         try {
-            fw = new FileWriter(exportfile, true); /* FileWriter wird erstellt */
+            fw = new FileWriter(exportfile, true); //FileWriter wird erstellt
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -108,7 +109,7 @@ public class Korrektur {
             e.printStackTrace();
         }
         try {
-            bw.close(); /* Wenn der bw nicht geschlossen wird, bleibt die log-Datei leer */
+            bw.close(); //Wenn der bw nicht geschlossen wird, bleibt die log-Datei leer
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -116,14 +117,14 @@ public class Korrektur {
         return text;
     }
 
-    /* Überprüfung, ob es sich um eine IP-Adresse statt einer MAC-Adresse handelt */
+    //Überprüfung, ob es sich um eine IP-Adresse statt einer MAC-Adresse handelt
     public boolean istIP (String text) {
         bool = (text.contains(".") && !text.contains(":")); //Enthält der Text Punkte, aber keine Doppelpunkte, handelt es sich vermutlich um eine IP
 
         String exportfile = "./Fehlerlog.txt"; //es wird in die Fehlerlog-Datei geschrieben
         FileWriter fw = null;
         try {
-            fw = new FileWriter(exportfile, true); /* FileWriter wird erstellt */
+            fw = new FileWriter(exportfile, true); //FileWriter wird erstellt
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -139,7 +140,7 @@ public class Korrektur {
             e.printStackTrace();
         }
         try {
-            bw.close(); /* Wenn der bw nicht geschlossen wird, bleibt die log-Datei leer */
+            bw.close(); //Wenn der bw nicht geschlossen wird, bleibt die log-Datei leer
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -151,7 +152,7 @@ public class Korrektur {
         String exportfile = "./Fehlerlog.txt"; //es wird in die Fehlerlog-Datei geschrieben
         FileWriter fw = null;
         try {
-            fw = new FileWriter(exportfile, true); /* FileWriter wird erstellt */
+            fw = new FileWriter(exportfile, true); //FileWriter wird erstellt
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -178,7 +179,7 @@ public class Korrektur {
             e.printStackTrace();
         }
         try {
-            bw.close(); /* Wenn der bw nicht geschlossen wird, bleibt die log-Datei leer */
+            bw.close(); //Wenn der bw nicht geschlossen wird, bleibt die log-Datei leer
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -194,12 +195,12 @@ public class Korrektur {
         return bool1 && bool2 && bool3 && bool4;
     }
 
-    /* Überprüfung, ob die MAC-Adresse korrekt ist */
+    //berprüfung, ob die MAC-Adresse korrekt ist
     public boolean istKorrekt (String text) {
         String exportfile = "./Fehlerlog.txt"; //es wird in die Fehlerlog-Datei geschrieben
         FileWriter fw = null;
         try {
-            fw = new FileWriter(exportfile, true); /* FileWriter wird erstellt */
+            fw = new FileWriter(exportfile, true); //FileWriter wird erstellt
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -214,7 +215,7 @@ public class Korrektur {
             e.printStackTrace();
         }
         try {
-            bw.close(); /* Wenn der bw nicht geschlossen wird, bleibt die log-Datei leer */
+            bw.close(); //Wenn der bw nicht geschlossen wird, bleibt die log-Datei leer
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -224,7 +225,7 @@ public class Korrektur {
 
     //Der "Kopf" des Logs wird erstellt
     public void logErstellen(String pMac) {
-        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss"); // Das Obejkt sdf speichert die aktuelle Systemzeit, diese wird später ins Log gesschrieben
+        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss"); //Das Obejkt sdf speichert die aktuelle Systemzeit, diese wird später ins Log gesschrieben
         String uhrzeit = sdf.format(new Date()); //sdf wird in String umgewandelt
         SimpleDateFormat sdf2 = new SimpleDateFormat("dd.MM.yyyy"); //Aktuelles Datum wird gespeichert (sdf2)
         String tag = sdf2.format(new Date()); //Datum wird in String umgewandelt, um später dem Log hinzugefügt werden zu können
@@ -232,7 +233,7 @@ public class Korrektur {
         String exportfile = "./Fehlerlog.txt"; //es wird in die Fehlerlog-Datei geschrieben
         FileWriter fw = null;
         try {
-            fw = new FileWriter(exportfile, true); /* FileWriter wird erstellt */
+            fw = new FileWriter(exportfile, true); //FileWriter wird erstellt
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -246,16 +247,15 @@ public class Korrektur {
             e.printStackTrace();
         }
         try {
-            bw.close(); /* Wenn der bw nicht geschlossen wird, bleibt die log-Datei leer */
+            bw.close(); //Wenn der bw nicht geschlossen wird, bleibt die log-Datei leer
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    /* Überprüfung, ob es sich um eine IP-Adresse statt einer MAC-Adresse handelt, ohne dabei ins Log zu schreiben */
+    //Überprüfung, ob es sich um eine IP-Adresse statt einer MAC-Adresse handelt, ohne dabei ins Log zu schreiben
     public boolean istIPOhneLog(String text){
         bool = (text.contains(".") && !text.contains(":")); //Enthält der Text Punkte, aber keine Doppelpunkte, handelt es sich vermutlich um eine IP
         return bool;
     }
 }
-

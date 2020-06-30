@@ -7,10 +7,9 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.ArrayList;
 import javax.swing.*;
-import javax.swing.border.LineBorder;
 
 public class Einstellungen extends JFrame {
-    // Anfang Attribute
+
     //JLabel
     private final JLabel erklaerung = new JLabel();
     private final JLabel kategorie1 = new JLabel();

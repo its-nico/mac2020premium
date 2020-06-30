@@ -4,8 +4,6 @@ import javax.swing.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
-
-
 public class Closing extends JFrame{
 
     public Closing(){
@@ -22,11 +20,7 @@ public class Closing extends JFrame{
                     case JOptionPane.YES_OPTION:
                         ef.getWindow().dispose();
                     case JOptionPane.NO_OPTION:
-
-
                 }
-
-
             }
         });
     }
@@ -46,6 +40,5 @@ public class Closing extends JFrame{
                 // e.getWindow().dispose();
 
         }
-
     }
 }

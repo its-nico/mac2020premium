@@ -2,7 +2,6 @@ package sample;
 
 import code.*;
 
-
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -12,8 +11,8 @@ import java.lang.*;
 import java.sql.SQLException;
 
 public class Main extends JFrame {
-    // Anfang Attribute
 
+    // Anfang Attribute
     private final JLabel ueberschrift = new JLabel();
     private final JLabel beschreibung = new JLabel();
     private final JLabel datenHinzufuegen = new JLabel();

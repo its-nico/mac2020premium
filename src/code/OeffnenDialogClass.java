@@ -3,17 +3,11 @@ package code;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.File;
-
 import javax.swing.JFileChooser;
 
 public class OeffnenDialogClass {
 
-    String inputVerzStr; //Hier wird spächer der Dateipfad gespeichert
-
-    public static void main(String[] args) {
-        OeffnenDialogClass odc = new OeffnenDialogClass();
-        odc.oeffnen();
-    }
+    String inputVerzStr; //Auf dieser Variable wird später der Dateipfad gespeichert
 
     public String oeffnen() {
         final JFileChooser chooser = new JFileChooser("Verzeichnis wählen"); //FileChooser-Fenster wird geöffnet

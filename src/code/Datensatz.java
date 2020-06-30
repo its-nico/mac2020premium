@@ -10,7 +10,7 @@ public class Datensatz implements Serializable { //Die Serialisierung ermöglich
     private String mac;
     private final String grund;
 
-    /* >Konstruktor der Klasse Datensatz, ein neues Objekt wird erstellt, dabei werden alle Attribute als Parameter übergeben*/
+    //Konstruktor der Klasse Datensatz, ein neues Objekt wird erstellt, dabei werden alle Attribute als Parameter übergeben
     public Datensatz(String pKursstufe, String pNachname, String pVorname, String pMac, String pGrund) {
         kursstufe = pKursstufe;
         nachname = pNachname;
@@ -19,7 +19,7 @@ public class Datensatz implements Serializable { //Die Serialisierung ermöglich
         mac = pMac;
     }
 
-    /* getter-Methoden */
+    //getter-Methoden
 
     public String getKursstufe() {
         return kursstufe;

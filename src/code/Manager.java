@@ -2,18 +2,14 @@ package code;
 
 import java.io.*;
 import java.lang.*;
-
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.sql.SQLException;
-import java.util.Date;
-
 
 public class Manager {
-    private static ArrayList<Datensatz> LIST_1 = new ArrayList<>(); // Neue generische Liste des Datentpys 'Datensatz' wird erstellt
-    private static ArrayList<Einstellung> LIST_2 = new ArrayList<>(); // Neue generische Liste des Datentpys 'Einstellung' wird erstellt
-    private static Datensatz datensatz;
-    private static Einstellung einstellung;
+
+    //ArrayList-Objekte werden erstellt
+    private static ArrayList<Datensatz> LIST_1 = new ArrayList<>(); //Neue generische Liste des Datentpys 'Datensatz' wird erstellt
+    private static ArrayList<Einstellung> LIST_2 = new ArrayList<>(); //Neue generische Liste des Datentpys 'Einstellung' wird erstellt
 
     //Referenzen auf fremde Klassen
     private static final Export export = new Export();
@@ -22,32 +18,32 @@ public class Manager {
     private static final Dialogfenster dialogfenster = new Dialogfenster();
     private static final Datenbank datenbank = new Datenbank();
 
+    private static Datensatz datensatz;
+    private static Einstellung einstellung;
+
     private static Speichern speichern;
 
-    public static void main(String[] args) {
-    }
-
-    //Methode exportiereMac() aus Export wird aufgerufen. Die Liste wird als Parameter übergeben.
+    //Methode exportiereMac() aus Export wird aufgerufen. Die Liste wird als Parameter übergeben
     public static void exportiereMac(){
         export.exportiereMac(LIST_1);
     }
 
-    //Methode laden() aus Speichern wird aufgrufen. So lädt das Programm die zuvor gespeicherte Liste (Serialisierung).
+    //Methode laden() aus Speichern wird aufgrufen. So lädt das Programm die zuvor gespeicherte Liste (Serialisierung)
     public static void laden(){
         LIST_1 = speichern.laden();
     }
 
-    //Die Liste wird hier gespeichert (Serialisierung). Hierfür wir die Methode abspeichern() aus Speichern aufgerufen.
+    //Die Liste wird hier gespeichert (Serialisierung). Hierfür wir die Methode abspeichern() aus Speichern aufgerufen
     public static void speichern(){
         speichern.abspeichern(LIST_1);
     }
 
-    //Methode ladenEinstellungen() aus Speichern wird aufgrufen. So lädt das Programm die Einstellungen (Serialisierung).
+    //Methode ladenEinstellungen() aus Speichern wird aufgrufen. So lädt das Programm die Einstellungen (Serialisierung)
     public static void ladenEinstellungen(){
         LIST_2 = speichern.ladenEinstellungen();
     }
 
-    //Die Einstellungen werden hier gespeichert (Serialisierung). Hierfür wir die Methode abspeichernEinstellungen() aus Speichern aufgerufen.
+    //Die Einstellungen werden hier gespeichert (Serialisierung). Hierfür wir die Methode abspeichernEinstellungen() aus Speichern aufgerufen
     public static void speichernEinstellungen(){
         speichern.abspeichernEinstellungen(LIST_2);
     }
@@ -125,4 +121,3 @@ public class Manager {
         return getEinstellungWert;
     }
 }
-

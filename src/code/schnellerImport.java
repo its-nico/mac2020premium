@@ -4,6 +4,7 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class schnellerImport {
+
     private static Datensatz datensatz;
     private static String kursstufe;
     private static String nachname;
@@ -42,12 +43,12 @@ public class schnellerImport {
         String line = "";
         while (line != null) {
             try {
-                line = br.readLine(); // Jeweils ein komplette Zeile, also ein Datensatz, wird über die Variable 'line' gespeichert
+                line = br.readLine(); //Jeweils ein komplette Zeile, also ein Datensatz, wird über die Variable 'line' gespeichert
             } catch (IOException e) {
                 e.printStackTrace();
             }
             if (line != null) {
-                splitline(line); // Die einzelnen Datensätze (lines) werden in ihre 5 Attribute aufgeteilt
+                splitline(line); //Die einzelnen Datensätze (lines) werden in ihre 5 Attribute aufgeteilt
                 korrektur.logErstellen(mac); //Der Kopf des Logs wird erstellt
                 if (korrektur.istIP(mac)){ //Handelt es sich um eine IP?
                     IPString = "<html>" + IPString + "<br>" + mac + "</html>"; //Alle IP-Adressen werden aufaddiert, um dann gemeinsam aufaddiert werden zu können
@@ -61,7 +62,6 @@ public class schnellerImport {
                     else {
                         FormatString = "<html>" + FormatString + "<br>" + mac + "</html>"; //Alle Adressen im falschen Format werden aufaddiert
                     }
-
                 }
             }
         }
@@ -75,14 +75,14 @@ public class schnellerImport {
     }
 
     public static void splitline(String line) {
-        splittedline = line.split(";"); // Die Methode 'split' teilt den String 'line' mithilfe des definierten Trennzeichens ';'
+        splittedline = line.split(";"); //Die Methode 'split' teilt den String 'line' mithilfe des definierten Trennzeichens ';'
         kursstufe = splittedline[0];
         nachname = splittedline[1];
         vorname = splittedline[2];
         mac = splittedline[3];
 
         int length = splittedline.length;
-        if (length > 4) {
+        if (length > 4) { //Falls weitere Bemerkungen eingetragen wurden
             grund = splittedline[4];
         }
     }
@@ -91,7 +91,7 @@ public class schnellerImport {
         String merkeDateipfadFile = "./Importpfade.txt";
         FileWriter fw = null;
         try {
-            fw = new FileWriter(merkeDateipfadFile, true); /* FileWriter wird erstellt */
+            fw = new FileWriter(merkeDateipfadFile, true); //FileWriter wird erstellt
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -99,7 +99,7 @@ public class schnellerImport {
 
         try {
             bw.write(pPfad);
-            bw.write(System.getProperty("line.separator")); /* So kann der bw die Werte untereinander einfügen, da er Zeilenümrüche erstellen kann*/
+            bw.write(System.getProperty("line.separator")); //So kann der bw die Werte untereinander einfügen, da er Zeilenümrüche erstellen kann
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -116,7 +116,7 @@ public class schnellerImport {
 
         FileWriter fw = null;
         try {
-            fw = new FileWriter(merkeDateipfadFile, true); /* FileWriter wird erstellt */
+            fw = new FileWriter(merkeDateipfadFile, true); //FileWriter wird erstellt
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -130,7 +130,7 @@ public class schnellerImport {
 
         FileReader fr = null;
         try {
-            fr = new FileReader(merkeDateipfadFile); // FileReader wird erstellt
+            fr = new FileReader(merkeDateipfadFile); //FileReader wird erstellt
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }

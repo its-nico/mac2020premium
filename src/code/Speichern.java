@@ -4,6 +4,7 @@ import java.io.*;
 import java.util.ArrayList;
 
 public class Speichern {
+
     static String datnam = "savedList.ser";
     static String datnam2 = "settings.ser";
 

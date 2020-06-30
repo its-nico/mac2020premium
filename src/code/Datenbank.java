@@ -23,8 +23,8 @@ public class Datenbank {
     private final String username = "ngr";
     private final String password = "ngrSecret";
 
-    public void datenbankImportieren() { /* Importiert alle Datensätze, die aktuell in der Datenbank vorhanden sind, in die ArrayList */
-        if (dialogfenster.verbindungWirdAufgebaut()) {////Falls Benutzer Verbindung herstellen will
+    public void datenbankImportieren() { //Importiert alle Datensätze, die aktuell in der Datenbank vorhanden sind, in die ArrayList
+        if (dialogfenster.verbindungWirdAufgebaut()) {//Falls Benutzer Verbindung herstellen will
             Connection con = null;
             try {
                 con = DriverManager.getConnection(url, username, password); //Verbindung zur Datenbank wird hergestellt
@@ -42,13 +42,13 @@ public class Datenbank {
                     ResultSet rs1 = stmt1.executeQuery("SELECT * FROM table2"); //SQL-Anweisung wird auf Datenbank ausgführt und Ausabe wird in rs1-Variable gespeichert
 
                     int anzahl = 0;
-                    while (rs1.next()) { /* Cursor der Datenbank wechselt mit jedem rs1.next()-Aufruf in die nächste Zeile */
+                    while (rs1.next()) { //Cursor der Datenbank wechselt mit jedem rs1.next()-Aufruf in die nächste Zeile
                         kursstufe = rs1.getString("Kursstufe");
                         nachname = rs1.getString("Nachname");
                         vorname = rs1.getString("Vorname");
                         mac = rs1.getString("MAC");
                         grund = rs1.getString("Grund");
-                        manager.ergaenze(kursstufe, nachname, vorname, mac, grund); // Aus jeder Zeile wird ein Datensatz-Objekt erstellt und in die Liste eingefügt
+                        manager.ergaenze(kursstufe, nachname, vorname, mac, grund); //Aus jeder Zeile wird ein Datensatz-Objekt erstellt und in die Liste eingefügt
                         anzahl++;
                     }
                     dialogfenster.DatenbankImportiert(anzahl); //Dialogfenster zeigt, wie viele Datensätze erfolgreich in das Programm importiert wurden
@@ -59,12 +59,12 @@ public class Datenbank {
         }
     }
 
-    public void datenbankErgaenzen(ArrayList<Datensatz> liste) { // Importiert die Datensätze, die aktuell in der Liste vorhanden sind, in eine Datenbank-Tabelle
+    public void datenbankErgaenzen(ArrayList<Datensatz> liste) { //Importiert die Datensätze, die aktuell in der Liste vorhanden sind, in eine Datenbank-Tabelle
         if (liste.isEmpty()) {
             dialogfenster.datenbankListeLeer(); //Falls Liste leer ist, wird Benutzer informiert
         } else {
             if (dialogfenster.verbindungWirdAufgebaut()) { //Falls Benutzer Verbindung herstellen will
-                Connection con = null; /* Verbindung zur Datenbank wird hergestellt */
+                Connection con = null; //Verbindung zur Datenbank wird hergestellt
                 try {
                     con = DriverManager.getConnection(url, username, password); //Verbindung zur Datenbank wird hergestellt
                 } catch (CommunicationsException c) {

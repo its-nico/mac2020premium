@@ -10,6 +10,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
 
 public class ManuelleEingabe extends JFrame {
+
     // Anfang Attribute
     private final JLabel erklaerungsFeld = new JLabel();
 
@@ -66,8 +67,6 @@ public class ManuelleEingabe extends JFrame {
         setResizable(false);
         Container cp = getContentPane();
         cp.setLayout(null);setIconImage(new ImageIcon(getClass().getResource("Logo2.png")).getImage());
-
-
 
         // Anfang Komponenten
         erklaerungsFeld.setBounds(24, 24, 280, 35);
@@ -160,5 +159,4 @@ public class ManuelleEingabe extends JFrame {
         FileOpener fileOpen = new FileOpener("./Fehlerlog.txt");
     }
     // Ende Methoden
-
 } // end of class ManuelleEingabe
