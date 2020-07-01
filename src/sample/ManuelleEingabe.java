@@ -54,11 +54,14 @@ public class ManuelleEingabe extends JFrame {
             System.err.println("Error: " + e.getMessage());
         }*/
 
+
+
+        /*
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName()); //look & feel von System wird hier gesetzt
         } catch (Exception e) {
             System.err.println("Error: " + e.getMessage());
-        }
+        } */
 
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         int frameWidth = 530;
