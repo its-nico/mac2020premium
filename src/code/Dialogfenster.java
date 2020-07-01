@@ -110,7 +110,7 @@ public class Dialogfenster { //In dieser Klasse werden die Dialogfenster zu vers
     //Nutzer wird bei Zugriff auf DB informiert, dass dieser Vorgang evtl. lange Ladezeiten erfordert
     public boolean verbindungWirdAufgebaut() { //Kategorie: essentiell (nicht durch Einstellungen deaktivierbar)
         boolean antwort = false;
-        String message = "Die Datenbank-Verbindung wird hergestellt\nDieser Vorgang kann mehrere Sekunden dauern\nund das Programm reagiert während dieser Zeit nicht auf Eingaben\n\nMöchten sie die Datenbank-Verbindung herstellen?";
+        String message = "Die Datenbank-Verbindung wird hergestellt\nDieser Vorgang kann mehrere Sekunden dauern und das\nProgramm reagiert während dieser Zeit nicht auf Eingaben\n\nMöchten sie die Datenbank-Verbindung herstellen?";
         int result = JOptionPane.showConfirmDialog(null, message, "Verbindungsaufbau", JOptionPane.YES_NO_OPTION);
         switch (result) {
             case JOptionPane.YES_OPTION:

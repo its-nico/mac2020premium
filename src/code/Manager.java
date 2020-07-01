@@ -132,7 +132,7 @@ public class Manager {
         }
     }
 
-    //Aktuelle Einstellungen werden zurückgegeben
+    //Aktuelle Einstellungswerte werden zurückgegeben
     public boolean getEinstellungWertZuEinstellungTyp(String pEinstellungTyp) {
         boolean getEinstellungWert = true;
         int len = LIST_2.size();

@@ -84,8 +84,10 @@ public class Export {
             String grund = datensatz1.getGrund();
 
             try {
-                bw.write(kursstufe + ";" + vorname + ";" + nachname + ";" + mac + ";" + grund); //Alle Attribute des Datenssatzes werden, von ; getrennt, in die txt-Datei geschrieben
-                bw.write(System.getProperty("line.separator")); //So kann der bw die Werte untereinander einfügen, da er Zeilenümrüche erstellen kann
+                bw.write("- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -\n\n");
+                bw.write("Aktuelle Datensatz-Nummer: " + i + "\n");
+                bw.write("\n  Vorname: " + vorname + "\n  Nachname: " + nachname + "\n  Kursstufe: " + kursstufe + "\n  MAC-Adresse: " + mac + "\n  Weitere Bemerkungen: " + grund); //Alle Attribute des Datenssatzes werden untereinander in die txt-Datei geschrieben
+                bw.write("\n\n");
             } catch (IOException e) {
                 e.printStackTrace();
             }
