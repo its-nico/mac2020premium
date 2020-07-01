@@ -54,13 +54,19 @@ public class Main extends JFrame {
         // Frame-Initialisierung
         super();
 
-        try {
+        /*try {
             for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()){
                 if ("Nimbus".equals(info.getName())){
                     UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
+        } catch (Exception e) {
+            System.err.println("Error: " + e.getMessage());
+        }*/
+
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName()); //look & feel von System wird hier gesetzt
         } catch (Exception e) {
             System.err.println("Error: " + e.getMessage());
         }
@@ -335,11 +341,11 @@ public class Main extends JFrame {
         FileOpener fileOpen = new FileOpener("./Credits.txt");
     }
 
-    private void support_ActionPerformed(ActionEvent evt) {
+    public void support_ActionPerformed(ActionEvent evt) {
         FileOpener fileOpen = new FileOpener("./Support.txt");
     }
 
-    private void einstellungn_ActionPerformed(ActionEvent evt) {
+    public void einstellungn_ActionPerformed(ActionEvent evt) {
         einstellungenFenster = new Einstellungen();
     }
 
@@ -360,10 +366,15 @@ public class Main extends JFrame {
     }
 
     public void importLogAnzeigen_ActionPerformed(ActionEvent evt) {
-        FileOpener fileOpen = new FileOpener("./Fehlerlog.txt");
+        File file = new File("./Fehlerlog.txt");
+        if (file.exists()) {
+            FileOpener fileOpen = new FileOpener("./Fehlerlog.txt");
+        } else {
+            dialogfenster.logExistiertNicht();
+        }
     }
 
-    private void datensaetzeZeigen_ActionPerformed(ActionEvent evt) {
+    public void datensaetzeZeigen_ActionPerformed(ActionEvent evt) {
         manager.exportiereDatensaetze();
         FileOpener fileOpen = new FileOpener("./datensaetze.txt");
     }

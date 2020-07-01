@@ -62,6 +62,17 @@ public class Dialogfenster { //In dieser Klasse werden die Dialogfenster zu vers
         }
     }
 
+    //Fenster informiert, dass Fehlerlog.txt nicht existiert
+    public void logExistiertNicht() { //Kategorie: Fehlermeldung (Berichte anzeigen)
+        LIST_2 = manager.getList2();
+        if (manager.getEinstellungWertZuEinstellungTyp("Fehlerfenster anzeigen")) {
+            Runnable runnable = (Runnable) Toolkit.getDefaultToolkit().getDesktopProperty("win.sound.exclamation");
+            runnable.run();
+            String message = "Die Datei Fehlerlog.txt existiert nicht\nDas Korrekturverzeichnis kann nicht angezeigt werden";
+            JOptionPane.showMessageDialog(null, message, "Datei existiert nicht", JOptionPane.ERROR_MESSAGE); //Es handelt sich um ein Informationsfenster
+        }
+    }
+
     //Fenster informiert, dass erfolgreich Datensätze aus der Datenbank importiert wurden
     public void DatenbankImportiert (int anzahl) { //Kategorie: Hinweis (Datenbank)
         LIST_2 = manager.getList2();

@@ -46,13 +46,19 @@ public class Einstellungen extends JFrame {
         // Frame-Initialisierung
         super();
 
-        try {
+        /*try {
             for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()){
                 if ("Nimbus".equals(info.getName())){
                     UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
             }
+        } catch (Exception e) {
+            System.err.println("Error: " + e.getMessage());
+        }*/
+
+        try {
+            UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName()); //look & feel von System wird hier gesetzt
         } catch (Exception e) {
             System.err.println("Error: " + e.getMessage());
         }
