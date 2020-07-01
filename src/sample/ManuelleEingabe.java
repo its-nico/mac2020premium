@@ -96,7 +96,7 @@ public class ManuelleEingabe extends JFrame {
         EmptyBorder eBorder = new EmptyBorder(2, 10, 2, 10); // oben, rechts, unten, links
         LineBorder lBorder = new LineBorder(new Color(100, 100, 100));
         rueckgabeFenster.setBorder(BorderFactory.createCompoundBorder(lBorder, eBorder));
-        rueckgabeFenster.setToolTipText("Hier werden verkürzte Rückgaben der Autokorrektur angezeigt");
+        rueckgabeFenster.setToolTipText("Verkürzte Rückgaben der Autokorrektur werden angezeigt");
 
         // Buttons
         pruefenUndHinzufuegen.setBounds(24, 352, 190, 33);
