@@ -41,7 +41,7 @@ public class Datenbank {
                 Statement stmt1 = null;
                 try {
                     stmt1 = con.createStatement();
-                    ResultSet rs1 = stmt1.executeQuery("SELECT * FROM table2"); //SQL-Anweisung wird auf Datenbank ausgführt und Ausabe wird in rs1-Variable gespeichert
+                    ResultSet rs1 = stmt1.executeQuery("SELECT * FROM Table2"); //SQL-Anweisung wird auf Datenbank ausgführt und Ausabe wird in rs1-Variable gespeichert
 
                     int anzahl = 0;
                     while (rs1.next()) { //Cursor der Datenbank wechselt mit jedem rs1.next()-Aufruf in die nächste Zeile

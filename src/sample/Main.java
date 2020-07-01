@@ -228,7 +228,7 @@ public class Main extends JFrame {
         cp.add(inDatenbankSpeichern);
         inDatenbankSpeichern.setBackground(new Color(255, 162, 0));
         inDatenbankSpeichern.setBorder(new LineBorder(new Color(255,162,0),1));
-        inDatenbankSpeichern.setToolTipText("Die im Programm vorhandenen Datensätze auf eine Datenbank hochladen");
+        inDatenbankSpeichern.setToolTipText("Die im Programm vorhandenen Datensätze in eine Datenbank hochladen");
 
         datenbankImportieren.setBounds(528, 328, 155, 41);
         datenbankImportieren.setText("Datenbank importieren");

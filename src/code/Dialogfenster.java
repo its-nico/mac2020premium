@@ -10,6 +10,8 @@ public class Dialogfenster { //In dieser Klasse werden die Dialogfenster zu vers
     private final Manager manager = new Manager();
     private ArrayList<Einstellung> LIST_2;
 
+    boolean antwort = false;
+
     //Dialogfenster wird bei Import und manueller Eingabe genutzt
     public void keineMacAdresse(String pMac) { //Kategorie: Fehlermeldung (Autokorrektur)
         LIST_2 = manager.getList2();
@@ -109,14 +111,12 @@ public class Dialogfenster { //In dieser Klasse werden die Dialogfenster zu vers
 
     //Nutzer wird bei Zugriff auf DB informiert, dass dieser Vorgang evtl. lange Ladezeiten erfordert
     public boolean verbindungWirdAufgebaut() { //Kategorie: essentiell (nicht durch Einstellungen deaktivierbar)
-        boolean antwort = false;
         String message = "Die Datenbank-Verbindung wird hergestellt\nDieser Vorgang kann mehrere Sekunden dauern und das\nProgramm reagiert während dieser Zeit nicht auf Eingaben\n\nMöchten sie die Datenbank-Verbindung herstellen?";
         int result = JOptionPane.showConfirmDialog(null, message, "Verbindungsaufbau", JOptionPane.YES_NO_OPTION);
         switch (result) {
             case JOptionPane.YES_OPTION:
                 antwort = true; //Aktion(en) bei Klicken auf den "Ja-Button"
             case JOptionPane.NO_OPTION:
-                antwort = false;
         }
         return antwort;
     }

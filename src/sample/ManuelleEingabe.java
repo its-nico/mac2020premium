@@ -115,6 +115,16 @@ public class ManuelleEingabe extends JFrame {
         cp.add(pruefenUndHinzufuegen);
         pruefenUndHinzufuegen.setToolTipText("Der eingegebene Datensatz wird korrigiert und gespeichert");
 
+        importLogAnzeigen.setBounds(272, 352, 216, 33);
+        importLogAnzeigen.setText("Berichte anzeigen");
+        importLogAnzeigen.setMargin(new Insets(2, 2, 2, 2));
+        importLogAnzeigen.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                importLogAnzeigen_ActionPerformed(evt);
+            }
+        });
+        cp.add(importLogAnzeigen);
+
         // Labels zu Eingabefenstern
         kursstufeLabel.setBounds(26, 215, 190, 25);
         cp.add(kursstufeLabel);
@@ -141,10 +151,6 @@ public class ManuelleEingabe extends JFrame {
     } // end of public ManuelleEingabe
 
     // Anfang Methoden
-
-    public static void main(String[] args) {
-        new ManuelleEingabe();
-    } // end of main
 
     public void pruefenUndHinzufuegen_ActionPerformed(ActionEvent evt) {
         vorname = vornameFeld.getText();

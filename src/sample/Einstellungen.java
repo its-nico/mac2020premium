@@ -118,15 +118,10 @@ public class Einstellungen extends JFrame {
         exportkopieBoxTooltipLabel.setToolTipText("Sollen die (in der Textdatei enthaltenen) MAC-Adressen durch die Export-Funktion in die Zwischenablage kopiert werden?");
         cp.add(exportkopieBoxTooltipLabel);
 
-
         setVisible(true);
     } // end of public ManuelleEingabe
 
     // Anfang Methoden
-
-    public static void main(String[] args) {
-        new ManuelleEingabe();
-    } // end of main
 
     public boolean getEinstellungWert(String pEinstellungTyp) {
         boolean einstellungWert = true;
