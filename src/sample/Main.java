@@ -310,11 +310,11 @@ public class Main extends JFrame {
     }
 
     public void handbuch_ActionPerformed(ActionEvent evt) {
-        // TODO
+        FileOpener fileOpen = new FileOpener("./Handbuch.pdf");
     }
 
     public void credits_ActionPerformed(ActionEvent evt) {
-        // TODO
+        FileOpener fileOpen = new FileOpener("./Credits.txt");
     }
 
     private void einstellungn_ActionPerformed(ActionEvent evt) {
