@@ -21,7 +21,6 @@ public class Einstellungen extends JFrame {
     private final JLabel fehlerfensterBoxTooltipLabel = new JLabel("?");
     private final JLabel exportkopieBoxTooltipLabel = new JLabel("?");
     private final JLabel speichernBeiSchliessenBoxTooltipLabel = new JLabel("?");
-    private final JLabel designAnpassenBoxTooltipLabel = new JLabel("?");
 
     //JButton
     private final JButton speichern = new JButton();
@@ -31,7 +30,6 @@ public class Einstellungen extends JFrame {
     private final Checkbox fehlerfensterBox = new Checkbox("Fehlerfenster anzeigen");
     private final Checkbox exportkopieBox = new Checkbox("Bei Export kopieren");
     private final Checkbox speichernBeiSchliessenBox = new Checkbox("Speichern-Abfrage");
-    //private final Checkbox designAnpassenBox = new Checkbox("Bei Export kopieren");
 
     //Sonstige Klassen
     private final Manager manager = new Manager();
@@ -46,17 +44,6 @@ public class Einstellungen extends JFrame {
         // Frame-Initialisierung
         super();
 
-        /*try {
-            for (UIManager.LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()){
-                if ("Nimbus".equals(info.getName())){
-                    UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (Exception e) {
-            System.err.println("Error: " + e.getMessage());
-        }*/
-
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName()); //look & feel von System wird hier gesetzt
         } catch (Exception e) {
@@ -65,7 +52,7 @@ public class Einstellungen extends JFrame {
 
         setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         int frameWidth =270;
-        int frameHeight = 400;
+        int frameHeight = 345;
         setSize(frameWidth, frameHeight);
         Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
         int x = (d.width - getSize().width) / 2;
@@ -97,7 +84,7 @@ public class Einstellungen extends JFrame {
         cp.add(kategorie3);
 
         // Buttons
-        speichern.setBounds(28, 320, 200, 30);
+        speichern.setBounds(28, 260, 200, 30);
         speichern.setText("Speichern & Verlassen");
         speichern.setMargin(new Insets(2, 2, 2, 2));
         speichern.addActionListener(new ActionListener() {
