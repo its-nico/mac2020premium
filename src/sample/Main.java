@@ -79,7 +79,7 @@ public class Main extends JFrame {
         int x = (d.width - getSize().width) / 2;
         int y = (d.height - getSize().height) / 2;
         setLocation(x, y);
-        setTitle("MAC-Manager (premium)");
+        setTitle("MAC-Manager");
         setResizable(false);
         Container cp = getContentPane();
         cp.setLayout(null);
@@ -328,7 +328,9 @@ public class Main extends JFrame {
         manager.exportiereMac();
         LIST_2 = manager.getList2();
         if (manager.getEinstellungWertZuEinstellungTyp("Bei Export kopieren")) {
-            dialogfenster.zwischenablage(); //Wird nur geöffnet, wenn Inhalt con txt-Datei tatsächlich kopiert wird
+            if (!manager.getList1().isEmpty()) {
+                dialogfenster.zwischenablage(); //Wird nur geöffnet, wenn Inhalt von txt-Datei tatsächlich kopiert wird
+            }
         }
         FileOpener fileOpen = new FileOpener("./export.txt");
     }

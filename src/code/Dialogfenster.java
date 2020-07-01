@@ -43,7 +43,7 @@ public class Dialogfenster { //In dieser Klasse werden die Dialogfenster zu vers
     public void zwischenablage() { //Kategorie: Hinweis (Export)
         LIST_2 = manager.getList2();
         if (manager.getEinstellungWertZuEinstellungTyp("Hinweisfenster anzeigen")) {
-            String message = "Die MAC-Adressen aus dieser Datei wurden (wenn vorhanden) in ihre Zwischenablage kopiert";
+            String message = "Die MAC-Adressen aus dieser Datei wurden in ihre Zwischenablage kopiert";
             JOptionPane.showMessageDialog(null, message, "Kopie in Zwischenablage", JOptionPane.INFORMATION_MESSAGE); //Es handelt sich um ein Informationsfenster
         }
     }
@@ -131,7 +131,6 @@ public class Dialogfenster { //In dieser Klasse werden die Dialogfenster zu vers
         }
         return antwort;
     }
-
 
     public void datenbankListeLeer() { //Kategorie: Fehlermeldung (Datenbank)
         LIST_2 = manager.getList2();
