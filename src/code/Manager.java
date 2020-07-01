@@ -122,6 +122,8 @@ public class Manager {
             LIST_2.add(einstellung);
             einstellung = new Einstellung("Bei Export kopieren", true);
             LIST_2.add(einstellung);
+            einstellung = new Einstellung("Speichern-Abfrage", true);
+            LIST_2.add(einstellung);
         }
 
         for (int i = 0; i < len; i++) {

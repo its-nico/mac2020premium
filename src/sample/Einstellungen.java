@@ -14,10 +14,14 @@ public class Einstellungen extends JFrame {
     private final JLabel erklaerung = new JLabel();
     private final JLabel kategorie1 = new JLabel();
     private final JLabel kategorie2 = new JLabel();
+    private final JLabel kategorie3 = new JLabel();
+    private final JLabel kategorie4 = new JLabel();
 
     private final JLabel hinweisfensterBoxTooltipLabel = new JLabel("?");
     private final JLabel fehlerfensterBoxTooltipLabel = new JLabel("?");
     private final JLabel exportkopieBoxTooltipLabel = new JLabel("?");
+    private final JLabel speichernBeiSchliessenBoxTooltipLabel = new JLabel("?");
+    private final JLabel designAnpassenBoxTooltipLabel = new JLabel("?");
 
     //JButton
     private final JButton speichern = new JButton();
@@ -26,6 +30,8 @@ public class Einstellungen extends JFrame {
     private final Checkbox hinweisfensterBox = new Checkbox("Hinweisfenster anzeigen");
     private final Checkbox fehlerfensterBox = new Checkbox("Fehlerfenster anzeigen");
     private final Checkbox exportkopieBox = new Checkbox("Bei Export kopieren");
+    private final Checkbox speichernBeiSchliessenBox = new Checkbox("Speichern-Abfrage");
+    //private final Checkbox designAnpassenBox = new Checkbox("Bei Export kopieren");
 
     //Sonstige Klassen
     private final Manager manager = new Manager();
@@ -80,6 +86,10 @@ public class Einstellungen extends JFrame {
         kategorie2.setText("<html><u>Export</u></html>");
         cp.add(kategorie2);
 
+        kategorie3.setBounds(25, 180, 250, 35);
+        kategorie3.setText("<html><u>Speichern</u></html>");
+        cp.add(kategorie3);
+
         // Buttons
         speichern.setBounds(28, 320, 200, 30);
         speichern.setText("Speichern & Verlassen");
@@ -109,7 +119,7 @@ public class Einstellungen extends JFrame {
         fehlerfensterBoxTooltipLabel.setToolTipText("Einige essentielle Dialogfenster werden durch diese Einstellung nicht beeinflusst");
         cp.add(fehlerfensterBoxTooltipLabel);
 
-        //Bei Export kopieren-Funktion
+        //Bei Export kopieren-Option
         exportkopieBox.setBounds(50,160,170,20);
         exportkopieBox.setState(getEinstellungWert(exportkopieBox.getLabel()));
         cp.add(exportkopieBox);
@@ -117,6 +127,15 @@ public class Einstellungen extends JFrame {
         exportkopieBoxTooltipLabel.setBounds(220, 160, 20, 20);
         exportkopieBoxTooltipLabel.setToolTipText("Sollen die (in der Textdatei enthaltenen) MAC-Adressen durch die Export-Funktion in die Zwischenablage kopiert werden?");
         cp.add(exportkopieBoxTooltipLabel);
+
+        //Bei Schließen speichern-Option
+        speichernBeiSchliessenBox.setBounds(50,215,170,20);
+        speichernBeiSchliessenBox.setState(getEinstellungWert(speichernBeiSchliessenBox.getLabel()));
+        cp.add(speichernBeiSchliessenBox);
+
+        speichernBeiSchliessenBoxTooltipLabel.setBounds(220, 215, 20, 20);
+        speichernBeiSchliessenBoxTooltipLabel.setToolTipText("Wollen sie beim Schließen gefragt werden, ob die Änderungen gespeichert werden sollen? (wenn deaktiviert, wird immer gespeichert)");
+        cp.add(speichernBeiSchliessenBoxTooltipLabel);
 
         setVisible(true);
     } // end of public ManuelleEingabe
@@ -147,6 +166,10 @@ public class Einstellungen extends JFrame {
 
         einstellungWert = exportkopieBox.getState();
         einstellungTyp = exportkopieBox.getLabel();
+        manager.aendereEinstellung(einstellungTyp, einstellungWert);
+
+        einstellungWert = speichernBeiSchliessenBox.getState();
+        einstellungTyp = speichernBeiSchliessenBox.getLabel();
         manager.aendereEinstellung(einstellungTyp, einstellungWert);
 
         dispose();

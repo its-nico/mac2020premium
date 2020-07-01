@@ -73,7 +73,7 @@ public class Main extends JFrame {
         int x = (d.width - getSize().width) / 2;
         int y = (d.height - getSize().height) / 2;
         setLocation(x, y);
-        setTitle("MAC-Projekt");
+        setTitle("MAC-Manager (premium)");
         setResizable(false);
         Container cp = getContentPane();
         cp.setLayout(null);
@@ -83,7 +83,7 @@ public class Main extends JFrame {
         // Anfang Komponenten
 
         ueberschrift.setBounds(16, 16, 390, 50);
-        ueberschrift.setText("<html><u> MAC-Manager <u><html>");
+        ueberschrift.setText("<html><u> MAC-Manager<u><html>");
         ueberschrift.setFont(new Font("OCR A Extended", Font.PLAIN, 42));
         cp.add(ueberschrift);
 
@@ -289,8 +289,13 @@ public class Main extends JFrame {
             @Override
            public void windowClosing(WindowEvent e) {
                 manager.speichernEinstellungen();
-                closing = new Closing();
-                closing.close(manager);
+                if (manager.getEinstellungWertZuEinstellungTyp("Speichern-Abfrage")) {
+                    closing = new Closing();
+                    closing.close(manager);
+                } else {
+                    manager.speichern();
+                }
+
             }
         });
     } // end of public Main

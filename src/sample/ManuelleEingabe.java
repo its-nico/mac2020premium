@@ -124,6 +124,7 @@ public class ManuelleEingabe extends JFrame {
             }
         });
         cp.add(importLogAnzeigen);
+        importLogAnzeigen.setToolTipText("Details über die Änderungen der Autokorrektur an den MAC-Adressen einsehen");
 
         // Labels zu Eingabefenstern
         kursstufeLabel.setBounds(26, 215, 190, 25);
