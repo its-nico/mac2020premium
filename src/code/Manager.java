@@ -73,12 +73,12 @@ public class Manager {
             return ("<html>Der Datensatz zur Adresse " + pMac + " wurde nicht übernommen, da es sich um eine IP-Adresse handelt.<br>Weitere Informationen finden Sie im Korrektur-Verzeichnis.</html>");
 
         } else { //Methoden werden ausgeführt, falls es sich nicht um eine IP-Adresse handelt
-            pMac = korrektur.autoKorrektur(pMac); //die Adresse wird autokorrigiert
-            if (korrektur.format(pMac)) { //Überprüfung des für MAC-Adressen erforderlichen Formats
-                datensatz = new Datensatz(pKursstufe, pNachname, pVorname, pMac, pGrund); //neuer Datensatz mit übergebenen Parametern wird erzeugt
+            String pMac2 = korrektur.autoKorrektur(pMac); //die Adresse wird autokorrigiert
+            if (korrektur.format(pMac2)) { //Überprüfung des für MAC-Adressen erforderlichen Formats
+                datensatz = new Datensatz(pKursstufe, pNachname, pVorname, pMac2, pGrund); //neuer Datensatz mit übergebenen Parametern wird erzeugt
                 LIST_1.add(datensatz); //Datensatz wird an die Liste ergänzt
 
-                return ("<html>Der Datensatz zur MAC-Adresse " + pMac + " wurde erfolgreich hinzugefügt.<br>Weitere Informationen finden Sie im Korrektur-Verzeichnis.</html>"); //Rückgabe wird für das Text-Feld in der GUI-genutzt
+                return ("<html>Der Datensatz zur MAC-Adresse " + pMac2 + " wurde erfolgreich hinzugefügt.<br>Weitere Informationen finden Sie im Korrektur-Verzeichnis.</html>"); //Rückgabe wird für das Text-Feld in der GUI-genutzt
             }
             else {
                 return ("<html>Die Adresse befindet sich nicht im für MAC-Adressen erforderlichen Format (xx:xx:xx:xx:xx:xx) oder enthält unerlaubte Zeichen. <br> Der Datensatz konnte daher nicht übernommen werden.<br>Weitere Informationen finden Sie im Korrektur-Verzeichnis.</html>"); //Rückgabe wird für das Text-Feld in der GUI-genutzt
