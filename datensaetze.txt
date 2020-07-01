@@ -16,13 +16,13 @@ Aktuelle Datensatz-Nummer: 1
   Nachname: Sierra Lago
   Kursstufe: Q2
   MAC-Adresse: 11:11:11:11:11:11
-  Weitere Bemerkungen: grundtest2
+  Weitere Bemerkungen: grundtest
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 Aktuelle Datensatz-Nummer: 2
 
-  Vorname:  Nicolás
+  Vorname: Nicolás
   Nachname: Sierra Lago
   Kursstufe: Q2
   MAC-Adresse: 55:55:55:55:55:55

@@ -31,6 +31,7 @@ public class Main extends JFrame {
     private final JButton inDatenbankSpeichern = new JButton();
     private final JButton datenbankImportieren = new JButton();
     private final JButton leerenDatenbank = new JButton();
+    private final JButton support = new JButton();
 
     private ManuelleEingabe manuellesEingabefenster;
     private Einstellungen einstellungenFenster;
@@ -109,8 +110,8 @@ public class Main extends JFrame {
             }
         });
         cp.add(manuelleEingabe);
-        manuelleEingabe.setBackground(new Color(255, 162, 0));
-        manuelleEingabe.setBorder(new LineBorder(new Color(255,162,0),1));
+        manuelleEingabe.setBackground(new Color(107, 149, 230));
+        manuelleEingabe.setBorder(new LineBorder(new Color(107, 149, 230),1));
         manuelleEingabe.setToolTipText("Datensätze manuell über Eingabefelder in das Programm einfügen");
 
         schnellerImport.setBounds(16, 328, 155, 41);
@@ -122,8 +123,8 @@ public class Main extends JFrame {
             }
         });
         cp.add(schnellerImport);
-        schnellerImport.setBackground(new Color(255, 162, 0));
-        schnellerImport.setBorder(new LineBorder(new Color(255,162,0),1));
+        schnellerImport.setBackground(new Color(107, 149, 230));
+        schnellerImport.setBorder(new LineBorder(new Color(107, 149, 230),1));
         schnellerImport.setToolTipText("Datensätze aus einer txt- oder CSV-Datei in das Programm importieren");
 
         datenLoeschen.setBounds(16, 392, 155, 41);
@@ -135,8 +136,8 @@ public class Main extends JFrame {
             }
         });
         cp.add(datenLoeschen);
-        datenLoeschen.setBackground(new Color(255, 162, 0));
-        datenLoeschen.setBorder(new LineBorder(new Color(255,162,0),1));
+        datenLoeschen.setBackground(new Color(107, 149, 230));
+        datenLoeschen.setBorder(new LineBorder(new Color(107, 149, 230),1));
         datenLoeschen.setToolTipText("Im Programm gespeicherte Datensätze löschen");
 
         exportMACAdressen.setBounds(272, 264, 155, 41);
@@ -148,8 +149,8 @@ public class Main extends JFrame {
             }
         });
         cp.add(exportMACAdressen);
-        exportMACAdressen.setBackground(new Color(255, 162, 0));
-        exportMACAdressen.setBorder(new LineBorder(new Color(255,162,0),1));
+        exportMACAdressen.setBackground(new Color(107, 149, 230));
+        exportMACAdressen.setBorder(new LineBorder(new Color(107, 149, 230),1));
         exportMACAdressen.setToolTipText("Alle vorhandenen und korrigierten MAC-Adressen in einer txt-Datei anzeigen lassen");
 
         importLogAnzeigen.setBounds(272, 328, 155, 41);
@@ -161,8 +162,8 @@ public class Main extends JFrame {
             }
         });
         cp.add(importLogAnzeigen);
-        importLogAnzeigen.setBackground(new Color(255, 162, 0));
-        importLogAnzeigen.setBorder(new LineBorder(new Color(255,162,0),1));
+        importLogAnzeigen.setBackground(new Color(107, 149, 230));
+        importLogAnzeigen.setBorder(new LineBorder(new Color(107, 149, 230),1));
         importLogAnzeigen.setToolTipText("Details über die Änderungen der Autokorrektur an den MAC-Adressen einsehen");
 
         datensaetzeZeigen.setBounds(272, 392, 155, 41);
@@ -174,8 +175,8 @@ public class Main extends JFrame {
             }
         });
         cp.add(datensaetzeZeigen);
-        datensaetzeZeigen.setBackground(new Color(255, 162, 0));
-        datensaetzeZeigen.setBorder(new LineBorder(new Color(255,162,0),1));
+        datensaetzeZeigen.setBackground(new Color(107, 149, 230));
+        datensaetzeZeigen.setBorder(new LineBorder(new Color(107, 149, 230),1));
         datensaetzeZeigen.setToolTipText("Alle gespeicherten Datensätze vollständig anzeigen");
 
         handbuch.setBounds(528, 16, 155, 49);
@@ -191,7 +192,7 @@ public class Main extends JFrame {
         handbuch.setBorder(new LineBorder(new Color(0,204,255),1));
         handbuch.setToolTipText("Das Handbuch zu diesem Programm einsehen, dass die verschiedenen Funktionen detailliert erklärt");
 
-        credits.setBounds(528, 80, 155, 49);
+        credits.setBounds(528, 80, 70, 49);
         credits.setText("Credits");
         credits.setMargin(new Insets(2, 2, 2, 2));
         credits.addActionListener(new ActionListener() {
@@ -203,6 +204,19 @@ public class Main extends JFrame {
         credits.setBackground(new Color(0, 204, 255));
         credits.setBorder(new LineBorder(new Color(0,204,255),1));
         credits.setToolTipText("Die Namen der allerbesten Entwickler von diesem Programm ansehen");
+
+        support.setBounds(613, 80, 70, 49);
+        support.setText("Support");
+        support.setMargin(new Insets(2, 2, 2, 2));
+        support.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                support_ActionPerformed(evt);
+            }
+        });
+        cp.add(support);
+        support.setBackground(new Color(0, 204, 255));
+        support.setBorder(new LineBorder(new Color(0,204,255),1));
+        support.setToolTipText("itslearning-Benutzernamen der Entwickler einsehen");
 
         einstellungn.setBounds(528, 144, 155, 49);
         einstellungn.setText("Einstellungen");
@@ -226,8 +240,8 @@ public class Main extends JFrame {
             }
         });
         cp.add(inDatenbankSpeichern);
-        inDatenbankSpeichern.setBackground(new Color(255, 162, 0));
-        inDatenbankSpeichern.setBorder(new LineBorder(new Color(255,162,0),1));
+        inDatenbankSpeichern.setBackground(new Color(179, 102, 255));
+        inDatenbankSpeichern.setBorder(new LineBorder(new Color(179, 102, 255),1));
         inDatenbankSpeichern.setToolTipText("Die im Programm vorhandenen Datensätze in eine Datenbank hochladen");
 
         datenbankImportieren.setBounds(528, 328, 155, 41);
@@ -239,8 +253,8 @@ public class Main extends JFrame {
             }
         });
         cp.add(datenbankImportieren);
-        datenbankImportieren.setBackground(new Color(255, 162, 0));
-        datenbankImportieren.setBorder(new LineBorder(new Color(255,162,0),1));
+        datenbankImportieren.setBackground(new Color(179, 102, 255));
+        datenbankImportieren.setBorder(new LineBorder(new Color(179, 102, 255),1));
         datenbankImportieren.setToolTipText("Die auf der Datenbank vorhandenen Datensätze in das Programm importieren");
 
         leerenDatenbank.setBounds(528, 392, 155, 41);
@@ -252,8 +266,8 @@ public class Main extends JFrame {
             }
         });
         cp.add(leerenDatenbank);
-        leerenDatenbank.setBackground(new Color(255, 162, 0));
-        leerenDatenbank.setBorder(new LineBorder(new Color(255,162,0),1));
+        leerenDatenbank.setBackground(new Color(179, 102, 255));
+        leerenDatenbank.setBorder(new LineBorder(new Color(179, 102, 255),1));
         leerenDatenbank.setToolTipText("Alle auf der Datenbank gespeicherten Datensätze löschen");
 
         // Ende Komponenten
@@ -280,7 +294,6 @@ public class Main extends JFrame {
             }
         });
     } // end of public Main
-
 
     // Anfang Methoden
     public static void main(String[] args) {
@@ -315,6 +328,10 @@ public class Main extends JFrame {
 
     public void credits_ActionPerformed(ActionEvent evt) {
         FileOpener fileOpen = new FileOpener("./Credits.txt");
+    }
+
+    private void support_ActionPerformed(ActionEvent evt) {
+        FileOpener fileOpen = new FileOpener("./Support.txt");
     }
 
     private void einstellungn_ActionPerformed(ActionEvent evt) {
