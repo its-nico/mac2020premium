@@ -158,7 +158,7 @@ public class Korrektur {
         }
         BufferedWriter bw = new BufferedWriter(fw);
 
-        boolean bool1 = Pattern.matches ("[0123456789abcdefgABCDEFG:]*", text); //Enthält die Adresse Zahlen oder Buchstaben A-F bzw. a-f?
+        boolean bool1 = Pattern.matches ("[0123456789abcdefABCDEF:]*", text); //Enthält die Adresse Zahlen oder Buchstaben A-F bzw. a-f?
         boolean bool2 = Pattern.matches("[^!\"#$%&'()*+,./;<=>?@^_`{|}~]*", text); //Sind keine Sonderzeichen enthalten?
         boolean bool3 = Pattern.matches("[^g-zG-Z]*", text); //Sind keine Buchstaben G-Z bzw. g-z enthalten?
         boolean bool4 = Pattern.matches("."+"."+":"+"."+"."+":"+"."+"."+":"+"."+"."+":"+"."+"."+":"+"."+".", text); //mit pattern.matches wird der text mit einer Vorlage verglichen. "." steht dabei für einen beliebigen Buchstaben
